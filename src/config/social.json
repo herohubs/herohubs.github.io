@@ -1,0 +1,34 @@
+{
+  "main": [
+    {
+      "name": "facebook",
+      "icon": "FaFacebook",
+      "link": "https://www.facebook.com/",
+      "show": false
+    },
+    {
+      "name": "twitter",
+      "icon": "FaTwitter",
+      "link": "https://twitter.com/",
+      "show": false
+    },
+    {
+      "name": "github",
+      "icon": "FaGithub",
+      "link": "https://www.github.com/",
+      "show": false
+    },
+    {
+      "name": "youtube",
+      "icon": "FaYoutube",
+      "link": "https://www.youtube.com/",
+      "show": false
+    },
+    {
+      "name": "linkedin",
+      "icon": "FaLinkedin",
+      "link": "https://www.linkedin.com/company/herohubs",
+      "show": true
+    }
+  ]
+}

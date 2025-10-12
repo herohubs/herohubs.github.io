@@ -1,0 +1,38 @@
+{
+  "site": {
+    "title": "Hero Hubs - Innovazione digitale su misura",
+    "base_url": "https://herohubs.it",
+    "base_path": "/",
+    "trailing_slash": false,
+    "favicon": "/images/herohubs-favicon.svg"
+  },
+
+  "settings": {
+    "pagination": 6,
+    "summary_length": 200
+  },
+
+  "profile": {
+    "name": "Hero Hubs",
+    "image": "/images/herohubs-logo_220x220.png",
+    "designation": "Innovazione digitale su misura",
+    "bio": "La boutique del software che combina innovazione e anni di esperienza per creare soluzioni su misura, scalabili, responsabili e pronte per il mercato."
+  },
+
+  "params": {
+    "contact_form_action": "#",
+    "copyright": "Copyright © 2025 - [Hero Hubs](https://ranierivannozzi.com/) - P.Iva 02103710477"
+  },
+
+  "disqus": {
+    "enable": true,
+    "shortname": "themefisher-template",
+    "settings": {}
+  },
+
+  "metadata": {
+    "meta_author": "Hero Hubs",
+    "meta_image": "/images/og-image.png",
+    "meta_description": "Innovazione digitale su misura"
+  }
+}
