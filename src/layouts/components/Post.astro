@@ -20,7 +20,7 @@ const { id, slug, body, data, collection } = post;
         ))
       }
     </ul>
-    <p class="my-4">{dateFormat(data.date)}</p>
+    <p class="my-4">{dateFormat(data.date, "MMMM yyyy").charAt(0).toUpperCase() + dateFormat(data.date, "MMMM yyyy").slice(1)}</p>
     <h2 class="h3 mb-2 font-normal">
       <a href={`/posts/${post.id}`} class="block">
         {data.title}
