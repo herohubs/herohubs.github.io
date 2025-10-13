@@ -1,0 +1,57 @@
+---
+title: "Perché il Trunk-Based Development domina Git?"
+date: 2025-02-13T05:00:00Z
+image: /images/posts/post-12.jpg
+categories: 
+  - Programming
+draft: false
+---
+
+La scelta della giusta strategia di branching Git è un tassello cruciale per un flusso di lavoro efficiente nello sviluppo software.
+
+Esistono diverse modalità per gestire la ramificazione del codice, ognuna con i suoi vantaggi ed i suoi problemi.
+
+Comprendere le differenze tra queste strategie è il primo passo per scegliere quella più adatta al tuo team e progetto.
+
+In questo articolo esploreremo brevemente le principali strategie e ci concentreremo sul Trunk-Based Development, un approccio che, secondo noi, sta guadagnando molta popolarità.
+
+#### Ma quali sono le principali strategie di branching?
+Feature branching: ogni funzionalità o bugfix viene sviluppato in un ramo dedicato. Questo approccio isola il lavoro, ma può portare a rami di lunga durata, aumentando il rischio di conflitti durante la fase di merge;
+GitFlow: una strategia strutturata che introduce rami separati per lo sviluppo, il rilascio, le correzioni urgenti e le funzionalità. È ideale per progetti complessi con cicli di rilascio programmati, ma può risultare troppo complesso per team più piccoli;
+GitHub flow: un modello più leggero in cui il branch principale è sempre pronto per essere distribuito. Le modifiche vengono sviluppate in rami di breve durata, revisionate tramite pull request e integrate rapidamente;
+GitLab flow: simile al GitHub Flow, ma con il supporto per branch specifici degli ambienti (ad esempio, staging o produzione). È particolarmente utile per team che utilizzano strumenti integrati come GitLab CI/CD;
+#### Trunk-Based Development (TBD)
+Il Trunk-Based Development (TBD) si distingue per la sua semplicità e velocità.
+
+Contrariamente ad altre strategie che si basano su rami multipli e spesso di lunga durata, il TBD incoraggia gli sviluppatori a lavorare direttamente sul branch principale, mantenendolo sempre stabile e pronto per la distribuzione.
+
+Ma come funziona?
+
+Commit frequenti: gli sviluppatori effettuano commit frequenti e incrementali direttamente sul trunk (o su rami di brevissima durata che vengono integrati entro poche ore o giorni).
+Integrazione continua (CI): ogni commit attiva un ciclo di build e test automatizzati per garantire che il trunk rimanga sempre stabile.
+Feature toggles: le funzionalità incomplete vengono integrate nel trunk utilizzando “feature toggles” (interruttori di funzionalità) per abilitarle o disabilitarle in produzione senza bisogno di rilasci separati.
+Collaborazione stretta: gli sviluppatori collaborano costantemente per evitare conflitti di unione, adottando una filosofia di lavoro che privilegia piccoli passi rispetto a grandi blocchi di codice.
+Quali sono i vantaggi?
+
+Riduzione dei conflitti di unione: con commit frequenti, i conflitti vengono identificati e risolti rapidamente, riducendo la complessità del merge.
+Migliore qualità del codice: i test automatizzati eseguiti a ogni commit garantiscono che il codice sia stabile e funzionante.
+Velocità di rilascio: poiché il trunk è sempre pronto per la distribuzione, il ciclo di rilascio diventa più rapido e prevedibile.
+Allineamento con DevOps: il TBD supporta pratiche moderne come Continuous Integration (CI) e Continuous Delivery (CD), che sono pilastri delle metodologie DevOps.
+Semplicità operativa: con un unico branch da gestire, il processo è meno complesso e più facile da comprendere per i membri del team.
+Il Trunk-Based Development richiede una disciplina rigorosa per evitare di introdurre errori nel trunk. Inoltre, la stabilità del trunk dipende fortemente dalla copertura e dall'affidabilità dei test automatizzati.
+
+Per team abituati a strategie più tradizionali, come GitFlow, il passaggio al TBD può richiedere tempo e formazione.
+
+Quando utilizzarlo?
+
+Il Trunk-Based Development è particolarmente adatto per team che praticano l'integrazione e la distribuzione continue, per progetti con cicli di rilascio rapidi o distribuzioni continue, per organizzazioni che vogliono ridurre la complessità del processo di sviluppo e per ambienti con test automatizzati ben consolidati.
+
+Non è invece ideale per team senza una cultura DevOps o per progetti con requisiti di rilascio altamente strutturati.
+
+Il Trunk-Based Development (TBD) si distingue per la semplicità, l'efficienza e la capacità di supportare cicli di rilascio rapidi, rendendolo una scelta privilegiata per team moderni orientati alle pratiche DevOps.
+
+L'approccio, basato su commit frequenti e una stretta integrazione continua, riduce significativamente i conflitti di unione e mantiene il codice nel trunk sempre stabile e pronto per la distribuzione.
+
+Tuttavia, il successo del TBD dipende dalla capacità del team di adottare una rigorosa disciplina nello sviluppo e di mantenere un'infrastruttura di test automatizzati affidabile, che garantisca qualità e stabilità del codice in ogni fase.
+
+Per i team che cercano di accelerare i tempi di sviluppo, migliorare la collaborazione e implementare metodologie CI/CD con rilasci frequenti, il Trunk-Based Development rappresenta una delle strategie più promettenti e allineate alle esigenze dello sviluppo software moderno.

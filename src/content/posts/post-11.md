@@ -1,0 +1,69 @@
+---
+title: "Gestire con successo un progetto software"
+date: 2025-02-13T05:00:00Z
+image: /images/posts/post-11.jpg
+categories: 
+  - Architecture
+draft: false
+---
+
+Pianificare ed eseguire progetti software è una sfida complessa.
+
+Ogni progetto porta con sé il rischio di problemi ricorrenti: a volte si costruisce qualcosa che non risponde alle esigenze degli utenti, altre volte si sfora con i tempi e i costi.
+
+Eppure, affrontare queste difficoltà in modo strutturato può fare la differenza tra un progetto riuscito ed uno che fallisce.
+
+Nel corso degli anni, si è delineato un approccio che si basa su tre pilastri fondamentali: definire correttamente l'ambito del progetto, stabilire traguardi chiari e procedere con un'esecuzione efficace.
+
+#### Ambito del progetto
+Tutto parte da un'idea.
+
+Qualcuno in azienda propone una nuova funzionalità, oppure c'è la necessità di creare uno strumento interno.
+
+Spesso, dietro queste idee si nasconde un'aspettativa di tempistiche che non viene esplicitata: ‘ci vorranno tre mesi' è un pensiero che potrebbe sembrare innocuo, ma si traduce in risorse concrete come stipendi, tempo del team e budget.
+
+Definire un ambito chiaro è cruciale per evitare incomprensioni.
+
+Prima di iniziare, è utile allineare il team sugli obiettivi e sui vincoli: quanto tempo abbiamo a disposizione? Qual è il budget massimo? Più i limiti sono chiari, più è facile trovare soluzioni creative.
+
+Nei progetti più grandi, dove l'incertezza aumenta, diventa fondamentale dividere il lavoro in fasi. Questo aiuta a non cadere nella trappola di dedicare un anno intero a qualcosa che potrebbe essere validato con un approccio più snello.
+
+#### Traguardi chiari
+Quando si affrontano progetti complessi, i traguardi (o milestone) non sono solo tappe del percorso, ma strumenti per fare chiarezza.
+
+Un buon traguardo non serve solo a procedere verso l'obiettivo, ma anche a testare ipotesi, ridurre incertezze e mantenere il team flessibile.
+
+Ad esempio, supponiamo di voler sviluppare uno strumento interno per ottimizzare un processo aziendale.
+
+Invece di iniziare costruendo subito un'interfaccia complessa, una prima milestone potrebbe essere la creazione di un prototipo semplice con uno strumento low-code.
+
+Questo approccio consente di raccogliere feedback iniziali senza impegnare troppe risorse.
+
+Un traguardo ben progettato dovrebbe rispondere a una domanda essenziale: potremmo fermarci qui? Se la risposta è sì, allora siamo sulla strada giusta.
+
+#### L'esecuzione come elemento chiave
+Definire un piano è importante, ma ciò che determina il successo è come viene messo in pratica.
+
+Durante l'esecuzione, è fondamentale lavorare in iterazioni brevi, che permettano di ottenere feedback costanti e correggere rapidamente la rotta.
+
+Iniziare esplorando diverse soluzioni possibili e poi restringere gradualmente il focus aiuta a bilanciare creatività e pragmatismo. Questo approccio, chiamato ‘divergenza e convergenza', è particolarmente utile quando si affrontano progetti innovativi o incerti.
+
+È altrettanto importante tenere d'occhio il contesto.
+
+Quanto tempo ha davvero il team? Quali altre responsabilità potrebbero interferire?
+
+Rispondere a queste domande aiuta a evitare deviazioni inutili e a mantenere il progetto nei tempi previsti.
+
+#### La ricetta per il successo
+Un progetto software ben eseguito non è mai un caso.
+
+Richiede una visione chiara, un piano flessibile e un'esecuzione disciplinata.
+
+Le probabilità di successo aumentano notevolmente se si riesce a:
+
+definire un ambito realistico e condiviso;
+stabilire traguardi che riducono incertezze;
+lavorare con iterazioni brevi e obiettivi misurabili;
+Quando pianifichi il tuo prossimo progetto, chiediti: stai risolvendo il problema giusto? Stai utilizzando al meglio il tempo e le risorse a disposizione?
+
+Con una pianificazione attenta e una buona esecuzione, è possibile costruire qualcosa di valore senza perdersi per strada.
