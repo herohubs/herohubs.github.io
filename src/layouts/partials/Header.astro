@@ -141,18 +141,22 @@ if (!pathname.startsWith("/categories/")) {
                 </ul>
               </li>
             ) : (
-              <li class="nav-item">
-                <a
-                  href={menu.url}
-                  class={`nav-link inline-block ${
-                    !menu.url.includes("/categories") && "text-text-dark"
-                  } ${
-                    (pathname === `${menu.url}/` || pathname === menu.url) &&
-                    "nav-link-active"
-                  }`}>
-                  {menu.name}
-                </a>
-              </li>
+menu.url === "/elements" && !import.meta.env.DEV)
+    ? null // nascondi in produzione
+    : (
+      <li class="nav-item">
+        <a
+          href={menu.url}
+          class={`nav-link inline-block ${
+            !menu.url.includes("/categories") && "text-text-dark"
+          } ${
+            (pathname === `${menu.url}/` || pathname === menu.url) &&
+            "nav-link-active"
+          }`}
+        >
+          {menu.name}
+        </a>
+      </li>
             )}
           </>
         ))

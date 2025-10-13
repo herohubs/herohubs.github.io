@@ -1,6 +1,6 @@
 ---
-title: "QA: Il pilastro invisibile dello sviluppo software"
-date: 2025-10-12T05:00:00Z
+title: "QA e il pilastro invisibile dello sviluppo software"
+date: 2025-01-12T05:00:00Z
 image: /images/posts/post-1.jpg
 categories: 
   - Programming
