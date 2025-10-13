@@ -71,7 +71,8 @@ const { title, categories, image, date } = post.data;
             </li>
             <li class="mb-2 mr-4 inline-block">
               <span class="mr-2 inline-block">
-                {dateFormat(date)}
+                <!-- {dateFormat(date)} -->
+                 {dateFormat(date, "MMMM yyyy").charAt(0).toUpperCase() + dateFormat(date, "MMMM yyyy").slice(1)}
               </span>{" "}
               |
             </li>
