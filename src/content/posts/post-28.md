@@ -1,0 +1,92 @@
+---
+title: "Cookie VS Local Storage: differenze e vantaggi"
+date: 2025-02-13T05:00:00Z
+image: /images/posts/post-28.jpg
+categories: 
+  - Programming
+draft: false
+---
+
+La gestione dei dati lato client è un aspetto cruciale nello sviluppo web, con impatti significativi su prestazioni, sicurezza ed esperienza utente.
+
+Due delle soluzioni più comuni per la memorizzazione delle informazioni nel browser sono i cookie e il local storage.
+
+Sebbene entrambi permettano di salvare dati per migliorare l’interazione dell’utente con un sito, presentano caratteristiche e utilizzi differenti.
+
+#### Memorizzazione lato client: perché è importante?
+
+I browser moderni offrono diversi strumenti per memorizzare informazioni localmente, consentendo di ridurre il carico sui server, migliorare la velocità di accesso ai dati e offrire una navigazione più fluida.
+
+Poiché il protocollo http è stateless (non mantiene lo stato tra una richiesta e l’altra), questi metodi di archiviazione risultano essenziali per garantire una continuità nell’esperienza utente.
+
+Le due principali soluzioni di storage lato client sono i cookie e il local storage.
+
+I cookie sono piccoli file di testo inviati dal server e salvati nel browser, che possono essere automaticamente inclusi in ogni richiesta http.
+
+Il local storage, invece, offre una soluzione più capiente e persistente, che conserva i dati in chiave-valore all’interno del browser senza inviarli al server a ogni richiesta.
+
+#### Cookie
+
+I cookie vengono utilizzati principalmente per l’autenticazione e la gestione delle sessioni, consentendo al server di riconoscere gli utenti tra una richiesta e l’altra.
+
+A differenza del local storage, possono essere letti sia dal client che dal server e trasmessi automaticamente con ogni richiesta http.
+
+Tuttavia, i cookie hanno un limite di dimensione ridotto (4kb) e, poiché vengono inviati con ogni richiesta, possono influire sulle prestazioni della rete.
+
+Possono essere configurati con attributi di sicurezza come secure, che ne permette l’invio solo su connessioni https, e httponly, riducendo i rischi legati agli attacchi xss.
+
+Grazie a queste caratteristiche, i cookie sono la soluzione più adatta per memorizzare token di autenticazione e sessioni utente.
+
+#### Local storage
+
+Il local storage fa parte dell’api web storage e permette di salvare dati nel browser in modo persistente.
+
+A differenza dei cookie, le informazioni memorizzate non vengono trasmesse al server con ogni richiesta http, rendendolo una soluzione più efficiente per dati non sensibili.
+
+I dati memorizzati nel local storage rimangono disponibili anche dopo la chiusura del browser e possono occupare fino a 10mb, a seconda del browser.
+
+Tuttavia, essendo accessibile solo lato client, il local storage non è adatto per memorizzare dati sensibili, in quanto vulnerabile ad attacchi xss (cross-site scripting).
+
+Inoltre, non è accessibile dal server senza inviare esplicitamente le informazioni.
+
+Per questi motivi, è ideale per salvare preferenze utente, impostazioni di interfaccia e dati memorizzabili in cache, ma non per la gestione delle sessioni o l’autenticazione.
+
+#### Altri metodi di memorizzazione lato client
+
+Oltre ai cookie e al local storage, esistono altre tecnologie che permettono la gestione dei dati nel browser. Stiamo parlando di Session storage, Indexeddb, Cache storage e Web sql (anche se deprecato).
+
+Session storage: è simile al local storage, ma i dati vengono eliminati automaticamente quando la scheda o il browser viene chiuso. È utile per conservare informazioni temporanee relative a una singola sessione di navigazione, come dati di input in un modulo non ancora inviato.
+
+Indexeddb: è un database nosql lato client che consente di memorizzare grandi quantità di dati strutturati. Supporta operazioni asincrone e query avanzate, rendendolo ideale per applicazioni complesse come progressive web apps (pwa) e strumenti di gestione dati offline.
+
+Cache storage (service workers): viene utilizzato principalmente per memorizzare risorse statiche come html, css, javascript e risposte api, migliorando le prestazioni e permettendo il funzionamento offline delle applicazioni. È una tecnologia chiave per le progressive web apps.
+
+Web sql (deprecato): era un database sql lato client, ormai superato da Indexeddb e non più supportato nei nuovi standard web.
+
+#### Cookie VS Local Storage
+
+Se confrontiamo direttamente le due soluzioni principali, emergono alcune differenze chiave.
+
+I cookie hanno un limite di dimensione di 4kb e vengono inviati con ogni richiesta http, il che può influire sulle prestazioni, ma li rende adatti alla gestione delle sessioni.
+
+Il local storage, invece, offre una maggiore capienza (fino a 10mb) ed è accessibile solo dal lato client, ma non è sicuro per dati sensibili.
+
+Dal punto di vista della sicurezza, entrambi presentano vulnerabilità.
+
+I cookie possono essere soggetti ad attacchi csrf (cross-site request forgery), mentre il local storage è esposto a xss, poiché i dati sono accessibili tramite javascript.
+
+Per la memorizzazione di informazioni critiche, è sempre consigliabile adottare misure di sicurezza adeguate, come l’uso di token protetti lato server.
+
+#### La sicurezza
+
+Nessuna di queste tecnologie è completamente sicura per la memorizzazione di dati sensibili senza ulteriori misure di protezione.
+
+Le credenziali e i token di autenticazione dovrebbero essere sempre gestiti lato server o tramite cookie con gli attributi httponly e secure.
+
+Inoltre, è fondamentale evitare l’archiviazione di dati critici nel local storage per prevenire accessi non autorizzati tramite attacchi xss.
+
+La scelta tra cookie, local storage e altre tecnologie di memorizzazione lato client dipende dalle esigenze dell’applicazione.
+
+Per la gestione delle sessioni e l’autenticazione, i cookie rimangono la soluzione più appropriata, mentre il local storage è ideale per memorizzare dati non sensibili e migliorare l’esperienza utente.
+
+Altre tecnologie come Indexeddb e Cache Storage offrono alternative più avanzate per applicazioni complesse, in particolare per il funzionamento offline.

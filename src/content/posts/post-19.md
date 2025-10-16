@@ -1,0 +1,69 @@
+---
+title: "ChatGPT (e gli altri) sostituirà veramente i developer?"
+date: 2025-04-13T05:00:00Z
+image: /images/posts/post-19.jpg
+categories: 
+  - AI
+draft: false
+---
+
+Negli ultimi mesi, ChatGPT e gli strumenti di intelligenza artificiale generativa hanno catturato l’attenzione di molti, soprattutto nel mondo della tecnologia.
+
+Una domanda ricorrente è: ChatGPT sostituirà i programmatori?
+
+Nel nostro team, abbiamo deciso di mettere alla prova questi strumenti per capire se possano davvero rappresentare una minaccia per la professione dello sviluppatore.
+
+Il risultato? Un mix di sorprese, delusioni e qualche spunto interessante.
+
+Ecco cosa abbiamo scoperto.
+
+La prima cosa che abbiamo voluto testare è stata la capacità di ChatGPT di generare codice utile. Abbiamo provato a chiedergli di scrivere script e funzioni per alcuni dei nostri progetti interni, ma i risultati sono stati deludenti.
+
+Il codice prodotto era spesso incompleto, con errori o semplicemente inadatto alle nostre esigenze. Nella migliore delle ipotesi, ChatGPT ha generato esempi didattici, simili a quelli che potremmo usare in un corso di formazione per illustrare un concetto senza rivelare la soluzione completa.
+
+Ad esempio, abbiamo chiesto a ChatGPT di creare una funzione per elaborare dati da un’API specifica. Il codice che ha prodotto era teoricamente corretto, ma mancava di ottimizzazione e non teneva conto di alcuni vincoli del progetto. Alla fine, abbiamo impiegato più tempo a correggere il codice generato da ChatGPT di quanto avremmo impiegato a scriverlo da zero.
+
+ChatGPT non è ancora in grado di sostituire un programmatore esperto, ma potrebbe essere utile per chi sta imparando a programmare e ha bisogno di esempi di base.
+
+Uno degli ambiti in cui ChatGPT ha mostrato, invece, qualche potenzialità è la generazione di espressioni regolari.
+
+Abbiamo provato a chiedergli di creare regex per problemi standard e personalizzati, e i risultati erano spesso corretti.
+
+Tuttavia, non siamo sicuri che ChatGPT sia migliore rispetto agli strumenti di generazione di regex tradizionali.
+
+Per testare i suoi limiti, abbiamo deciso di fare alcune richieste più “creative”, ed ecco cosa è successo:
+
+Abbiamo chiesto a ChatGPT di dirci l’ultima cifra di pi greco. Con sicurezza, ci ha risposto che era 9. Poi, per dimostrarlo, ci ha mostrato un esempio di pi greco con una dozzina di cifre… che terminava con un 6;
+Abbiamo chiesto a ChatGPT di scrivere storie di fantasia e interviste immaginarie con personaggi storici. I risultati erano grammaticalmente corretti e facili da leggere, ma noiosi e superficiali, come scritti da uno studente annoiato o da un copywriter clickbait;
+Abbiamo chiesto a ChatGPT delle istruzioni per avviare una moto d’epoca. Ha fornito istruzioni quasi corrette, ma ha completamente tralasciato i dettagli cruciali per evitare di farsi male. Un collega ha fatto una richiesta simile per far atterrare un aliante, ma ChatGPT ha pensato bene di dare massima potenza ai motori per raggiungere la pista di atterraggio;
+E’ bravo a generare contenuti teoricamente corretti, ma spesso manca di profondità, precisione e senso pratico.
+
+L’unica area in cui ChatGPT ha brillato è stata la generazione di ricette. Abbiamo chiesto la ricetta per uno stufato con lenticchie e patate, e il risultato è stato fornire una ricetta decente.
+
+Inoltre, chiedendo un formato stampabile, ha fornito esattamente ciò di cui avevamo bisogno: ingredienti, quantità e passaggi necessari per la realizzazione della ricetta.
+
+Ha gestito bene le richieste contraddittorie, come uno stufato vegano con pollo, rifiutandosi educatamente di produrre una ricetta impossibile.
+
+Potrebbe essere un utile assistente in cucina, ma non è ancora pronto per sostituire uno chef esperto.
+
+Una delle domande più interessanti è se ChatGPT possa diventare un valido assistente per programmatori, aiutandoci a risolvere le parti noiose e ripetitive del nostro lavoro. Purtroppo, la nostra esperienza suggerisce che non siamo ancora a quel punto.
+
+ChatGPT non è in grado di comprendere il contesto aziendale, i vincoli di budget, le tempistiche o le preferenze tecnologiche. Inoltre, non può intervistare utenti e stakeholder per progettare soluzioni allineate alla visione aziendale.
+
+#### Quando dovremmo iniziare a preoccuparci?
+
+La vera domanda è: quando ChatGPT – o altri strumenti simili – diventerà una minaccia per i programmatori?
+
+Secondo noi, dovremo iniziare a preoccuparci quando l’IA sarà in grado di:
+
+Comprendere il contesto aziendale: includendo budget, tempi, infrastrutture e normative;
+Progettare soluzioni complesse: tenendo conto di requisiti funzionali e non funzionali;
+Collaborare con utenti e stakeholder: per definire obiettivi e priorità;
+Risolvere problemi creativi: andando oltre la semplice generazione di codice o testo;
+È probabile che le future versioni di ChatGPT saranno più avanzate e capaci di affrontare compiti più complessi. Tuttavia, anche in quel caso, crediamo che i programmatori avranno un ruolo cruciale nel guidare, supervisionare e ottimizzare il lavoro dell’IA.
+
+Invece di temere l’IA, dovremmo vederla come un’opportunità per migliorare il nostro lavoro e concentrarci sulle attività più creative e strategiche.
+
+ChatGPT è uno strumento impressionante, ma non è ancora in grado di sostituire i programmatori.
+
+Per ora, rimane un utile assistente per compiti semplici e ripetitivi, ma manca della profondità, della creatività e della comprensione del contesto necessarie per affrontare problemi complessi.

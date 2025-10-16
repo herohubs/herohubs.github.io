@@ -3,7 +3,7 @@ title: "Il Triangolo del Project Management"
 date: 2025-02-13T05:00:00Z
 image: /images/posts/post-15.jpg
 categories: 
-  - AI
+  - Management
 draft: false
 ---
 

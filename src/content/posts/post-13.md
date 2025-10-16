@@ -3,7 +3,7 @@ title: "L'importanza delle soft skills"
 date: 2025-02-13T05:00:00Z
 image: /images/posts/post-13.jpg
 categories: 
-  - Business
+  - Management
 draft: false
 ---
 

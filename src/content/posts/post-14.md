@@ -3,7 +3,7 @@ title: "Meeting efficaci: come farli funzionare davvero"
 date: 2025-02-13T05:00:00Z
 image: /images/posts/post-14.jpg
 categories: 
-  - AI
+  - Management
 draft: false
 ---
 

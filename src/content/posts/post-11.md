@@ -3,7 +3,7 @@ title: "Gestire con successo un progetto software"
 date: 2025-02-13T05:00:00Z
 image: /images/posts/post-11.jpg
 categories: 
-  - Architecture
+  - Management
 draft: false
 ---
 
