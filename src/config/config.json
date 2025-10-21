@@ -4,7 +4,7 @@
     "base_url": "https://herohubs.it",
     "base_path": "/",
     "trailing_slash": false,
-    "favicon": "/images/herohubs-favicon.svg"
+    "favicon": "/images/herohubs-favicon_64x64.png"
   },
 
   "settings": {
