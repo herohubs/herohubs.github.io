@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import { it } from "date-fns/locale"; 
+import { it } from "date-fns/locale";
 
 const dateFormat = (
   date: Date | string,

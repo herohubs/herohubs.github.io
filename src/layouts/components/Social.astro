@@ -11,20 +11,20 @@ export interface ISocial {
 
 <ul class={className}>
   {
-    source.map((social: ISocial) => (
+    source.map((social: ISocial) =>
       social.show ? (
-      <li>
-        <a
-          aria-label={social.name}
-          href={social.link}
-          target="_blank"
-          rel="noopener noreferrer nofollow"
-        >
-          <span class="sr-only">{social.name}</span>
-          <DynamicIcon className="inline-block" icon={social.icon} />
-        </a>
-      </li>
-      ) : null
-    ))
+        <li>
+          <a
+            aria-label={social.name}
+            href={social.link}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
+            <span class="sr-only">{social.name}</span>
+            <DynamicIcon className="inline-block" icon={social.icon} />
+          </a>
+        </li>
+      ) : null,
+    )
   }
 </ul>

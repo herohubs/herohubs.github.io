@@ -1,16 +1,28 @@
 {
   "main": [
     {
-      "name": "All Posts",
+      "name": "Home",
       "url": "/"
     },
     {
-      "name": "Contact",
-      "url": "/contact"
+      "name": "Chi siamo",
+      "url": "/about"
     },
     {
-      "name": "Elements",
-      "url": "/elements"
+      "name": "Servizi",
+      "url": "/services"
+    },
+    {
+      "name": "Portfolio",
+      "url": "/portfolio"
+    },
+    {
+      "name": "Contatti",
+      "url": "/contacts"
+    },
+    {
+      "name": "UI Kit",
+      "url": "/ui-kit"
     }
   ]
 }
