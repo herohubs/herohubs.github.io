@@ -3,7 +3,7 @@ title: How to make toys from old Olarpaper
 date: 2024-03-05T05:00:00Z
 image: /images/posts/post-2.jpg
 categories:
-   - Sviluppo
+  - Sviluppo
 
 draft: false
 ---

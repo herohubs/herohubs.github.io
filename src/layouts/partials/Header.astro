@@ -38,19 +38,17 @@ const combinedMenu: NavigationLink[] = [];
 combinedMenu.push(menu.main[0]);
 
 // Adding the rest of the items from main excluding the first one
-if (!pathname.startsWith("/categories/")) {
-  combinedMenu.push(...menu.main.slice(1));
-}
+//if (!pathname.startsWith("/categories/")) {
+combinedMenu.push(...menu.main.slice(1));
+// }
 
 // Adding all categories
-if (
-  pathname.startsWith(menu.main[0].url) &&
-  !menu.main.slice(1).some((item) => pathname.startsWith(item.url))
-) {
-  combinedMenu.push(...categories);
-}
-
-
+// if (
+//  pathname.startsWith(menu.main[0].url) &&
+//  !menu.main.slice(1).some((item) => pathname.startsWith(item.url))
+//) {
+combinedMenu.push(...categories);
+//}
 ---
 
 <header class={`header mt-8 pb-3 pt-12`}>
@@ -59,7 +57,8 @@ if (
     <input id="nav-toggle" type="checkbox" class="hidden" />
     <label
       for="nav-toggle"
-      class="order-3 cursor-pointer rounded border border-border p-6 lg:p-9 p-4 inline-flex items-center lg:order-1 md:hidden">
+      class="order-3 cursor-pointer rounded border border-border p-6 lg:p-9 p-4 inline-flex items-center lg:order-1 md:hidden"
+    >
       <svg
         id="show-button"
         class="mr-1 h-4 w-4 fill-current block"
@@ -82,7 +81,7 @@ if (
     </label>
     <!-- /navbar toggler -->
 
-    {
+    <!-- {
       pathname !== "/" && (
         <div class="hidden text-center md:block">
           <a
@@ -106,59 +105,60 @@ if (
           </a>
         </div>
       )
-    }
-<div class="hidden md:flex flex-col md:flex-row"></div>
-<ul
-  id="nav-menu"
-  class="navbar-nav order-3 w-full hidden flex-col items-center justify-center space-y-2 md:order-1 md:flex md:w-auto md:flex-row md:space-y-0 md:space-x-2"
->
-  {combinedMenu.map((menu) => (
-    <>
-      {!menu.url.startsWith("/categories/") &&
-        (!menu.url.startsWith("/ui-kit") || import.meta.env.DEV) && (
-          <li class="nav-item">
-            <a
-              href={menu.url}
-              class={`nav-link inline-block ${
-                (pathname === `${menu.url}/` || pathname === menu.url)
-                  ? "nav-link-active"
-                  : ""
-              } ${
-                menu.url.startsWith("/ui-kit") ? "text-red-600" : ""
-              }`}
-            >
-              {menu.name}
-            </a>
-          </li>
-        )}
-    </>
-  ))}
-</ul>
+    } -->
+    <div class="hidden md:flex flex-col md:flex-row"></div>
+    <ul
+      id="nav-menu"
+      class="navbar-nav order-3 w-full hidden flex-col items-center justify-center space-y-2 md:order-1 md:flex md:w-auto md:flex-row md:space-y-0 md:space-x-2"
+    >
+      {
+        combinedMenu.map((menu) => (
+          <>
+            {!menu.url.startsWith("/categories/") &&
+              (!menu.url.startsWith("/ui-kit") || import.meta.env.DEV) &&
+              !menu.isBlog && (
+                <li class="nav-item">
+                  <a
+                    href={menu.url}
+                    class={`nav-link inline-block ${
+                      pathname === `${menu.url}/` || pathname === menu.url
+                        ? "nav-link-active"
+                        : ""
+                    } ${menu.url.startsWith("/ui-kit") ? "text-red-600" : ""}`}
+                  >
+                    {menu.name}
+                  </a>
+                </li>
+              )}
+          </>
+        ))
+      }
+    </ul>
 
-<ul
-id="nav-menu"
-  class="navbar-nav order-3 w-full hidden flex-col items-center justify-center space-y-2 md:flex md:w-auto md:flex-row md:space-y-0 md:space-x-2 md:mt-6 mt-0"
->
-  {combinedMenu.map((menu) => (
-    <>
-      {menu.url.startsWith("/categories/") && (
-        <li class="nav-item">
-          <a
-            href={menu.url}
-            class={`nav-link inline-block ${
-              (pathname === `${menu.url}/` || pathname === menu.url)
-                ? "nav-link-active"
-                : ""
-            }`}
-          >
-            {menu.name}
-          </a>
-        </li>
-      )}
-    </>
-  ))}
-</ul>
-</div>
-
+    <ul
+      id="nav-menu"
+      class="navbar-nav order-3 w-full hidden flex-col items-center justify-center space-y-2 md:flex md:w-auto md:flex-row md:space-y-0 md:space-x-2 md:mt-6 mt-0"
+    >
+      {
+        combinedMenu.map((menu) => (
+          <>
+            {(menu.url.startsWith("/categories/") || menu.isBlog) && (
+              <li class="nav-item">
+                <a
+                  href={menu.url}
+                  class={`nav-link inline-block ${
+                    pathname === `${menu.url}/` || pathname === menu.url
+                      ? "nav-link-active"
+                      : ""
+                  }`}
+                >
+                  {menu.name}
+                </a>
+              </li>
+            )}
+          </>
+        ))
+      }
+    </ul>
   </nav>
 </header>

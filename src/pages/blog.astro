@@ -11,15 +11,6 @@ import { getSinglePage } from "@/lib/contentParser.astro";
 import { sortByDate } from "@/lib/utils/sortFunctions";
 import { markdownify } from "@/lib/utils/textConverter";
 
-import Contacts from "@/components/Contacts.astro";
-import Education from "@/components/Education.astro";
-import Career from "@/components/Career.astro";
-import Interests from "@/components/Interests.astro";
-import Skills from "@/components/Skills.astro";
-import Keys from "@/components/Keys.astro";
-import Overwiev from "@/components/Overwiev.astro";
-import Projects from "@/components/Projects.astro";
-
 const posts = await getSinglePage("posts");
 const { pagination } = config.settings;
 const { name, image, designation, bio } = config.profile;
@@ -55,32 +46,10 @@ const sortPostByDate = sortByDate(posts);
           <Social source={social.main} className="social-icons mt-8" />
         </div>
       </div>
-
-      {/* contents */}
-      <div class="pt-4 mt-24">
-        <div class="container">
-          <div class="row">
-            <div class="mx-auto lg:col-12">
-              <div class="row g-4">
-                <Overwiev className="col-12 sm:col-3 text-center" />
-
-                <!-- <Education className="col-12 sm:col-8" />
-                <Keys className="col-12 sm:col-4" />
-                <Career className="col-12 sm:col-8" />
-                <Skills className="col-12 sm:col-4" />
-                <Interests className="col-12 sm:col-6" />
-                <Projects className="col-12 sm:col-6" />
-                <Contacts className="col-12 sm:col-12" /> -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
-</Base>
 
-<!-- {/* posts */}
+  {/* posts */}
   <div class="pt-4">
     <div class="container">
       <div class="row">
@@ -101,4 +70,5 @@ const sortPostByDate = sortByDate(posts);
         />
       </div>
     </div>
-  </div> -->
+  </div>
+</Base>

@@ -21,6 +21,11 @@
       "url": "/contacts"
     },
     {
+      "name": "Blog",
+      "url": "/blog",
+      "isBlog": true
+    },
+    {
       "name": "UI Kit",
       "url": "/ui-kit"
     }

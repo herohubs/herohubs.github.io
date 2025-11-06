@@ -2,10 +2,10 @@
 #  https://lefthook.dev/configuration/
 
 pre-commit:
-    parallel: false
-    jobs:
-        - name: Prettier - Format code
-          tags:
-              - frontend
-              - formatting
-          run: npx prettier . --write && git add .
+  parallel: false
+  jobs:
+    - name: Prettier - Format code
+      tags:
+        - frontend
+        - formatting
+      run: npx prettier . --write && git add .
