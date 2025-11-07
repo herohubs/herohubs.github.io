@@ -1,0 +1,29 @@
+---
+const { className } = Astro.props;
+import story from "@/config/home/story.json";
+
+export interface IEducation {
+  degree: string;
+  institution: string;
+  period: string;
+  details: string;
+}
+---
+
+<section class={className} id="education">
+  <div class="rounded border border-primary p-12 lg:p-9 h-full">
+    <ul class="flex items-center space-x-4">
+      <h4 class="text-primary">{story.title}</h4>
+    </ul>
+    <p class="my-4">
+      <ul class="space-y-6">
+        <li class="border-border">
+          <h6>{story.subtitle}</h6>
+          <p class="text-muted-foreground text-justify my-4">
+            {story.text}
+          </p>
+        </li>
+      </ul>
+    </p>
+  </div>
+</section>

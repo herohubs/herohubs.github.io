@@ -29,6 +29,12 @@
       "icon": "FaLinkedin",
       "link": "https://www.linkedin.com/company/herohubs",
       "show": true
+    },
+    {
+      "name": "Email",
+      "icon": "FaEnvelope",
+      "link": "mailto:info@herohubs.it",
+      "show": true
     }
   ]
 }

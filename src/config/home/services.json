@@ -1,0 +1,22 @@
+{
+  "title": "I nostri servizi",
+  "subtitle": "Soluzioni digitali su misura, scalabili e orientate ai risultati",
+  "items": [
+    {
+      "title": "Soluzioni Software",
+      "description": "Progettiamo software personalizzati che ottimizzano i processi aziendali e migliorano le performance operative. Dalle piattaforme enterprise agli e-commerce, realizziamo soluzioni su misura per generare valore e crescita concreta."
+    },
+    {
+      "title": "Applicazioni Mobile",
+      "description": "Sviluppiamo app performanti per Android e iOS, pensate per offrire un’esperienza utente fluida e intuitiva. Ogni applicazione è costruita con tecnologie moderne per garantire affidabilità, velocità e integrazione con i sistemi aziendali."
+    },
+    {
+      "title": "Cloud e Serverless",
+      "description": "Creiamo infrastrutture cloud sicure, scalabili e convenienti, sfruttando architetture serverless per ridurre costi e complessità. Le nostre soluzioni si adattano facilmente ai cambiamenti del mercato e alle esigenze del tuo business."
+    },
+    {
+      "title": "Consulenza Tecnica e Agile",
+      "description": "Ti affianchiamo nella definizione di strategie tecnologiche e metodologie di sviluppo Agile che favoriscono innovazione continua. Offriamo supporto tecnico, ottimizzazione dei sistemi e un approccio flessibile che accelera i risultati."
+    }
+  ]
+}

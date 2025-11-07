@@ -1,7 +1,5 @@
 ---
 import ImageMod from "@/components/ImageMod.astro";
-import Pagination from "@/components/Pagination.astro";
-import Post from "@/components/Post.astro";
 import Social from "@/components/Social.astro";
 import config from "@/config/config.json";
 import theme from "@/config/theme.json";
@@ -10,15 +8,15 @@ import Base from "@/layouts/Base.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import { sortByDate } from "@/lib/utils/sortFunctions";
 import { markdownify } from "@/lib/utils/textConverter";
+import Pagination from "@/components/Pagination.astro";
+import Post from "@/components/Post.astro";
 
-import Contacts from "@/components/Contacts.astro";
-import Education from "@/components/Education.astro";
-import Career from "@/components/Career.astro";
-import Interests from "@/components/Interests.astro";
-import Skills from "@/components/Skills.astro";
-import Keys from "@/components/Keys.astro";
-import Overwiev from "@/components/Overwiev.astro";
-import Projects from "@/components/Projects.astro";
+import Overwiev from "@/components/home/Overview.astro";
+import Reality from "@/components/home/Reality.astro";
+import Story from "@/components/home/Story.astro";
+import Services from "@/components/home/Services.astro";
+import Customers from "@/components/home/Customers.astro";
+import Contacts from "@/components/home/Contacts.astro";
 
 const posts = await getSinglePage("posts");
 const { pagination } = config.settings;
@@ -62,15 +60,20 @@ const sortPostByDate = sortByDate(posts);
           <div class="row">
             <div class="mx-auto lg:col-12">
               <div class="row g-4">
-                <Overwiev className="col-12 sm:col-3 text-center" />
+                <Overwiev className="col-12 sm:col-3" />
+                <Reality className="col-12 sm:col-12" />
+                <Story className="col-12 sm:col-12" />
+                <Services className="col-12 sm:col-12" />
+                <Customers className="col-12 sm:col-12" />
+                <Contacts className="col-12 sm:col-12" />
 
-                <!-- <Education className="col-12 sm:col-8" />
+                <!-- 
                 <Keys className="col-12 sm:col-4" />
                 <Career className="col-12 sm:col-8" />
                 <Skills className="col-12 sm:col-4" />
                 <Interests className="col-12 sm:col-6" />
                 <Projects className="col-12 sm:col-6" />
-                <Contacts className="col-12 sm:col-12" /> -->
+ -->
               </div>
             </div>
           </div>

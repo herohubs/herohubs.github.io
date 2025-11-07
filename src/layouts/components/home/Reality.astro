@@ -1,0 +1,29 @@
+---
+const { className } = Astro.props;
+import reality from "@/config/home/reality.json";
+
+export interface IEducation {
+  degree: string;
+  institution: string;
+  period: string;
+  details: string;
+}
+---
+
+<section class={className} id="education">
+  <div class="rounded border border-primary p-12 lg:p-9 h-full">
+    <ul class="flex justify-end items-center space-x-4">
+      <h4 class="text-primary">{reality.title}</h4>
+    </ul>
+    <p class="my-4">
+      <ul class="space-y-6">
+        <li class="border-border">
+          <h6 class="text-right">{reality.subtitle}</h6>
+          <p class="text-muted-foreground text-justify my-4">
+            {reality.text}
+          </p>
+        </li>
+      </ul>
+    </p>
+  </div>
+</section>

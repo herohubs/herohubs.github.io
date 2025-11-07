@@ -1,0 +1,61 @@
+{
+  "title": "Con chi abbiamo lavorato",
+  "subtitle": "Nel corso della nostra esperienza, abbiamo collaborato con aziende di diversi settori, supportandole nello sviluppo di soluzioni tecnologiche su misura. Ogni progetto ha contribuito ad ampliare il nostro know-how e a consolidare la fiducia che i nostri clienti ripongono in noi.",
+  "items": [
+    {
+      "name": "Luisa Via Roma",
+      "image": "images/customers/luisa-via-roma.png",
+      "url": ""
+    },
+    {
+      "name": "Banca Reale",
+      "image": "images/customers/banca-reale.jpg",
+      "url": ""
+    },
+    {
+      "name": "Infogroup",
+      "image": "images/customers/infogroup.png",
+      "url": ""
+    },
+    {
+      "name": "Vipera",
+      "image": "images/customers/vipera.png",
+      "url": ""
+    },
+    {
+      "name": "Carrefour Express",
+      "image": "images/customers/carrefour-express.png",
+      "url": ""
+    },
+    {
+      "name": "Sia",
+      "image": "images/customers/sia.png",
+      "url": ""
+    },
+    {
+      "name": "Auser",
+      "image": "images/customers/auser.png",
+      "url": ""
+    },
+    {
+      "name": "Milano Finanza",
+      "image": "images/customers/milano-finanza.png",
+      "url": ""
+    },
+    {
+      "name": "Sisal",
+      "image": "images/customers/sisal.png",
+      "url": ""
+    },
+    {
+      "name": "Classe Editori",
+      "image": "images/customers/classe-editori.png",
+      "url": ""
+    },
+    {
+      "name": "Cerved",
+      "image": "images/customers/cerved.png",
+      "url": ""
+    }
+  ]
+}

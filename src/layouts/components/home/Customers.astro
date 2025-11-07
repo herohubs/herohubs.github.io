@@ -1,0 +1,54 @@
+---
+const { className } = Astro.props;
+import customers from "@/config/home/customers.json";
+---
+
+<!-- {
+  overview.map((item, index) => (
+    <section class={className} id={`overview-${index}`}>
+      <div class="rounded border border-border p-12 lg:p-9 h-full">
+        <ul class="flex items-center space-x-4">
+          <h4 class="text-primary flex-1">{item.title}</h4>
+        </ul>
+        <p class="my-4">{item.description}</p>
+      </div>
+    </section>
+  ))
+} -->
+<section class={className} id="education">
+  <div class="rounded border border-primary p-12 lg:p-9 h-full">
+    <ul class="flex justify-center items-center space-x-4">
+      <h4 class="text-primary">{customers.title}</h4>
+    </ul>
+    <p class="my-4">
+      <ul class="space-y-6">
+        <li class="border-border">
+          <!-- <h6 class="text-center">{services.subtitle}</h6> -->
+          <p class="text-muted-foreground text-justify my-4">
+            {customers.subtitle}
+          </p>
+        </li>
+      </ul>
+
+      <!-- Griglia loghi -->
+      <div class="flex flex-wrap justify-center items-center gap-8">
+        {
+          customers.items.map((item, index) => (
+            <a
+              href={item.url || "#"}
+              key={index}
+              class="flex justify-center items-center w-32 sm:w-40 md:w-48 lg:w-52 opacity-80 hover:opacity-100 transition duration-300 my-4"
+            >
+              <img
+                src={item.image}
+                alt={item.name}
+                class="max-h-16 w-auto object-contain"
+                loading="lazy"
+              />
+            </a>
+          ))
+        }
+      </div>
+    </p>
+  </div>
+</section>

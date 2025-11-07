@@ -1,0 +1,72 @@
+---
+const { className } = Astro.props;
+import contacts from "@/config/home/contacts.json";
+import social from "@/config/social.json";
+
+import Social from "../Social.astro";
+---
+
+<!-- <section class={className} id="contacts">
+  <div class="rounded border border-primary p-12 lg:p-9 h-full">
+    <h4 class="text-primary mb-6">{contacts.title}</h4>
+
+    <div class="flex md:flex-row justify-between">
+      {/* Email a sinistra */}
+      <div class="w-full">
+        <p class="">
+          {
+            contacts.emails.map((email: string) => (
+              <li>
+                <a href={`mailto:${email}`} class="hover:text-primary">
+                  {email}
+                </a>
+              </li>
+            ))
+          }
+        </p>
+      </div>
+
+      <div class="hidden sm:block">
+        <div class="w-full flex items-center justify-end">
+          <Social source={contacts.socials} className="social-icons flex" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<section class={className} id="education">
+  <div class="rounded border border-primary p-12 lg:p-9 h-full">
+    <ul class="flex justify-center items-center space-x-4">
+      <h4 class="text-primary">{contacts.title}</h4>
+    </ul>
+    <p class="my-4">
+      <ul class="space-y-6">
+        <li class="border-border">
+          <h6 class="text-center">{contacts.subtitle}</h6>
+          <p class="text-muted-foreground text-center my-4">
+            {contacts.text}
+          </p>
+        </li>
+      </ul>
+
+      <div class="hidden sm:block">
+        <div class="w-full flex items-center justify-center">
+          <Social source={social.main} className="social-icons mt-8" />
+        </div>
+      </div>
+
+      <!-- Griglia 2x2
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+      {contacts.items.map((item, index) => (
+        <div
+          class="rounded border border-border p-8 hover:shadow-md transition-shadow duration-300"
+          key={index}
+        >
+          <h5 class="text-primary mb-3 text-center">{item.title}</h4>
+          <p class="text-muted-foreground text-center">{item.description}</p>
+        </div>
+      ))}
+    </div> -->
+    </p>
+  </div>
+</section>
