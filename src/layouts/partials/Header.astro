@@ -49,14 +49,16 @@ combinedMenu.push(...menu.main.slice(1));
 //) {
 combinedMenu.push(...categories);
 //}
+
+const toggleId = `nav-toggle-${Math.random().toString(36).slice(2, 8)}`;
 ---
 
 <header class={`header mt-8 pb-3 pt-12`}>
   <nav class="navbar container text-center md:text-left">
     <!-- navbar toggler -->
-    <input id="nav-toggle" type="checkbox" class="hidden" />
+    <input id={toggleId} type="checkbox" class="hidden" />
     <label
-      for="nav-toggle"
+      for={toggleId}
       class="order-3 cursor-pointer rounded border border-border p-6 lg:p-9 p-4 inline-flex items-center lg:order-1 md:hidden"
     >
       <svg

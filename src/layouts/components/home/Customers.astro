@@ -1,6 +1,7 @@
 ---
 const { className } = Astro.props;
 import customers from "@/config/home/customers.json";
+import "@/styles/transictions.css";
 ---
 
 <!-- {
@@ -30,24 +31,28 @@ import customers from "@/config/home/customers.json";
         </li>
       </ul>
 
-      <!-- Griglia loghi -->
-      <div class="flex flex-wrap justify-center items-center gap-8">
-        {
-          customers.items.map((item, index) => (
-            <a
-              href={item.url || "#"}
-              key={index}
-              class="flex justify-center items-center w-32 sm:w-40 md:w-48 lg:w-52 opacity-80 hover:opacity-100 transition duration-300 my-4"
-            >
-              <img
-                src={item.image}
-                alt={item.name}
-                class="max-h-16 w-auto object-contain"
-                loading="lazy"
-              />
-            </a>
-          ))
-        }
+      <div class="relative overflow-hidden py-4">
+        <div
+          class="flex animate-scroll-110s hover:[animation-play-state:paused]"
+        >
+          {
+            customers.items.concat(customers.items).map((item, index) => (
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex-shrink-0 flex justify-center items-center w-28 mx-3"
+              >
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  loading="lazy"
+                  class="max-h-28 object-contain opacity-65 hover:opacity-85 transition-all duration-300 ease-in-out rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm p-2"
+                />
+              </a>
+            ))
+          }
+        </div>
       </div>
     </p>
   </div>

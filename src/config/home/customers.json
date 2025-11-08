@@ -4,58 +4,63 @@
   "items": [
     {
       "name": "Luisa Via Roma",
-      "image": "images/customers/luisa-via-roma.png",
-      "url": ""
+      "image": "images/customers/luisa-via-roma.webp",
+      "url": "https://www.luisaviaroma.com/"
     },
     {
       "name": "Banca Reale",
-      "image": "images/customers/banca-reale.jpg",
-      "url": ""
+      "image": "images/customers/banca-reale.webp",
+      "url": "https://www.bancareale.it/"
     },
     {
       "name": "Infogroup",
-      "image": "images/customers/infogroup.png",
-      "url": ""
+      "image": "images/customers/infogroup.webp",
+      "url": "https://www.intesasanpaolo.com/"
     },
     {
       "name": "Vipera",
-      "image": "images/customers/vipera.png",
-      "url": ""
+      "image": "images/customers/vipera.webp",
+      "url": "https://www.fabrick.com/"
     },
     {
       "name": "Carrefour Express",
-      "image": "images/customers/carrefour-express.png",
-      "url": ""
+      "image": "images/customers/carrefour-express.webp",
+      "url": "https://www.carrefour.it/"
     },
     {
       "name": "Sia",
-      "image": "images/customers/sia.png",
-      "url": ""
+      "image": "images/customers/sia.webp",
+      "url": "https://www.nexi.it/"
     },
     {
       "name": "Auser",
-      "image": "images/customers/auser.png",
-      "url": ""
+      "image": "images/customers/auser.webp",
+      "url": "https://auser.it/"
     },
     {
       "name": "Milano Finanza",
-      "image": "images/customers/milano-finanza.png",
-      "url": ""
+      "image": "images/customers/milano-finanza.webp",
+      "url": "https://www.milanofinanza.it/"
     },
     {
       "name": "Sisal",
-      "image": "images/customers/sisal.png",
-      "url": ""
+      "image": "images/customers/sisal.webp",
+      "url": "https://www.sisal.it/"
     },
     {
       "name": "Classe Editori",
-      "image": "images/customers/classe-editori.png",
-      "url": ""
+      "image": "images/customers/classe-editori.webp",
+      "url": "https://www.classeditori.it/"
     },
     {
       "name": "Cerved",
-      "image": "images/customers/cerved.png",
-      "url": ""
+      "image": "images/customers/cerved.webp",
+      "url": "https://www.cerved.com/"
+    },
+    {
+      "name": "Old Wild West",
+      "image": "images/customers/old-wild-west.webp",
+      "url": "https://www.oldwildwest.it/"
     }
   ]
 }
