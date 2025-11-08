@@ -1,0 +1,64 @@
+---
+const { className } = Astro.props;
+import articles from "@/config/home/articles.json";
+
+import ImageMod from "@/components/ImageMod.astro";
+import Social from "@/components/Social.astro";
+import config from "@/config/config.json";
+import theme from "@/config/theme.json";
+import social from "@/config/social.json";
+import Base from "@/layouts/Base.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
+import { markdownify } from "@/lib/utils/textConverter";
+import Pagination from "@/components/Pagination.astro";
+import Post from "@/components/Post.astro";
+
+const posts = await getSinglePage("posts");
+const { pagination } = config.settings;
+const { name, image, designation, bio } = config.profile;
+const { primary } = theme.colors.default.theme_color;
+
+const sortPostByDate = sortByDate(posts);
+---
+
+<section class={className} id="education">
+  <div class="rounded border border-primary p-12 lg:p-9 h-full">
+    <ul class="flex justify-center items-center space-x-4">
+      <h4 class="text-primary">{articles.title}</h4>
+    </ul>
+    <p class="my-4">
+      <ul class="space-y-6">
+        <li class="border-border">
+          <h6 class="text-center">{articles.subtitle}</h6>
+          <p class="text-muted-foreground text-center my-4">
+            {articles.text}
+          </p>
+        </li>
+      </ul>
+
+      <div class="hidden sm:block">
+        <div class="w-full flex items-center justify-center">
+          <div class="pt-4">
+            <div class="container mx-auto px-4 overflow-hidden">
+              <div class="max-w-6xl mx-auto flex animate-scroll-15s-to-right">
+                <div class="flex gap-4">
+                  {
+                    sortPostByDate
+                      .slice(0, pagination)
+                      .map((post) => (
+                        <Post
+                          className="flex-shrink-0 w-90 h-100"
+                          post={post}
+                        />
+                      ))
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </p>
+  </div>
+</section>

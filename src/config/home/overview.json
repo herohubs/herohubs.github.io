@@ -1,18 +1,18 @@
 [
   {
     "title": "Consulenza",
-    "description": "Offriamo consulenza tecnica e strategica per guidare le aziende verso scelte tecnologiche solide, scalabili e orientate al futuro."
+    "description": "Consulenza tecnica e strategica per guidare scelte tecnologiche solide, scalabili e orientate al futuro del business."
   },
   {
     "title": "App",
-    "description": "Realizziamo web app enterprise complete, integrate tra back-end, front-end e database, con tecnologie moderne come TypeScript, Kotlin e Java."
+    "description": "Web app enterprise complete con TypeScript, Kotlin e Java. Back-end, front-end e database perfettamente integrati."
   },
   {
     "title": "Cloud",
-    "description": "Costruiamo infrastrutture cloud sicure e performanti, automatizzando processi con pipeline CI/CD e integrazioni su Azure, AWS e Google Cloud."
+    "description": "Infrastrutture cloud sicure su Azure, AWS e Google Cloud. Pipeline CI/CD, automazione e deploy affidabili e veloci."
   },
   {
     "title": "Progetti",
-    "description": "Seguiamo ogni fase di un progetto con un approccio agile orientato ai risultati, offrendo soluzioni chiavi in mano pensate su misura per ogni cliente."
+    "description": "Approccio agile orientato ai risultati concreti. Seguiamo ogni fase con soluzioni chiavi in mano pensate su misura."
   }
 ]

@@ -7,23 +7,22 @@ import social from "@/config/social.json";
 import Base from "@/layouts/Base.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import { sortByDate } from "@/lib/utils/sortFunctions";
-import { markdownify } from "@/lib/utils/textConverter";
 import Pagination from "@/components/Pagination.astro";
 import Post from "@/components/Post.astro";
 
+const posts = await getSinglePage("posts");
+const { primary } = theme.colors.default.theme_color;
+
+const { name, image, designation, bio } = config.profile;
+
+import { markdownify } from "@/lib/utils/textConverter";
 import Overwiev from "@/components/home/Overview.astro";
 import Reality from "@/components/home/Reality.astro";
 import Story from "@/components/home/Story.astro";
 import Services from "@/components/home/Services.astro";
 import Customers from "@/components/home/Customers.astro";
 import Contacts from "@/components/home/Contacts.astro";
-
-const posts = await getSinglePage("posts");
-const { pagination } = config.settings;
-const { name, image, designation, bio } = config.profile;
-const { primary } = theme.colors.default.theme_color;
-
-const sortPostByDate = sortByDate(posts);
+import Articles from "@/components/home/Articles.astro";
 ---
 
 <Base>
@@ -61,19 +60,12 @@ const sortPostByDate = sortByDate(posts);
             <div class="mx-auto lg:col-12">
               <div class="row g-4">
                 <Overwiev className="col-12 sm:col-3" />
-                <Reality className="col-12 sm:col-12" />
                 <Story className="col-12 sm:col-12" />
+                <Reality className="col-12 sm:col-12" />
                 <Services className="col-12 sm:col-12" />
                 <Customers className="col-12 sm:col-12" />
+                <Articles className="col-12 sm:col-12" />
                 <Contacts className="col-12 sm:col-12" />
-
-                <!-- 
-                <Keys className="col-12 sm:col-4" />
-                <Career className="col-12 sm:col-8" />
-                <Skills className="col-12 sm:col-4" />
-                <Interests className="col-12 sm:col-6" />
-                <Projects className="col-12 sm:col-6" />
- -->
               </div>
             </div>
           </div>
@@ -82,26 +74,3 @@ const sortPostByDate = sortByDate(posts);
     </div>
   </div>
 </Base>
-
-<!-- {/* posts */}
-  <div class="pt-4">
-    <div class="container">
-      <div class="row">
-        <div class="mx-auto lg:col-10">
-          <div class="row g-4">
-            {
-              sortPostByDate
-                .slice(0, pagination)
-                .map((post) => <Post className="col-12 sm:col-6" post={post} />)
-            }
-          </div>
-        </div>
-      </div>
-      <div class="mt-12">
-        <Pagination
-          totalPages={Math.ceil(posts.length / pagination)}
-          currentPage={1}
-        />
-      </div>
-    </div>
-  </div> -->
