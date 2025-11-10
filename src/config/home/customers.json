@@ -1,6 +1,6 @@
 {
   "title": "Con chi abbiamo lavorato",
-  "subtitle": "Nel corso della nostra esperienza, abbiamo collaborato con aziende di diversi settori, supportandole nello sviluppo di soluzioni tecnologiche su misura. Ogni progetto ha contribuito ad ampliare il nostro know-how e a consolidare la fiducia che i nostri clienti ripongono in noi.",
+  "subtitle": "Nel corso della nostra esperienza, abbiamo collaborato con aziende di diversi settori, supportandole nello sviluppo di soluzioni tecnologiche.",
   "items": [
     {
       "name": "Luisa Via Roma",
@@ -23,19 +23,9 @@
       "url": "https://www.fabrick.com/"
     },
     {
-      "name": "Carrefour Express",
-      "image": "images/customers/carrefour-express.webp",
-      "url": "https://www.carrefour.it/"
-    },
-    {
       "name": "Sia",
       "image": "images/customers/sia.webp",
       "url": "https://www.nexi.it/"
-    },
-    {
-      "name": "Auser",
-      "image": "images/customers/auser.webp",
-      "url": "https://auser.it/"
     },
     {
       "name": "Milano Finanza",
@@ -58,9 +48,15 @@
       "url": "https://www.cerved.com/"
     },
     {
-      "name": "Old Wild West",
-      "image": "images/customers/old-wild-west.webp",
-      "url": "https://www.oldwildwest.it/"
+      "name": "Auser",
+      "image": "images/customers/auser.webp",
+      "url": "https://auser.it/"
+    },
+
+    {
+      "name": "Carrefour Express",
+      "image": "images/customers/carrefour-express.webp",
+      "url": "https://www.carrefour.it/"
     }
   ]
 }

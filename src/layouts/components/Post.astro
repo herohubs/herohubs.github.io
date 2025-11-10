@@ -5,8 +5,8 @@ const { post, className } = Astro.props;
 const { id, slug, body, data, collection } = post;
 ---
 
-<div class={className + " opacity-65 hover:opacity-85"}>
-  <div class="rounded border border-border p-6 lg:p-9 h-full flex flex-col">
+<div class={className + " opacity-85 hover:opacity-95"}>
+  <div class="rounded-2xl border border-border p-6 lg:p-9 h-full flex flex-col">
     <ul class="flex items-center space-x-4">
       {
         data.categories.map((category: any) => (

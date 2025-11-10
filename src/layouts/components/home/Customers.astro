@@ -4,15 +4,15 @@ import customers from "@/config/home/customers.json";
 ---
 
 <section class={className} id="education">
-  <div class="rounded border border-primary p-12 lg:p-9 h-full">
-    <ul class="flex justify-center items-center space-x-4">
+  <div class="rounded-2xl border border-primary p-12 lg:p-9 h-full">
+    <!-- <ul class="flex justify-center items-center space-x-4">
       <h4 class="text-primary">{customers.title}</h4>
-    </ul>
+    </ul> -->
     <p class="my-4">
       <ul class="space-y-6">
         <li class="border-border">
           <!-- <h6 class="text-center">{services.subtitle}</h6> -->
-          <p class="text-muted-foreground text-justify my-4">
+          <p class="text-muted-foreground text-center my-4">
             {customers.subtitle}
           </p>
         </li>
@@ -34,7 +34,7 @@ import customers from "@/config/home/customers.json";
                   src={item.image}
                   alt={item.name}
                   loading="lazy"
-                  class="max-h-28 object-contain opacity-65 hover:opacity-85 transition-all duration-300 ease-in-out rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm p-2"
+                  class="max-h-28 grayscale hover:grayscale-0 object-contain opacity-70 hover:opacity-85 transition-all duration-450 ease-in-out rounded-xl bg-white/10 hover:bg-white/90 backdrop-blur-sm p-2"
                 />
               </a>
             ))

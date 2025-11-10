@@ -23,7 +23,7 @@ const sortPostByDate = sortByDate(posts);
 ---
 
 <section class={className} id="education">
-  <div class="rounded border border-primary p-12 lg:p-9 h-full">
+  <div class="rounded-2xl border border-primary p-12 lg:p-9 h-full">
     <ul class="flex justify-center items-center space-x-4">
       <h4 class="text-primary">{articles.title}</h4>
     </ul>
@@ -31,9 +31,9 @@ const sortPostByDate = sortByDate(posts);
       <ul class="space-y-6">
         <li class="border-border">
           <h6 class="text-center">{articles.subtitle}</h6>
-          <p class="text-muted-foreground text-center my-4">
+          <!-- <p class="text-muted-foreground text-center my-4">
             {articles.text}
-          </p>
+          </p> -->
         </li>
       </ul>
 
@@ -45,7 +45,7 @@ const sortPostByDate = sortByDate(posts);
                 <div class="flex gap-4">
                   {
                     sortPostByDate
-                      .slice(0, pagination)
+                      .slice(0, 25)
                       .map((post) => (
                         <Post
                           className="flex-shrink-0 w-90 h-100"
