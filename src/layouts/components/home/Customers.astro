@@ -4,7 +4,7 @@ import customers from "@/config/home/customers.json";
 ---
 
 <section class={className} id="education">
-  <div class="rounded-2xl border border-primary p-12 lg:p-9 h-full">
+  <div class="rounded-2xl p-12 lg:p-9 h-full bg-body border border-border">
     <!-- <ul class="flex justify-center items-center space-x-4">
       <h4 class="text-primary">{customers.title}</h4>
     </ul> -->
@@ -20,21 +20,21 @@ import customers from "@/config/home/customers.json";
 
       <div class="relative overflow-hidden py-4">
         <div
-          class="flex animate-scroll-110s-to-left hover:[animation-play-state:paused]"
+          class="flex flex-wrap justify-center hover:[animation-play-state:paused] gap-x-20 gap-y-10"
         >
           {
-            customers.items.concat(customers.items).map((item, index) => (
+            customers.items.map((item, index) => (
               <a
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex-shrink-0 flex justify-center items-center w-28 mx-3"
+                class="flex-shrink-0 flex justify-center items-center w-26"
               >
                 <img
                   src={item.image}
                   alt={item.name}
                   loading="lazy"
-                  class="max-h-28 grayscale hover:grayscale-0 object-contain opacity-70 hover:opacity-85 transition-all duration-450 ease-in-out rounded-xl bg-white/10 hover:bg-white/90 backdrop-blur-sm p-2"
+                  class="max-h-26 object-contain opacity-70 hover:opacity-85 transition-all duration-250 ease-in-out rounded-xl bg-white/5 bg-white/100 backdrop-blur-sm p-2"
                 />
               </a>
             ))

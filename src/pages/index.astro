@@ -27,7 +27,7 @@ import Articles from "@/components/home/Articles.astro";
 
 <Base>
   {/* profile */}
-  <div class="section">
+  <div class="section herohubs-section">
     <div class="container">
       <div class="row">
         <div class="mx-auto text-center lg:col-8">
@@ -46,7 +46,7 @@ import Articles from "@/components/home/Articles.astro";
           />
           <p
             set:html={markdownify(designation)}
-            class="mt-6 text-primary text-xl"
+            class="mt-6 text-primary text-xl bg-body/80 inline-block p-10 py-2 rounded-full"
           />
           <p set:html={markdownify(bio)} class="mt-4 leading-9 text-xl" />
           <Social source={social.main} className="social-icons mt-8" />
@@ -64,7 +64,7 @@ import Articles from "@/components/home/Articles.astro";
                 <Reality className="col-12 sm:col-12" />
                 <Services className="col-12 sm:col-12 hidden md:block" />
                 <Customers className="col-12 sm:col-12" />
-                <Articles className="col-12 sm:col-12 hidden md:block" />
+                <Articles className="col-12 sm:col-12 hidden lg:block" />
                 <Contacts className="col-12 sm:col-12" />
               </div>
             </div>

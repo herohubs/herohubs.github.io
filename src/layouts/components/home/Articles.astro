@@ -23,37 +23,32 @@ const sortPostByDate = sortByDate(posts);
 ---
 
 <section class={className} id="education">
-  <div class="rounded-2xl border border-primary p-12 lg:p-9 h-full">
-    <ul class="flex justify-center items-center space-x-4">
+  <div class="rounded-2xl p-12 lg:p-9 h-full bg-body border border-border">
+    <!-- <ul class="flex justify-center items-center space-x-4">
       <h4 class="text-primary">{articles.title}</h4>
-    </ul>
+    </ul> -->
     <p class="my-4">
       <ul class="space-y-6">
         <li class="border-border">
-          <h6 class="text-center">{articles.subtitle}</h6>
+          <h6 class="text-center">{articles.title}</h6>
           <!-- <p class="text-muted-foreground text-center my-4">
             {articles.text}
           </p> -->
         </li>
       </ul>
 
-      <div class="hidden sm:block">
-        <div class="w-full flex items-center justify-center">
-          <div class="pt-4">
-            <div class="container mx-auto px-4 overflow-hidden">
-              <div class="max-w-6xl mx-auto flex animate-scroll-15s-to-right">
-                <div class="flex gap-4">
-                  {
-                    sortPostByDate
-                      .slice(0, 25)
-                      .map((post) => (
-                        <Post
-                          className="flex-shrink-0 w-90 h-100"
-                          post={post}
-                        />
-                      ))
-                  }
-                </div>
+      <div class="w-full flex items-center justify-center">
+        <div class="pt-6">
+          <div class="container mx-auto px-4 overflow-hidden">
+            <div class="max-w-6xl mx-auto flex">
+              <div class="flex flex-wrap gap-x-4 gap-y-4 justify-center">
+                {
+                  sortPostByDate
+                    .slice(0, 6)
+                    .map((post) => (
+                      <Post className="flex-shrink-0 w-90 h-100" post={post} />
+                    ))
+                }
               </div>
             </div>
           </div>
