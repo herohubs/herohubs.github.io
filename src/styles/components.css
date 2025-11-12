@@ -6,24 +6,6 @@
   @apply py-16 xl:py-20;
 }
 
-.herohubs-section {
-  background-image: url("images/herohubs-1.svg");
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover; /* adatta l’immagine alla finestra */
-
-  animation: moveBg 30s linear infinite alternate; /* durata e loop */
-}
-
-@keyframes moveBg {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: -1000px 0; /* spostamento orizzontale */
-  }
-}
-
 /* container */
 .container {
   @apply mx-auto max-w-[1320px]! px-4;

@@ -54,3 +54,19 @@ strong {
 code {
   @apply after:border-none;
 }
+
+.herohubs-section {
+  background-image: url("/images/herohubs-1.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: herohubs-moveBg 30s linear infinite alternate;
+}
+
+@keyframes herohubs-moveBg {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -1000px 0;
+  }
+}
