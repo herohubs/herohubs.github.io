@@ -5,24 +5,17 @@ import config from "@/config/config.json";
 import theme from "@/config/theme.json";
 import social from "@/config/social.json";
 import Base from "@/layouts/Base.astro";
-import { getSinglePage } from "@/lib/contentParser.astro";
-import { sortByDate } from "@/lib/utils/sortFunctions";
-import Pagination from "@/components/Pagination.astro";
-import Post from "@/components/Post.astro";
-
-const posts = await getSinglePage("posts");
-const { primary } = theme.colors.default.theme_color;
-
-const { name, image, designation, bio } = config.profile;
-
 import { markdownify } from "@/lib/utils/textConverter";
-import Overwiev from "@/components/home/Overview.astro";
-import Reality from "@/components/home/Reality.astro";
-import Story from "@/components/home/Story.astro";
+import MainBlocks from "@/components/home/MainBlocks.astro";
+import How from "@/components/home/How.astro";
+import Why from "@/components/home/Why.astro";
 import Services from "@/components/home/Services.astro";
 import Customers from "@/components/home/Customers.astro";
 import Contacts from "@/components/home/Contacts.astro";
-import Articles from "@/components/home/Articles.astro";
+import Blog from "@/components/home/Blog.astro";
+
+const { primary } = theme.colors.default.theme_color;
+const { name, image, designation, bio } = config.profile;
 ---
 
 <Base>
@@ -59,12 +52,12 @@ import Articles from "@/components/home/Articles.astro";
           <div class="row">
             <div class="mx-auto lg:col-12">
               <div class="row g-4">
-                <Overwiev className="col-12 sm:col-3" />
-                <Story className="col-12 sm:col-12" />
-                <Reality className="col-12 sm:col-12" />
+                <MainBlocks className="col-12 sm:col-3" />
+                <Why className="col-12 sm:col-12" />
+                <How className="col-12 sm:col-12" />
                 <Services className="col-12 sm:col-12 hidden md:block" />
                 <Customers className="col-12 sm:col-12" />
-                <Articles className="col-12 sm:col-12 hidden lg:block" />
+                <Blog className="col-12 sm:col-12 hidden lg:block" />
                 <Contacts className="col-12 sm:col-12" />
               </div>
             </div>

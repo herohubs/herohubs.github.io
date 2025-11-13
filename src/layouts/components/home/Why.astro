@@ -1,6 +1,6 @@
 ---
 const { className } = Astro.props;
-import reality from "@/config/home/reality.json";
+import story from "@/config/home/why.json";
 
 export interface IEducation {
   degree: string;
@@ -11,19 +11,18 @@ export interface IEducation {
 ---
 
 <section class={className} id="education">
-  <div class="rounded-2xl p-12 lg:p-9 h-full bg-body border border-border">
-    <!-- <ul class="flex justify-center items-center space-x-4">
-      <h4 class="text-primary">{reality.title}</h4>
-    </ul> -->
+  <div
+    class="rounded-2xl p-12 lg:p-9 h-full bg-body border border-border bg-body/90"
+  >
     <p class="my-4">
       <ul class="space-y-6">
         <li class="border-border">
-          <h6 class="text-center">{reality.subtitle}</h6>
+          <h6 class="text-center">{story.title}</h6>
           <p class="text-muted-foreground text-center my-4">
-            {reality.text1}
+            {story.text1}
           </p>
           <p class="text-muted-foreground text-center my-4">
-            {reality.text2}
+            {story.text2}
           </p>
         </li>
       </ul>
