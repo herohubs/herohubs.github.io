@@ -1,0 +1,21 @@
+---
+import config from "@/config/config.json";
+import menuJson from "@/config/menu.json";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+const { menu } = Astro.props;
+---
+
+<div>
+  <ul class="space-y-2 text-center">
+    {
+      menu.map((m) => (
+        <li>
+          <a href={m.url} class="hover:text-primary transition-colors text-sm">
+            {m.name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>

@@ -29,5 +29,19 @@
       "name": "UI Kit",
       "url": "/ui-kit"
     }
+  ],
+  "other": [
+    {
+      "name": "Privay Policy",
+      "url": "/privacy-policy"
+    },
+    {
+      "name": "Cookie Policy",
+      "url": "/cookie-policy"
+    },
+    {
+      "name": "Termini e Condizioni",
+      "url": "/terms-and-conditions"
+    }
   ]
 }

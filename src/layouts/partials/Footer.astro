@@ -1,12 +1,51 @@
 ---
 import config from "@/config/config.json";
+import menuJson from "@/config/menu.json";
+import { getSinglePage } from "@/lib/contentParser.astro";
 import { markdownify } from "@/lib/utils/textConverter";
+import FooterMenu from "@/partials/FooterMenu.astro";
+
 const { copyright } = config.params;
+const { image_min, designation } = config.profile;
+const posts = await getSinglePage("posts");
+
+const menu: { main: NavigationLink[]; other: NavigationLink[] } = menuJson;
+
+const uniqueCategories: string[] = [
+  ...new Set(posts.flatMap((post: any) => post.data.categories)),
+];
+
+const categoriesMenus: NavigationLink[] = uniqueCategories.map(
+  (category: string) => ({
+    name: category,
+    url: `/categories/${category?.toLowerCase().replace(/\s+/g, "-")}`,
+  }),
+);
+
+const websiteMenus = menu.main.filter(
+  (m) =>
+    (m.url?.startsWith(
+      "/categories/" &&
+        (!m.url.startsWith("/ui-kit") || import.meta.env.DEV) == false,
+    ) || m.isBlog === true) === false,
+);
 ---
 
-<footer class="pt-16 pb-16">
-  <div class="container text-center">
-    {/* copyright */}
+<footer class="pt-16 pb-16 mt-16 border-t border-gray-800">
+  <div
+    class="container max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12"
+  >
+    <div>
+      <div class="flex justify-center items-center gap-2 mb-4 mt-4">
+        <img src={image_min} alt="Logo" class="" />
+      </div>
+      <p class="mb-4 text-center text-sm">{designation}</p>
+    </div>
+    <FooterMenu menu={websiteMenus} />
+    <FooterMenu menu={categoriesMenus} />
+    <FooterMenu menu={menu.other} />
+  </div>
+  <div class="mt-16 text-sm text-gray-600 text-center pt-6">
     <p set:html={markdownify(copyright)} class="text-primary" />
   </div>
 </footer>
