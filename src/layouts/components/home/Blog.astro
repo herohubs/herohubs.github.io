@@ -1,28 +1,15 @@
 ---
 const { className } = Astro.props;
 import articles from "@/config/home/blog.json";
-
-import ImageMod from "@/components/ImageMod.astro";
-import Social from "@/components/Social.astro";
-import config from "@/config/config.json";
-import theme from "@/config/theme.json";
-import social from "@/config/social.json";
-import Base from "@/layouts/Base.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import { sortByDate } from "@/lib/utils/sortFunctions";
-import { markdownify } from "@/lib/utils/textConverter";
-import Pagination from "@/components/Pagination.astro";
 import Post from "@/components/Post.astro";
 
 const posts = await getSinglePage("posts");
-const { pagination } = config.settings;
-const { name, image, designation, bio } = config.profile;
-const { primary } = theme.colors.default.theme_color;
-
 const sortPostByDate = sortByDate(posts);
 ---
 
-<section class={className} id="education">
+<section class={className} id="blog">
   <div
     class="rounded-2xl p-12 lg:p-9 h-full bg-body border border-border bg-body/90"
   >
