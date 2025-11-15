@@ -25,9 +25,9 @@ interface Props {
   alt: string;
   width: number;
   height: number;
-  loading?: "eager" | "lazy" | null | undefined;
-  decoding?: "async" | "auto" | "sync" | null | undefined;
-  format?: "auto" | "avif" | "jpeg" | "png" | "svg" | "webp";
+  loading?: 'eager' | 'lazy' | null | undefined;
+  decoding?: 'async' | 'auto' | 'sync' | null | undefined;
+  format?: 'auto' | 'avif' | 'jpeg' | 'png' | 'svg' | 'webp';
   class?: string;
   style?: any;
 }

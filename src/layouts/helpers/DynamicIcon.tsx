@@ -1,7 +1,7 @@
-import type { IDynamicIcon } from "@/interfaces";
-import React, { type FC } from "react";
-import type { IconType } from "react-icons";
-import * as FaIcons from "react-icons/fa6";
+import type { IDynamicIcon } from '@/interfaces';
+import React, { type FC } from 'react';
+import type { IconType } from 'react-icons';
+import * as FaIcons from 'react-icons/fa6';
 // import * as AiIcons from "react-icons/ai";
 // import * as BsIcons from "react-icons/bs";
 // import * as FiIcons from "react-icons/fi";

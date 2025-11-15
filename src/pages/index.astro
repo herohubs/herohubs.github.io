@@ -1,18 +1,18 @@
 ---
-import ImageMod from "@/components/ImageMod.astro";
-import Social from "@/components/Social.astro";
-import config from "@/config/config.json";
-import theme from "@/config/theme.json";
-import social from "@/config/social.json";
-import Base from "@/layouts/Base.astro";
-import { markdownify } from "@/lib/utils/textConverter";
-import MainBlocks from "@/components/home/MainBlocks.astro";
-import How from "@/components/home/How.astro";
-import Why from "@/components/home/Why.astro";
-import Services from "@/components/home/Services.astro";
-import Customers from "@/components/home/Customers.astro";
-import Contacts from "@/components/home/Contacts.astro";
-import Blog from "@/components/home/Blog.astro";
+import ImageMod from '@/components/ImageMod.astro';
+import Social from '@/components/Social.astro';
+import config from '@/config/config.json';
+import theme from '@/config/theme.json';
+import social from '@/config/social.json';
+import Base from '@/layouts/Base.astro';
+import { markdownify } from '@/lib/utils/textConverter';
+import MainBlocks from '@/components/home/MainBlocks.astro';
+import How from '@/components/home/How.astro';
+import Why from '@/components/home/Why.astro';
+import Services from '@/components/home/Services.astro';
+import Customers from '@/components/home/Customers.astro';
+import Contacts from '@/components/home/Contacts.astro';
+import Blog from '@/components/home/Blog.astro';
 
 const { primary } = theme.colors.default.theme_color;
 const { name, image, designation, bio } = config.profile;
@@ -33,10 +33,7 @@ const { name, image, designation, bio } = config.profile;
             loading="eager"
             style={`border: 3px solid ${primary}`}
           />
-          <h1
-            set:html={markdownify(name)}
-            class="mt-12 text-6xl lg:text-8xl font-semibold"
-          />
+          <h1 set:html={markdownify(name)} class="mt-12 text-6xl lg:text-8xl font-semibold" />
           <p
             set:html={markdownify(designation)}
             class="mt-6 text-primary text-xl bg-body/80 inline-block p-10 py-2 rounded-full"

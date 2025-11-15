@@ -1,45 +1,29 @@
 ---
-import config from "@/config/config.json";
-import { getSinglePage } from "@/lib/contentParser.astro";
-import { markdownify } from "@/lib/utils/textConverter";
-import FooterMenu from "@/partials/FooterMenu.astro";
-
-import {
-  getMainMenu,
-  getCategoryMenu,
-  getOtherFooterMenu,
-} from "@/lib/utils/menu";
-
-const posts = await getSinglePage("posts");
-
-// Menu centralizzati
+import config from '@/config/config.json';
+import { getSinglePage } from '@/lib/contentParser.astro';
+import { markdownify } from '@/lib/utils/textConverter';
+import FooterMenu from '@/partials/FooterMenu.astro';
+import { getMainMenu, getCategoryMenu, getOtherFooterMenu } from '@/lib/utils/menu';
+const posts = await getSinglePage('posts');
 const websiteMenus = getMainMenu();
 const categoriesMenus = getCategoryMenu(posts);
 const otherMenus = getOtherFooterMenu();
-
-// Config dati
 const { copyright } = config.params;
 const { image_min, designation } = config.profile;
 ---
 
 <footer class="pt-16 pb-16 mt-16 border-t border-gray-800">
-  <div
-    class="container max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12"
-  >
-    <!-- Logo + descrizione -->
+  <div class="container max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
     <div>
       <div class="flex justify-center items-center gap-2 mb-4 mt-4">
         <img src={image_min} alt="Logo" />
       </div>
       <p class="mb-4 text-center text-sm">{designation}</p>
     </div>
-
-    <!-- 3 colonne con menu centralizzati -->
     <FooterMenu menu={websiteMenus} />
     <FooterMenu menu={categoriesMenus} />
     <FooterMenu menu={otherMenus} />
   </div>
-
   <div class="mt-16 text-sm text-gray-600 text-center pt-6">
     <p set:html={markdownify(copyright)} class="text-primary" />
   </div>

@@ -56,7 +56,7 @@ code {
 }
 
 .herohubs-section {
-  background-image: url("/images/herohubs-1.svg");
+  background-image: url('/images/herohubs-1.svg');
   background-repeat: no-repeat;
   background-size: cover;
   animation: herohubs-moveBg 30s linear infinite alternate;

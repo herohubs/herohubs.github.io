@@ -1,8 +1,8 @@
 ---
 const { className } = Astro.props;
-import contacts from "@/config/home/contacts.json";
-import social from "@/config/social.json";
-import Social from "../Social.astro";
+import contacts from '@/config/home/contacts.json';
+import social from '@/config/social.json';
+import Social from '../Social.astro';
 ---
 
 <section class={className} id="contacts">
@@ -25,7 +25,7 @@ import Social from "../Social.astro";
         </div>
         <a
           class="flex justify-center my-4 hover:text-primary transition-colors duration-200"
-          href={"mailto:" + contacts.email}
+          href={'mailto:' + contacts.email}
         >
           {contacts.email}
         </a>

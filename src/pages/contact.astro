@@ -1,14 +1,11 @@
 ---
-import config from "@/config/config.json";
-import Base from "@/layouts/Base.astro";
-import { markdownify } from "@/lib/utils/textConverter";
-import type { CollectionEntry } from "astro:content";
-import { getEntry, render } from "astro:content";
+import config from '@/config/config.json';
+import Base from '@/layouts/Base.astro';
+import { markdownify } from '@/lib/utils/textConverter';
+import type { CollectionEntry } from 'astro:content';
+import { getEntry, render } from 'astro:content';
 
-const contact = (await getEntry(
-  "contact",
-  "-index",
-)) as CollectionEntry<"contact">;
+const contact = (await getEntry('contact', '-index')) as CollectionEntry<'contact'>;
 const { contact_form_action }: { contact_form_action: string } = config.params;
 const { title, description, meta_title } = contact.data;
 const { Content } = await render(contact);
@@ -28,23 +25,11 @@ const { Content } = await render(contact);
               <div class="row mb-6">
                 <div class="md:col-6">
                   <label class="mb-2 block" for="name"> Name </label>
-                  <input
-                    class="form-input w-full"
-                    name="name"
-                    type="text"
-                    placeholder="Alex Smith"
-                    required
-                  />
+                  <input class="form-input w-full" name="name" type="text" placeholder="Alex Smith" required />
                 </div>
                 <div class="mt-6 md:mt-0 md:col-6">
                   <label class="mb-2 block" for="email"> Email </label>
-                  <input
-                    class="form-input w-full"
-                    name="email"
-                    type="email"
-                    placeholder="hello@gmail.com"
-                    required
-                  />
+                  <input class="form-input w-full" name="email" type="email" placeholder="hello@gmail.com" required />
                 </div>
               </div>
               <div class="mb-6">
@@ -59,14 +44,9 @@ const { Content } = await render(contact);
               </div>
               <div class="mb-6">
                 <label class="mb-2 block" for="message"> Message </label>
-                <textarea
-                  class="form-textarea w-full"
-                  rows="6"
-                  placeholder="Your message"></textarea>
+                <textarea class="form-textarea w-full" rows="6" placeholder="Your message"></textarea>
               </div>
-              <button class="btn btn-primary cursor-pointer rounded text-sm">
-                Send Message
-              </button>
+              <button class="btn btn-primary cursor-pointer rounded text-sm"> Send Message </button>
             </form>
           </div>
         </div>

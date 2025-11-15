@@ -1,8 +1,8 @@
 ---
-import { getMainMenu, getCategoryMenu } from "@/lib/utils/menu";
-import { getSinglePage } from "@/lib/contentParser.astro";
+import { getMainMenu, getCategoryMenu } from '@/lib/utils/menu';
+import { getSinglePage } from '@/lib/contentParser.astro';
 
-const posts = await getSinglePage("posts");
+const posts = await getSinglePage('posts');
 
 const websiteMenus = getMainMenu();
 const categoriesMenus = getCategoryMenu(posts);
@@ -17,25 +17,16 @@ const toggleId = `nav-toggle`;
     <input id={toggleId} type="checkbox" class="hidden" />
     <label
       for={toggleId}
-      class="order-3 cursor-pointer rounded border border-border p-6 lg:p-9 p-4 inline-flex items-center lg:order-1 md:hidden"
+      class="order-3 cursor-pointer rounded border border-border lg:p-9 p-4 inline-flex items-center lg:order-1 md:hidden"
     >
-      <svg
-        id="show-button"
-        class="mr-1 h-4 w-4 fill-current block"
-        viewBox="0 0 20 20"
-      >
+      <svg id="show-button" class="mr-1 h-4 w-4 fill-current block" viewBox="0 0 20 20">
         <title>Menu Open</title>
         <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
       </svg>
-      <svg
-        id="hide-button"
-        class="mr-1 h-4 w-4 fill-current hidden"
-        viewBox="0 0 20 20"
-      >
+      <svg id="hide-button" class="mr-1 h-4 w-4 fill-current hidden" viewBox="0 0 20 20">
         <title>Menu Close</title>
-        <polygon
-          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
-          transform="rotate(45 10 10)"></polygon>
+        <polygon points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2" transform="rotate(45 10 10)"
+        ></polygon>
       </svg>
       Menu
     </label>
@@ -51,10 +42,8 @@ const toggleId = `nav-toggle`;
             <a
               href={menu.url}
               class={`nav-link inline-block ${
-                pathname === `${menu.url}/` || pathname === menu.url
-                  ? "nav-link-active"
-                  : ""
-              } ${menu.url.startsWith("/ui-kit") ? "text-red-600" : ""}`}
+                pathname === `${menu.url}/` || pathname === menu.url ? 'nav-link-active' : ''
+              } ${menu.url.startsWith('/ui-kit') ? 'text-red-600' : ''}`}
             >
               {menu.name}
             </a>
@@ -71,11 +60,7 @@ const toggleId = `nav-toggle`;
           <li class="nav-item">
             <a
               href={menu.url}
-              class={`nav-link inline-block ${
-                pathname === `${menu.url}/` || pathname === menu.url
-                  ? "nav-link-active"
-                  : ""
-              }`}
+              class={`nav-link inline-block ${pathname === `${menu.url}/` || pathname === menu.url ? 'nav-link-active' : ''}`}
             >
               {menu.name}
             </a>

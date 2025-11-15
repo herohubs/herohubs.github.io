@@ -19,17 +19,13 @@ const similarItems = (currentItem: any, allItems: any[]) => {
   );
 
   // filter by tags
-  const filterByTags = allItems.filter((item: any) =>
-    tags.find((tag) => item.data.tags.includes(tag)),
-  );
+  const filterByTags = allItems.filter((item: any) => tags.find((tag) => item.data.tags.includes(tag)));
 
   // merged after filter
   const mergedItems = [...new Set([...filterByCategories, ...filterByTags])];
 
   // filter by slug
-  const filterBySlug = mergedItems.filter(
-    (product) => product.id !== currentItem.id,
-  );
+  const filterBySlug = mergedItems.filter((product) => product.id !== currentItem.id);
 
   return filterBySlug;
 };

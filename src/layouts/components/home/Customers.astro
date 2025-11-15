@@ -1,6 +1,6 @@
 ---
 const { className } = Astro.props;
-import customers from "@/config/home/customers.json";
+import customers from '@/config/home/customers.json';
 ---
 
 <section class={className} id="customers">
@@ -16,9 +16,7 @@ import customers from "@/config/home/customers.json";
       </ul>
 
       <div class="relative overflow-hidden py-4">
-        <div
-          class="flex flex-wrap justify-center hover:[animation-play-state:paused] gap-x-20 gap-y-10"
-        >
+        <div class="flex flex-wrap justify-center hover:[animation-play-state:paused] gap-x-20 gap-y-10">
           {
             customers.items.map((item, index) => (
               <a

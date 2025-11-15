@@ -1,10 +1,10 @@
 ---
-import Post from "@/components/Post.astro";
-import Base from "@/layouts/Base.astro";
-import { getSinglePage } from "@/lib/contentParser.astro";
-import { sortByDate } from "@/lib/utils/sortFunctions";
+import Post from '@/components/Post.astro';
+import Base from '@/layouts/Base.astro';
+import { getSinglePage } from '@/lib/contentParser.astro';
+import { sortByDate } from '@/lib/utils/sortFunctions';
 
-const posts = await getSinglePage("posts");
+const posts = await getSinglePage('posts');
 const sortPostByDate = sortByDate(posts);
 ---
 
@@ -15,11 +15,7 @@ const sortPostByDate = sortByDate(posts);
         <div class="mx-auto lg:col-10">
           <h1 class="text-center capitalize font-normal">Blog</h1>
           <div class="row pt-12 gy-4">
-            {
-              sortPostByDate.map((post) => (
-                <Post className="sm:col-6" post={post} />
-              ))
-            }
+            {sortPostByDate.map((post) => <Post className="sm:col-6" post={post} />)}
           </div>
         </div>
       </div>
