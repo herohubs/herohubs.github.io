@@ -1,9 +1,7 @@
 ---
-import config from "@/config/config.json";
-import menuJson from "@/config/menu.json";
-import { getSinglePage } from "@/lib/contentParser.astro";
-import { markdownify } from "@/lib/utils/textConverter";
-const { menu } = Astro.props;
+import type { INavigationLink } from "@/interfaces";
+
+const { menu } = Astro.props as { menu: INavigationLink[] };
 ---
 
 <div>

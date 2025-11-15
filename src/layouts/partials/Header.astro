@@ -1,41 +1,17 @@
 ---
-import menuJson from "@/config/menu.json";
-import type { INavigationLink } from "@/interfaces";
+import { getMainMenu, getCategoryMenu } from "@/lib/utils/menu";
 import { getSinglePage } from "@/lib/contentParser.astro";
-
-const menu: { main: INavigationLink[] } = menuJson;
-const { pathname } = Astro.url;
 
 const posts = await getSinglePage("posts");
 
-// Extracting unique categories from posts
-const uniqueCategories: string[] = [
-  ...new Set(posts.flatMap((post: any) => post.data.categories)),
-];
+const websiteMenus = getMainMenu();
+const categoriesMenus = getCategoryMenu(posts);
 
-const categories: INavigationLink[] = uniqueCategories.map(
-  (category: string) => ({
-    name: category,
-    url: `/categories/${category?.toLowerCase().replace(/\s+/g, "-")}`,
-  }),
-);
-
-// Constructing combinedMenu
-const combinedMenu: INavigationLink[] = [];
-
-// Adding the first item of main
-combinedMenu.push(menu.main[0]);
-
-// Adding the rest of the items from main excluding the first one
-combinedMenu.push(...menu.main.slice(1));
-
-// Adding all categories
-combinedMenu.push(...categories);
-
+const { pathname } = Astro.url;
 const toggleId = `nav-toggle`;
 ---
 
-<header class={`header mt-8 pb-3 pt-12`}>
+<header class="header mt-8 pb-3 pt-12">
   <nav class="navbar container text-center md:text-left">
     <!-- navbar toggler -->
     <input id={toggleId} type="checkbox" class="hidden" />
@@ -65,57 +41,45 @@ const toggleId = `nav-toggle`;
     </label>
     <!-- /navbar toggler -->
 
-    <div class="hidden md:flex flex-col md:flex-row"></div>
     <ul
       id="nav-menu"
       class="navbar-nav order-3 w-full hidden flex-col items-center justify-center space-y-2 md:order-1 md:flex md:w-auto md:flex-row md:space-y-0 md:space-x-2"
     >
       {
-        combinedMenu.map((menu) => (
-          <>
-            {!menu.url.startsWith("/categories/") &&
-              (!menu.url.startsWith("/ui-kit") || import.meta.env.DEV) &&
-              !menu.isBlog && (
-                <li class="nav-item">
-                  <a
-                    href={menu.url}
-                    class={`nav-link inline-block ${
-                      pathname === `${menu.url}/` || pathname === menu.url
-                        ? "nav-link-active"
-                        : ""
-                    } ${menu.url.startsWith("/ui-kit") ? "text-red-600" : ""}`}
-                  >
-                    {menu.name}
-                  </a>
-                </li>
-              )}
-          </>
+        websiteMenus.map((menu) => (
+          <li class="nav-item">
+            <a
+              href={menu.url}
+              class={`nav-link inline-block ${
+                pathname === `${menu.url}/` || pathname === menu.url
+                  ? "nav-link-active"
+                  : ""
+              } ${menu.url.startsWith("/ui-kit") ? "text-red-600" : ""}`}
+            >
+              {menu.name}
+            </a>
+          </li>
         ))
       }
     </ul>
 
     <ul
-      id="nav-menu"
       class="navbar-nav order-3 w-full hidden flex-col items-center justify-center space-y-2 md:flex md:w-auto md:flex-row md:space-y-0 md:space-x-2 md:mt-6 mt-0"
     >
       {
-        combinedMenu.map((menu) => (
-          <>
-            {(menu.url.startsWith("/categories/") || menu.isBlog) && (
-              <li class="nav-item">
-                <a
-                  href={menu.url}
-                  class={`nav-link inline-block ${
-                    pathname === `${menu.url}/` || pathname === menu.url
-                      ? "nav-link-active"
-                      : ""
-                  }`}
-                >
-                  {menu.name}
-                </a>
-              </li>
-            )}
-          </>
+        categoriesMenus.map((menu) => (
+          <li class="nav-item">
+            <a
+              href={menu.url}
+              class={`nav-link inline-block ${
+                pathname === `${menu.url}/` || pathname === menu.url
+                  ? "nav-link-active"
+                  : ""
+              }`}
+            >
+              {menu.name}
+            </a>
+          </li>
         ))
       }
     </ul>
