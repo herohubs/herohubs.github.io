@@ -5,7 +5,8 @@ input#nav-toggle:checked + label #show-button {
 input#nav-toggle:checked + label #hide-button {
   @apply block;
 }
-input#nav-toggle:checked ~ #nav-menu {
+input#nav-toggle:checked ~ #nav-menu-website,
+input#nav-toggle:checked ~ #nav-menu-categories {
   @apply block;
 }
 
