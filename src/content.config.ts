@@ -37,6 +37,7 @@ const pagesCollection = defineCollection({
     description: z.string().optional(),
     image: z.string().optional(),
     draft: z.boolean().optional(),
+    justify: z.boolean().optional(),
   }),
 });
 

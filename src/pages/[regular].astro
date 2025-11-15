@@ -18,14 +18,14 @@ export async function getStaticPaths() {
 }
 
 const { page } = Astro.props;
-const { title, meta_title, description, image } = page.data;
+const { title, meta_title, description, image, justify } = page.data;
 const { Content } = await render(page);
 ---
 
 <Base title={title} meta_title={meta_title} description={description} image={image}>
   <PageHeader title={title} />
   <section class="section-sm">
-    <div class="container">
+    <div class="container" class:list={justify ? 'text-justify' : ''}>
       <div class="row justify-center">
         <div class="lg:col-10">
           <div class="content">
