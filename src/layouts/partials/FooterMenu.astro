@@ -2,6 +2,7 @@
 import type { INavigationLink } from '@/interfaces';
 
 const { menu } = Astro.props as { menu: INavigationLink[] };
+const { externalLinks } = Astro.props;
 ---
 
 <div>
@@ -9,7 +10,11 @@ const { menu } = Astro.props as { menu: INavigationLink[] };
     {
       menu.map((m) => (
         <li>
-          <a href={m.url} class="hover:text-primary transition-colors text-sm">
+          <a
+            href={m.url}
+            class="hover:text-primary transition-colors text-sm"
+            target={externalLinks ? '_blank' : '_self'}
+          >
             {m.name}
           </a>
         </li>

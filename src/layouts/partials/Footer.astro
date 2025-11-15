@@ -22,7 +22,7 @@ const { image_min, designation } = config.profile;
     </div>
     <FooterMenu menu={websiteMenus} />
     <FooterMenu menu={categoriesMenus} />
-    <FooterMenu menu={otherMenus} />
+    <FooterMenu menu={otherMenus} externalLinks="true" />
   </div>
   <div class="mt-16 text-sm text-gray-600 text-center pt-6">
     <p set:html={markdownify(copyright)} class="text-primary" />
