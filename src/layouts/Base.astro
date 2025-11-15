@@ -21,16 +21,6 @@ if (theme.fonts.font_family.primary) {
     .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;]+/gi, "");
 }
 
-// types for frontmatters
-export interface Props {
-  title?: string;
-  meta_title?: string;
-  description?: string;
-  image?: string;
-  noindex?: boolean;
-  canonical?: string;
-}
-
 // distructure frontmatters
 const { title, meta_title, description, image, noindex, canonical } =
   Astro.props;

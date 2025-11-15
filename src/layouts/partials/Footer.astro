@@ -1,6 +1,7 @@
 ---
 import config from "@/config/config.json";
 import menuJson from "@/config/menu.json";
+import type { INavigationLink } from "@/interfaces";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 import FooterMenu from "@/partials/FooterMenu.astro";
@@ -9,26 +10,39 @@ const { copyright } = config.params;
 const { image_min, designation } = config.profile;
 const posts = await getSinglePage("posts");
 
-const menu: { main: NavigationLink[]; other: NavigationLink[] } = menuJson;
+const menu: { main: INavigationLink[]; other: INavigationLink[] } = menuJson;
 
 const uniqueCategories: string[] = [
   ...new Set(posts.flatMap((post: any) => post.data.categories)),
 ];
 
-const categoriesMenus: NavigationLink[] = uniqueCategories.map(
+const categoriesMenus: INavigationLink[] = uniqueCategories.map(
   (category: string) => ({
     name: category,
     url: `/categories/${category?.toLowerCase().replace(/\s+/g, "-")}`,
   }),
 );
 
-const websiteMenus = menu.main.filter(
-  (m) =>
-    (m.url?.startsWith(
-      "/categories/" &&
-        (!m.url.startsWith("/ui-kit") || import.meta.env.DEV) == false,
-    ) || m.isBlog === true) === false,
-);
+const websiteMenus = menu.main.filter((m) => {
+  const isUiKit = m.url?.startsWith("/ui-kit");
+
+  // Se è voce UI Kit → mostra solo in DEV
+  if (isUiKit) {
+    return import.meta.env.DEV;
+  }
+
+  // Escludi categorie
+  if (m.url?.startsWith("/categories/")) {
+    return false;
+  }
+
+  // Escludi blog
+  if (m.isBlog === true) {
+    return false;
+  }
+
+  return true;
+});
 ---
 
 <footer class="pt-16 pb-16 mt-16 border-t border-gray-800">

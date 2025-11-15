@@ -4,9 +4,7 @@ import services from "@/config/home/services.json";
 ---
 
 <section class={className} id="services">
-  <div
-    class="rounded-2xl p-12 lg:p-9 h-full bg-body border border-border bg-body/90"
-  >
+  <div class="rounded-2xl p-12 lg:p-9 h-full border border-border bg-body/90">
     <p class="my-4">
       <ul class="space-y-6">
         <li class="border-border">
@@ -16,10 +14,7 @@ import services from "@/config/home/services.json";
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
         {
           services.items.map((item, index) => (
-            <div
-              class="rounded-2xl border border-border p-8 hover:shadow-md transition-shadow duration-300 "
-              key={index}
-            >
+            <div class="rounded-2xl border border-border p-8 hover:shadow-md transition-shadow duration-300 ">
               <h5 class="text-primary mb-3 text-center">{item.title}</h5>
               <p class="text-muted-foreground text-center">
                 {item.description}

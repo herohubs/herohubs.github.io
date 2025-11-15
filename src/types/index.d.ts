@@ -11,3 +11,9 @@ export type Button = {
   label: string;
   link: string;
 };
+
+export type Pagination = {
+  section?: string;
+  currentPage?: number;
+  totalPages?: number;
+};

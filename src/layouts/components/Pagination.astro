@@ -1,9 +1,5 @@
 ---
-type Pagination = {
-  section?: string;
-  currentPage?: number;
-  totalPages?: number;
-};
+import type { Pagination } from "@/types";
 const { section, currentPage = 1, totalPages = 1 }: Pagination = Astro.props;
 
 const indexPageLink = currentPage === 2;
