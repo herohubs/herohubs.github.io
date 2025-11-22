@@ -35,5 +35,10 @@
     "meta_author": "Hero Hubs",
     "meta_image": "/images/og-image.png",
     "meta_description": "Innovazione digitale su misura"
+  },
+
+  "blog": {
+    "title": "Blog",
+    "meta_description": "Scopri articoli, approfondimenti e novità su tecnologia, sviluppo software e innovazione digitale."
   }
 }

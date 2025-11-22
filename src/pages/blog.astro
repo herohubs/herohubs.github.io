@@ -3,17 +3,17 @@ import Post from '@/components/Post.astro';
 import Base from '@/layouts/Base.astro';
 import { getSinglePage } from '@/lib/contentParser.astro';
 import { sortByDate } from '@/lib/utils/sortFunctions';
-
+import config from '@/config/config.json';
 const posts = await getSinglePage('posts');
 const sortPostByDate = sortByDate(posts);
 ---
 
-<Base>
+<Base meta_title={config.blog.title} description={config.blog.meta_description}>
   <div class="section">
     <div class="container">
       <div class="row">
         <div class="mx-auto lg:col-10">
-          <h1 class="text-center capitalize font-normal">Blog</h1>
+          <h1 class="text-center capitalize font-normal">{config.blog.title}</h1>
           <div class="row pt-12 gy-4">
             {sortPostByDate.map((post) => <Post className="sm:col-6" post={post} />)}
           </div>

@@ -9,6 +9,7 @@ import '@/styles/main.css';
 import '@/styles/transitions.css';
 import { AstroFont } from 'astro-font';
 import { ClientRouter } from 'astro:transitions';
+
 const { pathname } = Astro.url;
 
 // font families
@@ -20,7 +21,13 @@ if (theme.fonts.font_family.primary) {
 }
 
 // distructure frontmatters
-const { title, meta_title, description, image, noindex, canonical } = Astro.props;
+const { title, description, image, noindex, canonical } = Astro.props;
+
+const raw = Astro.props.meta_title;
+
+const meta_title = raw
+  ? raw.charAt(0).toUpperCase() + raw.slice(1) + ' | ' + config.profile.name
+  : config.profile.name + ' - ' + config.profile.designation;
 ---
 
 <!doctype html>
