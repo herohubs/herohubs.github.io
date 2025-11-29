@@ -11,7 +11,7 @@
 @utility rounded-lg {
   border-radius: 12px;
 }
-@utility rounded-xl {
+@utility rounded-4xl {
   border-radius: 16px;
 }
 

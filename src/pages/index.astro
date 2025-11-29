@@ -36,7 +36,7 @@ const { name, image, designation, bio } = config.profile;
           <h1 set:html={markdownify(name)} class="mt-12 text-6xl lg:text-8xl font-semibold" />
           <p
             set:html={markdownify(designation)}
-            class="mt-6 text-primary text-xl bg-body/80 inline-block p-10 py-2 rounded-full"
+            class="mt-6 text-primary text-xl bg-body/85 inline-block p-10 py-2 rounded-full"
           />
           <p set:html={markdownify(bio)} class="mt-4 leading-9 text-xl" />
           <Social source={social.main} className="social-icons mt-8" />

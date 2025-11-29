@@ -6,12 +6,12 @@ const { id, slug, body, data, collection } = post;
 ---
 
 <div class={className + ' opacity-90'}>
-  <div class="rounded-xl border border-border p-6 lg:p-9 h-full flex flex-col">
+  <div class="rounded-4xl border border-border p-6 lg:p-9 h-full flex flex-col">
     <ul class="flex items-center space-x-4">
       {
         data.categories.map((category: any) => (
           <li>
-            <a class="text-primary" href={`/categories/${category?.toLowerCase()}`}>
+            <a class="text-primary hover:underline" href={`/categories/${category?.toLowerCase()}`}>
               {category}
             </a>
           </li>
