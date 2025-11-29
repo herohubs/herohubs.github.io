@@ -7,10 +7,7 @@ const { title = '' }: { title?: string } = Astro.props;
 <section>
   <div class="container text-center">
     <div class="px-8 py-14 font-normal">
-      <h1
-        set:text={humanize(title)}
-        class="font-normal mt-6 text-primary bg-body/85 inline-block p-10 py-2 rounded-full"
-      />
+      <h1 set:text={humanize(title)} class="font-normal mt-6 bg-body/85 inline-block p-10 py-2 rounded-full" />
     </div>
   </div>
 </section>

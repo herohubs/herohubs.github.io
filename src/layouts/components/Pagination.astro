@@ -14,7 +14,10 @@ for (let i = 1; i <= totalPages; i++) {
 
 {
   totalPages > 1 && (
-    <nav class="mb-4 flex justify-center -space-x-px" aria-label="Pagination">
+    <nav
+      class="mb-4 flex justify-center max-w-md mx-auto -space-x-px bg-body/85 py-5 px-10 rounded-full"
+      aria-label="Pagination"
+    >
       {/* previous */}
       {hasPrevPage ? (
         <a
