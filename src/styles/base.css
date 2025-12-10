@@ -59,7 +59,7 @@ code {
   background-image: url('/images/herohubs-1.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  animation: herohubs-moveBg 30s linear infinite alternate;
+  animation: herohubs-moveBg 50s linear infinite alternate;
 }
 
 @keyframes herohubs-moveBg {
@@ -67,6 +67,6 @@ code {
     background-position: 0 0;
   }
   to {
-    background-position: -1000px 0;
+    background-position: -2000px 0;
   }
 }

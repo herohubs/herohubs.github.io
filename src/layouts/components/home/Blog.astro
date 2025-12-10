@@ -1,6 +1,6 @@
 ---
 const { className } = Astro.props;
-import articles from '@/config/home/blog.json';
+import { blog } from '@/config/home.json';
 import { getSinglePage } from '@/lib/contentParser.astro';
 import { sortByDate } from '@/lib/utils/sortFunctions';
 import Post from '@/components/Post.astro';
@@ -13,7 +13,10 @@ const sortPostByDate = sortByDate(posts);
     <p class="my-4">
       <ul class="space-y-6">
         <li class="border-border">
-          <h6 class="text-center">{articles.title}</h6>
+          <h6 class="text-center">{blog.subtitle}</h6>
+          <p class="text-muted-foreground text-center my-4">
+            {blog.text}
+          </p>
         </li>
       </ul>
       <div class="w-full flex items-center justify-center">

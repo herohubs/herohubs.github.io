@@ -1,6 +1,6 @@
 ---
 const { className } = Astro.props;
-import reality from '@/config/home/how.json';
+import { how } from '@/config/home.json';
 ---
 
 <section class={className} id="how">
@@ -8,12 +8,12 @@ import reality from '@/config/home/how.json';
     <p class="my-4">
       <ul class="space-y-6">
         <li class="border-border">
-          <h6 class="text-center bold">{reality.title}</h6>
+          <h6 class="text-center bold">{how.subtitle}</h6>
           <p class="text-muted-foreground text-center my-4">
-            {reality.text1}
+            {how.text1}
           </p>
           <p class="text-muted-foreground text-center my-4">
-            {reality.text2}
+            {how.text2}
           </p>
         </li>
       </ul>
