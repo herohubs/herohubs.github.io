@@ -1,8 +1,10 @@
 ---
 import dateFormat from '@/lib/utils/dateFormat';
 
-const { post, className } = Astro.props;
-const { id, slug, body, data, collection } = post;
+const { post, id, lang, className } = Astro.props;
+const { data } = post;
+
+const cleanId = post.id.includes('/') ? post.id.split('/')[1] : id;
 ---
 
 <div class={className + ' opacity-90'}>
@@ -11,7 +13,7 @@ const { id, slug, body, data, collection } = post;
       {
         data.categories.map((category: any) => (
           <li>
-            <a class="text-primary hover:underline" href={`/categories/${category?.toLowerCase()}`}>
+            <a class="text-primary hover:underline" href={`/${lang}/categories/${category.toLowerCase()}`}>
               {category}
             </a>
           </li>
@@ -22,11 +24,9 @@ const { id, slug, body, data, collection } = post;
       {dateFormat(data.date, 'MMMM yyyy').charAt(0).toUpperCase() + dateFormat(data.date, 'MMMM yyyy').slice(1)}
     </p>
     <h2 class="h3 mb-2 font-normal line-clamp-4">
-      <a href={`/posts/${post.id}`} class="block">
-        {data.title}
-      </a>
+      <a href={`/${lang}/posts/${cleanId}`} class="block">{data.title}</a>
     </h2>
-    <a class="btn-link mt-7 inline-flex items-center hover:text-primary" href={`/posts/${id}`}>
+    <a class="btn-link mt-7 inline-flex items-center hover:text-primary" href={`/${lang}/posts/${cleanId}`}>
       Continua a leggere
       <svg
         class="ml-1"

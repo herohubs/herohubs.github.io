@@ -1,4 +1,3 @@
-// sort by date
 export const sortByDate = (array: any[]) => {
   const sortedArray = array.sort(
     (a: any, b: any) => new Date(b.data.date && b.data.date).valueOf() - new Date(a.data.date && a.data.date).valueOf(),
@@ -6,7 +5,6 @@ export const sortByDate = (array: any[]) => {
   return sortedArray;
 };
 
-// sort product by weight
 export const sortByWeight = (array: any[]) => {
   const withWeight = array.filter((item: { data: { weight: any } }) => item.data.weight);
   const withoutWeight = array.filter((item: { data: { weight: any } }) => !item.data.weight);

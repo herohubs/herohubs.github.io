@@ -1,0 +1,56 @@
+---
+import Base from '@/layouts/Base.astro';
+import Post from '@/components/Post.astro';
+import Pagination from '@/components/Pagination.astro';
+import PageHeader from '@/partials/PageHeader.astro';
+import { getSinglePage } from '@/lib/contentParser.astro';
+import { sortByDate } from '@/lib/utils/sortFunctions';
+import config from '@/config/config.json';
+
+export async function getStaticPaths() {
+  const languages = ['it', 'en'];
+  return languages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params;
+
+const posts = (await getSinglePage('posts')).filter((p) => p.id.startsWith(`${lang}/`));
+
+const postsWithCleanId = posts.map((p) => ({
+  ...p,
+  cleanId: p.id.replace(`${lang}/`, ''),
+}));
+
+const { pagination } = config.settings;
+const sortPostByDate = sortByDate(postsWithCleanId);
+
+const paginatedPosts = sortPostByDate.slice(0, pagination);
+
+const totalPages = Math.ceil(postsWithCleanId.length / pagination);
+---
+
+<Base meta_title={config.blog.title} description={config.blog.meta_description} lang={lang}>
+  <div class="section herohubs-section">
+    <PageHeader title={config.blog.title} />
+    <section class="section-sm ml-5 mr-5">
+      <div class="container">
+        <div class="row">
+          <div class="container">
+            <div class="row gy-4">
+              {
+                paginatedPosts.map((post) => (
+                  <Post className="col-12 sm:col-6" post={post} lang={lang} id={post.cleanId} />
+                ))
+              }
+            </div>
+            <div class="mt-12">
+              <Pagination totalPages={totalPages} currentPage={1} lang={lang} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Base>

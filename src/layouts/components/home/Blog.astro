@@ -1,5 +1,5 @@
 ---
-const { className } = Astro.props;
+const { className, lang } = Astro.props;
 import { blog } from '@/config/home.json';
 import { getSinglePage } from '@/lib/contentParser.astro';
 import { sortByDate } from '@/lib/utils/sortFunctions';
@@ -24,7 +24,11 @@ const sortPostByDate = sortByDate(posts);
           <div class="container mx-auto px-4 overflow-hidden">
             <div class="max-w-6xl mx-auto flex">
               <div class="flex flex-wrap gap-x-4 gap-y-4 justify-center">
-                {sortPostByDate.slice(0, 3).map((post) => <Post className="flex-shrink-0 w-90 h-100" post={post} />)}
+                {
+                  sortPostByDate
+                    .slice(0, 3)
+                    .map((post) => <Post className="flex-shrink-0 w-90 h-100" post={post} lang={lang} />)
+                }
               </div>
             </div>
           </div>

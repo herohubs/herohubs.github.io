@@ -6,25 +6,27 @@ import { getTaxonomy } from '@/lib/taxonomyParser.astro';
 import taxonomyFilter from '@/lib/utils/taxonomyFilter';
 import PageHeader from '@/partials/PageHeader.astro';
 
-// get static paths for all categories
 export async function getStaticPaths() {
+  const languages = ['it', 'en'];
   const categories = await getTaxonomy('posts', 'categories');
 
-  return categories.map((category) => {
-    return {
-      params: { category },
-    };
-  });
+  return categories.flatMap((category) =>
+    languages.map((lang) => ({
+      params: {
+        lang,
+        category,
+      },
+    })),
+  );
 }
 
-const { category } = Astro.params;
+const { lang, category } = Astro.params;
 
-// get posts by category
-const posts = await getSinglePage('posts');
+const posts = (await getSinglePage('posts')).filter((p) => p.id.startsWith(`${lang}/`));
 const filterByCategories = taxonomyFilter(posts, 'categories', category!);
 ---
 
-<Base meta_title={category}>
+<Base meta_title={category} lang={lang}>
   <div class="section herohubs-section">
     <PageHeader title={category} />
     <section class="section-sm ml-5 mr-5">
@@ -32,7 +34,7 @@ const filterByCategories = taxonomyFilter(posts, 'categories', category!);
         <div class="row">
           <div class="container">
             <div class="row gy-4">
-              {filterByCategories.map((post) => <Post className="sm:col-6" post={post} />)}
+              {filterByCategories.map((post) => <Post className="sm:col-6" post={post} lang={lang} />)}
             </div>
           </div>
         </div>

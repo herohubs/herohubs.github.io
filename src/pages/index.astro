@@ -1,66 +1,27 @@
 ---
-import ImageMod from '@/components/ImageMod.astro';
-import Social from '@/components/Social.astro';
-import config from '@/config/config.json';
-import theme from '@/config/theme.json';
-import social from '@/config/social.json';
-import Base from '@/layouts/Base.astro';
-import { markdownify } from '@/lib/utils/textConverter';
-import Blocks from '@/components/home/Blocks.astro';
-import How from '@/components/home/How.astro';
-import Why from '@/components/home/Why.astro';
-import Services from '@/components/home/Services.astro';
-import Customers from '@/components/home/Customers.astro';
-import Contacts from '@/components/home/Contacts.astro';
-import Blog from '@/components/home/Blog.astro';
+const defaultLang = 'en';
 
-const { primary } = theme.colors.default.theme_color;
-const { name, image, designation, bio } = config.profile;
+const browserLang = (typeof navigator !== 'undefined' ? navigator.language.slice(0, 2) : null) || defaultLang;
+
+const supportedLanguages = ['it', 'en'];
+const lang = supportedLanguages.includes(browserLang) ? browserLang : defaultLang;
 ---
 
-<Base>
-  {/* profile */}
-  <div class="section herohubs-section">
-    <div class="container">
-      <div class="row">
-        <div class="mx-auto text-center lg:col-8">
-          <ImageMod
-            class="mx-auto rounded-full"
-            src={image}
-            width={220}
-            height={220}
-            alt={name}
-            loading="eager"
-            style={`border: 3px solid ${primary}`}
-          />
-          <h1 set:html={markdownify(name)} class="mt-12 text-6xl lg:text-8xl font-semibold" />
-          <p
-            set:html={markdownify(designation)}
-            class="mt-6 text-primary text-xl bg-body/85 inline-block p-10 py-2 rounded-full"
-          />
-          <p set:html={markdownify(bio)} class="mt-4 leading-9 text-xl" />
-          <Social source={social.main} className="social-icons mt-8" />
-        </div>
-      </div>
-
-      {/* contents */}
-      <div class="pt-4 mt-24">
-        <div class="container">
-          <div class="row">
-            <div class="mx-auto lg:col-12">
-              <div class="row g-4">
-                <Blocks className="col-12 sm:col-3" />
-                <Why className="col-12 sm:col-12" />
-                <How className="col-12 sm:col-12" />
-                <Services className="col-12 sm:col-12 hidden md:block" />
-                <Customers className="col-12 sm:col-12" />
-                <Blog className="col-12 sm:col-12 hidden lg:block" />
-                <Contacts className="col-12 sm:col-12" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</Base>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0; URL='/{lang}'" />
+    <title>Redirecting...</title>
+    <script>
+      const supportedLanguages = ['it', 'en'];
+      const defaultLang = 'it';
+      const lang = supportedLanguages.includes(navigator.language.slice(0, 2))
+        ? navigator.language.slice(0, 2)
+        : defaultLang;
+      window.location.href = `/${lang}`;
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to <a href="/{lang}">/{lang}</a>...</p>
+  </body>
+</html>

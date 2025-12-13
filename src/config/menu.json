@@ -2,46 +2,46 @@
   "main": [
     {
       "name": "Home",
-      "url": "/"
+      "url": "/it"
     },
     {
       "name": "Chi siamo",
-      "url": "/about"
+      "url": "/it/about"
     },
     {
       "name": "Servizi",
-      "url": "/services"
+      "url": "/it/services"
     },
     {
       "name": "Portfolio",
-      "url": "/portfolio"
+      "url": "/it/portfolio"
     },
     {
       "name": "Contatti",
-      "url": "/contacts"
+      "url": "/it/contacts"
     },
     {
       "name": "Blog",
-      "url": "/blog",
+      "url": "/it/blog",
       "isBlog": true
     },
     {
       "name": "UI Kit",
-      "url": "/ui-kit"
+      "url": "/it/ui-kit"
     }
   ],
   "other": [
     {
       "name": "Privacy Policy",
-      "url": "/privacy-policy"
+      "url": "/it/privacy-policy"
     },
     {
       "name": "Cookie Policy",
-      "url": "/cookie-policy"
+      "url": "/it/cookie-policy"
     },
     {
       "name": "Termini e Condizioni",
-      "url": "/terms-and-conditions"
+      "url": "/it/terms-and-conditions"
     }
   ]
 }

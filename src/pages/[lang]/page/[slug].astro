@@ -1,0 +1,79 @@
+---
+import Pagination from '@/components/Pagination.astro';
+import Post from '@/components/Post.astro';
+import config from '@/config/config.json';
+import Base from '@/layouts/Base.astro';
+import { getSinglePage } from '@/lib/contentParser.astro';
+import { sortByDate } from '@/lib/utils/sortFunctions';
+import PageHeader from '@/partials/PageHeader.astro';
+
+const posts = await getSinglePage('posts');
+
+const { lang, slug } = Astro.params;
+const allPosts = await getSinglePage('posts');
+
+const postsByLang = allPosts.filter((p) => p.id.startsWith(`${lang}/`));
+
+const sortedPosts = sortByDate(postsByLang);
+
+const pageSize = config.settings.pagination;
+const totalPages = Math.ceil(postsByLang.length / pageSize);
+const currentPage = slug && !isNaN(Number(slug)) ? Number(slug) : 1;
+const indexOfLastPost = currentPage * pageSize;
+const indexOfFirstPost = indexOfLastPost - pageSize;
+const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
+
+export async function getStaticPaths() {
+  const languages = ['it', 'en'];
+  const posts = await getSinglePage('posts');
+  const pageSize = config.settings.pagination;
+
+  const paths = [];
+
+  for (const lang of languages) {
+    const postsByLang = posts.filter((post) => post.id.startsWith(`${lang}/`));
+    const totalPages = Math.ceil(postsByLang.length / pageSize);
+
+    paths.push({
+      params: {
+        lang,
+        slug: '1',
+      },
+    });
+
+    for (let i = 2; i <= totalPages; i++) {
+      paths.push({
+        params: {
+          lang,
+          slug: i.toString(),
+        },
+      });
+    }
+  }
+
+  return paths;
+}
+---
+
+<Base>
+  <section class="section herohubs-section">
+    <PageHeader title=`Pagina ${currentPage}` />
+
+    <div class="container">
+      <div class="row">
+        <div class="mx-auto lg:col-10">
+          <div class="row">
+            {
+              currentPosts.map((post, i) => (
+                <Post className="col-12 mb-6 sm:col-6" key={'key-' + i} post={post} lang={lang} />
+              ))
+            }
+          </div>
+        </div>
+      </div>
+      <div class="mt-12">
+        <Pagination totalPages={totalPages} currentPage={currentPage} lang={lang} />
+      </div>
+    </div>
+  </section>
+</Base>

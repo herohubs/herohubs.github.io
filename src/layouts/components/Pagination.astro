@@ -2,9 +2,10 @@
 import type { Pagination } from '@/types';
 const { section, currentPage = 1, totalPages = 1 }: Pagination = Astro.props;
 
-const indexPageLink = currentPage === 2;
+const lang = Astro.params.lang; // prendi la lingua direttamente dalla route
+
 const hasPrevPage = currentPage > 1;
-const hasNextPage = totalPages > currentPage!;
+const hasNextPage = currentPage < totalPages;
 
 let pageList: number[] = [];
 for (let i = 1; i <= totalPages; i++) {
@@ -18,13 +19,13 @@ for (let i = 1; i <= totalPages; i++) {
       class="mb-4 flex justify-center max-w-md mx-auto -space-x-px bg-body/85 py-5 px-10 rounded-full"
       aria-label="Pagination"
     >
-      {/* previous */}
+      {/* Previous */}
       {hasPrevPage ? (
         <a
           href={
-            indexPageLink
-              ? `${section ? '/' + section : '/'}`
-              : `${section ? '/' + section : ''}/page/${currentPage - 1}`
+            currentPage - 1 === 1
+              ? `/${lang}${section ? '/' + section : ''}`
+              : `/${lang}${section ? '/' + section : ''}/page/${currentPage - 1}`
           }
           class="border border-primary px-2 py-2 text-text"
         >
@@ -62,27 +63,27 @@ for (let i = 1; i <= totalPages; i++) {
         </span>
       )}
 
-      {/* page index */}
-      {pageList.map((pagination, i) =>
-        pagination === currentPage ? (
+      {/* Page numbers */}
+      {pageList.map((pageNum) =>
+        pageNum === currentPage ? (
           <span aria-current="page" class="border border-primary bg-primary px-4 py-2 text-white">
-            {pagination}
+            {pageNum}
           </span>
         ) : (
           <a
-            href={i === 0 ? `${section ? '/' + section : '/'}` : `${section ? '/' + section : ''}/page/${pagination}`}
+            href={`/${lang}${section ? '/' + section : ''}/page/${pageNum}`}
             aria-current="page"
             class="border border-primary px-4 py-2 text-text"
           >
-            {pagination}
+            {pageNum}
           </a>
         ),
       )}
 
-      {/* next page */}
+      {/* Next */}
       {hasNextPage ? (
         <a
-          href={`${section ? '/' + section : ''}/page/${currentPage + 1}`}
+          href={`/${lang}${section ? '/' + section : ''}/page/${currentPage + 1}`}
           class="border border-primary px-2 py-2 text-text"
         >
           <span class="sr-only">Next</span>
