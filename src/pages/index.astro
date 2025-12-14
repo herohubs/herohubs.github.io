@@ -1,27 +1,31 @@
 ---
+import theme from '@/config/theme.json';
+
 const defaultLang = 'en';
 
 const browserLang = (typeof navigator !== 'undefined' ? navigator.language.slice(0, 2) : null) || defaultLang;
 
 const supportedLanguages = ['it', 'en'];
 const lang = supportedLanguages.includes(browserLang) ? browserLang : defaultLang;
+
+const background = theme.colors.default.theme_color.body;
 ---
 
 <html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content="0; URL='/{lang}'" />
+    <meta http-equiv="refresh" content=`0; URL='/${lang}'` />
     <title>Redirecting...</title>
     <script>
       const supportedLanguages = ['it', 'en'];
-      const defaultLang = 'it';
+      const defaultLang = 'en';
       const lang = supportedLanguages.includes(navigator.language.slice(0, 2))
         ? navigator.language.slice(0, 2)
         : defaultLang;
       window.location.href = `/${lang}`;
     </script>
   </head>
-  <body>
-    <p>Redirecting to <a href="/{lang}">/{lang}</a>...</p>
+  <body style=`background-color: ${background}`>
+    <!-- Redirecting to the appropriate language version... -->
   </body>
 </html>
