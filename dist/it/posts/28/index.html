@@ -1,0 +1,845 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/images/herohubs-favicon_64x64.png" />
+    <!-- theme meta -->
+    <meta name="theme-name" content="hydrogen-astro" />
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
+    <meta name="generator" content="Astro v5.16.5" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- google font css -->
+    <style>
+      @font-face {
+        unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+        font-weight: 400;
+        font-style: normal;
+        font-family: 'Montserrat';
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WRhyyTh89ZNpQ.woff2);
+      }
+      @font-face {
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        font-weight: 400;
+        font-style: normal;
+        font-family: 'Montserrat';
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459W1hyyTh89ZNpQ.woff2);
+      }
+      @font-face {
+        unicode-range:
+          U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304,
+          U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        font-weight: 400;
+        font-style: normal;
+        font-family: 'Montserrat';
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WZhyyTh89ZNpQ.woff2);
+      }
+      @font-face {
+        unicode-range:
+          U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF,
+          U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        font-weight: 400;
+        font-style: normal;
+        font-family: 'Montserrat';
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WdhyyTh89ZNpQ.woff2);
+      }
+      @font-face {
+        unicode-range:
+          U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F,
+          U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        font-weight: 400;
+        font-style: normal;
+        font-family: 'Montserrat';
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2);
+      }
+      @font-face {
+        unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+        font-weight: 500;
+        font-style: normal;
+        font-family: 'Montserrat';
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WRhyyTh89ZNpQ.woff2);
+      }
+      @font-face {
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        font-weight: 500;
+        font-style: normal;
+        font-family: 'Montserrat';
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459W1hyyTh89ZNpQ.woff2);
+      }
+      @font-face {
+        unicode-range:
+          U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304,
+          U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        font-weight: 500;
+        font-style: normal;
+        font-family: 'Montserrat';
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WZhyyTh89ZNpQ.woff2);
+      }
+      @font-face {
+        unicode-range:
+          U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF,
+          U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        font-weight: 500;
+        font-style: normal;
+        font-family: 'Montserrat';
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WdhyyTh89ZNpQ.woff2);
+      }
+      @font-face {
+        unicode-range:
+          U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F,
+          U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        font-weight: 500;
+        font-style: normal;
+        font-family: 'Montserrat';
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2);
+      }
+      @font-face {
+        unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+        font-weight: 600;
+        font-style: normal;
+        font-family: 'Montserrat';
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WRhyyTh89ZNpQ.woff2);
+      }
+      @font-face {
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        font-weight: 600;
+        font-style: normal;
+        font-family: 'Montserrat';
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459W1hyyTh89ZNpQ.woff2);
+      }
+      @font-face {
+        unicode-range:
+          U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304,
+          U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        font-weight: 600;
+        font-style: normal;
+        font-family: 'Montserrat';
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WZhyyTh89ZNpQ.woff2);
+      }
+      @font-face {
+        unicode-range:
+          U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF,
+          U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        font-weight: 600;
+        font-style: normal;
+        font-family: 'Montserrat';
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WdhyyTh89ZNpQ.woff2);
+      }
+      @font-face {
+        unicode-range:
+          U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F,
+          U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        font-weight: 600;
+        font-style: normal;
+        font-family: 'Montserrat';
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2);
+      }
+      @font-face {
+        unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+        font-weight: 700;
+        font-style: normal;
+        font-family: 'Montserrat';
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WRhyyTh89ZNpQ.woff2);
+      }
+      @font-face {
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        font-weight: 700;
+        font-style: normal;
+        font-family: 'Montserrat';
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459W1hyyTh89ZNpQ.woff2);
+      }
+      @font-face {
+        unicode-range:
+          U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304,
+          U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        font-weight: 700;
+        font-style: normal;
+        font-family: 'Montserrat';
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WZhyyTh89ZNpQ.woff2);
+      }
+      @font-face {
+        unicode-range:
+          U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF,
+          U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        font-weight: 700;
+        font-style: normal;
+        font-family: 'Montserrat';
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WdhyyTh89ZNpQ.woff2);
+      }
+      @font-face {
+        unicode-range:
+          U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F,
+          U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        font-weight: 700;
+        font-style: normal;
+        font-family: 'Montserrat';
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2);
+      }
+      :root {
+        --font-primary: 'Montserrat', '_font_fallback_1502644818961', sans-serif;
+      }
+      @font-face {
+        font-family: '_font_fallback_1502644818961';
+        size-adjust: 100%;
+        src: local('Arial');
+        ascent-override: 96.8%;
+        descent-override: 25.1%;
+        line-gap-override: 0%;
+      }
+    </style>
+    <!-- responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <!-- title -->
+    <title>Hero Hubs - Innovazione digitale su misura</title>
+    <!-- canonical url -->
+    <!-- noindex robots -->
+    <!-- meta-description -->
+    <meta
+      name="description"
+      content="Innovazione digitale su misura
+"
+    />
+    <meta name="astro-view-transitions-enabled" content="true" />
+    <meta name="astro-view-transitions-fallback" content="animate" />
+    <script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.QW52Ox2j.js"></script>
+    <!-- author from config.json -->
+    <meta name="author" content="Hero Hubs" />
+    <!-- og-title -->
+    <meta
+      property="og:title"
+      content="Hero Hubs - Innovazione digitale su misura
+"
+    />
+    <!-- og-description -->
+    <meta
+      property="og:description"
+      content="Innovazione digitale su misura
+"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://herohubs.it/it/posts/28" />
+    <!-- twitter-title -->
+    <meta
+      name="twitter:title"
+      content="Hero Hubs - Innovazione digitale su misura
+"
+    />
+    <!-- twitter-description -->
+    <meta
+      name="twitter:description"
+      content="Innovazione digitale su misura
+"
+    />
+    <!-- og-image -->
+    <meta property="og:image" content="https://herohubs.it/images/posts/post-28.jpg" />
+    <!-- twitter-image -->
+    <meta name="twitter:image" content="https://herohubs.it/images/posts/post-28.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="/_astro/_regular_.DAwmbzM5.css" />
+  </head>
+  <body>
+    <header class="header mt-8 pb-3 pt-12">
+      <nav class="navbar container text-center md:text-left">
+        <!-- navbar toggler -->
+        <input id="nav-toggle" type="checkbox" class="hidden" />
+        <label
+          for="nav-toggle"
+          class="order-3 cursor-pointer rounded border border-border lg:p-9 p-4 inline-flex items-center lg:order-1 md:hidden"
+        >
+          <svg id="show-button" class="mr-1 h-4 w-4 fill-current block" viewBox="0 0 20 20">
+            <title>Menu Open</title>
+            <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+          </svg>
+          <svg id="hide-button" class="mr-1 h-4 w-4 fill-current hidden" viewBox="0 0 20 20">
+            <title>Menu Close</title>
+            <polygon
+              points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+              transform="rotate(45 10 10)"
+            ></polygon>
+          </svg>
+          Menu
+        </label>
+        <!-- /navbar toggler -->
+        <ul
+          id="nav-menu-website"
+          class="navbar-nav order-3 w-full hidden flex-col items-center justify-center space-y-2 md:order-1 md:flex md:w-auto md:flex-row md:space-y-0 md:space-x-2"
+        >
+          <li class="nav-item"><a href="/it" class="nav-link inline-block"> Home </a></li>
+          <li class="nav-item"><a href="/it/about" class="nav-link inline-block"> Chi siamo </a></li>
+          <li class="nav-item"><a href="/it/services" class="nav-link inline-block"> Servizi </a></li>
+          <li class="nav-item"><a href="/it/portfolio" class="nav-link inline-block"> Portfolio </a></li>
+          <li class="nav-item"><a href="/it/contacts" class="nav-link inline-block"> Contatti </a></li>
+          <li class="nav-item"><a href="/it/ui-kit" class="nav-link inline-block"> UI Kit </a></li>
+        </ul>
+        <ul
+          id="nav-menu-categories"
+          class="navbar-nav order-3 w-full hidden flex-col items-center justify-center space-y-2 md:flex md:w-auto md:flex-row md:space-y-0 md:space-x-2 md:mt-6 mt-0"
+        >
+          <li class="nav-item"><a href="/it/blog" class="nav-link inline-block"> Blog </a></li>
+          <li class="nav-item">
+            <a href="/it/categories/architettura" class="nav-link inline-block"> Architettura </a>
+          </li>
+          <li class="nav-item"><a href="/it/categories/sviluppo" class="nav-link inline-block"> Sviluppo </a></li>
+          <li class="nav-item"><a href="/it/categories/progetti" class="nav-link inline-block"> Progetti </a></li>
+          <li class="nav-item"><a href="/it/categories/ai" class="nav-link inline-block"> AI </a></li>
+        </ul>
+      </nav>
+    </header>
+    <main id="main-content">
+      <section class="pt-20 pb-6">
+        <div class="container">
+          <div class="row">
+            <div class="mx-auto lg:col-10">
+              <button
+                class="mb-12 inline-flex items-center text-primary hover:underline"
+                onclick="if (history.length > 2) { history.back(); } else { window.location.href='/'; }"
+              >
+                <svg
+                  class="mr-2"
+                  width="21"
+                  height="16"
+                  viewBox="0 0 21 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M.292892 7.29289c-.3905235.39053-.3905235 1.02369.0 1.41422L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711 8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8 8.07107 2.34315C8.46159 1.95262 8.46159 1.31946 8.07107.928932 7.68054.538408 7.04738.538408 6.65685.928932L.292892 7.29289zM21 7H1V9H21V7z"
+                    fill="currentcolor"
+                  ></path>
+                </svg>
+                Indietro
+              </button>
+              <article>
+                <img
+                  src="/_astro/post-28.BwSFd9vv_1CLzW6.webp"
+                  alt="Cookie VS Local Storage: differenze e vantaggi"
+                  loading="eager"
+                  decoding="async"
+                  fetchpriority="auto"
+                  width="1000"
+                  height="500"
+                  class="w-full"
+                />
+                <h1 class="h2 mt-12">Cookie VS Local Storage: differenze e vantaggi</h1>
+                <ul class="mt-4 mb-8 text-text">
+                  <li class="mb-2 mr-4 inline-block">
+                    <ul>
+                      <li class="inline-block">
+                        <a href="/it/categories/sviluppo" class="mr-3 text-primary"> Sviluppo </a>
+                      </li>
+                      |
+                    </ul>
+                  </li>
+                  <li class="mb-2 mr-4 inline-block">
+                    <span class="mr-2 inline-block"> Agosto 2025 </span>
+                    |
+                  </li>
+                  <li class="mb-2 mr-4 inline-block">03 Mins read</li>
+                </ul>
+                <div class="content text-left">
+                  <p>
+                    La gestione dei dati lato client è un aspetto cruciale nello sviluppo web, con impatti significativi
+                    su prestazioni, sicurezza ed esperienza utente.
+                  </p>
+                  <p>
+                    Due delle soluzioni più comuni per la memorizzazione delle informazioni nel browser sono i cookie e
+                    il local storage.
+                  </p>
+                  <p>
+                    Sebbene entrambi permettano di salvare dati per migliorare l’interazione dell’utente con un sito,
+                    presentano caratteristiche e utilizzi differenti.
+                  </p>
+                  <h4 id="memorizzazione-lato-client-perché-è-importante">
+                    Memorizzazione lato client: perché è importante?
+                  </h4>
+                  <p>
+                    I browser moderni offrono diversi strumenti per memorizzare informazioni localmente, consentendo di
+                    ridurre il carico sui server, migliorare la velocità di accesso ai dati e offrire una navigazione
+                    più fluida.
+                  </p>
+                  <p>
+                    Poiché il protocollo http è stateless (non mantiene lo stato tra una richiesta e l’altra), questi
+                    metodi di archiviazione risultano essenziali per garantire una continuità nell’esperienza utente.
+                  </p>
+                  <p>Le due principali soluzioni di storage lato client sono i cookie e il local storage.</p>
+                  <p>
+                    I cookie sono piccoli file di testo inviati dal server e salvati nel browser, che possono essere
+                    automaticamente inclusi in ogni richiesta http.
+                  </p>
+                  <p>
+                    Il local storage, invece, offre una soluzione più capiente e persistente, che conserva i dati in
+                    chiave-valore all’interno del browser senza inviarli al server a ogni richiesta.
+                  </p>
+                  <h4 id="cookie">Cookie</h4>
+                  <p>
+                    I cookie vengono utilizzati principalmente per l’autenticazione e la gestione delle sessioni,
+                    consentendo al server di riconoscere gli utenti tra una richiesta e l’altra.
+                  </p>
+                  <p>
+                    A differenza del local storage, possono essere letti sia dal client che dal server e trasmessi
+                    automaticamente con ogni richiesta http.
+                  </p>
+                  <p>
+                    Tuttavia, i cookie hanno un limite di dimensione ridotto (4kb) e, poiché vengono inviati con ogni
+                    richiesta, possono influire sulle prestazioni della rete.
+                  </p>
+                  <p>
+                    Possono essere configurati con attributi di sicurezza come secure, che ne permette l’invio solo su
+                    connessioni https, e httponly, riducendo i rischi legati agli attacchi xss.
+                  </p>
+                  <p>
+                    Grazie a queste caratteristiche, i cookie sono la soluzione più adatta per memorizzare token di
+                    autenticazione e sessioni utente.
+                  </p>
+                  <h4 id="local-storage">Local storage</h4>
+                  <p>
+                    Il local storage fa parte dell’api web storage e permette di salvare dati nel browser in modo
+                    persistente.
+                  </p>
+                  <p>
+                    A differenza dei cookie, le informazioni memorizzate non vengono trasmesse al server con ogni
+                    richiesta http, rendendolo una soluzione più efficiente per dati non sensibili.
+                  </p>
+                  <p>
+                    I dati memorizzati nel local storage rimangono disponibili anche dopo la chiusura del browser e
+                    possono occupare fino a 10mb, a seconda del browser.
+                  </p>
+                  <p>
+                    Tuttavia, essendo accessibile solo lato client, il local storage non è adatto per memorizzare dati
+                    sensibili, in quanto vulnerabile ad attacchi xss (cross-site scripting).
+                  </p>
+                  <p>Inoltre, non è accessibile dal server senza inviare esplicitamente le informazioni.</p>
+                  <p>
+                    Per questi motivi, è ideale per salvare preferenze utente, impostazioni di interfaccia e dati
+                    memorizzabili in cache, ma non per la gestione delle sessioni o l’autenticazione.
+                  </p>
+                  <h4 id="altri-metodi-di-memorizzazione-lato-client">Altri metodi di memorizzazione lato client</h4>
+                  <p>
+                    Oltre ai cookie e al local storage, esistono altre tecnologie che permettono la gestione dei dati
+                    nel browser. Stiamo parlando di Session storage, Indexeddb, Cache storage e Web sql (anche se
+                    deprecato).
+                  </p>
+                  <p>
+                    Session storage: è simile al local storage, ma i dati vengono eliminati automaticamente quando la
+                    scheda o il browser viene chiuso. È utile per conservare informazioni temporanee relative a una
+                    singola sessione di navigazione, come dati di input in un modulo non ancora inviato.
+                  </p>
+                  <p>
+                    Indexeddb: è un database nosql lato client che consente di memorizzare grandi quantità di dati
+                    strutturati. Supporta operazioni asincrone e query avanzate, rendendolo ideale per applicazioni
+                    complesse come progressive web apps (pwa) e strumenti di gestione dati offline.
+                  </p>
+                  <p>
+                    Cache storage (service workers): viene utilizzato principalmente per memorizzare risorse statiche
+                    come html, css, javascript e risposte api, migliorando le prestazioni e permettendo il funzionamento
+                    offline delle applicazioni. È una tecnologia chiave per le progressive web apps.
+                  </p>
+                  <p>
+                    Web sql (deprecato): era un database sql lato client, ormai superato da Indexeddb e non più
+                    supportato nei nuovi standard web.
+                  </p>
+                  <h4 id="cookie-vs-local-storage">Cookie VS Local Storage</h4>
+                  <p>Se confrontiamo direttamente le due soluzioni principali, emergono alcune differenze chiave.</p>
+                  <p>
+                    I cookie hanno un limite di dimensione di 4kb e vengono inviati con ogni richiesta http, il che può
+                    influire sulle prestazioni, ma li rende adatti alla gestione delle sessioni.
+                  </p>
+                  <p>
+                    Il local storage, invece, offre una maggiore capienza (fino a 10mb) ed è accessibile solo dal lato
+                    client, ma non è sicuro per dati sensibili.
+                  </p>
+                  <p>Dal punto di vista della sicurezza, entrambi presentano vulnerabilità.</p>
+                  <p>
+                    I cookie possono essere soggetti ad attacchi csrf (cross-site request forgery), mentre il local
+                    storage è esposto a xss, poiché i dati sono accessibili tramite javascript.
+                  </p>
+                  <p>
+                    Per la memorizzazione di informazioni critiche, è sempre consigliabile adottare misure di sicurezza
+                    adeguate, come l’uso di token protetti lato server.
+                  </p>
+                  <h4 id="la-sicurezza">La sicurezza</h4>
+                  <p>
+                    Nessuna di queste tecnologie è completamente sicura per la memorizzazione di dati sensibili senza
+                    ulteriori misure di protezione.
+                  </p>
+                  <p>
+                    Le credenziali e i token di autenticazione dovrebbero essere sempre gestiti lato server o tramite
+                    cookie con gli attributi httponly e secure.
+                  </p>
+                  <p>
+                    Inoltre, è fondamentale evitare l’archiviazione di dati critici nel local storage per prevenire
+                    accessi non autorizzati tramite attacchi xss.
+                  </p>
+                  <p>
+                    La scelta tra cookie, local storage e altre tecnologie di memorizzazione lato client dipende dalle
+                    esigenze dell’applicazione.
+                  </p>
+                  <p>
+                    Per la gestione delle sessioni e l’autenticazione, i cookie rimangono la soluzione più appropriata,
+                    mentre il local storage è ideale per memorizzare dati non sensibili e migliorare l’esperienza
+                    utente.
+                  </p>
+                  <p>
+                    Altre tecnologie come Indexeddb e Cache Storage offrono alternative più avanzate per applicazioni
+                    complesse, in particolare per il funzionamento offline.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="pt-12">
+            <h2 class="h2 text-center">Related Posts</h2>
+            <div class="row gy-4 mt-12 justify-center">
+              <div class="col-12 md:col-4 opacity-90">
+                <div class="rounded-4xl border border-border p-6 lg:p-9 h-full flex flex-col bg-body/85">
+                  <ul class="flex items-center space-x-4">
+                    <li><a class="text-primary hover:underline" href="/it/categories/sviluppo"> Sviluppo </a></li>
+                  </ul>
+                  <p class="my-4">Ottobre 2025</p>
+                  <h2 class="h3 mb-2 font-normal line-clamp-4">
+                    <a href="/it/posts/37" class="block">Biome: la toolchain moderna che semplifica lo sviluppo web</a>
+                  </h2>
+                  <a class="btn-link mt-7 inline-flex items-center hover:text-primary" href="/it/posts/37">
+                    Continua a leggere
+                    <svg
+                      class="ml-1"
+                      width="22"
+                      height="11"
+                      viewBox="0 0 16 8"
+                      fill="currentcolor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15.3536 4.35355c.1952-.19526.1952-.51184.0-.7071L12.1716.464467C11.9763.269205 11.6597.269205 11.4645.464467c-.1953.195262-.1953.511845.0.707103L14.2929 4 11.4645 6.82843c-.1953.19526-.1953.51184.0.7071C11.6597 7.7308 11.9763 7.7308 12.1716 7.53553l3.182-3.18198zM-.437114e-7 4.5H15v-1H.437114e-7l-.874228e-7 1z"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="col-12 md:col-4 opacity-90">
+                <div class="rounded-4xl border border-border p-6 lg:p-9 h-full flex flex-col bg-body/85">
+                  <ul class="flex items-center space-x-4">
+                    <li><a class="text-primary hover:underline" href="/it/categories/sviluppo"> Sviluppo </a></li>
+                  </ul>
+                  <p class="my-4">Ottobre 2025</p>
+                  <h2 class="h3 mb-2 font-normal line-clamp-4">
+                    <a href="/it/posts/39" class="block"
+                      >Astro: architettura a isole e rendering ibrido per contenuti performanti</a
+                    >
+                  </h2>
+                  <a class="btn-link mt-7 inline-flex items-center hover:text-primary" href="/it/posts/39">
+                    Continua a leggere
+                    <svg
+                      class="ml-1"
+                      width="22"
+                      height="11"
+                      viewBox="0 0 16 8"
+                      fill="currentcolor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15.3536 4.35355c.1952-.19526.1952-.51184.0-.7071L12.1716.464467C11.9763.269205 11.6597.269205 11.4645.464467c-.1953.195262-.1953.511845.0.707103L14.2929 4 11.4645 6.82843c-.1953.19526-.1953.51184.0.7071C11.6597 7.7308 11.9763 7.7308 12.1716 7.53553l3.182-3.18198zM-.437114e-7 4.5H15v-1H.437114e-7l-.874228e-7 1z"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="col-12 md:col-4 opacity-90">
+                <div class="rounded-4xl border border-border p-6 lg:p-9 h-full flex flex-col bg-body/85">
+                  <ul class="flex items-center space-x-4">
+                    <li><a class="text-primary hover:underline" href="/it/categories/sviluppo"> Sviluppo </a></li>
+                  </ul>
+                  <p class="my-4">Ottobre 2025</p>
+                  <h2 class="h3 mb-2 font-normal line-clamp-4">
+                    <a href="/it/posts/38" class="block"
+                      >Test Driven Development: un alleato silenzioso per gli eroi del software</a
+                    >
+                  </h2>
+                  <a class="btn-link mt-7 inline-flex items-center hover:text-primary" href="/it/posts/38">
+                    Continua a leggere
+                    <svg
+                      class="ml-1"
+                      width="22"
+                      height="11"
+                      viewBox="0 0 16 8"
+                      fill="currentcolor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15.3536 4.35355c.1952-.19526.1952-.51184.0-.7071L12.1716.464467C11.9763.269205 11.6597.269205 11.4645.464467c-.1953.195262-.1953.511845.0.707103L14.2929 4 11.4645 6.82843c-.1953.19526-.1953.51184.0.7071C11.6597 7.7308 11.9763 7.7308 12.1716 7.53553l3.182-3.18198zM-.437114e-7 4.5H15v-1H.437114e-7l-.874228e-7 1z"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="col-12 md:col-4 opacity-90">
+                <div class="rounded-4xl border border-border p-6 lg:p-9 h-full flex flex-col bg-body/85">
+                  <ul class="flex items-center space-x-4">
+                    <li><a class="text-primary hover:underline" href="/it/categories/sviluppo"> Sviluppo </a></li>
+                  </ul>
+                  <p class="my-4">Ottobre 2025</p>
+                  <h2 class="h3 mb-2 font-normal line-clamp-4">
+                    <a href="/it/posts/41" class="block"
+                      >Feature Flags: la chiave per rilasci sicuri, controllati e continui</a
+                    >
+                  </h2>
+                  <a class="btn-link mt-7 inline-flex items-center hover:text-primary" href="/it/posts/41">
+                    Continua a leggere
+                    <svg
+                      class="ml-1"
+                      width="22"
+                      height="11"
+                      viewBox="0 0 16 8"
+                      fill="currentcolor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15.3536 4.35355c.1952-.19526.1952-.51184.0-.7071L12.1716.464467C11.9763.269205 11.6597.269205 11.4645.464467c-.1953.195262-.1953.511845.0.707103L14.2929 4 11.4645 6.82843c-.1953.19526-.1953.51184.0.7071C11.6597 7.7308 11.9763 7.7308 12.1716 7.53553l3.182-3.18198zM-.437114e-7 4.5H15v-1H.437114e-7l-.874228e-7 1z"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="col-12 md:col-4 opacity-90">
+                <div class="rounded-4xl border border-border p-6 lg:p-9 h-full flex flex-col bg-body/85">
+                  <ul class="flex items-center space-x-4">
+                    <li><a class="text-primary hover:underline" href="/it/categories/sviluppo"> Sviluppo </a></li>
+                  </ul>
+                  <p class="my-4">Ottobre 2025</p>
+                  <h2 class="h3 mb-2 font-normal line-clamp-4">
+                    <a href="/it/posts/37" class="block">Biome: la toolchain moderna che semplifica lo sviluppo web</a>
+                  </h2>
+                  <a class="btn-link mt-7 inline-flex items-center hover:text-primary" href="/it/posts/37">
+                    Continua a leggere
+                    <svg
+                      class="ml-1"
+                      width="22"
+                      height="11"
+                      viewBox="0 0 16 8"
+                      fill="currentcolor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15.3536 4.35355c.1952-.19526.1952-.51184.0-.7071L12.1716.464467C11.9763.269205 11.6597.269205 11.4645.464467c-.1953.195262-.1953.511845.0.707103L14.2929 4 11.4645 6.82843c-.1953.19526-.1953.51184.0.7071C11.6597 7.7308 11.9763 7.7308 12.1716 7.53553l3.182-3.18198zM-.437114e-7 4.5H15v-1H.437114e-7l-.874228e-7 1z"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="col-12 md:col-4 opacity-90">
+                <div class="rounded-4xl border border-border p-6 lg:p-9 h-full flex flex-col bg-body/85">
+                  <ul class="flex items-center space-x-4">
+                    <li><a class="text-primary hover:underline" href="/it/categories/sviluppo"> Sviluppo </a></li>
+                  </ul>
+                  <p class="my-4">Ottobre 2025</p>
+                  <h2 class="h3 mb-2 font-normal line-clamp-4">
+                    <a href="/it/posts/38" class="block"
+                      >Test Driven Development: un alleato silenzioso per gli eroi del software</a
+                    >
+                  </h2>
+                  <a class="btn-link mt-7 inline-flex items-center hover:text-primary" href="/it/posts/38">
+                    Continua a leggere
+                    <svg
+                      class="ml-1"
+                      width="22"
+                      height="11"
+                      viewBox="0 0 16 8"
+                      fill="currentcolor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15.3536 4.35355c.1952-.19526.1952-.51184.0-.7071L12.1716.464467C11.9763.269205 11.6597.269205 11.4645.464467c-.1953.195262-.1953.511845.0.707103L14.2929 4 11.4645 6.82843c-.1953.19526-.1953.51184.0.7071C11.6597 7.7308 11.9763 7.7308 12.1716 7.53553l3.182-3.18198zM-.437114e-7 4.5H15v-1H.437114e-7l-.874228e-7 1z"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="col-12 md:col-4 opacity-90">
+                <div class="rounded-4xl border border-border p-6 lg:p-9 h-full flex flex-col bg-body/85">
+                  <ul class="flex items-center space-x-4">
+                    <li><a class="text-primary hover:underline" href="/it/categories/sviluppo"> Sviluppo </a></li>
+                  </ul>
+                  <p class="my-4">Ottobre 2025</p>
+                  <h2 class="h3 mb-2 font-normal line-clamp-4">
+                    <a href="/it/posts/39" class="block"
+                      >Astro: architettura a isole e rendering ibrido per contenuti performanti</a
+                    >
+                  </h2>
+                  <a class="btn-link mt-7 inline-flex items-center hover:text-primary" href="/it/posts/39">
+                    Continua a leggere
+                    <svg
+                      class="ml-1"
+                      width="22"
+                      height="11"
+                      viewBox="0 0 16 8"
+                      fill="currentcolor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15.3536 4.35355c.1952-.19526.1952-.51184.0-.7071L12.1716.464467C11.9763.269205 11.6597.269205 11.4645.464467c-.1953.195262-.1953.511845.0.707103L14.2929 4 11.4645 6.82843c-.1953.19526-.1953.51184.0.7071C11.6597 7.7308 11.9763 7.7308 12.1716 7.53553l3.182-3.18198zM-.437114e-7 4.5H15v-1H.437114e-7l-.874228e-7 1z"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="col-12 md:col-4 opacity-90">
+                <div class="rounded-4xl border border-border p-6 lg:p-9 h-full flex flex-col bg-body/85">
+                  <ul class="flex items-center space-x-4">
+                    <li><a class="text-primary hover:underline" href="/it/categories/sviluppo"> Sviluppo </a></li>
+                  </ul>
+                  <p class="my-4">Ottobre 2025</p>
+                  <h2 class="h3 mb-2 font-normal line-clamp-4">
+                    <a href="/it/posts/41" class="block"
+                      >Feature Flags: la chiave per rilasci sicuri, controllati e continui</a
+                    >
+                  </h2>
+                  <a class="btn-link mt-7 inline-flex items-center hover:text-primary" href="/it/posts/41">
+                    Continua a leggere
+                    <svg
+                      class="ml-1"
+                      width="22"
+                      height="11"
+                      viewBox="0 0 16 8"
+                      fill="currentcolor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15.3536 4.35355c.1952-.19526.1952-.51184.0-.7071L12.1716.464467C11.9763.269205 11.6597.269205 11.4645.464467c-.1953.195262-.1953.511845.0.707103L14.2929 4 11.4645 6.82843c-.1953.19526-.1953.51184.0.7071C11.6597 7.7308 11.9763 7.7308 12.1716 7.53553l3.182-3.18198zM-.437114e-7 4.5H15v-1H.437114e-7l-.874228e-7 1z"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="col-12 md:col-4 opacity-90">
+                <div class="rounded-4xl border border-border p-6 lg:p-9 h-full flex flex-col bg-body/85">
+                  <ul class="flex items-center space-x-4">
+                    <li><a class="text-primary hover:underline" href="/it/categories/sviluppo"> Sviluppo </a></li>
+                  </ul>
+                  <p class="my-4">Settembre 2025</p>
+                  <h2 class="h3 mb-2 font-normal line-clamp-4">
+                    <a href="/it/posts/33" class="block">Hono: semplicità e potenza per applicazioni web moderne</a>
+                  </h2>
+                  <a class="btn-link mt-7 inline-flex items-center hover:text-primary" href="/it/posts/33">
+                    Continua a leggere
+                    <svg
+                      class="ml-1"
+                      width="22"
+                      height="11"
+                      viewBox="0 0 16 8"
+                      fill="currentcolor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15.3536 4.35355c.1952-.19526.1952-.51184.0-.7071L12.1716.464467C11.9763.269205 11.6597.269205 11.4645.464467c-.1953.195262-.1953.511845.0.707103L14.2929 4 11.4645 6.82843c-.1953.19526-.1953.51184.0.7071C11.6597 7.7308 11.9763 7.7308 12.1716 7.53553l3.182-3.18198zM-.437114e-7 4.5H15v-1H.437114e-7l-.874228e-7 1z"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="pt-16 pb-16 mt-16 border-t border-gray-800">
+      <div class="container max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
+        <div>
+          <div class="flex justify-center items-center gap-2 mb-4 mt-4">
+            <img src="/images/herohubs-logo_135x50.png" alt="Logo" />
+          </div>
+          <p class="mb-4 text-center text-sm">Innovazione digitale su misura</p>
+        </div>
+        <div>
+          <ul class="space-y-2 text-center">
+            <li><a href="/it" class="hover:text-primary transition-colors text-sm" target="_self"> Home </a></li>
+            <li>
+              <a href="/it/about" class="hover:text-primary transition-colors text-sm" target="_self"> Chi siamo </a>
+            </li>
+            <li>
+              <a href="/it/services" class="hover:text-primary transition-colors text-sm" target="_self"> Servizi </a>
+            </li>
+            <li>
+              <a href="/it/portfolio" class="hover:text-primary transition-colors text-sm" target="_self">
+                Portfolio
+              </a>
+            </li>
+            <li>
+              <a href="/it/contacts" class="hover:text-primary transition-colors text-sm" target="_self"> Contatti </a>
+            </li>
+            <li>
+              <a href="/it/ui-kit" class="hover:text-primary transition-colors text-sm" target="_self"> UI Kit </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <ul class="space-y-2 text-center">
+            <li><a href="/it/blog" class="hover:text-primary transition-colors text-sm" target="_self"> Blog </a></li>
+            <li>
+              <a href="/it/categories/architettura" class="hover:text-primary transition-colors text-sm" target="_self">
+                Architettura
+              </a>
+            </li>
+            <li>
+              <a href="/it/categories/sviluppo" class="hover:text-primary transition-colors text-sm" target="_self">
+                Sviluppo
+              </a>
+            </li>
+            <li>
+              <a href="/it/categories/progetti" class="hover:text-primary transition-colors text-sm" target="_self">
+                Progetti
+              </a>
+            </li>
+            <li>
+              <a href="/it/categories/ai" class="hover:text-primary transition-colors text-sm" target="_self"> AI </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <ul class="space-y-2 text-center">
+            <li>
+              <a href="/it/privacy-policy" class="hover:text-primary transition-colors text-sm" target="_blank">
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a href="/it/cookie-policy" class="hover:text-primary transition-colors text-sm" target="_blank">
+                Cookie Policy
+              </a>
+            </li>
+            <li>
+              <a href="/it/terms-and-conditions" class="hover:text-primary transition-colors text-sm" target="_blank">
+                Termini e Condizioni
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-16 text-sm text-gray-600 text-center pt-6">
+        <p class="text-primary">
+          Copyright © 2025 - <a href="https://ranierivannozzi.com/">Hero Hubs</a> - P.Iva 02103710477
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

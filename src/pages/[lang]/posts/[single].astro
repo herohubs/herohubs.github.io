@@ -6,20 +6,19 @@ const { lang } = Astro.params;
 
 export async function getStaticPaths() {
   const posts = await getSinglePage('posts');
-  const languages = ['it', 'en'];
 
-  return posts.flatMap((post) =>
-    languages.map((lang) => {
-      const cleanId = post.id.replace(`${lang}/`, '');
-      return {
-        params: {
-          lang,
-          single: cleanId,
-        },
-        props: { post },
-      };
-    }),
-  );
+  return posts.map((post) => {
+    const [lang, ...rest] = post.id.split('/');
+    const cleanId = rest.join('/');
+
+    return {
+      params: {
+        lang,
+        single: cleanId,
+      },
+      props: { post },
+    };
+  });
 }
 
 const { post } = Astro.props;

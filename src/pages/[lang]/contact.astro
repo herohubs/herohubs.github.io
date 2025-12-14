@@ -9,6 +9,13 @@ const contact = (await getEntry('contact', '-index')) as CollectionEntry<'contac
 const { contact_form_action }: { contact_form_action: string } = config.params;
 const { title, description, meta_title } = contact.data;
 const { Content } = await render(contact);
+
+export async function getStaticPaths() {
+  const languages = ['it', 'en'];
+  return languages.map((lang) => ({
+    params: { lang },
+  }));
+}
 ---
 
 <Base title={title} meta_title={meta_title} description={description}>
