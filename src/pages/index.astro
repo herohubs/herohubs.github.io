@@ -1,6 +1,5 @@
 ---
 import theme from '@/config/theme.json';
-
 const background = theme.colors.default.theme_color.body;
 ---
 
@@ -13,13 +12,12 @@ const background = theme.colors.default.theme_color.body;
     <meta http-equiv="Expires" content="0" />
     <title>Redirecting...</title>
     <script>
-      (function () {
-        const supportedLanguages = ['it', 'en'];
-        const defaultLang = 'en';
-        const browserLang = navigator.language?.slice(0, 2);
-        const lang = supportedLanguages.includes(browserLang) ? browserLang : defaultLang;
-        window.location.replace('/' + lang);
-      })();
+      const supportedLanguages = ['it', 'en'];
+      const defaultLang = 'en';
+      const browserLang = navigator.language?.slice(0, 2);
+      console.log('Browser language:', browserLang);
+      const lang = supportedLanguages.includes(browserLang) ? browserLang : defaultLang;
+      window.location.replace('/' + lang);
     </script>
   </head>
 
