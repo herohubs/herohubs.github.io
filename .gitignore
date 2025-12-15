@@ -23,3 +23,5 @@ yarn.lock
 
 # ignore .astro directory
 .astro
+
+dist/
