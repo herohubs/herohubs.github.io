@@ -1,1 +1,32 @@
-<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><title>Redirecting...</title></head> <body style="background-color: {background}"> <noscript> <p>JavaScript is required. <a href="/en">Go to English site</a></p> </noscript> <script type="module">const o=["it","en"];const n=navigator.language?.slice(0,2);console.log("Browser language:",n);const e=o.includes(n)?n:"en";console.log("Redirecting to:","/"+e);window.location.replace("/"+e);</script> </body> </html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thinking..</title>
+    <style>
+      body {
+        background: #101a2c;
+      }
+    </style>
+    <script>
+      (function () {
+        const supportedLanguages = ['it', 'en'];
+        const defaultLang = 'en';
+
+        const browserLang = navigator.language?.slice(0, 2);
+        console.log('Browser language:', browserLang);
+
+        const lang = supportedLanguages.includes(browserLang) ? browserLang : defaultLang;
+        console.log('Redirecting to:', '/' + lang);
+
+        window.location.href = '/' + lang;
+      })();
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <p>JavaScript is required. <a href="/en">Go to English site</a></p>
+    </noscript>
+  </body>
+</html>
