@@ -3,27 +3,28 @@ import theme from '@/config/theme.json';
 const background = theme.colors.default.theme_color.body;
 ---
 
-<html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8" />
     <meta charset="UTF-8" />
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
     <title>Redirecting...</title>
-    <script>
-      const supportedLanguages = ['it', 'en'];
-      const defaultLang = 'en';
-      const browserLang = navigator.language?.slice(0, 2);
-      console.log('Browser language:', browserLang);
-      const lang = supportedLanguages.includes(browserLang) ? browserLang : defaultLang;
-      window.location.replace('/' + lang);
-    </script>
   </head>
 
   <body style="background-color: {background}">
     <noscript>
       <p>JavaScript is required. <a href="/en">Go to English site</a></p>
     </noscript>
+
+    <script>
+      const supportedLanguages = ['it', 'en'];
+      const defaultLang = 'en';
+      const browserLang = navigator.language?.slice(0, 2);
+      console.log('Browser language:', browserLang);
+      const lang = supportedLanguages.includes(browserLang) ? browserLang : defaultLang;
+      console.log('Redirecting to:', '/' + lang);
+      window.location.replace('/' + lang);
+    </script>
   </body>
 </html>
