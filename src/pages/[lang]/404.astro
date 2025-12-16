@@ -1,8 +1,9 @@
 ---
 import Base from '@/layouts/Base.astro';
+import config from '@/config/config.json';
 
 export async function getStaticPaths() {
-  const languages = ['it', 'en'];
+  const languages = config.settings.languages;
   return languages.map((lang) => ({
     params: { lang },
   }));

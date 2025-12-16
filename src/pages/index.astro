@@ -1,6 +1,6 @@
 ---
 import theme from '@/config/theme.json';
-const background = theme.colors.default.theme_color.body;
+import config from '@/config/config.json';
 ---
 
 <html lang="en">
@@ -9,21 +9,20 @@ const background = theme.colors.default.theme_color.body;
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <title>Redirecting...</title>
+    <title>Thinking..</title>
   </head>
 
-  <body style="background-color: {background}">
+  <body
+    style={`background-color: ${theme.colors.default.theme_color.body}; color: ${theme.colors.default.theme_color.text};`}
+  >
     <noscript>
       <p>JavaScript is required. <a href="/en">Go to English site</a></p>
     </noscript>
-
-    <script>
-      const supportedLanguages = ['it', 'en'];
-      const defaultLang = 'en';
+    <script
+      define:vars={{ supportedLanguages: config.settings.languages, defaultLang: config.settings.default_language }}
+    >
       const browserLang = navigator.language?.slice(0, 2);
-      console.log('Browser language:', browserLang);
       const lang = supportedLanguages.includes(browserLang) ? browserLang : defaultLang;
-      console.log('Redirecting to:', '/' + lang);
       window.location.replace('/' + lang);
     </script>
   </body>

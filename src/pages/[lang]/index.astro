@@ -20,7 +20,7 @@ const { primary } = theme.colors.default.theme_color;
 const { name, image, designation, bio } = config.profile;
 
 export async function getStaticPaths() {
-  const languages = ['it', 'en'];
+  const languages = config.settings.languages;
   return languages.map((lang) => ({
     params: { lang },
   }));

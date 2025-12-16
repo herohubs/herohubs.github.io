@@ -1,5 +1,6 @@
 import menuJson from '@/config/menu.json';
 import type { INavigationLink } from '@/interfaces';
+import config from '@/config/config.json';
 
 export function getMainMenu(): INavigationLink[] {
   const menu: { main: INavigationLink[] } = menuJson;
@@ -15,7 +16,7 @@ export function getMainMenu(): INavigationLink[] {
   });
 }
 
-export function getCategoryMenu(posts: any[], lang: string = 'it'): INavigationLink[] {
+export function getCategoryMenu(posts: any[], lang: string = config.settings.default_language): INavigationLink[] {
   const menu: { main: INavigationLink[] } = menuJson;
 
   const blogItem = menu.main.find((m) => m.isBlog === true);

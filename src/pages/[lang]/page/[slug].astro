@@ -24,7 +24,7 @@ const indexOfFirstPost = indexOfLastPost - pageSize;
 const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
 
 export async function getStaticPaths() {
-  const languages = ['it', 'en'];
+  const languages = config.settings.languages;
   const posts = await getSinglePage('posts');
   const pageSize = config.settings.pagination;
 

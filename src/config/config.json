@@ -9,7 +9,9 @@
 
   "settings": {
     "pagination": 6,
-    "summary_length": 200
+    "summary_length": 200,
+    "languages": ["it", "en"],
+    "default_language": "it"
   },
 
   "profile": {

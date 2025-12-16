@@ -11,7 +11,7 @@ const { title, description, meta_title } = contact.data;
 const { Content } = await render(contact);
 
 export async function getStaticPaths() {
-  const languages = ['it', 'en'];
+  const languages = config.settings.languages;
   return languages.map((lang) => ({
     params: { lang },
   }));
