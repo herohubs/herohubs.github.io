@@ -1,6 +1,6 @@
 ---
 import theme from '@/config/theme.json';
-import config from '@/config/config.json';
+import mainConfig from '@/config/main-config.json';
 ---
 
 <html lang="en">
@@ -13,13 +13,16 @@ import config from '@/config/config.json';
   </head>
 
   <body
-    style={`background-color: ${theme.colors.default.theme_color.body}; color: ${theme.colors.default.theme_color.text};`}
+    style={`background-color: ${theme.colors.default.theme_color.body}; color: ${theme.colors.default.text_color.text};`}
   >
     <noscript>
       <p>JavaScript is required. <a href="/en">Go to English site</a></p>
     </noscript>
     <script
-      define:vars={{ supportedLanguages: config.settings.languages, defaultLang: config.settings.default_language }}
+      define:vars={{
+        supportedLanguages: mainConfig.settings.languages,
+        defaultLang: mainConfig.settings.default_language,
+      }}
     >
       const browserLang = navigator.language?.slice(0, 2);
       const lang = supportedLanguages.includes(browserLang) ? browserLang : defaultLang;

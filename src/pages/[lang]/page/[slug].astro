@@ -1,51 +1,32 @@
 ---
 import Pagination from '@/components/Pagination.astro';
 import Post from '@/components/Post.astro';
-import config from '@/config/config.json';
+import mainConfig from '@/config/main-config.json';
 import Base from '@/layouts/Base.astro';
 import { getSinglePage } from '@/lib/contentParser.astro';
 import { sortByDate } from '@/lib/utils/sortFunctions';
 import PageHeader from '@/partials/PageHeader.astro';
 
-const posts = await getSinglePage('posts');
-
-const { lang, slug } = Astro.params;
-const allPosts = await getSinglePage('posts');
-
-const postsByLang = allPosts.filter((p) => p.id.startsWith(`${lang}/`));
-
-const sortedPosts = sortByDate(postsByLang);
-
-const pageSize = config.settings.pagination;
-const totalPages = Math.ceil(postsByLang.length / pageSize);
-const currentPage = slug && !isNaN(Number(slug)) ? Number(slug) : 1;
-const indexOfLastPost = currentPage * pageSize;
-const indexOfFirstPost = indexOfLastPost - pageSize;
-const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
+const { languages, pagination: pageSize } = mainConfig.settings;
 
 export async function getStaticPaths() {
-  const languages = config.settings.languages;
-  const posts = await getSinglePage('posts');
-  const pageSize = config.settings.pagination;
-
+  const { languages, pagination: pageSize } = mainConfig.settings;
   const paths = [];
 
   for (const lang of languages) {
-    const postsByLang = posts.filter((post) => post.id.startsWith(`${lang}/`));
-    const totalPages = Math.ceil(postsByLang.length / pageSize);
+    const posts = await getSinglePage('posts', lang);
+    const sortedPosts = sortByDate(posts);
+    const totalPages = Math.ceil(posts.length / pageSize);
 
-    paths.push({
-      params: {
-        lang,
-        slug: '1',
-      },
-    });
-
-    for (let i = 2; i <= totalPages; i++) {
+    for (let i = 1; i <= totalPages; i++) {
       paths.push({
         params: {
           lang,
           slug: i.toString(),
+        },
+        props: {
+          posts: sortedPosts,
+          totalPages,
         },
       });
     }
@@ -53,11 +34,19 @@ export async function getStaticPaths() {
 
   return paths;
 }
+
+const { lang, slug } = Astro.params;
+const { posts: allPosts, totalPages } = Astro.props;
+
+const currentPage = slug && !isNaN(Number(slug)) ? Number(slug) : 1;
+const indexOfLastPost = currentPage * pageSize;
+const indexOfFirstPost = indexOfLastPost - pageSize;
+const currentPosts = allPosts.slice(indexOfFirstPost, indexOfLastPost);
 ---
 
 <Base>
   <section class="section herohubs-section">
-    <PageHeader title=`Pagina ${currentPage}` />
+    <PageHeader title={`Pagina ${currentPage}`} />
 
     <div class="container">
       <div class="row">

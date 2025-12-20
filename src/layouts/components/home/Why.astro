@@ -1,6 +1,9 @@
 ---
+import type { HomeData } from '@/interfaces';
+import { loadLocalizedConfig } from '@/lib/utils/lang';
+const { lang } = Astro.params;
 const { className } = Astro.props;
-import { why } from '@/config/home.json';
+const home: HomeData = await loadLocalizedConfig(lang, 'home');
 ---
 
 <section class={className} id="why">
@@ -9,10 +12,10 @@ import { why } from '@/config/home.json';
       <ul class="space-y-6">
         <li class="border-border">
           <p class="text-muted-foreground text-center my-4">
-            {why.text1}
+            {home.why.text1}
           </p>
           <p class="text-muted-foreground text-center my-4">
-            {why.text2}
+            {home.why.text2}
           </p>
         </li>
       </ul>

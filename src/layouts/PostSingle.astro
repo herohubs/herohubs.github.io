@@ -1,5 +1,5 @@
 ---
-import config from '@/config/config.json';
+import mainConfig from '@/config/main-config.json';
 import Disqus from '@/helpers/Disqus';
 import { getSinglePage } from '@/lib/contentParser.astro';
 import dateFormat from '@/lib/utils/dateFormat';
@@ -12,7 +12,7 @@ import Post from './components/Post.astro';
 
 const { post, lang } = Astro.props;
 
-const posts = await getSinglePage('posts');
+const posts = await getSinglePage('posts', lang);
 let similarPosts = similarItems(post, posts);
 const { Content } = await render(post);
 const { title, categories, image, date } = post.data;
@@ -73,7 +73,7 @@ similarPosts = similarPosts.sort((a, b) => {
           </div>
         </article>
 
-        {config.disqus.enable && <Disqus className="mt-20" client:load />}
+        {mainConfig.disqus.enable && <Disqus className="mt-20" client:load />}
       </div>
     </div>
 

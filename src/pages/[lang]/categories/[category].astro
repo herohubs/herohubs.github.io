@@ -1,29 +1,33 @@
 ---
 import Post from '@/components/Post.astro';
 import Base from '@/layouts/Base.astro';
-import config from '@/config/config.json';
+import mainConfig from '@/config/main-config.json';
 import { getSinglePage } from '@/lib/contentParser.astro';
 import { getTaxonomy } from '@/lib/taxonomyParser.astro';
 import taxonomyFilter from '@/lib/utils/taxonomyFilter';
 import PageHeader from '@/partials/PageHeader.astro';
-
-export async function getStaticPaths() {
-  const languages = config.settings.languages;
-  const categories = await getTaxonomy('posts', 'categories');
-
-  return categories.flatMap((category) =>
-    languages.map((lang) => ({
-      params: {
-        lang,
-        category,
-      },
-    })),
-  );
-}
-
 const { lang, category } = Astro.params;
 
-const posts = (await getSinglePage('posts')).filter((p) => p.id.startsWith(`${lang}/`));
+export async function getStaticPaths() {
+  const paths = [];
+
+  for (const lang of mainConfig.settings.languages) {
+    const categories = await getTaxonomy('posts', 'categories', lang);
+
+    for (const category of categories) {
+      paths.push({
+        params: {
+          lang,
+          category,
+        },
+      });
+    }
+  }
+
+  return paths;
+}
+
+const posts = (await getSinglePage('posts', lang)).filter((p) => p.id.startsWith(`${lang}/`));
 const filterByCategories = taxonomyFilter(posts, 'categories', category!);
 ---
 

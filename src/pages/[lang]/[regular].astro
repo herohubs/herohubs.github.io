@@ -3,28 +3,34 @@ import Base from '@/layouts/Base.astro';
 import { getSinglePage } from '@/lib/contentParser.astro';
 import PageHeader from '@/partials/PageHeader.astro';
 import { render } from 'astro:content';
+import mainConfig from '@/config/main-config.json';
 
 export async function getStaticPaths() {
-  const pages = await getSinglePage('pages');
+  const paths = [];
 
-  return pages.map((page) => {
-    const [lang, ...slugParts] = page.id.split('/');
-    const regular = slugParts.join('/');
+  for (const lang of mainConfig.settings.languages) {
+    const pages = await getSinglePage('pages', lang);
 
-    return {
-      params: {
-        lang,
-        regular,
-      },
-      props: {
-        page,
-        lang,
-      },
-    };
-  });
+    for (const page of pages) {
+      const regular = page.id.replace(`${lang}/`, '').replace(/\.mdx?$/, '');
+
+      paths.push({
+        params: {
+          lang,
+          regular,
+        },
+        props: {
+          page,
+        },
+      });
+    }
+  }
+
+  return paths;
 }
 
 const { page } = Astro.props;
+
 const { title, meta_title, description, image, justify } = page.data;
 const { Content } = await render(page);
 ---

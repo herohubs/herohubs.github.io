@@ -1,6 +1,9 @@
 ---
+import type { HomeData } from '@/interfaces';
+import { loadLocalizedConfig } from '@/lib/utils/lang';
 const { className } = Astro.props;
-import { customers } from '@/config/home.json';
+const { lang } = Astro.params;
+const home: HomeData = await loadLocalizedConfig(lang, 'home');
 ---
 
 <section class={className} id="customers">
@@ -8,9 +11,9 @@ import { customers } from '@/config/home.json';
     <p class="my-4">
       <ul class="space-y-6">
         <li class="border-border">
-          <h6 class="text-center">{customers.subtitle}</h6>
+          <h6 class="text-center">{home.customers.subtitle}</h6>
           <p class="text-muted-foreground text-center my-4">
-            {customers.text}
+            {home.customers.text}
           </p>
         </li>
       </ul>
@@ -18,7 +21,7 @@ import { customers } from '@/config/home.json';
       <div class="relative overflow-hidden py-4">
         <div class="flex flex-wrap justify-center hover:[animation-play-state:paused] gap-x-20 gap-y-10">
           {
-            customers.items.map((item, index) => (
+            home.customers.items.map((item) => (
               <a
                 href={item.url}
                 target="_blank"

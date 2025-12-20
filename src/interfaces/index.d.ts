@@ -51,3 +51,68 @@ interface IDynamicIcon extends React.SVGProps<SVGSVGElement> {
   icon: string;
   className?: string;
 }
+
+export type MenuData = {
+  main: INavigationLink[];
+  other: INavigationLink[];
+};
+
+export type HomeData = {
+  blog: BlogSection;
+  contacts: ContactsSection;
+  customers: CustomersSection;
+  how: HowSection;
+  blocks: Block[];
+  services: ServicesSection;
+  why: WhySection;
+};
+
+interface BlogSection {
+  subtitle: string;
+  text: string;
+}
+
+interface ContactsSection {
+  title: string;
+  subtitle: string;
+  text: string;
+  email: string;
+  icon: string;
+}
+
+interface CustomerItem {
+  name: string;
+  image: string;
+  url: string;
+}
+
+interface CustomersSection {
+  subtitle: string;
+  text: string;
+  items: CustomerItem[];
+}
+
+interface HowSection {
+  subtitle: string;
+  text1: string;
+  text2: string;
+}
+
+interface Block {
+  title: string;
+  text: string;
+}
+
+interface ServiceItem {
+  title: string;
+  text: string;
+}
+
+interface ServicesSection {
+  items: ServiceItem[];
+}
+
+interface WhySection {
+  text1: string;
+  text2: string;
+}

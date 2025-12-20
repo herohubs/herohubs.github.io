@@ -1,0 +1,47 @@
+{
+  "main": [
+    {
+      "name": "Home",
+      "url": "/en"
+    },
+    {
+      "name": "About Us",
+      "url": "/en/about"
+    },
+    {
+      "name": "Services",
+      "url": "/en/services"
+    },
+    {
+      "name": "Portfolio",
+      "url": "/en/portfolio"
+    },
+    {
+      "name": "Contacts",
+      "url": "/en/contacts"
+    },
+    {
+      "name": "Blog",
+      "url": "/en/blog",
+      "isBlog": true
+    },
+    {
+      "name": "UI Kit",
+      "url": "/en/ui-kit"
+    }
+  ],
+  "other": [
+    {
+      "name": "Privacy Policy",
+      "url": "/en/privacy-policy"
+    },
+    {
+      "name": "Cookie Policy",
+      "url": "/en/cookie-policy"
+    },
+    {
+      "name": "Terms and Conditions",
+      "url": "/en/terms-and-conditions"
+    }
+  ]
+}

@@ -7,7 +7,7 @@ import { defineConfig } from 'astro/config';
 import remarkCollapse from 'remark-collapse';
 import remarkToc from 'remark-toc';
 import sharp from 'sharp';
-import config from './src/config/config.json';
+import mainConfig from './src/config/main-config.json';
 
 let highlighter;
 async function getHighlighter() {
@@ -20,9 +20,9 @@ async function getHighlighter() {
 
 // https://astro.build/config
 export default defineConfig({
-  site: config.site.base_url ? config.site.base_url : 'http://examplesite.com',
-  base: config.site.base_path ? config.site.base_path : '/',
-  trailingSlash: config.site.trailing_slash ? 'always' : 'never',
+  site: mainConfig.site.base_url ? mainConfig.site.base_url : 'http://examplesite.com',
+  base: mainConfig.site.base_path ? mainConfig.site.base_path : '/',
+  trailingSlash: mainConfig.site.trailing_slash ? 'always' : 'never',
 
   vite: { plugins: [tailwindcss()] },
   image: { service: sharp() },

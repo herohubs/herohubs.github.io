@@ -1,0 +1,121 @@
+{
+  "blog": {
+    "subtitle": "Latest articles",
+    "text": "We write about software development, technical architectures and project management."
+  },
+  "contacts": {
+    "title": "Contact us now",
+    "subtitle": "We're ready to develop the next feature together with you",
+    "text": "From web apps to enterprise cloud systems, we put our experience at the service of your goals.",
+    "email": "info@herohubs.it",
+    "icon": "FaEnvelope"
+  },
+  "customers": {
+    "subtitle": "Who we've worked with",
+    "text": "Throughout our experience, we have collaborated with companies from various sectors, supporting them in the development of technological solutions.",
+    "items": [
+      {
+        "name": "Luisa Via Roma",
+        "image": "/images/customers/luisa-via-roma.webp",
+        "url": "https://www.luisaviaroma.com/"
+      },
+      {
+        "name": "Banca Reale",
+        "image": "/images/customers/banca-reale.webp",
+        "url": "https://www.bancareale.it/"
+      },
+      {
+        "name": "Infogroup",
+        "image": "/images/customers/infogroup.webp",
+        "url": "https://www.intesasanpaolo.com/"
+      },
+      {
+        "name": "Vipera",
+        "image": "/images/customers/vipera.webp",
+        "url": "https://www.fabrick.com/"
+      },
+      {
+        "name": "Sia",
+        "image": "/images/customers/sia.webp",
+        "url": "https://www.nexi.it/"
+      },
+      {
+        "name": "Milano Finanza",
+        "image": "/images/customers/milano-finanza.webp",
+        "url": "https://www.milanofinanza.it/"
+      },
+      {
+        "name": "Sisal",
+        "image": "/images/customers/sisal.webp",
+        "url": "https://www.sisal.it/"
+      },
+      {
+        "name": "Classe Editori",
+        "image": "/images/customers/classe-editori.webp",
+        "url": "https://www.classeditori.it/"
+      },
+      {
+        "name": "Cerved",
+        "image": "/images/customers/cerved.webp",
+        "url": "https://www.cerved.com/"
+      },
+      {
+        "name": "Auser",
+        "image": "/images/customers/auser.webp",
+        "url": "https://auser.it/"
+      },
+      {
+        "name": "Carrefour Express",
+        "image": "/images/customers/carrefour-express.webp",
+        "url": "https://www.carrefour.it/"
+      }
+    ]
+  },
+  "how": {
+    "subtitle": "Consulting and software development for business",
+    "text1": "We guide companies and startups through the entire software lifecycle: from idea to production.",
+    "text2": "We design performant, scalable and secure solutions with technical expertise and strategic vision."
+  },
+  "blocks": [
+    {
+      "title": "Consulting",
+      "text": "Technical and strategic consulting to guide solid, scalable technology choices oriented towards the future of your business."
+    },
+    {
+      "title": "Apps",
+      "text": "Complete enterprise web solutions that integrate modern back-end, front-end and database technologies in a scalable way."
+    },
+    {
+      "title": "Cloud",
+      "text": "Secure cloud infrastructures on Azure, AWS and Google Cloud. CI/CD pipelines, automation and reliable, fast deployments."
+    },
+    {
+      "title": "Projects",
+      "text": "Results-oriented agile methodologies. We support companies with complete and immediately operational solutions."
+    }
+  ],
+  "services": {
+    "items": [
+      {
+        "title": "Software Development",
+        "text": "We design custom software that optimizes business processes and improves operational performance. From enterprise platforms to e-commerce, we create tailored solutions to generate value and concrete growth."
+      },
+      {
+        "title": "Technical Consulting",
+        "text": "We support you in defining technology strategies and Agile development methodologies that foster continuous innovation. We offer technical support, system optimization and a flexible approach that accelerates results."
+      },
+      {
+        "title": "Cloud and Serverless",
+        "text": "We create secure, scalable and cost-effective cloud infrastructures, leveraging serverless architectures to reduce costs and complexity. Our solutions easily adapt to market changes and your business needs."
+      },
+      {
+        "title": "Mobile Applications",
+        "text": "We develop apps for Android and iOS systems, designed to offer a smooth and intuitive user experience. Each application is built with modern technologies to ensure reliability, speed and integration with enterprise systems."
+      }
+    ]
+  },
+  "why": {
+    "text1": "Hero Hubs was born from the meeting of professionals with experience in software development and a common vision: to transform technological complexity into simple, scalable and valuable solutions.",
+    "text2": "We combine a craftsman's approach with enterprise expertise to design web applications, cloud platforms and integrated systems that ensure quality, reliability and performance."
+  }
+}

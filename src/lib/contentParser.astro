@@ -1,10 +1,18 @@
 ---
 import { getCollection, type CollectionEntry, type CollectionKey } from 'astro:content';
+import { resolveLang } from './utils/lang';
 
-export const getSinglePage = async <C extends CollectionKey>(collectionName: C): Promise<CollectionEntry<C>[]> => {
+export const getSinglePage = async <C extends CollectionKey>(
+  collectionName: C,
+  lang?: string,
+): Promise<CollectionEntry<C>[]> => {
+  const resolvedLang = resolveLang(lang);
+
   const allPages = await getCollection(collectionName);
-  const removeIndex = allPages.filter((data) => data.id.match(/^(?!-)/));
-  const removeDrafts = removeIndex.filter((data) => !data.data.draft);
-  return removeDrafts;
+
+  return allPages
+    .filter((entry) => entry.id.startsWith(`${resolvedLang}/`))
+    .filter((entry) => !entry.id.startsWith('-'))
+    .filter((entry) => !entry.data.draft);
 };
 ---

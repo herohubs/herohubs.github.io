@@ -2,26 +2,34 @@
 import Base from '@/layouts/Base.astro';
 import PostSingle from '@/layouts/PostSingle.astro';
 import { getSinglePage } from '@/lib/contentParser.astro';
-const { lang } = Astro.params;
+import mainConfig from '@/config/main-config.json';
 
 export async function getStaticPaths() {
-  const posts = await getSinglePage('posts');
+  const paths = [];
 
-  return posts.map((post) => {
-    const [lang, ...rest] = post.id.split('/');
-    const cleanId = rest.join('/');
+  for (const lang of mainConfig.settings.languages) {
+    const posts = await getSinglePage('posts', lang);
 
-    return {
-      params: {
-        lang,
-        single: cleanId,
-      },
-      props: { post },
-    };
-  });
+    for (const post of posts) {
+      const single = post.id.replace(`${lang}/`, '').replace(/\.mdx?$/, '');
+
+      paths.push({
+        params: {
+          lang,
+          single,
+        },
+        props: {
+          post,
+        },
+      });
+    }
+  }
+
+  return paths;
 }
 
 const { post } = Astro.props;
+const { lang } = Astro.params;
 const { title, meta_title, description, image } = post.data;
 ---
 

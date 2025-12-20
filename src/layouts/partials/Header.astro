@@ -1,14 +1,12 @@
 ---
 import { getMainMenu, getCategoryMenu } from '@/lib/utils/menu';
 import { getSinglePage } from '@/lib/contentParser.astro';
-
-const posts = await getSinglePage('posts');
-
-const websiteMenus = getMainMenu();
-const categoriesMenus = getCategoryMenu(posts);
-
+const { lang } = Astro.params;
 const { pathname } = Astro.url;
 const toggleId = `nav-toggle`;
+const posts = await getSinglePage('posts', lang);
+const websiteMenus = await getMainMenu(lang);
+const categoriesMenus = await getCategoryMenu(posts, lang);
 ---
 
 <header class="header mt-8 pb-3 pt-12">

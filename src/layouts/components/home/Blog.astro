@@ -1,11 +1,13 @@
 ---
-const { className, lang } = Astro.props;
-import { blog } from '@/config/home.json';
 import { getSinglePage } from '@/lib/contentParser.astro';
 import { sortByDate } from '@/lib/utils/sortFunctions';
 import Post from '@/components/Post.astro';
-const posts = await getSinglePage('posts');
+import type { HomeData } from '@/interfaces';
+import { loadLocalizedConfig } from '@/lib/utils/lang';
+const { className, lang } = Astro.props;
+const posts = await getSinglePage('posts', lang);
 const sortPostByDate = sortByDate(posts);
+const home: HomeData = await loadLocalizedConfig(lang, 'home');
 ---
 
 <section class={className} id="blog">
@@ -13,9 +15,9 @@ const sortPostByDate = sortByDate(posts);
     <p class="my-4">
       <ul class="space-y-6">
         <li class="border-border">
-          <h6 class="text-center">{blog.subtitle}</h6>
+          <h6 class="text-center">{home.blog.subtitle}</h6>
           <p class="text-muted-foreground text-center my-4">
-            {blog.text}
+            {home.blog.text}
           </p>
         </li>
       </ul>

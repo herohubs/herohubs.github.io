@@ -1,17 +1,17 @@
 ---
-import config from '@/config/config.json';
+import mainConfig from '@/config/main-config.json';
 import Base from '@/layouts/Base.astro';
 import { markdownify } from '@/lib/utils/textConverter';
 import type { CollectionEntry } from 'astro:content';
 import { getEntry, render } from 'astro:content';
 
 const contact = (await getEntry('contact', '-index')) as CollectionEntry<'contact'>;
-const { contact_form_action }: { contact_form_action: string } = config.params;
+const { contact_form_action }: { contact_form_action: string } = mainConfig.params;
 const { title, description, meta_title } = contact.data;
 const { Content } = await render(contact);
 
 export async function getStaticPaths() {
-  const languages = config.settings.languages;
+  const languages = mainConfig.settings.languages;
   return languages.map((lang) => ({
     params: { lang },
   }));
