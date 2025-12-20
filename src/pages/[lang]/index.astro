@@ -16,8 +16,13 @@ import Blog from '@/components/home/Blog.astro';
 
 const { lang } = Astro.params;
 
+import { loadLocalizedConfig } from '@/lib/utils/lang';
+const config: any = await loadLocalizedConfig(lang, 'config');
+
 const { primary } = theme.colors.default.theme_color;
-const { name, image, designation, bio } = mainConfig.profile;
+const { name, image } = mainConfig.profile;
+
+const { designation, bio } = config.profile;
 
 export async function getStaticPaths() {
   const languages = mainConfig.settings.languages;
@@ -32,7 +37,7 @@ export async function getStaticPaths() {
   <div class="section herohubs-section">
     <div class="container">
       <div class="row">
-        <div class="mx-auto text-center lg:col-8">
+        <div class="mx-auto text-center lg:col-6">
           <ImageMod
             class="mx-auto rounded-full"
             src={image}

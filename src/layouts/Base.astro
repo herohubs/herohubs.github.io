@@ -10,6 +10,10 @@ import '@/styles/transitions.css';
 import { AstroFont } from 'astro-font';
 import { ClientRouter } from 'astro:transitions';
 
+import { loadLocalizedConfig } from '@/lib/utils/lang';
+const { lang } = Astro.params;
+const config: any = await loadLocalizedConfig(lang, 'config');
+
 const { pathname } = Astro.url;
 
 // font families
@@ -27,7 +31,7 @@ const raw = Astro.props.meta_title;
 
 const meta_title = raw
   ? raw.charAt(0).toUpperCase() + raw.slice(1) + ' | ' + mainConfig.profile.name
-  : mainConfig.profile.name + ' - ' + mainConfig.profile.designation;
+  : mainConfig.profile.name + ' - ' + config.profile.designation;
 ---
 
 <!doctype html>
@@ -63,7 +67,7 @@ const meta_title = raw
 
     <!-- title -->
     <title>
-      {plainify(meta_title ? meta_title : title ? title : mainConfig.site.title)}
+      {plainify(meta_title ? meta_title : title ? title : config.site.title)}
     </title>
 
     <!-- canonical url -->
@@ -73,7 +77,7 @@ const meta_title = raw
     {noindex && <meta name="robots" content="noindex,nofollow" />}
 
     <!-- meta-description -->
-    <meta name="description" content={plainify(description ? description : mainConfig.metadata.meta_description)} />
+    <meta name="description" content={plainify(description ? description : config.metadata.meta_description)} />
 
     <ClientRouter />
 
@@ -81,24 +85,18 @@ const meta_title = raw
     <meta name="author" content={mainConfig.metadata.meta_author} />
 
     <!-- og-title -->
-    <meta property="og:title" content={plainify(meta_title ? meta_title : title ? title : mainConfig.site.title)} />
+    <meta property="og:title" content={plainify(meta_title ? meta_title : title ? title : config.site.title)} />
 
     <!-- og-description -->
-    <meta
-      property="og:description"
-      content={plainify(description ? description : mainConfig.metadata.meta_description)}
-    />
+    <meta property="og:description" content={plainify(description ? description : config.metadata.meta_description)} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={`${mainConfig.site.base_url}/${Astro.url.pathname.replace('/', '')}`} />
 
     <!-- twitter-title -->
-    <meta name="twitter:title" content={plainify(meta_title ? meta_title : title ? title : mainConfig.site.title)} />
+    <meta name="twitter:title" content={plainify(meta_title ? meta_title : title ? title : config.site.title)} />
 
     <!-- twitter-description -->
-    <meta
-      name="twitter:description"
-      content={plainify(description ? description : mainConfig.metadata.meta_description)}
-    />
+    <meta name="twitter:description" content={plainify(description ? description : config.metadata.meta_description)} />
 
     <!-- og-image -->
     <meta

@@ -4,14 +4,18 @@ import { getSinglePage } from '@/lib/contentParser.astro';
 import { markdownify } from '@/lib/utils/textConverter';
 import FooterMenu from '@/partials/FooterMenu.astro';
 import { getMainMenu, getCategoryMenu, getOtherFooterMenu } from '@/lib/utils/menu';
+
 const { lang } = Astro.params;
+
+import { loadLocalizedConfig } from '@/lib/utils/lang';
+const config: any = await loadLocalizedConfig(lang, 'config');
 
 const posts = await getSinglePage('posts', lang);
 const websiteMenus = await getMainMenu(lang);
 const categoriesMenus = await getCategoryMenu(posts, lang);
 const otherMenus = await getOtherFooterMenu(lang);
 const { copyright } = mainConfig.params;
-const { image_min, designation } = mainConfig.profile;
+const { image_min } = mainConfig.profile;
 ---
 
 <footer class="pt-16 pb-16 mt-16 border-t border-gray-800">
@@ -20,7 +24,7 @@ const { image_min, designation } = mainConfig.profile;
       <a href={`/${lang}`} class="flex justify-center items-center gap-2 mb-4 mt-4 hover:opacity-80 transition-opacity">
         <img src={image_min} alt="Logo" />
       </a>
-      <p class="mb-4 text-center text-sm">{designation}</p>
+      <p class="mb-4 text-center text-sm">{config.designation}</p>
     </div>
     <FooterMenu menu={websiteMenus} />
     <FooterMenu menu={categoriesMenus} />

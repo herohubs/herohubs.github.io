@@ -1,6 +1,5 @@
 {
   "site": {
-    "title": "Hero Hubs - Innovazione digitale su misura",
     "base_url": "https://herohubs.it",
     "base_path": "/",
     "trailing_slash": false,
@@ -11,15 +10,13 @@
     "pagination": 6,
     "summary_length": 200,
     "languages": ["it", "en"],
-    "default_language": "it"
+    "default_language": "en"
   },
 
   "profile": {
     "name": "Hero Hubs",
     "image": "/images/herohubs-logo_220x220.png",
-    "image_min": "/images/herohubs-logo_135x50.png",
-    "designation": "Innovazione digitale su misura",
-    "bio": "Combiniamo innovazione ed esperienza per creare soluzioni scalabili, responsabili e pronte per il mercato."
+    "image_min": "/images/herohubs-logo_135x50.png"
   },
 
   "params": {
@@ -35,12 +32,6 @@
 
   "metadata": {
     "meta_author": "Hero Hubs",
-    "meta_image": "/images/og-image.png",
-    "meta_description": "Innovazione digitale su misura"
-  },
-
-  "blog": {
-    "title": "Blog",
-    "meta_description": "Scopri articoli, approfondimenti e novità su tecnologia, sviluppo software e innovazione digitale."
+    "meta_image": "/images/og-image.png"
   }
 }
