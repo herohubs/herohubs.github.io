@@ -10,5 +10,10 @@
 
   "metadata": {
     "meta_description": "Tailored Digital Innovation"
+  },
+
+  "blog": {
+    "title": "Blog",
+    "meta_description": "Discover articles, insights, and news on technology, software development, and digital innovation."
   }
 }
