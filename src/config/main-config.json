@@ -7,7 +7,7 @@
   },
 
   "settings": {
-    "pagination": 6,
+    "pagination": 8,
     "summary_length": 200,
     "languages": ["it", "en"],
     "default_language": "en"
