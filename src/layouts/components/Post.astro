@@ -1,10 +1,12 @@
 ---
 import dateFormat from '@/lib/utils/dateFormat';
+import { loadLocalizedConfig } from '@/lib/utils/lang';
 
 const { post, id, lang, className } = Astro.props;
 const { data } = post;
 
 const cleanId = post.id.includes('/') ? post.id.split('/')[1] : id;
+const i18n = await loadLocalizedConfig(lang, 'i18n');
 ---
 
 <div class={className + ' opacity-90'}>
@@ -21,13 +23,16 @@ const cleanId = post.id.includes('/') ? post.id.split('/')[1] : id;
       }
     </ul>
     <p class="my-4">
-      {dateFormat(data.date, 'MMMM yyyy').charAt(0).toUpperCase() + dateFormat(data.date, 'MMMM yyyy').slice(1)}
+      {
+        dateFormat(data.date, 'MMMM yyyy', lang).charAt(0).toUpperCase() +
+          dateFormat(data.date, 'MMMM yyyy', lang).slice(1)
+      }
     </p>
     <h2 class="h3 mb-2 font-normal line-clamp-4">
       <a href={`/${lang}/posts/${cleanId}`} class="block">{data.title}</a>
     </h2>
     <a class="btn-link mt-7 inline-flex items-center hover:text-primary" href={`/${lang}/posts/${cleanId}`}>
-      Continua a leggere
+      {i18n.continue_reading}
       <svg
         class="ml-1"
         width="22"

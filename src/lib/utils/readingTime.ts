@@ -1,4 +1,8 @@
-const readingTime = (content: string): string => {
+import { resolveLang, loadLocalizedConfig } from '@/lib/utils/lang';
+
+const readingTime = async (content: string, lang: string = 'en'): Promise<string> => {
+  const i18n: any = await loadLocalizedConfig(lang, 'i18n');
+
   const WPS = 275 / 60;
 
   let images = 0;
@@ -27,12 +31,12 @@ const readingTime = (content: string): string => {
 
   if (minutes < 10) {
     if (minutes < 2) {
-      return '0' + minutes + ` Min read`;
+      return '0' + minutes + ` ${i18n.min_read}`;
     } else {
-      return '0' + minutes + ` Mins read`;
+      return '0' + minutes + ` ${i18n.mins_read}`;
     }
   } else {
-    return minutes + ` Mins read`;
+    return minutes + ` ${i18n.mins_read}`;
   }
 };
 

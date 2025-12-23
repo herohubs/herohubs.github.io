@@ -9,6 +9,7 @@ import { humanize, markdownify, slugify } from '@/lib/utils/textConverter';
 import { render } from 'astro:content';
 import ImageMod from './components/ImageMod.astro';
 import Post from './components/Post.astro';
+import { loadLocalizedConfig } from '@/lib/utils/lang';
 
 const { post, lang } = Astro.props;
 
@@ -17,13 +18,13 @@ let similarPosts = similarItems(post, posts);
 const { Content } = await render(post);
 const { title, categories, image, date } = post.data;
 
-const backLabel = lang === 'it' ? 'Indietro' : 'Back';
-
 similarPosts = similarPosts.sort((a, b) => {
   const dateA = new Date(a.data.date);
   const dateB = new Date(b.data.date);
   return dateB.getTime() - dateA.getTime();
 });
+
+const i18n = await loadLocalizedConfig(lang, 'i18n');
 ---
 
 <section class="pt-20 pb-6">
@@ -39,7 +40,7 @@ similarPosts = similarPosts.sort((a, b) => {
               d="M.292892 7.29289c-.3905235.39053-.3905235 1.02369.0 1.41422L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711 8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8 8.07107 2.34315C8.46159 1.95262 8.46159 1.31946 8.07107.928932 7.68054.538408 7.04738.538408 6.65685.928932L.292892 7.29289zM21 7H1V9H21V7z"
               fill="currentcolor"></path>
           </svg>
-          {backLabel}
+          <span id="back-label"></span>
         </button>
 
         <article>
@@ -62,11 +63,14 @@ similarPosts = similarPosts.sort((a, b) => {
             </li>
             <li class="mb-2 mr-4 inline-block">
               <span class="mr-2 inline-block">
-                {dateFormat(date, 'MMMM yyyy').charAt(0).toUpperCase() + dateFormat(date, 'MMMM yyyy').slice(1)}
+                {
+                  dateFormat(date, 'MMMM yyyy', lang).charAt(0).toUpperCase() +
+                    dateFormat(date, 'MMMM yyyy', lang).slice(1)
+                }
               </span>{' '}
               |
             </li>
-            <li class="mb-2 mr-4 inline-block">{readingTime(post.body)}</li>
+            <li class="mb-2 mr-4 inline-block">{readingTime(post.body, lang)}</li>
           </ul>
           <div class="content text-left">
             <Content />
@@ -78,10 +82,15 @@ similarPosts = similarPosts.sort((a, b) => {
     </div>
 
     <div class="pt-12">
-      <h2 class="h2 text-center">Related Posts</h2>
+      <h2 class="h2 text-center">{i18n.related_posts}</h2>
       <div class="row gy-4 mt-12 justify-center">
         {similarPosts.slice(0, 9).map((post) => <Post className="col-12 md:col-4" post={post} lang={lang} />)}
       </div>
     </div>
   </div>
 </section>
+
+<script define:vars={{ backLabel: i18n.back }}>
+  const label = window.history.length > 2 ? backLabel : 'Home';
+  document.getElementById('back-label').textContent = label;
+</script>

@@ -1,6 +1,10 @@
 ---
 import Base from '@/layouts/Base.astro';
 import mainConfig from '@/config/main-config.json';
+import { loadLocalizedConfig } from '@/lib/utils/lang';
+
+const { lang } = Astro.params;
+const i18n = await loadLocalizedConfig(lang, 'i18n');
 
 export async function getStaticPaths() {
   const languages = mainConfig.settings.languages;
@@ -8,8 +12,6 @@ export async function getStaticPaths() {
     params: { lang },
   }));
 }
-
-const { lang } = Astro.params;
 ---
 
 <Base title="Page Not Found" lang={lang}>
@@ -25,7 +27,7 @@ const { lang } = Astro.params;
             </p>
           </div>
           <a href={`/${lang}`} class="btn btn-primary mt-8">
-            {lang === 'it' ? 'Indietro' : 'Back'}
+            {i18n.back}
           </a>
         </div>
       </div>
