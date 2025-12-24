@@ -15,5 +15,11 @@
   "blog": {
     "title": "Blog",
     "meta_description": "Discover articles, insights, and news on technology, software development, and digital innovation."
+  },
+
+  "cookie": {
+    "bannerMessage1": "This website uses cookies to enhance the user experience.",
+    "bannerMessage2": "By accepting, you consent to the use of cookies.",
+    "bannerMessage3": "For more information, please read our"
   }
 }
