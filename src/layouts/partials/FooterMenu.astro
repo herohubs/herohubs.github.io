@@ -1,6 +1,11 @@
 ---
 import type { INavigationLink } from '@/interfaces';
-const { menu } = Astro.props as { menu: INavigationLink[] };
+const { menu, showLangSwitcher, lang } = Astro.props as {
+  menu: INavigationLink[];
+  showLangSwitcher?: boolean;
+  lang?: string;
+};
+const currentPath = Astro.url.pathname;
 ---
 
 <div>
@@ -15,4 +20,21 @@ const { menu } = Astro.props as { menu: INavigationLink[] };
       ))
     }
   </ul>
+  {
+    showLangSwitcher && (
+      <div class="mt-4 text-center">
+        <span class="text-sm text-gray-600 mr-2">Lingua:</span>
+        {lang !== 'en' && (
+          <a href={currentPath.replace(/^\/it/, '/en')} class="text-primary hover:underline mx-1">
+            EN
+          </a>
+        )}
+        {lang !== 'it' && (
+          <a href={currentPath.replace(/^\/en/, '/it')} class="text-primary hover:underline mx-1">
+            IT
+          </a>
+        )}
+      </div>
+    )
+  }
 </div>
