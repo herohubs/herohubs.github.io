@@ -1,9 +1,9 @@
 ---
-import { getSinglePage } from '@/lib/contentParser.astro';
-import { sortByDate } from '@/lib/utils/sortFunctions';
 import Post from '@/components/Post.astro';
 import type { HomeData } from '@/interfaces';
+import { sortByDate } from '@/lib/utils/sortFunctions';
 import { loadLocalizedConfig } from '@/lib/utils/lang';
+import { getSinglePage } from '@/lib/contentParser.astro';
 const { className, lang } = Astro.props;
 const posts = await getSinglePage('posts', lang);
 const sortPostByDate = sortByDate(posts);

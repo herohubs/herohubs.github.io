@@ -66,12 +66,10 @@ export type HomeData = {
   services: ServicesSection;
   why: WhySection;
 };
-
 interface BlogSection {
   subtitle: string;
   text: string;
 }
-
 interface ContactsSection {
   title: string;
   subtitle: string;

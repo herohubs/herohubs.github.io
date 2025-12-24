@@ -4,12 +4,9 @@ import { getSinglePage } from '@/lib/contentParser.astro';
 import { markdownify } from '@/lib/utils/textConverter';
 import FooterMenu from '@/partials/FooterMenu.astro';
 import { getMainMenu, getCategoryMenu, getOtherFooterMenu } from '@/lib/utils/menu';
-
-const { lang } = Astro.params;
-
 import { loadLocalizedConfig } from '@/lib/utils/lang';
+const { lang } = Astro.params;
 const config: any = await loadLocalizedConfig(lang, 'config');
-
 const posts = await getSinglePage('posts', lang);
 const websiteMenus = await getMainMenu(lang);
 const categoriesMenus = await getCategoryMenu(posts, lang);

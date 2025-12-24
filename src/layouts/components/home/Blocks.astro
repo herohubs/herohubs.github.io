@@ -1,8 +1,8 @@
 ---
-const { className } = Astro.props;
 import type { HomeData } from '@/interfaces';
 import { loadLocalizedConfig } from '@/lib/utils/lang';
 const { lang } = Astro.params;
+const { className } = Astro.props;
 const home: HomeData = await loadLocalizedConfig(lang, 'home');
 ---
 

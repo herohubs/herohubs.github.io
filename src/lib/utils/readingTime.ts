@@ -1,4 +1,4 @@
-import { resolveLang, loadLocalizedConfig } from '@/lib/utils/lang';
+import { loadLocalizedConfig } from '@/lib/utils/lang';
 
 const readingTime = async (content: string, lang: string = 'en'): Promise<string> => {
   const i18n: any = await loadLocalizedConfig(lang, 'i18n');

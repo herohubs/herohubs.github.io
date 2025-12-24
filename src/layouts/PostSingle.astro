@@ -10,20 +10,16 @@ import { render } from 'astro:content';
 import ImageMod from './components/ImageMod.astro';
 import Post from './components/Post.astro';
 import { loadLocalizedConfig } from '@/lib/utils/lang';
-
 const { post, lang } = Astro.props;
-
 const posts = await getSinglePage('posts', lang);
 let similarPosts = similarItems(post, posts);
 const { Content } = await render(post);
 const { title, categories, image, date } = post.data;
-
 similarPosts = similarPosts.sort((a, b) => {
   const dateA = new Date(a.data.date);
   const dateB = new Date(b.data.date);
   return dateB.getTime() - dateA.getTime();
 });
-
 const i18n = await loadLocalizedConfig(lang, 'i18n');
 ---
 

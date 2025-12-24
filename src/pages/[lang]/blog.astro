@@ -6,10 +6,9 @@ import PageHeader from '@/partials/PageHeader.astro';
 import { getSinglePage } from '@/lib/contentParser.astro';
 import { sortByDate } from '@/lib/utils/sortFunctions';
 import mainConfig from '@/config/main-config.json';
+import { loadLocalizedConfig } from '@/lib/utils/lang';
 
 const { lang } = Astro.params;
-
-import { loadLocalizedConfig } from '@/lib/utils/lang';
 const config: any = await loadLocalizedConfig(lang, 'config');
 
 export async function getStaticPaths() {
