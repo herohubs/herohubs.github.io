@@ -30,6 +30,5 @@ const pagesCollection = defineCollection({
 
 export const collections = {
   posts: postCollection,
-  contact: contactCollection,
   pages: pagesCollection,
 };
