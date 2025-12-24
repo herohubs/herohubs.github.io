@@ -16,16 +16,6 @@ const postCollection = defineCollection({
   }),
 });
 
-const contactCollection = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: 'src/content/contact' }),
-  schema: z.object({
-    title: z.string(),
-    meta_title: z.string().optional(),
-    description: z.string().optional(),
-    draft: z.boolean().optional(),
-  }),
-});
-
 const pagesCollection = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: 'src/content/pages' }),
   schema: z.object({
