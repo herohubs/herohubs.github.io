@@ -5,7 +5,7 @@ export async function getMainMenu(lang?: string): Promise<INavigationLink[]> {
   const menu = await loadMenu(lang);
 
   return menu.main.filter((m: any) => {
-    const isUiKit = m.url?.startsWith('/ui-kit');
+    const isUiKit = m.url?.includes('/ui-kit');
     const isCategory = m.url?.startsWith('/categories/');
     const isBlog = m.isBlog === true;
 

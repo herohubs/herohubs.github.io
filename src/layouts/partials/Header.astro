@@ -41,7 +41,7 @@ const categoriesMenus = await getCategoryMenu(posts, lang);
               href={menu.url}
               class={`nav-link inline-block ${
                 pathname === `${menu.url}/` || pathname === menu.url ? 'nav-link-active' : ''
-              } ${menu.url.startsWith('/ui-kit') ? 'text-red-600' : ''}`}
+              } ${menu.url.includes('/ui-kit') ? 'text-red-600' : ''}`}
             >
               {menu.name}
             </a>
