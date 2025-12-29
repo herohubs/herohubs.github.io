@@ -1,11 +1,15 @@
 ---
 import type { INavigationLink } from '@/interfaces';
+import { loadLocalizedConfig } from '@/lib/utils/lang';
+
 const { menu, showLangSwitcher, lang } = Astro.props as {
   menu: INavigationLink[];
   showLangSwitcher?: boolean;
   lang?: string;
 };
 const currentPath = Astro.url.pathname;
+
+const i18n: any = await loadLocalizedConfig(lang, 'i18n');
 ---
 
 <div>
@@ -23,15 +27,15 @@ const currentPath = Astro.url.pathname;
   {
     showLangSwitcher && (
       <div class="mt-4 text-center">
-        <span class="text-sm text-gray-600 mr-2">Lingua:</span>
+        <span class="text-sm text-gray-600 mr-2">{i18n.langSwitcher.label}:</span>
         {lang !== 'en' && (
           <a href={currentPath.replace(/^\/it/, '/en')} class="text-primary hover:underline mx-1">
-            EN
+            {i18n.langSwitcher.en}
           </a>
         )}
         {lang !== 'it' && (
           <a href={currentPath.replace(/^\/en/, '/it')} class="text-primary hover:underline mx-1">
-            IT
+            {i18n.langSwitcher.it}
           </a>
         )}
       </div>

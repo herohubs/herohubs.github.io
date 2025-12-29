@@ -5,5 +5,10 @@
   "related_posts": "Related Posts",
   "continue_reading": "Continue reading",
   "accept": "Accept",
-  "cookie_policy": "Cookie policy"
+  "cookie_policy": "Cookie policy",
+  "langSwitcher": {
+    "label": "Language",
+    "en": "English",
+    "it": "Italian"
+  }
 }

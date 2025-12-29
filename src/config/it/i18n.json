@@ -5,5 +5,10 @@
   "related_posts": "Post Correlati",
   "continue_reading": "Continua a leggere",
   "accept": "Accetta",
-  "cookie_policy": "Cookie policy"
+  "cookie_policy": "Cookie policy",
+  "langSwitcher": {
+    "label": "Lingua",
+    "en": "Inglese",
+    "it": "Italiano"
+  }
 }
