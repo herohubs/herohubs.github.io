@@ -33,5 +33,9 @@
   "metadata": {
     "meta_author": "Hero Hubs",
     "meta_image": "/images/og-image.png"
+  },
+
+  "analytics": {
+    "google_analytics_id": "G-J9DZLLGS57"
   }
 }

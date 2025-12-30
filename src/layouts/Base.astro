@@ -34,13 +34,34 @@ const raw = Astro.props.meta_title;
 const meta_title = raw
   ? raw.charAt(0).toUpperCase() + raw.slice(1) + ' | ' + mainConfig.profile.name
   : mainConfig.profile.name + ' - ' + config.profile.designation;
+
+const GA_ID = mainConfig.analytics.google_analytics_id;
 ---
 
 <!doctype html>
 <html>
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+    <script define:vars={{ GA_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag('js', new Date());
+      gtag('config', GA_ID);
+
+      document.addEventListener('astro:page-load', () => {
+        gtag('config', GA_ID, {
+          page_path: window.location.pathname,
+        });
+      });
+    </script>
+
     <!-- favicon -->
     <link rel="shortcut icon" href={mainConfig.site.favicon} />
+
     <!-- theme meta -->
     <meta name="theme-name" content="hydrogen-astro" />
     <meta name="msapplication-TileColor" content="#000000" />
