@@ -17,3 +17,10 @@ export type Pagination = {
   currentPage?: number;
   totalPages?: number;
 };
+
+export {};
+declare global {
+  interface Window {
+    initGA?: () => void;
+  }
+}

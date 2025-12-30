@@ -18,6 +18,10 @@ const CookieBanner = ({ lang = 'en', config, i18n }: CookieBannerProps) => {
   const acceptCookies = () => {
     localStorage.setItem('cookiesAccepted', 'true');
     setShowBanner(false);
+    // Call Google Analytics initialization;
+    if (window.initGA) {
+      window.initGA();
+    }
   };
 
   const cookiPolicyUrl = `/${lang}/cookie-policy`;
