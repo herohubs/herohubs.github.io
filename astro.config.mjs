@@ -65,6 +65,8 @@ export default defineConfig({
 
   redirects: {
     '/2024/11/28/qa-il-pilastro-invisibile-dello-sviluppo-software': '/it/posts/1',
+    '/ize0': '/it/posts/1',
+
     '/2024/11/29/le-fallacie-dei-sistemi-distribuiti': '/it/posts/2',
     '/2024/12/02/le-organizzazioni-esponenziali-il-futuro-del-business-e-gia-qui': '/it/posts/3',
     '/2024/12/03/ai-la-rivoluzione-nello-sviluppo-software': '/it/posts/4',
@@ -98,17 +100,39 @@ export default defineConfig({
     '/2025/03/26/da-html-a-jsx-la-rivoluzione-silenziosa-del-web': '/it/posts/29',
 
     '/2025/04/03/manager-e-developer-oltre-la-superficialita-dei-social': '/it/posts/30',
+    '/ttai': '/it/posts/30',
+
     '/2025/04/04/importanza-di-avere-un-piano-di-crescita-professionale': '/it/posts/31',
+    '/4ja8': '/it/posts/31',
+
     '/2025/04/10/agent-as-a-service-aaas-il-futuro-oltre-il-saas': '/it/posts/32',
+    '/t4di': '/it/posts/32',
+
     '/2025/04/24/hono-semplicita-e-potenza-per-applicazioni-web-moderne': '/it/posts/33',
+    '/j495': '/it/posts/33',
+
     '/2025/05/02/scrivere-bene-una-competenza-cruciale-per-leader-e-developer': '/it/posts/34',
+    '/36vu': '/it/posts/34',
+
     '/2025/05/08/pull-e-merge-request-stessi-obiettivi-ma-approcci-diversi': '/it/posts/35',
+    '/g462': '/it/posts/35',
+
     '/2025/05/15/htmx-lalleato-inatteso-del-backend-moderno': '/it/posts/36',
+    '/aydb': '/it/posts/36',
+
     '/2025/05/21/biome-la-toolchain-moderna-che-semplifica-lo-sviluppo-web': '/it/posts/37',
+    '/c92s': '/it/posts/37',
+
     '/2025/05/29/test-driven-development-un-alleato-silenzioso-per-costruire-software-di-qualita': '/it/posts/38',
+    '/n2n7': '/it/posts/38',
+
     '/2025/06/05/astro-architettura-a-isole-e-rendering-ibrido-per-contenuti-e-performance': '/it/posts/39',
+    '/iiit': '/it/posts/39',
+
     '/2025/06/12/architetture-esagonali-una-nuova-prospettiva-grazie-a-ports-and-adapters': '/it/posts/40',
+    '/wsld': '/it/posts/40',
 
     '/2025/06/19/feature-flags-la-chiave-per-rilasci-sicuri-e-controllati': '/it/posts/41',
+    '/1e1m': '/it/posts/41',
   },
 });
