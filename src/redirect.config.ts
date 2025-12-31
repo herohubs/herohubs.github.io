@@ -91,10 +91,4 @@ export const blogRedirects: Record<string, string> = {
   '/wsld': '/it/posts/40',
   '/2025/06/19/feature-flags-la-chiave-per-rilasci-sicuri-e-controllati': '/it/posts/41',
   '/1e1m': '/it/posts/41',
-
-  // ============================================
-  // FINAL CATCH-ALL
-  // ============================================
-  // Any date-based URL pattern that has not been mapped
-  '/[year]/[month]/[day]/[...slug]': '/it/blog',
 };
