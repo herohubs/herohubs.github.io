@@ -8,7 +8,7 @@ import remarkCollapse from 'remark-collapse';
 import remarkToc from 'remark-toc';
 import sharp from 'sharp';
 import mainConfig from './src/config/main-config.json';
-import { blogRedirects } from './redirect.config';
+import { blogRedirects } from './src/redirect.config';
 
 let highlighter;
 async function getHighlighter() {

@@ -1,0 +1,21 @@
+---
+export const prerender = true;
+
+import { blogRedirects } from '@/redirect.config';
+
+export async function getStaticPaths() {
+  return Object.keys(blogRedirects).map((from) => ({
+    params: {
+      redirect: from.replace(/^\//, ''),
+    },
+  }));
+}
+
+const { redirect } = Astro.params;
+const fromPath = `/${redirect}`;
+const target = blogRedirects[fromPath] ?? '/it/blog';
+
+Astro.redirect(target, 301);
+---
+
+Thinking..

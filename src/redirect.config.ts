@@ -1,4 +1,4 @@
-export const blogRedirects = {
+export const blogRedirects: Record<string, string> = {
   // ============================================
   // NOVEMBER 2024
   // ============================================
