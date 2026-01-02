@@ -1,32 +1,25 @@
 ---
 import theme from '@/config/theme.json';
 import mainConfig from '@/config/main-config.json';
+import Base from '@/layouts/Base.astro';
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <title>Thinking..</title>
-  </head>
-
-  <body
-    style={`background-color: ${theme.colors.default.theme_color.body}; color: ${theme.colors.default.text_color.text};`}
+<Base>
+  <noscript>
+    <p>JavaScript is required. <a href="/en">Go to English site</a></p>
+  </noscript>
+  <script
+    define:vars={{
+      supportedLanguages: mainConfig.settings.languages,
+      defaultLang: mainConfig.settings.default_language,
+    }}
   >
-    <noscript>
-      <p>JavaScript is required. <a href="/en">Go to English site</a></p>
-    </noscript>
-    <script
-      define:vars={{
-        supportedLanguages: mainConfig.settings.languages,
-        defaultLang: mainConfig.settings.default_language,
-      }}
-    >
-      const browserLang = navigator.language?.slice(0, 2);
-      const lang = supportedLanguages.includes(browserLang) ? browserLang : defaultLang;
-      window.location.replace('/' + lang);
-    </script>
-  </body>
-</html>
+    const browserLang = navigator.language?.slice(0, 2);
+    const lang = supportedLanguages.includes(browserLang) ? browserLang : defaultLang;
+    window.location.replace('/' + lang);
+  </script>
+  <div class="flex flex-col items-center justify-center h-[calc(100vh-680px)] text-center">
+    <img src="/images/herohubs-favicon_512x512.png" alt="Thinking..." width="150" height="150" class="mb-4" />
+    <span>Thinking..</span>
+  </div>
+</Base>
