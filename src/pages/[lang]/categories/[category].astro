@@ -6,6 +6,8 @@ import { getSinglePage } from '@/lib/contentParser.astro';
 import { getTaxonomy } from '@/lib/taxonomyParser.astro';
 import taxonomyFilter from '@/lib/utils/taxonomyFilter';
 import PageHeader from '@/partials/PageHeader.astro';
+import { sortByDate } from '@/lib/utils/sortFunctions';
+
 const { lang, category } = Astro.params;
 
 export async function getStaticPaths() {
@@ -39,7 +41,7 @@ const filterByCategories = taxonomyFilter(posts, 'categories', category!);
         <div class="row">
           <div class="container">
             <div class="row gy-4">
-              {filterByCategories.map((post) => <Post className="sm:col-6" post={post} lang={lang} />)}
+              {sortByDate(filterByCategories).map((post) => <Post className="sm:col-6" post={post} lang={lang} />)}
             </div>
           </div>
         </div>
