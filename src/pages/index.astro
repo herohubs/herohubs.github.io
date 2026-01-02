@@ -1,9 +1,14 @@
 ---
 import mainConfig from '@/config/main-config.json';
 import Base from '@/layouts/Base.astro';
+import { loadLocalizedConfig } from '@/lib/utils/lang';
+
+const lang = 'en';
+
+const config: any = await loadLocalizedConfig(lang, 'config');
 ---
 
-<Base lang="en">
+<Base lang={lang} title={config.site.title} description={config.metadata.meta_description}>
   <noscript>
     <p>JavaScript is required. <a href="/en">Go to English site</a></p>
   </noscript>
@@ -18,7 +23,8 @@ import Base from '@/layouts/Base.astro';
     window.location.replace('/' + lang);
   </script>
   <div class="flex flex-col items-center justify-center h-[calc(100vh-680px)] text-center">
-    <img src="/images/herohubs-favicon_512x512.png" alt="Thinking..." width="150" height="150" class="mb-4" />
-    <span>Thinking..</span>
+    <img src="/images/og-image.png" alt="Thinking..." width="150" height="150" class="mb-4" />
+    <h6>{config.site.title}</h6>
+    <span class="mt-4">{config.metadata.meta_description}</span>
   </div>
 </Base>
