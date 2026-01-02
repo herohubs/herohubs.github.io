@@ -23,7 +23,7 @@ const config: any = await loadLocalizedConfig(lang, 'config');
     window.location.replace('/' + lang);
   </script>
   <div class="flex flex-col items-center justify-center h-[calc(100vh-680px)] text-center">
-    <img src="/images/og-image.png" alt="Thinking..." width="150" height="150" class="mb-4" />
+    <img src="/images/og-image.png" alt={config.site.title} width="150" height="150" class="mb-4" />
     <h6>{config.site.title}</h6>
     <span class="mt-4">{config.metadata.meta_description}</span>
   </div>
