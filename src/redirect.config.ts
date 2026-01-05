@@ -99,4 +99,7 @@ export const blogRedirects: Record<string, string> = {
   '/services': '/it/services',
   '/contacts': '/it/contacts',
   '/portfolio': '/it/portfolio',
+  '/blog': '/it/blog',
+  '/terms-and-condition': '/it/terms-and-conditions',
+  '/category/career-and-growth/page/2/': '/it',
 };
