@@ -95,8 +95,8 @@ export const blogRedirects: Record<string, string> = {
   // ============================================
   // HERO HUBS MAIN SITE REDIRECTS
   // ============================================
-  'https://herohubs.it/who-we-are/': '/it/about',
-  'https://herohubs.it/services/': '/it/services',
-  'https://herohubs.it/contacts/': '/it/contacts',
-  'https://herohubs.it/portfolio/': '/it/portfolio',
+  '/who-we-are': '/it/about',
+  '/services': '/it/services',
+  '/contacts': '/it/contacts',
+  '/portfolio': '/it/portfolio',
 };
