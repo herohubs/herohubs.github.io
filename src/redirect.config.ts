@@ -102,4 +102,5 @@ export const blogRedirects: Record<string, string> = {
   '/blog': '/it/blog',
   '/terms-and-condition': '/it/terms-and-conditions',
   '/category/career-and-growth/page/2/': '/it',
+  '/wp-content/uploads/2024/12/herohubs-email-signature.png': '/images/herohubs-email-signature.png',
 };
