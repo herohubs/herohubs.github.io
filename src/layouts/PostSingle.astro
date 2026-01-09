@@ -88,9 +88,7 @@ const i18n = await loadLocalizedConfig(lang, 'i18n');
 </section>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    if (window.history.length > 2) {
-      document.getElementById('back-button')?.classList.remove('invisible');
-    }
-  });
+  if (window.history.length > 2) {
+    document.getElementById('back-button')?.classList.remove('invisible');
+  }
 </script>
