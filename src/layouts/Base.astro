@@ -13,6 +13,7 @@ import '@/styles/main.css';
 import '@/styles/transitions.css';
 
 const { lang } = Astro.params;
+
 const config: any = await loadLocalizedConfig(lang, 'config');
 const i18n: any = await loadLocalizedConfig(lang, 'i18n');
 
@@ -27,7 +28,7 @@ if (theme.fonts.font_family.primary) {
 }
 
 // distructure frontmatters
-const { title, description, image, noindex, canonical } = Astro.props;
+const { title, description, image, noindex, canonical, empty } = Astro.props;
 
 const raw = Astro.props.meta_title;
 
@@ -159,11 +160,23 @@ const GA_ID = mainConfig.analytics.google_analytics_id;
   </head>
   <body>
     <TwSizeIndicator />
-    {!pathname.startsWith('/posts/') && <Header />}
+
+    {/* HEADER: shown only if the page is not "empty" and the path does not start with /posts/ */}
+    {!empty && !pathname.startsWith('/posts/') && <Header />}
+
+    {/* MAIN CONTENT: always rendered */}
     <main id="main-content">
       <slot />
     </main>
-    <Footer />
-    <CookieBanner client:load lang={lang} config={config} i18n={i18n} />
+
+    {/* FOOTER and COOKIE BANNER: rendered only if the page is not "empty" */}
+    {
+      !empty && (
+        <>
+          <Footer />
+          <CookieBanner client:load lang={lang} config={config} i18n={i18n} />
+        </>
+      )
+    }
   </body>
 </html>
