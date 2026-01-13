@@ -44,6 +44,8 @@ const italianUrl = currentPath.replace(/^\/en/, '/it');
           </button>
 
           <div class="flex items-center space-x-2">
+            <span class="text-gray-600 text-base mr-2">{i18n.langSwitcher.label}:</span>
+
             {
               lang !== 'en' && (
                 <button
