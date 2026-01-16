@@ -9,7 +9,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "format": "prettier -w ./src"
+    "format": "npx prettier --write '**/*.{js,ts,json,css,md,astro}'"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
