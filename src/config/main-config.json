@@ -14,14 +14,14 @@
   },
 
   "profile": {
-    "name": "Hero Hubs",
+    "name": "HeroHubs",
     "image": "/images/herohubs-logo_220x220.png",
     "image_min": "/images/herohubs-logo_135x50.png"
   },
 
   "params": {
     "contact_form_action": "#",
-    "copyright": "Copyright © 2025 - [Hero Hubs](https://ranierivannozzi.com/) - P.Iva 02103710477"
+    "copyright": "Copyright © 2025 - [HeroHubs](https://ranierivannozzi.com/) - P.Iva 02103710477"
   },
 
   "disqus": {
@@ -31,7 +31,7 @@
   },
 
   "metadata": {
-    "meta_author": "Hero Hubs",
+    "meta_author": "HeroHubs",
     "meta_image": "/images/og-image.png"
   },
 
