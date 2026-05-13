@@ -19,7 +19,7 @@
   width: max-content;
 }
 
-.animate-scroll-15s-to-right {
+.animate-scroll-55s-to-right {
   animation: scroll-to-right 55s linear infinite;
   width: max-content;
 }

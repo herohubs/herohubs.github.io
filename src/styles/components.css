@@ -46,20 +46,16 @@
   }
 }
 .notice.note {
-  @apply text-[#1B83E2];
-  @apply border-current;
+  @apply border-current text-[#1B83E2];
 }
 .notice.tip {
-  @apply text-[#40D294];
-  @apply border-current;
+  @apply border-current text-[#40D294];
 }
 .notice.info {
-  @apply text-[#E3A72C];
-  @apply border-current;
+  @apply border-current text-[#E3A72C];
 }
 .notice.warning {
-  @apply text-[#DB2C23];
-  @apply border-current;
+  @apply border-current text-[#DB2C23];
 }
 
 /* tab */
@@ -112,10 +108,8 @@
     @apply max-h-screen;
   }
 }
-.accordion {
-  ul {
-    @apply my-0;
-  }
+.accordion ul {
+  @apply my-0;
 }
 
 /* content style */
