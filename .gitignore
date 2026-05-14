@@ -21,6 +21,9 @@ yarn.lock
 # macOS-specific files
 .DS_Store
 
+# Claude Code local settings (contains personal tokens)
+.claude/settings.local.json
+
 # ignore .astro directory
 .astro
 
