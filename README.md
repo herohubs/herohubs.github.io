@@ -4,16 +4,16 @@ Official source code for [herohubs.it](https://herohubs.it/), the freelance webs
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Framework | [Astro 5](https://astro.build/) |
-| UI | [React 19](https://react.dev/) + [Tailwind CSS 4](https://tailwindcss.com/) |
-| Content | MDX + Markdown |
-| Styling | Montserrat font, custom CSS modules |
-| Code highlighting | [Shiki](https://shiki.style/) (One Dark Pro theme) |
-| Image optimization | [Sharp](https://sharp.pixelplumbing.com/) |
-| Deployment | GitHub Pages (CI via GitHub Actions) + Netlify |
-| Package manager | Yarn 1.x |
+| Layer              | Technology                                                                  |
+| ------------------ | --------------------------------------------------------------------------- |
+| Framework          | [Astro 5](https://astro.build/)                                             |
+| UI                 | [React 19](https://react.dev/) + [Tailwind CSS 4](https://tailwindcss.com/) |
+| Content            | MDX + Markdown                                                              |
+| Styling            | Montserrat font, custom CSS modules                                         |
+| Code highlighting  | [Shiki](https://shiki.style/) (One Dark Pro theme)                          |
+| Image optimization | [Sharp](https://sharp.pixelplumbing.com/)                                   |
+| Deployment         | GitHub Pages (CI via GitHub Actions) + Netlify                              |
+| Package manager    | Yarn 1.x                                                                    |
 
 ## Project Structure
 
@@ -49,18 +49,18 @@ herohubs.github.io/
 
 ## Pages
 
-| Route | Description |
-|---|---|
-| `/` | Redirects to the default language (`/en`) |
-| `/en` / `/it` | Homepage with hero, services, how-it-works, customers, contacts |
-| `/[lang]/about` | About HeroHubs |
-| `/[lang]/services` | Services offered |
-| `/[lang]/portfolio` | Portfolio of past projects |
-| `/[lang]/contacts` | Contact form and details |
-| `/[lang]/blog` | Blog listing with pagination |
-| `/[lang]/posts/[slug]` | Individual blog post |
-| `/[lang]/categories/[cat]` | Posts filtered by category |
-| `/[lang]/ui-kit` | Component showcase |
+| Route                      | Description                                                     |
+| -------------------------- | --------------------------------------------------------------- |
+| `/`                        | Redirects to the default language (`/en`)                       |
+| `/en` / `/it`              | Homepage with hero, services, how-it-works, customers, contacts |
+| `/[lang]/about`            | About HeroHubs                                                  |
+| `/[lang]/services`         | Services offered                                                |
+| `/[lang]/portfolio`        | Portfolio of past projects                                      |
+| `/[lang]/contacts`         | Contact form and details                                        |
+| `/[lang]/blog`             | Blog listing with pagination                                    |
+| `/[lang]/posts/[slug]`     | Individual blog post                                            |
+| `/[lang]/categories/[cat]` | Posts filtered by category                                      |
+| `/[lang]/ui-kit`           | Component showcase                                              |
 
 ## i18n
 
@@ -113,15 +113,15 @@ A **Netlify** configuration (`netlify.toml`) is also present as an alternative d
 
 ## Configuration Reference
 
-| File | Purpose |
-|---|---|
-| `src/config/main-config.json` | Site URL, pagination, languages, favicon, analytics |
-| `src/config/{lang}/config.json` | Site title, profile bio, metadata, cookie banner strings |
-| `src/config/{lang}/home.json` | Homepage section content (hero blocks, services, customers…) |
-| `src/config/{lang}/menu.json` | Navigation links |
-| `src/config/{lang}/i18n.json` | UI label translations |
-| `src/config/social.json` | Social network links and visibility flags |
-| `src/config/theme.json` | Primary/secondary colors, font family and size |
+| File                            | Purpose                                                      |
+| ------------------------------- | ------------------------------------------------------------ |
+| `src/config/main-config.json`   | Site URL, pagination, languages, favicon, analytics          |
+| `src/config/{lang}/config.json` | Site title, profile bio, metadata, cookie banner strings     |
+| `src/config/{lang}/home.json`   | Homepage section content (hero blocks, services, customers…) |
+| `src/config/{lang}/menu.json`   | Navigation links                                             |
+| `src/config/{lang}/i18n.json`   | UI label translations                                        |
+| `src/config/social.json`        | Social network links and visibility flags                    |
+| `src/config/theme.json`         | Primary/secondary colors, font family and size               |
 
 ## Contact
 
