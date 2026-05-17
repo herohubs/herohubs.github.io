@@ -5,8 +5,12 @@ const Youtube = ({ id, title, ...rest }: { id: string; title: string; [key: stri
     import('@justinribeiro/lite-youtube');
   }, []);
 
-  // @ts-ignore
-  return <lite-youtube videoid={id} videotitle={title} {...rest} />;
+  return (
+    <div className="w-full overflow-hidden rounded-lg">
+      {/* @ts-ignore */}
+      <lite-youtube videoid={id} videotitle={title} style={{ width: '100%' }} {...rest} />
+    </div>
+  );
 };
 
 export default Youtube;
