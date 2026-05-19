@@ -69,6 +69,11 @@
         "name": "Carrefour Express",
         "image": "/images/customers/carrefour-express.webp",
         "url": "https://www.carrefour.it/"
+      },
+      {
+        "name": "Banca AideXa",
+        "image": "/images/customers/banca-aidexa.webp",
+        "url": "https://www.aidexa.it/"
       }
     ]
   },
