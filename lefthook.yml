@@ -9,3 +9,14 @@ pre-commit:
         - frontend
         - formatting
       run: npx prettier . --write && git add .
+
+commit-msg:
+  jobs:
+    - name: Conventional Commits format
+      run: |
+        grep -qE '^(feat|fix|docs|style|refactor|perf|test|chore)(\(.+\))?!?: .+' {1} || {
+          echo "Error: commit message must follow Conventional Commits format."
+          echo "Expected: <type>[optional scope]: <description>"
+          echo "Valid types: feat, fix, docs, style, refactor, perf, test, chore"
+          exit 1
+        }
