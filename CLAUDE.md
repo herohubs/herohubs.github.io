@@ -54,6 +54,12 @@ All source code and code comments must be written in English, without exception.
 2. Always modify both versions (`it/` and `en/`) in the same commit
 3. Push the branch and let the owner review before merging
 
+## Git conventions
+
+- Always ask the user for confirmation before running `git commit` or `git push`; never commit or push autonomously
+- Never add a `Co-Authored-By` trailer to commits; all commits must be attributed solely to the git user configured in the repository
+- Commit messages must follow [Conventional Commits](https://www.conventionalcommits.org/): `<type>[optional scope]: <description>`. Valid types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `chore`
+
 ## Style reference
 
 Articles 45 and 46 are the up-to-date references for tone, density, and structure:
