@@ -46,7 +46,7 @@ const cards: Record<string, Array<{ title: string; body: string }>> = {
 const items = cards[lang] ?? cards.en;
 ---
 
-<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="mt-8 mb-6 grid grid-cols-1 md:grid-cols-2 gap-6">
   {
     items.map((item) => (
       <div class="rounded-4xl border border-border p-8 hover:shadow-md transition-shadow duration-300">

@@ -6,13 +6,13 @@ const { lang } = Astro.props;
 
 const content: Record<string, { heading: string; role: string; bio: string; profileLabel: string }> = {
   it: {
-    heading: 'Il Team',
+    heading: 'Leadership',
     role: 'Founder & Tech Lead',
     bio: 'Con oltre 15 anni di esperienza in sviluppo enterprise, architetture cloud-native e leadership tecnica, guida la visione tecnologica di HeroHubs con un approccio orientato alla qualità e alla scalabilità.',
     profileLabel: 'Profilo professionale',
   },
   en: {
-    heading: 'The Team',
+    heading: 'Leadership',
     role: 'Founder & Tech Lead',
     bio: 'With over 15 years of experience in enterprise development, cloud-native architectures, and technical leadership, drives the technological vision of HeroHubs with a focus on quality and scalability.',
     profileLabel: 'Professional profile',
@@ -22,15 +22,13 @@ const content: Record<string, { heading: string; role: string; bio: string; prof
 const t = content[lang] ?? content.en;
 ---
 
-<div class="mt-10 pt-8 border-t border-border">
-  <h5 class="text-text-dark font-normal mb-6">{t.heading}</h5>
-  <div class="rounded-4xl border border-border p-8 flex flex-col sm:flex-row gap-6 items-start">
-    <div
-      class="flex-shrink-0 w-16 h-16 rounded-full bg-primary/20 border border-primary flex items-center justify-center text-primary text-xl font-semibold"
-      aria-hidden="true"
-    >
-      RV
-    </div>
+<div>
+  <div class="rounded-4xl border border-primary p-8 mb-6 flex flex-col sm:flex-row gap-6 items-start">
+    <img
+      src="/images/ranieri-vannozzi.webp"
+      alt="Ranieri Vannozzi"
+      class="flex-shrink-0 w-16 h-16 rounded-full object-cover"
+    />
     <div>
       <p class="text-text-dark font-semibold mb-1 mt-0">Ranieri Vannozzi</p>
       <p class="text-primary text-sm mb-3 mt-0">{t.role}</p>
