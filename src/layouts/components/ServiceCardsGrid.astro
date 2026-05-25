@@ -1,0 +1,58 @@
+---
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+
+const cards: Record<string, Array<{ title: string; body: string }>> = {
+  it: [
+    {
+      title: 'Sviluppo Software',
+      body: "Progettiamo e sviluppiamo applicazioni enterprise su misura, piattaforme e-commerce e soluzioni mobile, con attenzione alla performance, alla manutenibilità e all'esperienza utente.",
+    },
+    {
+      title: 'Consulenza Tecnica',
+      body: "Supportiamo le aziende nella definizione della strategia tecnologica, nella valutazione delle architetture esistenti e nell'adozione di metodologie Agile per migliorare la produttività dei team.",
+    },
+    {
+      title: 'Cloud e Serverless',
+      body: 'Progettiamo infrastrutture cloud scalabili su AWS e Google Cloud, riducendo la complessità operativa attraverso architetture serverless e pipeline CI/CD ottimizzate.',
+    },
+    {
+      title: 'Applicazioni Mobile',
+      body: "Sviluppiamo applicazioni iOS e Android native e cross-platform con attenzione alla user experience, all'integrazione con sistemi enterprise e alla continuità con le piattaforme web esistenti.",
+    },
+  ],
+  en: [
+    {
+      title: 'Software Development',
+      body: 'We design and build custom enterprise applications, e-commerce platforms, and mobile solutions, with a focus on performance, maintainability, and user experience.',
+    },
+    {
+      title: 'Technical Consulting',
+      body: 'We support companies in defining technology strategy, evaluating existing architectures, and adopting Agile methodologies to improve team productivity.',
+    },
+    {
+      title: 'Cloud and Serverless',
+      body: 'We design scalable cloud infrastructures on AWS and Google Cloud, reducing operational complexity through serverless architectures and optimized CI/CD pipelines.',
+    },
+    {
+      title: 'Mobile Applications',
+      body: 'We build native and cross-platform iOS and Android applications focused on user experience, enterprise system integration, and continuity with existing web platforms.',
+    },
+  ],
+};
+
+const items = cards[lang] ?? cards.en;
+---
+
+<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+  {
+    items.map((item) => (
+      <div class="rounded-4xl border border-border p-8 hover:shadow-md transition-shadow duration-300">
+        <h5 class="text-primary font-normal mb-3 text-center mt-0">{item.title}</h5>
+        <p class="text-text text-center mb-0 mt-0">{item.body}</p>
+      </div>
+    ))
+  }
+</div>
