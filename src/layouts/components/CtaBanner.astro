@@ -1,0 +1,26 @@
+---
+interface Props {
+  primaryLabel: string;
+  primaryHref: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+}
+const { primaryLabel, primaryHref, secondaryLabel, secondaryHref } = Astro.props;
+---
+
+<section class="section-sm ml-5 mr-5" style="padding-top: 0;">
+  <div class="container">
+    <div
+      class="rounded-4xl p-10 lg:p-9 border border-border bg-body/85 flex flex-col sm:flex-row items-center justify-center gap-4"
+    >
+      <a href={primaryHref} class="btn btn-primary">{primaryLabel}</a>
+      {
+        secondaryLabel && secondaryHref && (
+          <a href={secondaryHref} class="btn btn-outline-primary">
+            {secondaryLabel}
+          </a>
+        )
+      }
+    </div>
+  </div>
+</section>

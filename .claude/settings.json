@@ -7,7 +7,13 @@
       "Bash(git -C /home/rvannozzi/repositories/github/herohubs/herohubs.github.io status)",
       "Bash(git -C /home/rvannozzi/repositories/github/herohubs/herohubs.github.io diff)",
       "Bash(git -C /home/rvannozzi/repositories/github/herohubs/herohubs.github.io add CLAUDE.md .claude/settings.json)",
-      "Bash(git -C /home/rvannozzi/repositories/github/herohubs/herohubs.github.io commit -m ' *)"
+      "Bash(git -C /home/rvannozzi/repositories/github/herohubs/herohubs.github.io commit -m ' *)",
+      "Bash(git -C /home/rvannozzi/repositories/github/herohubs/herohubs.github.io add src/layouts/components/TeamSection.astro src/layouts/components/ServiceCardsGrid.astro public/images/ranieri-vannozzi.webp .claude/settings.json)",
+      "Bash(git -C /home/rvannozzi/repositories/github/herohubs/herohubs.github.io commit -m ' *)",
+      "Bash(git -C /home/rvannozzi/repositories/github/herohubs/herohubs.github.io add src/content/pages/en/about.mdx src/content/pages/en/portfolio.mdx src/content/pages/en/services.mdx src/content/pages/it/about.mdx src/content/pages/it/portfolio.mdx src/content/pages/it/services.mdx src/pages/[lang]/[regular].astro)",
+      "Bash(git -C /home/rvannozzi/repositories/github/herohubs/herohubs.github.io push)",
+      "Bash(git -C /home/rvannozzi/repositories/github/herohubs/herohubs.github.io log main..HEAD --oneline)",
+      "Bash(gh pr create --base main --head claude/keen-pascal-zZ7Zf --title 'style\\(about\\): rework about page and remove CtaBanner' --body ' *)"
     ]
   }
 }

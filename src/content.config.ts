@@ -25,6 +25,16 @@ const pagesCollection = defineCollection({
     image: z.string().optional(),
     draft: z.boolean().optional(),
     justify: z.boolean().optional(),
+    showTeam: z.boolean().optional(),
+    showServiceCards: z.boolean().optional(),
+    cta: z
+      .object({
+        primaryLabel: z.string(),
+        primaryHref: z.string(),
+        secondaryLabel: z.string().optional(),
+        secondaryHref: z.string().optional(),
+      })
+      .optional(),
   }),
 });
 

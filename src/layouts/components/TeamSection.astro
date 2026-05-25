@@ -1,0 +1,46 @@
+---
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+
+const content: Record<string, { heading: string; role: string; bio: string; profileLabel: string }> = {
+  it: {
+    heading: 'Leadership',
+    role: 'Founder & Tech Lead',
+    bio: 'Con oltre 15 anni di esperienza in sviluppo enterprise, architetture cloud-native e leadership tecnica, guida la visione tecnologica di HeroHubs con un approccio orientato alla qualità e alla scalabilità.',
+    profileLabel: 'Profilo professionale',
+  },
+  en: {
+    heading: 'Leadership',
+    role: 'Founder & Tech Lead',
+    bio: 'With over 15 years of experience in enterprise development, cloud-native architectures, and technical leadership, drives the technological vision of HeroHubs with a focus on quality and scalability.',
+    profileLabel: 'Professional profile',
+  },
+};
+
+const t = content[lang] ?? content.en;
+---
+
+<div>
+  <div class="rounded-4xl border border-primary p-8 mb-6 flex flex-col sm:flex-row gap-6 items-start">
+    <img
+      src="/images/ranieri-vannozzi.webp"
+      alt="Ranieri Vannozzi"
+      class="flex-shrink-0 w-16 h-16 rounded-full object-cover"
+    />
+    <div>
+      <p class="text-text-dark font-semibold mb-1 mt-0">Ranieri Vannozzi</p>
+      <p class="text-primary text-sm mb-3 mt-0">{t.role}</p>
+      <p class="text-text text-sm leading-relaxed mb-4 mt-0">{t.bio}</p>
+      <a
+        href="https://ranierivannozzi.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-primary text-sm hover:underline"
+      >
+        {t.profileLabel} &rarr;
+      </a>
+    </div>
+  </div>
+</div>

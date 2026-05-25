@@ -1,5 +1,7 @@
 ---
 import Base from '@/layouts/Base.astro';
+import ServiceCardsGrid from '@/layouts/components/ServiceCardsGrid.astro';
+import TeamSection from '@/layouts/components/TeamSection.astro';
 import { getSinglePage } from '@/lib/contentParser.astro';
 import PageHeader from '@/partials/PageHeader.astro';
 import { render } from 'astro:content';
@@ -30,8 +32,9 @@ export async function getStaticPaths() {
 }
 
 const { page } = Astro.props;
+const { lang } = Astro.params;
 
-const { title, meta_title, description, image, justify } = page.data;
+const { title, meta_title, description, image, justify, showTeam, showServiceCards } = page.data;
 const { Content } = await render(page);
 ---
 
@@ -45,6 +48,8 @@ const { Content } = await render(page);
             <div class="content">
               <Content />
             </div>
+            {showTeam && <TeamSection lang={lang} />}
+            {showServiceCards && <ServiceCardsGrid lang={lang} />}
           </div>
         </div>
       </div>
