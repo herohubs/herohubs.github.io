@@ -56,7 +56,8 @@ All source code and code comments must be written in English, without exception.
 
 ## Git conventions
 
-- Always ask the user for confirmation before running `git commit` or `git push`; never commit or push autonomously
+- Always ask the user for confirmation before running `git branch`, `git checkout -b`, `git commit`, or `git push`; never create branches, commit, or push autonomously
+- Branch names must follow the pattern `<type>/<short-description>` (e.g. `feat/article-48`, `fix/frontmatter-date`); never include references to Claude, Anthropic, or AI models in branch names
 - Never add a `Co-Authored-By` trailer to commits; all commits must be attributed solely to the git user configured in the repository
 - Commit messages must follow [Conventional Commits](https://www.conventionalcommits.org/): `<type>[optional scope]: <description>`. Valid types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `chore`
 
