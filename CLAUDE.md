@@ -22,6 +22,17 @@ draft: false
 ---
 ```
 
+## Categories
+
+The `categories` field must use one of the predefined values, and the value is language-specific: the Italian file uses the Italian label and the English file uses the corresponding English label. The two versions of the same article must always map to the same row in the table below. Do not invent new categories.
+
+| Italian (`it/`) | English (`en/`) |
+| --------------- | --------------- |
+| Sviluppo        | Development     |
+| Progetti        | Projects        |
+| Architettura    | Architecture    |
+| AI              | AI              |
+
 ## Writing style
 
 **Tone and prose**
