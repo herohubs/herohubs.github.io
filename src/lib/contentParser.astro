@@ -10,9 +10,25 @@ export const getSinglePage = async <C extends CollectionKey>(
 
   const allPages = await getCollection(collectionName);
 
+  // Couple the draft status across languages: if any language variant of an
+  // article is a draft, every variant is treated as a draft. Articles must be
+  // published in all languages together, never one language on its own.
+  const baseName = (id: string) =>
+    id
+      .split('/')
+      .pop()
+      ?.replace(/\.mdx?$/, '');
+  const draftBaseNames = new Set(allPages.filter((entry) => entry.data.draft).map((entry) => baseName(entry.id)));
+  for (const entry of allPages) {
+    const base = baseName(entry.id);
+    if (base && draftBaseNames.has(base)) {
+      entry.data.draft = true;
+    }
+  }
+
   return allPages
     .filter((entry) => entry.id.startsWith(`${resolvedLang}/`))
     .filter((entry) => !entry.id.startsWith('-'))
-    .filter((entry) => !entry.data.draft);
+    .filter((entry) => import.meta.env.DEV || !entry.data.draft);
 };
 ---

@@ -6,11 +6,19 @@ const { post, id, lang, className } = Astro.props;
 const { data } = post;
 
 const cleanId = post.id.includes('/') ? post.id.split('/')[1] : id;
+const draftFileName = `${(post.id.split('/').pop() || '').replace(/\.mdx?$/, '')}.md`;
 const i18n = await loadLocalizedConfig(lang, 'i18n');
 ---
 
 <div class={className + ' opacity-90'}>
   <div class="rounded-4xl border border-border p-6 lg:p-9 h-full flex flex-col bg-body/85">
+    {
+      data.draft && (
+        <span class="mb-4 inline-block w-fit rounded bg-red-600 px-2 py-0.5 text-xs font-semibold tracking-wide text-white">
+          DRAFT · {draftFileName}
+        </span>
+      )
+    }
     <ul class="flex items-center space-x-4">
       {
         data.categories.map((category: any) => (

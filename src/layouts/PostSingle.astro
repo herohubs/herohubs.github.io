@@ -14,7 +14,8 @@ const { post, lang } = Astro.props;
 const posts = await getSinglePage('posts', lang);
 let similarPosts = similarItems(post, posts);
 const { Content } = await render(post);
-const { title, categories, image, date } = post.data;
+const { title, categories, image, date, draft } = post.data;
+const draftFileName = `${(post.id.split('/').pop() || '').replace(/\.mdx?$/, '')}.md`;
 similarPosts = similarPosts.sort((a, b) => {
   const dateA = new Date(a.data.date);
   const dateB = new Date(b.data.date);
@@ -85,6 +86,13 @@ const italianUrl = currentPath.replace(/^\/en/, '/it');
         </button> -->
 
         <article>
+          {
+            draft && (
+              <span class="mb-4 inline-block rounded bg-red-600 px-3 py-1 text-sm font-semibold tracking-wide text-white">
+                DRAFT · {draftFileName}
+              </span>
+            )
+          }
           {image && <ImageMod class="w-full" src={image} height={720} width={1280} alt={title} loading="eager" />}
           <h1 set:html={markdownify(title)} class="h2 mt-12" />
           <ul class="mt-4 mb-8 text-text">
