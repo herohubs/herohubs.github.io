@@ -22,6 +22,10 @@ draft: false
 ---
 ```
 
+## Cover images (Canva)
+
+The cover image lives at `/images/posts/post-<number>.<ext>` and is produced in Canva. The Canva design must be named after the article file, `<number>.md` (for example, the cover for article 51 is the Canva design titled `51.md`). To create a new cover, duplicate the previous article's design and replace only the text layers, keeping the shared layout, palette, and fonts, then export the result as `post-<number>.png` under `public/images/posts/`.
+
 ## Categories
 
 The `categories` field must use one of the predefined values, and the value is language-specific: the Italian file uses the Italian label and the English file uses the corresponding English label. The two versions of the same article must always map to the same row in the table below. Do not invent new categories.
