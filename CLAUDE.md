@@ -50,7 +50,7 @@ The `categories` field must use one of the predefined values, and the value is l
 **Structure**
 
 - The first paragraph has no heading and introduces the topic
-- Subsequent sections use `#####` (five hashes) with lowercase titles
+- Subsequent sections use `#####` (five hashes) with titles starting with a capital letter (sentence case: only the initial letter and any proper nouns are capitalized)
 - No bullet lists in the body text: content flows as prose
 
 **Length**
