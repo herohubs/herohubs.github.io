@@ -19,7 +19,8 @@ Documento di lavoro per valutare l'aggiunta di un'iscrizione alla newsletter al 
 
 Molti provider inviano automaticamente una campagna quando compare un nuovo item nel **feed RSS** del blog. Risultato: si continua a pubblicare solo l'articolo e la newsletter parte da sola, senza doppio lavoro. È ciò che distingue una newsletter che sopravvive da una che muore in pochi mesi.
 
-- Da verificare: se Astro sta già esponendo un feed RSS o se va aggiunto (operazione piccola, es. `@astrojs/rss`).
+- **Esito verifica (feed RSS):** il sito **non espone attualmente alcun feed**. Il pacchetto `@astrojs/rss` (`^4.0.14`) è già tra le dipendenze ma non è mai stato importato né cablato, non esiste alcun route (`rss.xml.ts` o simili) in `src/pages`, nessun `<link rel="alternate">` nel `<head>` e nessun feed statico in `public/`. Manca solo l'endpoint, che legga la collection `posts` e filtri i `draft: false`.
+- **Scelta di design (bilingue):** generare **due feed separati** `/it/rss.xml` e `/en/rss.xml`, così su MailerLite si collega il feed della lingua giusta e ogni iscritto riceve l'articolo nella propria lingua. Un feed unico misto sarebbe più semplice ma manderebbe ogni post due volte.
 - **Attenzione al pricing:** verificare che l'RSS-to-email sia incluso nel free tier. In **MailerLite** è incluso; in **Buttondown** è un add-on a pagamento (+$9/mese), proprio la feature che ci serve.
 
 ## Vie possibili (tre livelli)
@@ -61,7 +62,7 @@ Soluzione consigliata: **MailerLite** (provider hosted) + form in fondo all'arti
 
 ## Prossimi passi (quando si passa all'azione)
 
-1. Verificare se il blog espone già un feed RSS; in caso contrario aggiungerlo.
+1. ~~Verificare se il blog espone già un feed RSS~~ → fatto: assente. Aggiungere l'endpoint (due feed per lingua, `/it/rss.xml` e `/en/rss.xml`) sfruttando `@astrojs/rss` già installato.
 2. Scegliere il provider.
 3. Creare account e ottenere form embeddabile + pagina di iscrizione.
 4. Inserire il form nel layout `PostSingle` (fondo articolo).
