@@ -20,6 +20,7 @@ Documento di lavoro per valutare l'aggiunta di un'iscrizione alla newsletter al 
 Molti provider inviano automaticamente una campagna quando compare un nuovo item nel **feed RSS** del blog. Risultato: si continua a pubblicare solo l'articolo e la newsletter parte da sola, senza doppio lavoro. È ciò che distingue una newsletter che sopravvive da una che muore in pochi mesi.
 
 - Da verificare: se Astro sta già esponendo un feed RSS o se va aggiunto (operazione piccola, es. `@astrojs/rss`).
+- **Attenzione al pricing:** verificare che l'RSS-to-email sia incluso nel free tier. In **MailerLite** è incluso; in **Buttondown** è un add-on a pagamento (+$9/mese), proprio la feature che ci serve.
 
 ## Vie possibili (tre livelli)
 
@@ -31,12 +32,12 @@ Da evitare: soluzioni custom (backend, serverless). Sito statico + provider host
 
 ## Provider candidati
 
-| Provider         | Punti di forza                                                                                              | Note                                                                     |
-| ---------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| **Buttondown**   | Minimale, email in markdown, taglio dev, RSS-to-email, free tier                                            | Prima scelta per profilo sviluppatore                                    |
-| **MailerLite**   | Free tier generoso, form embeddabili, RSS-to-email, buona deliverability, integrazioni con Claude e ChatGPT | **In pole.** Interfaccia più "marketing"                                 |
-| **EmailOctopus** | Simile a MailerLite, free tier                                                                              | Alternativa                                                              |
-| **Substack**     | Attrito quasi zero per partire                                                                              | Sposta il baricentro del contenuto su di loro, forte imprinting di brand |
+| Provider         | Punti di forza                                                                                              | Note                                                                                 |
+| ---------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| **Buttondown**   | Minimale, email in markdown, taglio dev. Free tier fino a 100 subscriber                                    | **Sconsigliato per il nostro caso:** RSS-to-email è un add-on a pagamento (+$9/mese) |
+| **MailerLite**   | Free tier generoso, form embeddabili, RSS-to-email, buona deliverability, integrazioni con Claude e ChatGPT | **In pole.** Interfaccia più "marketing"                                             |
+| **EmailOctopus** | Simile a MailerLite, free tier                                                                              | Alternativa                                                                          |
+| **Substack**     | Attrito quasi zero per partire                                                                              | Sposta il baricentro del contenuto su di loro, forte imprinting di brand             |
 
 ### MailerLite — free tier (dettaglio)
 
@@ -56,7 +57,7 @@ Il limite dei 150 subscriber è ampiamente sufficiente per la fase iniziale; l'u
 
 ## Sintesi
 
-Soluzione consigliata: **provider hosted + form in fondo all'articolo + RSS-to-email**. Si scrive una volta e la lista si alimenta da sola. Buttondown per il taglio dev, MailerLite per la comodità.
+Soluzione consigliata: **MailerLite** (provider hosted) + form in fondo all'articolo + **RSS-to-email incluso nel free tier**. Si scrive una volta e la lista si alimenta da sola. Buttondown è stato scartato perché mette l'RSS-to-email a pagamento, proprio la leva che azzera il costo per articolo.
 
 ## Prossimi passi (quando si passa all'azione)
 
