@@ -131,6 +131,18 @@
   @apply prose-hr:border-[#cbcbcb42]/25;
   @apply prose-p:text-text;
   @apply prose-img:rounded-lg;
+
+  figure {
+    @apply my-8;
+
+    img {
+      @apply my-0;
+    }
+  }
+
+  figcaption {
+    @apply mt-3 text-center text-base italic text-text/70;
+  }
   @apply prose-blockquote:rounded prose-blockquote:border-primary prose-blockquote:bg-[rgba(97,238,188,4%)] prose-blockquote:py-8 prose-blockquote:px-8 prose-blockquote:text-2xl prose-blockquote:not-italic prose-blockquote:leading-9 prose-blockquote:text-text-dark;
   :not(pre) > code {
     @apply font-normal text-[#f28b54];
