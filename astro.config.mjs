@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import AutoImport from 'astro-auto-import';
 import { defineConfig } from 'astro/config';
+import rehypeExternalLinks from 'rehype-external-links';
 import remarkCollapse from 'remark-collapse';
 import remarkToc from 'remark-toc';
 import sharp from 'sharp';
@@ -52,6 +53,16 @@ export default defineConfig({
         remarkCollapse,
         {
           test: 'Table of contents',
+        },
+      ],
+    ],
+    rehypePlugins: [
+      [
+        rehypeExternalLinks,
+        {
+          target: '_blank',
+          rel: ['noopener', 'noreferrer'],
+          protocols: ['http', 'https'],
         },
       ],
     ],
