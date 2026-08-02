@@ -76,6 +76,72 @@ All source code and code comments must be written in English, without exception.
 - Never add a `Co-Authored-By` trailer to commits; all commits must be attributed solely to the git user configured in the repository
 - Commit messages must follow [Conventional Commits](https://www.conventionalcommits.org/): `<type>[optional scope]: <description>`. Valid types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `chore`
 
+## LinkedIn promotion
+
+Every published article is promoted on LinkedIn with three coordinated pieces: a bilingual post on the company page (scheduled for 7:30 AM), a first comment carrying the two article links, and a relaunch from the owner's personal profile at 1:30 PM.
+
+### Company page post
+
+**Length** — one single paragraph per language, 110-130 words each. No internal line breaks, no lists, no sub-headings.
+
+**Structure** — the paragraph follows a fixed narrative arc:
+
+1. Opening that frames the event and states the obvious reading of it (`When Sakana AI unveiled Fugu, most read it as yet another model beating its predecessors on benchmarks.`)
+2. A short pivot sentence that overturns that reading (`It is something stranger.`)
+3. The body, explaining what the thing actually is and how it works, with concrete names and figures taken from the article
+4. A closing lesson introduced by a colon, generalising beyond the specific product (`value is moving from the strongest brain to the system that connects the available ones.`)
+5. The CTA at the end of the same paragraph, never on its own line
+
+**Formatting** — the English block comes first, prefixed with 🇬🇧, then a blank line, then the Italian block prefixed with 🇮🇹. The CTA is `👉 link in the first comment` (EN) and `👉 link nel primo commento` (IT). Two lowercase, subject specific hashtags close the post at the very bottom, after both language blocks (for example `#sakanaai #fugu`); no generic `#ai` here.
+
+**Tone** — British spelling in English (centre, behaviour, synthesise). No exclamation marks, no dashes as separators, colons are welcome and the word after a colon is never capitalised. The Italian block is a faithful rewrite of the English one, same arc and same length, not a literal translation.
+
+**Reference example**
+
+```
+🇬🇧 When Sakana AI unveiled Fugu, most read it as yet another model beating its predecessors on benchmarks. It is something stranger. Fugu is not a large model at all: it is a tiny orchestrator of roughly seven billion parameters, trained not to answer but to route each request to the model best suited to it. Given a pool of closed and open models, from Claude Opus to Gemini and GPT, it delegates, cross-checks and synthesises a single response, and in doing so, it surpasses Opus 4.8 while approaching the most recent frontier models. The lesson is not about raw power but about coordination: value is moving from the strongest brain to the system that connects the available ones. 👉 link in the first comment
+
+🇮🇹 Quando Sakana AI ha presentato Fugu, molti lo hanno letto come l'ennesimo modello che batte i predecessori sui benchmark. È qualcosa di più curioso. Fugu non è affatto un modello grande: è un minuscolo orchestratore da circa sette miliardi di parametri, addestrato non a rispondere ma a instradare ogni richiesta al modello più adatto. Dato un insieme di modelli chiusi e aperti, da Claude Opus a Gemini e GPT, delega, verifica e sintetizza un'unica risposta, e così facendo supera Opus 4.8 avvicinandosi ai modelli di frontiera più recenti. La lezione non riguarda la potenza bruta ma il coordinamento: il valore si sposta dal cervello più potente al sistema che collega quelli disponibili. 👉 link nel primo commento
+
+#sakanaai #fugu
+```
+
+### First comment
+
+Only the two article links, Italian first, each prefixed with its flag and nothing else:
+
+```
+🇮🇹 https://herohubs.it/it/posts/<number>
+🇬🇧 https://herohubs.it/en/posts/<number>
+```
+
+The URL slug is the article number, with no trailing slash.
+
+### Personal relaunch
+
+**Length** — Italian only, one single block of 150-180 words. No flags, no link, no CTA, no line breaks.
+
+**Structure** — punchier and more opinionated than the company post, and it re-angles the article rather than condensing the company post, picking details the company post left out:
+
+1. A two beat antithetical opening, one short sentence stating what the news is not and one even shorter stating what it is (`La notizia AI della settimana non è un modello più potente. È uno più piccolo.`)
+2. The body, alternating long explanatory sentences with very short declarative ones that set the rhythm (`Il suo mestiere è orchestrare.`)
+3. One concrete, almost anecdotal figure that the company post did not use (`Una pagina web può uscire per il 60% da un modello e per il 40% da un altro.`)
+4. The pivot on what actually matters, introduced by a colon (`Cambia la domanda che conta: non chi costruisce il cervello più potente, ma chi coordina meglio quelli che già esistono.`)
+5. A closing antithesis echoing the opening (`Non è una gara di potenza, è una gara di connessione.`)
+6. A final sentence widening the frame beyond the product itself (`E il Giappone si è appena seduto al tavolo dei grandi senza addestrare un modello suo.`)
+
+**Tone** — declarative and editorial rather than first person, no `io` needed. Same punctuation rules as everywhere else: no exclamation marks, no dashes as separators, colons welcome, no capital after a colon.
+
+**Hashtags** — two lowercase subject specific tags on their own line at the bottom, overlapping with but not identical to the company post's pair. No generic `#ai`.
+
+**Reference example**
+
+```
+La notizia AI della settimana non è un modello più potente. È uno più piccolo. Sakana AI ha rilasciato Fugu e i benchmark lo danno sopra Opus 4.8, vicino ai modelli di frontiera più recenti, ma sotto il cofano non c'è un gigante da centinaia di miliardi di parametri: ce n'è uno da sette, addestrato a non rispondere. Il suo mestiere è orchestrare. Riceve la richiesta, sceglie tra Claude Opus, Gemini, GPT e altri il modello giusto per ogni parte, delega, incrocia i risultati e ricompone un'unica risposta, sfruttando la parte migliore di ciascuno. Una pagina web può uscire per il 60% da un modello e per il 40% da un altro. Cambia la domanda che conta: non chi costruisce il cervello più potente, ma chi coordina meglio quelli che già esistono. Non è una gara di potenza, è una gara di connessione. E il Giappone si è appena seduto al tavolo dei grandi senza addestrare un modello suo.
+
+#fugu #orchestration
+```
+
 ## Style reference
 
 Articles 45 and 46 are the up-to-date references for tone, density, and structure:
