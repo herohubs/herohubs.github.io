@@ -78,30 +78,32 @@ All source code and code comments must be written in English, without exception.
 
 ## LinkedIn promotion
 
-Every published article is promoted on LinkedIn with three coordinated pieces: a bilingual post on the company page (scheduled for 7:30 AM), a first comment carrying the two article links, and a relaunch from the owner's personal profile at 1:30 PM.
+Every published article is promoted on LinkedIn with three coordinated pieces: an Italian post on the company page (scheduled for 7:30 AM), a first comment carrying the two article links, and a relaunch from the owner's personal profile at 1:30 PM.
+
+All three pieces are written in Italian only. LinkedIn truncates a post at roughly 200 characters, so a leading English block would push the hook out of reach for the largest part of the audience, and the platform already offers automatic translation to anyone who needs it. The English article keeps its own audience, which arrives from search rather than from LinkedIn, and it stays linked in the first comment.
 
 ### Company page post
 
-**Length** — one single paragraph per language, 110-130 words each. No internal line breaks, no lists, no sub-headings.
+**Length** — one single paragraph in Italian, 110-130 words. No internal line breaks, no lists, no sub-headings.
 
 **Structure** — the paragraph follows a fixed narrative arc:
 
-1. Opening that frames the event and states the obvious reading of it (`When Sakana AI unveiled Fugu, most read it as yet another model beating its predecessors on benchmarks.`)
-2. A short pivot sentence that overturns that reading (`It is something stranger.`)
+1. Opening that frames the event and states the obvious reading of it (`Quando Sakana AI ha presentato Fugu, molti lo hanno letto come l'ennesimo modello che batte i predecessori sui benchmark.`)
+2. A short pivot sentence that overturns that reading (`È qualcosa di più curioso.`)
 3. The body, explaining what the thing actually is and how it works, with concrete names and figures taken from the article
-4. A closing lesson introduced by a colon, generalising beyond the specific product (`value is moving from the strongest brain to the system that connects the available ones.`)
+4. A closing lesson introduced by a colon, generalising beyond the specific product (`il valore si sposta dal cervello più potente al sistema che collega quelli disponibili.`)
 5. The CTA at the end of the same paragraph, never on its own line
 
-**Formatting** — the English block comes first, prefixed with 🇬🇧, then a blank line, then the Italian block prefixed with 🇮🇹. The CTA is `👉 link in the first comment` (EN) and `👉 link nel primo commento` (IT). Two lowercase, subject specific hashtags close the post at the very bottom, after both language blocks (for example `#sakanaai #fugu`); no generic `#ai` here.
+The opening and the pivot must both fit within the first 200 characters, because that is all LinkedIn shows before the reader has to expand the post.
 
-**Tone** — British spelling in English (centre, behaviour, synthesise). No exclamation marks, no dashes as separators, colons are welcome and the word after a colon is never capitalised. The Italian block is a faithful rewrite of the English one, same arc and same length, not a literal translation.
+**Formatting** — a single block with no flag prefix. The CTA is `👉 link nel primo commento`. Two lowercase, subject specific hashtags close the post at the very bottom (for example `#sakanaai #fugu`); no generic `#ai` here.
+
+**Tone** — no exclamation marks, no dashes as separators, colons are welcome and the word after a colon is never capitalised.
 
 **Reference example**
 
 ```
-🇬🇧 When Sakana AI unveiled Fugu, most read it as yet another model beating its predecessors on benchmarks. It is something stranger. Fugu is not a large model at all: it is a tiny orchestrator of roughly seven billion parameters, trained not to answer but to route each request to the model best suited to it. Given a pool of closed and open models, from Claude Opus to Gemini and GPT, it delegates, cross-checks and synthesises a single response, and in doing so, it surpasses Opus 4.8 while approaching the most recent frontier models. The lesson is not about raw power but about coordination: value is moving from the strongest brain to the system that connects the available ones. 👉 link in the first comment
-
-🇮🇹 Quando Sakana AI ha presentato Fugu, molti lo hanno letto come l'ennesimo modello che batte i predecessori sui benchmark. È qualcosa di più curioso. Fugu non è affatto un modello grande: è un minuscolo orchestratore da circa sette miliardi di parametri, addestrato non a rispondere ma a instradare ogni richiesta al modello più adatto. Dato un insieme di modelli chiusi e aperti, da Claude Opus a Gemini e GPT, delega, verifica e sintetizza un'unica risposta, e così facendo supera Opus 4.8 avvicinandosi ai modelli di frontiera più recenti. La lezione non riguarda la potenza bruta ma il coordinamento: il valore si sposta dal cervello più potente al sistema che collega quelli disponibili. 👉 link nel primo commento
+Quando Sakana AI ha presentato Fugu, molti lo hanno letto come l'ennesimo modello che batte i predecessori sui benchmark. È qualcosa di più curioso. Fugu non è affatto un modello grande: è un minuscolo orchestratore da circa sette miliardi di parametri, addestrato non a rispondere ma a instradare ogni richiesta al modello più adatto. Dato un insieme di modelli chiusi e aperti, da Claude Opus a Gemini e GPT, delega, verifica e sintetizza un'unica risposta, e così facendo supera Opus 4.8 avvicinandosi ai modelli di frontiera più recenti. La lezione non riguarda la potenza bruta ma il coordinamento: il valore si sposta dal cervello più potente al sistema che collega quelli disponibili. 👉 link nel primo commento
 
 #sakanaai #fugu
 ```
@@ -140,6 +142,35 @@ The URL slug is the article number, with no trailing slash.
 La notizia AI della settimana non è un modello più potente. È uno più piccolo. Sakana AI ha rilasciato Fugu e i benchmark lo danno sopra Opus 4.8, vicino ai modelli di frontiera più recenti, ma sotto il cofano non c'è un gigante da centinaia di miliardi di parametri: ce n'è uno da sette, addestrato a non rispondere. Il suo mestiere è orchestrare. Riceve la richiesta, sceglie tra Claude Opus, Gemini, GPT e altri il modello giusto per ogni parte, delega, incrocia i risultati e ricompone un'unica risposta, sfruttando la parte migliore di ciascuno. Una pagina web può uscire per il 60% da un modello e per il 40% da un altro. Cambia la domanda che conta: non chi costruisce il cervello più potente, ma chi coordina meglio quelli che già esistono. Non è una gara di potenza, è una gara di connessione. E il Giappone si è appena seduto al tavolo dei grandi senza addestrare un modello suo.
 
 #fugu #orchestration
+```
+
+## WhatsApp promotion
+
+The same article is also shared on WhatsApp, in Italian and in a single message, more direct than either LinkedIn piece because the reader is already a contact and needs no persuading.
+
+**Length** — around 100 words in total, split into three short blocks separated by blank lines. Line breaks are allowed here, unlike on LinkedIn.
+
+**Structure**
+
+1. One opening line announcing the article, closed by 👇 (`Nuovo articolo sul blog 👇`)
+2. A paragraph of 60-80 words that opens with the same antithesis used in the personal relaunch, then explains in plain terms what the thing is and how it works, with no figures and no jargon left unexplained
+3. One line naming what else the reader will find inside, phrased as a reason to open it (`Nell'articolo c'è come l'ho configurato io e un paio di casi d'uso reali.`)
+4. The Italian link alone on the last line
+
+**Formatting** — only the Italian link, never the English one. No hashtags, no flags, no CTA formula. Attach the cover image `post-<number>.png` and put the whole text in the caption, so the preview does not depend on the link being scraped.
+
+**Tone** — same punctuation rules as everywhere else: no exclamation marks, no dashes as separators, colons welcome, no capital after a colon.
+
+**Reference example**
+
+```
+Nuovo articolo sul blog 👇
+
+Paperclip non è l'ennesimo modello più potente, è un organigramma di agenti AI. Metti un CEO al vertice, sotto uno scrittore, un ingegnere, un editor, un designer, e il lavoro si delega lungo le linee di riporto come in un'azienda vera. Ogni agente ha un budget mensile e si ferma da solo quando lo esaurisce, e nei passaggi delicati aspetta la tua conferma prima di andare avanti.
+
+Nell'articolo c'è come l'ho configurato io e un paio di casi d'uso reali, dalla gelateria al campo da paddle.
+
+https://herohubs.it/it/posts/54
 ```
 
 ## Style reference
