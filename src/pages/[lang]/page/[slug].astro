@@ -5,6 +5,7 @@ import mainConfig from '@/config/main-config.json';
 import Base from '@/layouts/Base.astro';
 import { getSinglePage } from '@/lib/contentParser.astro';
 import { sortByDate } from '@/lib/utils/sortFunctions';
+import { loadLocalizedConfig } from '@/lib/utils/lang';
 import PageHeader from '@/partials/PageHeader.astro';
 
 const { languages, pagination: pageSize } = mainConfig.settings;
@@ -37,6 +38,7 @@ export async function getStaticPaths() {
 
 const { lang, slug } = Astro.params;
 const { posts: allPosts, totalPages } = Astro.props;
+const i18n: any = await loadLocalizedConfig(lang, 'i18n');
 
 const currentPage = slug && !isNaN(Number(slug)) ? Number(slug) : 1;
 const indexOfLastPost = currentPage * pageSize;
@@ -45,7 +47,7 @@ const currentPosts = allPosts.slice(indexOfFirstPost, indexOfLastPost);
 ---
 
 <Base>
-  <PageHeader title={`Pagina ${currentPage}`} />
+  <PageHeader title={`${i18n.page} ${currentPage}`} />
   <section class="py-14 lg:py-20">
     <div class="container">
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

@@ -14,5 +14,12 @@
   "exit": "Exit",
   "accept_cookies": "Accept",
   "reject_cookies": "Reject",
-  "cookie_preferences": "Change cookie preferences"
+  "cookie_preferences": "Change cookie preferences",
+  "page": "Page",
+  "previous": "Previous page",
+  "next": "Next page",
+  "pagination": "Pagination",
+  "not_found_title": "Page not found",
+  "not_found_text": "The page you are looking for might have been removed, renamed or is temporarily unavailable.",
+  "back_home": "Back to home"
 }

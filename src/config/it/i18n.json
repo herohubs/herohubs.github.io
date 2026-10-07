@@ -14,5 +14,12 @@
   "exit": "Esci",
   "accept_cookies": "Accetta",
   "reject_cookies": "Rifiuta",
-  "cookie_preferences": "Modifica le preferenze sui cookie"
+  "cookie_preferences": "Modifica le preferenze sui cookie",
+  "page": "Pagina",
+  "previous": "Pagina precedente",
+  "next": "Pagina successiva",
+  "pagination": "Paginazione",
+  "not_found_title": "Pagina non trovata",
+  "not_found_text": "La pagina che stai cercando potrebbe essere stata rimossa, rinominata o non essere disponibile in questo momento.",
+  "back_home": "Torna alla home"
 }
