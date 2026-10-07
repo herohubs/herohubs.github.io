@@ -58,59 +58,52 @@ export type MenuData = {
 };
 
 export type HomeData = {
-  blog: BlogSection;
-  contacts: ContactsSection;
+  hero: HeroSection;
+  about: AboutSection;
   customers: CustomersSection;
-  how: HowSection;
-  blocks: Block[];
-  services: ServicesSection;
-  why: WhySection;
+  blog: BlogSection;
+  principles: PrinciplesSection;
 };
-interface BlogSection {
-  subtitle: string;
+interface HeroSection {
+  eyebrow: string;
+  titleStart: string;
+  titleAccent: string;
+  titleMiddle: string;
+  titleHighlight: string;
+  titleEnd: string;
   text: string;
+  primaryCta: string;
+  secondaryCta: string;
+  featuredLabel: string;
 }
-interface ContactsSection {
+interface AboutSection {
+  eyebrow: string;
   title: string;
-  subtitle: string;
-  text: string;
-  email: string;
-  icon: string;
+  text1: string;
+  text2: string;
+  facts: { label: string; value: string }[];
+  profileLabel: string;
 }
-
 interface CustomerItem {
   name: string;
   image: string;
   url: string;
 }
-
 interface CustomersSection {
+  eyebrow: string;
   subtitle: string;
   text: string;
   items: CustomerItem[];
 }
-
-interface HowSection {
+interface BlogSection {
+  eyebrow: string;
   subtitle: string;
-  text1: string;
-  text2: string;
+  text: string;
+  allPosts: string;
 }
-
-interface Block {
+interface PrinciplesSection {
+  eyebrow: string;
   title: string;
   text: string;
-}
-
-interface ServiceItem {
-  title: string;
-  text: string;
-}
-
-interface ServicesSection {
-  items: ServiceItem[];
-}
-
-interface WhySection {
-  text1: string;
-  text2: string;
+  items: { title: string; text: string }[];
 }

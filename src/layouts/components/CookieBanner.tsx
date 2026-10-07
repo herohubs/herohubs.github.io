@@ -24,6 +24,11 @@ const CookieBanner = ({ lang = 'en', config, i18n }: CookieBannerProps) => {
     }
   };
 
+  const rejectCookies = () => {
+    localStorage.setItem('cookiesAccepted', 'false');
+    setShowBanner(false);
+  };
+
   const cookiPolicyUrl = `/${lang}/cookie-policy`;
 
   if (!showBanner) return null;
@@ -45,12 +50,20 @@ const CookieBanner = ({ lang = 'en', config, i18n }: CookieBannerProps) => {
             .
           </p>
         </div>
-        <button
-          onClick={acceptCookies}
-          className="bg-primary hover:bg-blue-600 text-white font-bold py-2 px-4 rounded flex-shrink-0"
-        >
-          {i18n?.accept_cookies || 'Accept'}
-        </button>
+        <div className="flex flex-col gap-2 sm:flex-row flex-shrink-0">
+          <button
+            onClick={rejectCookies}
+            className="border border-primary text-white font-bold py-2 px-4 rounded hover:bg-primary/15"
+          >
+            {i18n?.reject_cookies || 'Reject'}
+          </button>
+          <button
+            onClick={acceptCookies}
+            className="bg-primary hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+          >
+            {i18n?.accept_cookies || 'Accept'}
+          </button>
+        </div>
       </div>
     </div>
   );

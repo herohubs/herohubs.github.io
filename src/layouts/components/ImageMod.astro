@@ -3,7 +3,7 @@ import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
 
 // Destructuring Astro.props to get the component's props
-let { src, alt, width, height, loading, decoding, class: className, format, style } = Astro.props;
+let { src, alt, width, height, loading, decoding, class: className, format, style, quality } = Astro.props;
 
 src = `/public${src}`;
 
@@ -29,6 +29,7 @@ const isValidPath = images[src] ? true : false;
       decoding={decoding}
       class={className}
       format={format}
+      quality={quality}
       style={style}
     />
   )

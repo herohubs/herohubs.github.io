@@ -7,6 +7,7 @@ import readingTime from '@/lib/utils/readingTime';
 import similarItems from '@/lib/utils/similarItems';
 import { humanize, markdownify, slugify } from '@/lib/utils/textConverter';
 import { render } from 'astro:content';
+import AuthorBox from './components/AuthorBox.astro';
 import ImageMod from './components/ImageMod.astro';
 import Post from './components/Post.astro';
 import { loadLocalizedConfig } from '@/lib/utils/lang';
@@ -126,14 +127,16 @@ const italianUrl = currentPath.replace(/^\/en/, '/it');
           </div>
         </article>
 
+        <AuthorBox lang={lang} className="mt-16" showAiNote />
+
         {mainConfig.disqus.enable && <Disqus className="mt-20" client:load />}
       </div>
     </div>
 
     <div class="pt-12">
-      <h2 class="h2 text-center">{i18n.related_posts}</h2>
-      <div class="row gy-4 mt-12 justify-center">
-        {similarPosts.slice(0, 9).map((post) => <Post className="col-12 md:col-4" post={post} lang={lang} />)}
+      <h2 class="text-center text-3xl font-bold text-text-dark">{i18n.related_posts}</h2>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {similarPosts.slice(0, 9).map((post) => <Post post={post} lang={lang} />)}
       </div>
     </div>
   </div>

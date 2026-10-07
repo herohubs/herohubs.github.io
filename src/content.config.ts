@@ -25,8 +25,7 @@ const pagesCollection = defineCollection({
     image: z.string().optional(),
     draft: z.boolean().optional(),
     justify: z.boolean().optional(),
-    showTeam: z.boolean().optional(),
-    showServiceCards: z.boolean().optional(),
+    showAuthor: z.boolean().optional(),
     cta: z
       .object({
         primaryLabel: z.string(),

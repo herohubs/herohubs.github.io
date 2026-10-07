@@ -11,5 +11,8 @@
     "en": "English",
     "it": "Italian"
   },
-  "exit": "Exit"
+  "exit": "Exit",
+  "accept_cookies": "Accept",
+  "reject_cookies": "Reject",
+  "cookie_preferences": "Change cookie preferences"
 }

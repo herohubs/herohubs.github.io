@@ -1,22 +1,38 @@
 ---
 import { getMainMenu, getCategoryMenu } from '@/lib/utils/menu';
 import { getSinglePage } from '@/lib/contentParser.astro';
+import mainConfig from '@/config/main-config.json';
 const { lang } = Astro.params;
 const { pathname } = Astro.url;
 const toggleId = `nav-toggle`;
 const posts = await getSinglePage('posts', lang);
 const websiteMenus = await getMainMenu(lang);
 const categoriesMenus = await getCategoryMenu(posts, lang);
+
+const homeUrl = `/${lang}`;
+const contactMenu = websiteMenus.find((menu) => menu.url.startsWith('mailto:'));
+const homeMenu = websiteMenus.find((menu) => menu.url === homeUrl);
+const aboutMenu = websiteMenus.find((menu) => menu.url.endsWith('/about'));
+const otherMenus = websiteMenus.filter((menu) => ![homeMenu, aboutMenu, contactMenu].includes(menu));
+const navMenus = [homeMenu, ...categoriesMenus, aboutMenu, ...otherMenus].filter((menu) => menu !== undefined);
+const isActive = (url: string) => pathname === `${url}/` || pathname === url;
 ---
 
-<header class="header mt-8 pb-3 pt-12">
-  <nav class="navbar container text-center md:text-left">
+<header class="sticky top-0 z-40 border-b border-border/60 bg-body/90 backdrop-blur">
+  <nav class="navbar container flex flex-wrap items-center justify-between gap-y-2 py-4">
+    <a href={homeUrl} class="flex-shrink-0">
+      <img
+        src={mainConfig.profile.image_min}
+        alt={mainConfig.profile.name}
+        width="108"
+        height="40"
+        class="h-9 w-auto"
+      />
+    </a>
+
     <!-- navbar toggler -->
     <input id={toggleId} type="checkbox" class="hidden" />
-    <label
-      for={toggleId}
-      class="order-3 cursor-pointer rounded border border-border lg:p-9 p-4 inline-flex items-center lg:order-1 md:hidden"
-    >
+    <label for={toggleId} class="cursor-pointer rounded border border-border p-3 inline-flex items-center md:hidden">
       <svg id="show-button" class="mr-1 h-4 w-4 fill-current block" viewBox="0 0 20 20">
         <title>Menu Open</title>
         <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
@@ -32,40 +48,42 @@ const categoriesMenus = await getCategoryMenu(posts, lang);
 
     <ul
       id="nav-menu-website"
-      class="navbar-nav order-3 w-full hidden flex-col items-center justify-center space-y-2 md:order-1 md:flex md:w-auto md:flex-row md:space-y-0 md:space-x-2"
+      class="navbar-nav w-full hidden flex-col items-center space-y-2 md:mt-0 md:flex md:w-auto md:flex-row md:space-y-0 md:space-x-1"
     >
       {
-        websiteMenus.map((menu) => (
+        navMenus.map((menu) => (
           <li class="nav-item">
             <a
               href={menu.url}
-              class={`nav-link inline-block ${
-                pathname === `${menu.url}/` || pathname === menu.url ? 'nav-link-active' : ''
-              } ${menu.url.includes('/ui-kit') ? 'text-red-600' : ''}`}
+              class={`nav-link inline-block text-sm font-medium ${isActive(menu.url) ? 'nav-link-active' : ''} ${
+                menu.url.includes('/ui-kit') ? 'text-red-600' : ''
+              }`}
             >
               {menu.name}
             </a>
           </li>
         ))
+      }
+      {
+        contactMenu && (
+          <li class="nav-item md:hidden">
+            <a href={contactMenu.url} class="nav-link inline-block text-sm font-medium">
+              {contactMenu.name}
+            </a>
+          </li>
+        )
       }
     </ul>
 
-    <ul
-      id="nav-menu-categories"
-      class="navbar-nav order-3 w-full hidden flex-col items-center justify-center space-y-2 md:flex md:w-auto md:flex-row md:space-y-0 md:space-x-2 md:mt-6 mt-0"
-    >
-      {
-        categoriesMenus.map((menu) => (
-          <li class="nav-item">
-            <a
-              href={menu.url}
-              class={`nav-link inline-block ${pathname === `${menu.url}/` || pathname === menu.url ? 'nav-link-active' : ''}`}
-            >
-              {menu.name}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+    {
+      contactMenu && (
+        <a
+          href={contactMenu.url}
+          class="hidden md:inline-flex rounded-lg border border-dashed border-primary px-5 py-2 text-sm font-semibold text-text-dark transition hover:bg-primary/15"
+        >
+          {contactMenu.name}
+        </a>
+      )
+    }
   </nav>
 </header>

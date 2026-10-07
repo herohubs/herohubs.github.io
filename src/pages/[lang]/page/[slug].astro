@@ -45,20 +45,11 @@ const currentPosts = allPosts.slice(indexOfFirstPost, indexOfLastPost);
 ---
 
 <Base>
-  <section class="section herohubs-section">
-    <PageHeader title={`Pagina ${currentPage}`} />
-
+  <PageHeader title={`Pagina ${currentPage}`} />
+  <section class="py-14 lg:py-20">
     <div class="container">
-      <div class="row">
-        <div class="mx-auto lg:col-10">
-          <div class="row">
-            {
-              currentPosts.map((post, i) => (
-                <Post className="col-12 mb-6 sm:col-6" key={'key-' + i} post={post} lang={lang} />
-              ))
-            }
-          </div>
-        </div>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {currentPosts.map((post) => <Post post={post} lang={lang} />)}
       </div>
       <div class="mt-12">
         <Pagination totalPages={totalPages} currentPage={currentPage} lang={lang} />

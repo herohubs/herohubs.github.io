@@ -11,5 +11,8 @@
     "en": "Inglese",
     "it": "Italiano"
   },
-  "exit": "Esci"
+  "exit": "Esci",
+  "accept_cookies": "Accetta",
+  "reject_cookies": "Rifiuta",
+  "cookie_preferences": "Modifica le preferenze sui cookie"
 }

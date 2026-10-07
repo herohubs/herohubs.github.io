@@ -1,26 +1,12 @@
 ---
 import ImageMod from '@/components/ImageMod.astro';
-import Social from '@/components/Social.astro';
+import Post from '@/components/Post.astro';
 import mainConfig from '@/config/main-config.json';
-import theme from '@/config/theme.json';
-import social from '@/config/social.json';
+import type { HomeData } from '@/interfaces';
 import Base from '@/layouts/Base.astro';
-import { markdownify } from '@/lib/utils/textConverter';
-import Blocks from '@/components/home/Blocks.astro';
-import How from '@/components/home/How.astro';
-import Why from '@/components/home/Why.astro';
-import Services from '@/components/home/Services.astro';
-import Customers from '@/components/home/Customers.astro';
-import Contacts from '@/components/home/Contacts.astro';
-import Blog from '@/components/home/Blog.astro';
+import { getSinglePage } from '@/lib/contentParser.astro';
 import { loadLocalizedConfig } from '@/lib/utils/lang';
-
-const { lang } = Astro.params;
-const { primary } = theme.colors.default.theme_color;
-const { name, image } = mainConfig.profile;
-
-const config: any = await loadLocalizedConfig(lang, 'config');
-const { designation, bio } = config.profile;
+import { sortByDate } from '@/lib/utils/sortFunctions';
 
 export async function getStaticPaths() {
   const languages = mainConfig.settings.languages;
@@ -28,51 +14,207 @@ export async function getStaticPaths() {
     params: { lang },
   }));
 }
+
+const { lang } = Astro.params;
+const home: HomeData = await loadLocalizedConfig(lang, 'home');
+const { hero, about, customers, blog, principles } = home;
+
+const posts = (await getSinglePage('posts', lang)).filter((post) => post.id.startsWith(`${lang}/`));
+const sortedPosts = sortByDate(posts);
+const featuredPosts = sortedPosts.filter((post) => post.data.image);
+const latestPosts = sortedPosts.slice(0, 9);
+
+const postUrl = (post: any) => `/${lang}/posts/${post.id.split('/')[1]}`;
+const contactUrl = 'mailto:info@herohubs.it';
 ---
 
 <Base>
-  {/* profile */}
-  <div class="section herohubs-section">
+  {/* hero */}
+  <section class="border-b border-border/60 py-16 lg:py-24">
     <div class="container">
-      <div class="row">
-        <div class="mx-auto text-center lg:col-6">
-          <ImageMod
-            class="mx-auto rounded-full"
-            src={image}
-            width={220}
-            height={220}
-            alt={name}
-            loading="eager"
-            style={`border: 3px solid ${primary}`}
-          />
-          <h1 set:html={markdownify(name)} class="mt-12 text-6xl lg:text-8xl font-semibold" />
-          <p
-            set:html={markdownify(designation)}
-            class="mt-6 text-primary text-xl bg-body/85 inline-block p-10 py-2 rounded-full"
-          />
-          <p set:html={markdownify(bio)} class="mt-4 leading-9 text-xl" />
-          <Social source={social.main} className="social-icons mt-8" />
-        </div>
-      </div>
-
-      {/* contents */}
-      <div class="pt-4 mt-24">
-        <div class="container">
-          <div class="row">
-            <div class="mx-auto lg:col-12">
-              <div class="row g-4">
-                <Blocks className="col-12 sm:col-3" />
-                <Why className="col-12 sm:col-12" />
-                <How className="col-12 sm:col-12" />
-                <Services className="col-12 sm:col-12 hidden md:block" />
-                <Customers className="col-12 sm:col-12" />
-                <Blog className="col-12 sm:col-12 hidden lg:block" lang={lang} />
-                <Contacts className="col-12 sm:col-12" />
-              </div>
-            </div>
+      <div class="grid items-center gap-12 lg:grid-cols-2">
+        <div>
+          <span
+            class="inline-flex items-center gap-2 rounded border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary"
+          >
+            <span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
+            {hero.eyebrow}
+          </span>
+          <h1 class="mt-6 text-4xl font-bold leading-tight text-text-dark lg:text-6xl">
+            {hero.titleStart}<span class="text-primary">{hero.titleAccent}</span>{hero.titleMiddle}<span
+              class="text-secondary">{hero.titleHighlight}</span
+            >{hero.titleEnd}
+          </h1>
+          <p class="mt-6 text-lg leading-relaxed text-text">{hero.text}</p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a
+              href={`/${lang}/blog`}
+              class="rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-primary/85"
+            >
+              {hero.primaryCta}
+            </a>
+            <a
+              href={contactUrl}
+              class="rounded-lg border border-dashed border-primary px-6 py-3 text-sm font-semibold text-text-dark transition hover:bg-primary/15"
+            >
+              {hero.secondaryCta}
+            </a>
           </div>
+        </div>
+
+        <div id="featured-posts">
+          {
+            featuredPosts.map((post, index) => (
+              <a
+                href={postUrl(post)}
+                data-featured
+                class:list={[
+                  'group flex flex-col overflow-hidden rounded-2xl border border-border bg-white/[0.03] shadow-2xl shadow-primary/10 transition hover:border-primary/60',
+                  { hidden: index !== 0 },
+                ]}
+              >
+                <div class="p-3">
+                  <ImageMod
+                    src={post.data.image}
+                    alt={post.data.title}
+                    width={720}
+                    height={405}
+                    class="w-full rounded-xl"
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                  />
+                </div>
+                <div class="border-t border-border/60 bg-white/[0.05] px-6 pb-6 pt-5">
+                  <p class="text-xs font-semibold uppercase tracking-widest text-primary">{hero.featuredLabel}</p>
+                  <p class="mt-2 text-xl font-semibold text-text-dark transition group-hover:text-primary">
+                    {post.data.title}
+                  </p>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+        <script is:inline>
+          (() => {
+            const cards = document.querySelectorAll('#featured-posts [data-featured]');
+            if (cards.length < 2) return;
+            const pick = Math.floor(Math.random() * cards.length);
+            cards.forEach((card, index) => card.classList.toggle('hidden', index !== pick));
+          })();
+        </script>
+      </div>
+    </div>
+  </section>
+
+  {/* about */}
+  <section class="border-b border-border/60 py-16 lg:py-24">
+    <div class="container">
+      <div class="grid items-center gap-12 lg:grid-cols-2">
+        <div class="rounded-2xl border border-border bg-white/[0.03] p-8 lg:p-10">
+          <p class="text-xs font-semibold uppercase tracking-widest text-primary">{about.eyebrow}</p>
+          <h2 class="mt-3 text-2xl font-bold text-text-dark lg:text-3xl">{about.title}</h2>
+          <p class="mt-5 leading-relaxed text-text">{about.text1}</p>
+          <p class="mt-4 leading-relaxed text-text">{about.text2}</p>
+          <dl class="mt-8 space-y-3 border-t border-border pt-6 text-sm">
+            {
+              about.facts.map((fact) => (
+                <div class="grid grid-cols-[8rem_1fr] gap-3">
+                  <dt class="font-semibold text-primary">{fact.label}</dt>
+                  <dd class="text-text-dark">{fact.value}</dd>
+                </div>
+              ))
+            }
+          </dl>
+          <a
+            href="https://ranierivannozzi.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-8 inline-block text-sm font-semibold text-primary hover:underline"
+          >
+            {about.profileLabel} &rarr;
+          </a>
+        </div>
+        <div class="mx-auto w-full max-w-md rounded-2xl border border-border bg-white/[0.03] p-3">
+          <ImageMod
+            src="/images/herohubs-logo-square.png"
+            alt="HeroHubs"
+            width={1024}
+            height={1024}
+            quality={90}
+            class="w-full rounded-xl"
+          />
         </div>
       </div>
     </div>
-  </div>
+  </section>
+
+  {/* customers */}
+  <section class="border-b border-border/60 py-16 lg:py-24">
+    <div class="container text-center">
+      <p class="text-xs font-semibold uppercase tracking-widest text-primary">{customers.eyebrow}</p>
+      <h2 class="mt-3 text-3xl font-bold text-text-dark">{customers.subtitle}</h2>
+      <p class="mx-auto mt-4 max-w-2xl leading-relaxed text-text">{customers.text}</p>
+      <div class="mt-12 grid grid-cols-3 gap-4 sm:grid-cols-4 lg:grid-cols-6">
+        {
+          customers.items.map((item) => (
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center rounded-xl border border-border bg-white/[0.03] p-4 transition hover:border-primary/60"
+            >
+              <img
+                src={item.image}
+                alt={item.name}
+                loading="lazy"
+                class="h-20 w-20 rounded-2xl object-contain opacity-85 transition hover:opacity-100"
+              />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* articles */}
+  <section class="border-b border-border/60 py-16 lg:py-24">
+    <div class="container">
+      <div class="text-center">
+        <p class="text-xs font-semibold uppercase tracking-widest text-primary">{blog.eyebrow}</p>
+        <h2 class="mt-3 text-3xl font-bold text-text-dark">{blog.subtitle}</h2>
+        <p class="mx-auto mt-4 max-w-2xl leading-relaxed text-text">{blog.text}</p>
+      </div>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {latestPosts.map((post) => <Post post={post} lang={lang} />)}
+      </div>
+      <div class="mt-12 text-center">
+        <a
+          href={`/${lang}/blog`}
+          class="inline-block rounded-lg border border-dashed border-primary px-6 py-3 text-sm font-semibold text-text-dark transition hover:bg-primary/15"
+        >
+          {blog.allPosts}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* principles */}
+  <section class="py-16 lg:py-24">
+    <div class="container">
+      <div class="text-center">
+        <p class="text-xs font-semibold uppercase tracking-widest text-primary">{principles.eyebrow}</p>
+        <h2 class="mt-3 text-3xl font-bold text-text-dark">{principles.title}</h2>
+        <p class="mx-auto mt-4 max-w-2xl leading-relaxed text-text">{principles.text}</p>
+      </div>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+        {
+          principles.items.map((item) => (
+            <div class="rounded-2xl border border-border border-t-2 border-t-primary bg-white/[0.03] p-6">
+              <h3 class="text-lg font-bold text-text-dark">{item.title}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-text">{item.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 </Base>

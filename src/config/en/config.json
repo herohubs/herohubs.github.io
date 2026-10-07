@@ -1,25 +1,21 @@
 {
   "site": {
-    "title": "HeroHubs - Tailored digital innovation"
+    "title": "HeroHubs - Software development, architecture and AI"
   },
-
   "profile": {
-    "designation": "Tailored digital innovation",
-    "bio": "We combine innovation and experience to create scalable, reliable, and market-ready solutions."
+    "designation": "Software development, architecture and AI",
+    "bio": ""
   },
-
   "metadata": {
-    "meta_description": "We combine innovation and experience to create scalable, reliable, and market-ready solutions."
+    "meta_description": "Ranieri Vannozzi's blog on software development, architecture and artificial intelligence, in English and Italian."
   },
-
   "blog": {
     "title": "Blog",
     "meta_description": "Discover articles, insights, and news on technology, software development, and digital innovation."
   },
-
   "cookie": {
-    "bannerMessage1": "This website uses cookies to enhance the user experience.",
-    "bannerMessage2": "By accepting, you consent to the use of cookies.",
-    "bannerMessage3": "For more information, please read our"
+    "bannerMessage1": "This site uses Google Analytics, only with your consent, for aggregate visit statistics.",
+    "bannerMessage2": "You can accept or reject, the site works the same either way.",
+    "bannerMessage3": "For more information, read the"
   }
 }

@@ -1,0 +1,33 @@
+---
+import { loadLocalizedConfig } from '@/lib/utils/lang';
+
+const { lang } = Astro.props;
+const i18n: any = await loadLocalizedConfig(lang, 'i18n');
+---
+
+<button
+  type="button"
+  id="cookie-preferences"
+  class="rounded-lg border border-dashed border-primary px-5 py-2 text-sm font-semibold text-text-dark transition hover:bg-primary/15"
+>
+  {i18n.cookie_preferences}
+</button>
+
+<script>
+  // Clears the stored choice and the Google Analytics cookies, then reloads so the banner asks again
+  document.getElementById('cookie-preferences')?.addEventListener('click', () => {
+    localStorage.removeItem('cookiesAccepted');
+    const hostParts = location.hostname.split('.');
+    const domains = ['', location.hostname, `.${hostParts.slice(-2).join('.')}`];
+    document.cookie
+      .split(';')
+      .map((cookie) => cookie.split('=')[0].trim())
+      .filter((name) => name.startsWith('_ga'))
+      .forEach((name) =>
+        domains.forEach((domain) => {
+          document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/${domain ? `; domain=${domain}` : ''}`;
+        }),
+      );
+    location.reload();
+  });
+</script>

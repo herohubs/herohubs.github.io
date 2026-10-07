@@ -7,8 +7,10 @@ import { getTaxonomy } from '@/lib/taxonomyParser.astro';
 import taxonomyFilter from '@/lib/utils/taxonomyFilter';
 import PageHeader from '@/partials/PageHeader.astro';
 import { sortByDate } from '@/lib/utils/sortFunctions';
+import { loadLocalizedConfig } from '@/lib/utils/lang';
 
 const { lang, category } = Astro.params;
+const config: any = await loadLocalizedConfig(lang, 'config');
 
 export async function getStaticPaths() {
   const paths = [];
@@ -31,21 +33,17 @@ export async function getStaticPaths() {
 
 const posts = (await getSinglePage('posts', lang)).filter((p) => p.id.startsWith(`${lang}/`));
 const filterByCategories = taxonomyFilter(posts, 'categories', category!);
+const categoryLabel =
+  posts.flatMap((post) => post.data.categories).find((name: string) => name.toLowerCase() === category) ?? category;
 ---
 
-<Base meta_title={category} lang={lang}>
-  <div class="section herohubs-section">
-    <PageHeader title={category} />
-    <section class="section-sm ml-5 mr-5">
-      <div class="container">
-        <div class="row">
-          <div class="container">
-            <div class="row gy-4">
-              {sortByDate(filterByCategories).map((post) => <Post className="sm:col-6" post={post} lang={lang} />)}
-            </div>
-          </div>
-        </div>
+<Base meta_title={categoryLabel} lang={lang}>
+  <PageHeader title={categoryLabel} eyebrow={config.blog.title} />
+  <section class="py-14 lg:py-20">
+    <div class="container">
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {sortByDate(filterByCategories).map((post) => <Post post={post} lang={lang} />)}
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </Base>

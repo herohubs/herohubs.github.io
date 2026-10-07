@@ -96,11 +96,21 @@ export const blogRedirects: Record<string, string> = {
   // HERO HUBS MAIN SITE REDIRECTS
   // ============================================
   '/who-we-are': '/it/about',
-  '/services': '/it/services',
-  '/contacts': '/it/contacts',
-  '/portfolio': '/it/portfolio',
+  '/services': '/it/about',
+  '/contacts': '/it/about',
+  '/portfolio': '/it/about',
   '/blog': '/it/blog',
   '/terms-and-condition': '/it/terms-and-conditions',
   '/category/career-and-growth/page/2/': '/it',
   '/wp-content/uploads/2024/12/herohubs-email-signature.png': '/images/herohubs-email-signature.png',
+
+  // ============================================
+  // FREELANCE STUDIO PAGES RETIRED IN FAVOUR OF THE BLOG
+  // ============================================
+  '/it/services': '/it/about',
+  '/en/services': '/en/about',
+  '/it/portfolio': '/it/about',
+  '/en/portfolio': '/en/about',
+  '/it/contacts': '/it/about',
+  '/en/contacts': '/en/about',
 };

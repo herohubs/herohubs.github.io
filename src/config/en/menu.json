@@ -5,20 +5,12 @@
       "url": "/en"
     },
     {
-      "name": "About Us",
+      "name": "About me",
       "url": "/en/about"
     },
     {
-      "name": "Services",
-      "url": "/en/services"
-    },
-    {
-      "name": "Portfolio",
-      "url": "/en/portfolio"
-    },
-    {
-      "name": "Contacts",
-      "url": "/en/contacts"
+      "name": "Contact me",
+      "url": "mailto:info@herohubs.it"
     },
     {
       "name": "Blog",
@@ -42,6 +34,10 @@
     {
       "name": "Terms and Conditions",
       "url": "/en/terms-and-conditions"
+    },
+    {
+      "name": "RSS feed",
+      "url": "/en/rss.xml"
     }
   ]
 }

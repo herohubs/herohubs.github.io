@@ -1,25 +1,21 @@
 {
   "site": {
-    "title": "HeroHubs - Innovazione digitale su misura"
+    "title": "HeroHubs - Sviluppo software, architetture e AI"
   },
-
   "profile": {
-    "designation": "Innovazione digitale su misura",
-    "bio": "Combiniamo innovazione ed esperienza per creare soluzioni scalabili, affidabili e pronte per il mercato."
+    "designation": "Sviluppo software, architetture e AI",
+    "bio": ""
   },
-
   "metadata": {
-    "meta_description": "Combiniamo innovazione ed esperienza per creare soluzioni scalabili, affidabili e pronte per il mercato."
+    "meta_description": "Il blog di Ranieri Vannozzi su sviluppo software, architetture e intelligenza artificiale, in italiano e in inglese."
   },
-
   "blog": {
     "title": "Blog",
     "meta_description": "Scopri articoli, approfondimenti e novità su tecnologia, sviluppo software e innovazione digitale."
   },
-
   "cookie": {
-    "bannerMessage1": "Questo sito utilizza cookie per migliorare l'esperienza dell'utente.",
-    "bannerMessage2": "Accettando, acconsenti all'uso dei cookie.",
-    "bannerMessage3": "Per maggiori informazioni, leggi la nostra"
+    "bannerMessage1": "Questo sito usa Google Analytics, solo con il tuo consenso, per statistiche aggregate sulle visite.",
+    "bannerMessage2": "Puoi accettare o rifiutare, il sito funziona allo stesso modo.",
+    "bannerMessage3": "Per maggiori informazioni leggi la"
   }
 }

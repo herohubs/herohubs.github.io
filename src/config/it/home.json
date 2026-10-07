@@ -1,18 +1,45 @@
 {
-  "blog": {
-    "subtitle": "Ultimi articoli",
-    "text": "Scriviamo di sviluppo software, architetture tecniche e gestione di progetto."
+  "hero": {
+    "eyebrow": "Sviluppo software · Architetture · AI",
+    "titleStart": "Sviluppo software, architetture e ",
+    "titleAccent": "AI",
+    "titleMiddle": ", raccontati da ",
+    "titleHighlight": "chi ci lavora ogni giorno",
+    "titleEnd": ".",
+    "text": "Strumenti, scelte architetturali e novità dal mondo AI, letti con l'occhio di chi li usa nei progetti. In italiano e in inglese.",
+    "primaryCta": "Leggi gli articoli",
+    "secondaryCta": "Contattami",
+    "featuredLabel": "Dal blog"
   },
-  "contacts": {
-    "title": "Contattaci subito",
-    "subtitle": "Siamo pronti a sviluppare la prossima feature insieme a te",
-    "text": "Dalle web app ai sistemi enterprise cloud, mettiamo la nostra esperienza al servizio dei tuoi obiettivi.",
-    "email": "info@herohubs.it",
-    "icon": "FaEnvelope"
+  "about": {
+    "eyebrow": "Chi scrive",
+    "title": "Esperienza sul campo, scritta per chi costruisce",
+    "text1": "Ogni articolo nasce da un progetto vero: uno strumento provato in produzione, una scelta architetturale che ha retto o che non ha retto, una novità del mondo AI guardata oltre l'annuncio.",
+    "text2": "Lo scopo è dare a sviluppatori, tech lead e decisori gli elementi per capire cosa cambia davvero nel loro lavoro, senza enfasi e senza scorciatoie.",
+    "facts": [
+      {
+        "label": "Autore",
+        "value": "Ranieri Vannozzi"
+      },
+      {
+        "label": "Esperienza",
+        "value": "Sviluppo enterprise, cloud e leadership tecnica"
+      },
+      {
+        "label": "Pubblicazione",
+        "value": "Articoli in italiano e in inglese"
+      },
+      {
+        "label": "Temi",
+        "value": "Sviluppo, architettura, AI e gestione dei progetti"
+      }
+    ],
+    "profileLabel": "Profilo professionale"
   },
   "customers": {
-    "subtitle": "Con chi abbiamo lavorato",
-    "text": "Nel corso della nostra esperienza, abbiamo collaborato con aziende di diversi settori, supportandole nello sviluppo di soluzioni tecnologiche.",
+    "eyebrow": "Esperienza",
+    "subtitle": "Con chi ha lavorato l'autore",
+    "text": "In oltre quindici anni l'autore di HeroHubs ha lavorato con aziende di settori diversi, a volte direttamente e a volte all'interno di team più ampi, contribuendo allo sviluppo delle loro soluzioni tecnologiche.",
     "items": [
       {
         "name": "Luisa Via Roma",
@@ -64,7 +91,6 @@
         "image": "/images/customers/auser.webp",
         "url": "https://auser.it/"
       },
-
       {
         "name": "Carrefour Express",
         "image": "/images/customers/carrefour-express.webp",
@@ -77,51 +103,37 @@
       }
     ]
   },
-  "how": {
-    "subtitle": "Consulenza e sviluppo software per il business",
-    "text1": "Accompagniamo aziende e startup in tutto il ciclo di vita del software: dall'idea alla messa in produzione.",
-    "text2": "Progettiamo soluzioni performanti, scalabili e sicure con competenza tecnica e visione strategica."
+  "blog": {
+    "eyebrow": "Articoli",
+    "subtitle": "Ultimi articoli",
+    "text": "Riflessioni su strumenti, architetture e intelligenza artificiale, scritte a partire da progetti reali.",
+    "allPosts": "Tutti gli articoli"
   },
-  "blocks": [
-    {
-      "title": "Consulenza",
-      "text": "Consulenza tecnica e strategica per guidare scelte tecnologiche solide, scalabili e orientate al futuro del business."
-    },
-    {
-      "title": "App",
-      "text": "Soluzioni web enterprise complete, che integrano in modo scalabile tecnologie moderne di back-end, front-end e database."
-    },
-    {
-      "title": "Cloud",
-      "text": "Infrastrutture cloud sicure su Azure, AWS e Google Cloud. Pipeline CI / CD, automazione e deploy affidabili e veloci."
-    },
-    {
-      "title": "Progetti",
-      "text": "Metodologie agili orientate ai risultati. Affianchiamo le aziende con soluzioni complete e subito operative."
-    }
-  ],
-  "services": {
+  "principles": {
+    "eyebrow": "Metodo",
+    "title": "I principi del blog",
+    "text": "Cinque regole che valgono per ogni articolo, dal primo all'ultimo.",
     "items": [
       {
-        "title": "Sviluppo Software",
-        "text": "Progettiamo software personalizzati che ottimizzano i processi aziendali e migliorano le performance operative. Dalle piattaforme enterprise agli e-commerce, realizziamo soluzioni su misura per generare valore e crescita concreta."
+        "title": "Dal campo",
+        "text": "Solo ciò che è stato usato su progetti reali, non quello che promettono le slide."
       },
       {
-        "title": "Consulenza Tecnica",
-        "text": "Ti affianchiamo nella definizione di strategie tecnologiche e metodologie di sviluppo Agile che favoriscono innovazione continua. Offriamo supporto tecnico, ottimizzazione dei sistemi e un approccio flessibile che accelera i risultati."
+        "title": "Oltre l'annuncio",
+        "text": "Ogni novità viene letta per quello che cambia nel lavoro quotidiano, non per il rumore che fa."
       },
       {
-        "title": "Cloud e Serverless",
-        "text": "Creiamo infrastrutture cloud sicure, scalabili e convenienti, sfruttando architetture serverless per ridurre costi e complessità. Le nostre soluzioni si adattano facilmente ai cambiamenti del mercato e alle esigenze del tuo business."
+        "title": "Concretezza",
+        "text": "Nomi, numeri ed esempi precisi al posto di formule generiche e promesse vaghe."
       },
       {
-        "title": "Applicazioni Mobile",
-        "text": "Sviluppiamo app per sistemi Android e iOS, pensate per offrire un'esperienza utente fluida e intuitiva. Ogni applicazione è costruita con tecnologie moderne per garantire affidabilità, velocità e integrazione con i sistemi aziendali."
+        "title": "Due lingue",
+        "text": "Ogni articolo esce in italiano e in inglese, con lo stesso contenuto e la stessa cura."
+      },
+      {
+        "title": "AI come strumento",
+        "text": "Stesura e traduzione assistite dall'AI, revisione e responsabilità restano dell'autore."
       }
     ]
-  },
-  "why": {
-    "text1": "HeroHubs nasce dall'incontro di professionisti con esperienza nello sviluppo software e una visione comune: trasformare la complessità tecnologica in soluzioni semplici, scalabili e di valore.",
-    "text2": "Combiniamo approccio artigianale e competenze enterprise per progettare applicazioni web, piattaforme cloud e sistemi integrati che garantiscono qualità, affidabilità e performance."
   }
 }

@@ -1,18 +1,45 @@
 {
-  "blog": {
-    "subtitle": "Latest articles",
-    "text": "We write about software development, technical architectures and project management."
+  "hero": {
+    "eyebrow": "Software development · Architecture · AI",
+    "titleStart": "Software, architecture and ",
+    "titleAccent": "AI",
+    "titleMiddle": ", from ",
+    "titleHighlight": "someone who works with them every day",
+    "titleEnd": ".",
+    "text": "Tools, architectural choices and news from the AI world, seen through the eyes of someone who uses them on real projects. In English and Italian.",
+    "primaryCta": "Read the articles",
+    "secondaryCta": "Contact me",
+    "featuredLabel": "From the blog"
   },
-  "contacts": {
-    "title": "Contact us now",
-    "subtitle": "We're ready to develop the next feature together with you",
-    "text": "From web apps to enterprise cloud systems, we put our experience at the service of your goals.",
-    "email": "info@herohubs.it",
-    "icon": "FaEnvelope"
+  "about": {
+    "eyebrow": "Who writes",
+    "title": "Field experience, written for people who build",
+    "text1": "Every article comes from a real project: a tool tried in production, an architectural choice that held up or did not, a piece of AI news looked at beyond the announcement.",
+    "text2": "The goal is to give developers, tech leads and decision makers what they need to understand what really changes in their work, without hype and without shortcuts.",
+    "facts": [
+      {
+        "label": "Author",
+        "value": "Ranieri Vannozzi"
+      },
+      {
+        "label": "Experience",
+        "value": "Enterprise development, cloud and technical leadership"
+      },
+      {
+        "label": "Publishing",
+        "value": "Articles in English and Italian"
+      },
+      {
+        "label": "Topics",
+        "value": "Development, architecture, AI and project management"
+      }
+    ],
+    "profileLabel": "Professional profile"
   },
   "customers": {
-    "subtitle": "Who we've worked with",
-    "text": "Throughout our experience, we have collaborated with companies from various sectors, supporting them in the development of technological solutions.",
+    "eyebrow": "Experience",
+    "subtitle": "Who the author has worked with",
+    "text": "Over more than fifteen years the author of HeroHubs has worked with companies across different sectors, sometimes directly and sometimes as part of larger teams, contributing to the development of their technology solutions.",
     "items": [
       {
         "name": "Luisa Via Roma",
@@ -76,51 +103,37 @@
       }
     ]
   },
-  "how": {
-    "subtitle": "Consulting and software development for business",
-    "text1": "We guide companies and startups through the entire software lifecycle: from idea to production.",
-    "text2": "We design performant, scalable and secure solutions with technical expertise and strategic vision."
+  "blog": {
+    "eyebrow": "Articles",
+    "subtitle": "Latest articles",
+    "text": "Reflections on tools, architecture and artificial intelligence, written from real projects.",
+    "allPosts": "All articles"
   },
-  "blocks": [
-    {
-      "title": "Consulting",
-      "text": "Technical and strategic consulting to guide solid, scalable technology choices oriented towards the future of your business."
-    },
-    {
-      "title": "Apps",
-      "text": "Complete enterprise web solutions that integrate modern back-end, front-end and database technologies in a scalable way."
-    },
-    {
-      "title": "Cloud",
-      "text": "Secure cloud infrastructures on Azure, AWS and Google Cloud. CI/CD pipelines, automation and reliable, fast deployments."
-    },
-    {
-      "title": "Projects",
-      "text": "Results-oriented agile methodologies. We support companies with complete and immediately operational solutions."
-    }
-  ],
-  "services": {
+  "principles": {
+    "eyebrow": "Method",
+    "title": "The principles of the blog",
+    "text": "Five rules that apply to every article, from the first to the last.",
     "items": [
       {
-        "title": "Software Development",
-        "text": "We design custom software that optimizes business processes and improves operational performance. From enterprise platforms to e-commerce, we create tailored solutions to generate value and concrete growth."
+        "title": "From the field",
+        "text": "Only what has been used on real projects, not what the slides promise."
       },
       {
-        "title": "Technical Consulting",
-        "text": "We support you in defining technology strategies and Agile development methodologies that foster continuous innovation. We offer technical support, system optimization and a flexible approach that accelerates results."
+        "title": "Beyond the announcement",
+        "text": "Every piece of news is read for what it changes in everyday work, not for the noise it makes."
       },
       {
-        "title": "Cloud and Serverless",
-        "text": "We create secure, scalable and cost-effective cloud infrastructures, leveraging serverless architectures to reduce costs and complexity. Our solutions easily adapt to market changes and your business needs."
+        "title": "Concreteness",
+        "text": "Precise names, numbers and examples instead of generic formulas and vague promises."
       },
       {
-        "title": "Mobile Applications",
-        "text": "We develop apps for Android and iOS systems, designed to offer a smooth and intuitive user experience. Each application is built with modern technologies to ensure reliability, speed and integration with enterprise systems."
+        "title": "Two languages",
+        "text": "Every article is published in English and Italian, with the same content and the same care."
+      },
+      {
+        "title": "AI as a tool",
+        "text": "Drafting and translation are AI-assisted, review and responsibility stay with the author."
       }
     ]
-  },
-  "why": {
-    "text1": "HeroHubs was born from the meeting of professionals with experience in software development and a common vision: to transform technological complexity into simple, scalable and valuable solutions.",
-    "text2": "We combine a craftsman's approach with enterprise expertise to design web applications, cloud platforms and integrated systems that ensure quality, reliability and performance."
   }
 }

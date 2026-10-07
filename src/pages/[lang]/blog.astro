@@ -34,25 +34,15 @@ const totalPages = Math.ceil(postsWithCleanId.length / pagination);
 ---
 
 <Base meta_title={config.blog.title} description={config.blog.meta_description} lang={lang}>
-  <div class="section herohubs-section">
-    <PageHeader title={config.blog.title} />
-    <section class="section-sm ml-5 mr-5">
-      <div class="container">
-        <div class="row">
-          <div class="container">
-            <div class="row gy-4">
-              {
-                paginatedPosts.map((post) => (
-                  <Post className="col-12 sm:col-6" post={post} lang={lang} id={post.cleanId} />
-                ))
-              }
-            </div>
-            <div class="mt-12">
-              <Pagination totalPages={totalPages} currentPage={1} lang={lang} />
-            </div>
-          </div>
-        </div>
+  <PageHeader title={config.blog.title} text={config.blog.meta_description} />
+  <section class="py-14 lg:py-20">
+    <div class="container">
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {paginatedPosts.map((post) => <Post post={post} lang={lang} id={post.cleanId} />)}
       </div>
-    </section>
-  </div>
+      <div class="mt-12">
+        <Pagination totalPages={totalPages} currentPage={1} lang={lang} />
+      </div>
+    </div>
+  </section>
 </Base>

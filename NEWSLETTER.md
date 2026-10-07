@@ -62,7 +62,7 @@ Soluzione consigliata: **MailerLite** (provider hosted) + form in fondo all'arti
 
 ## Prossimi passi (quando si passa all'azione)
 
-1. ~~Verificare se il blog espone già un feed RSS~~ → fatto: assente. Aggiungere l'endpoint (due feed per lingua, `/it/rss.xml` e `/en/rss.xml`) sfruttando `@astrojs/rss` già installato.
+1. ~~Verificare se il blog espone già un feed RSS~~ → fatto: assente. ~~Aggiungere l'endpoint (due feed per lingua, `/it/rss.xml` e `/en/rss.xml`) sfruttando `@astrojs/rss` già installato.~~ → fatto: `src/pages/[lang]/rss.xml.ts`, con link nel footer e `<link rel="alternate">` nel `<head>`.
 2. Scegliere il provider.
 3. Creare account e ottenere form embeddabile + pagina di iscrizione.
 4. Inserire il form nel layout `PostSingle` (fondo articolo).

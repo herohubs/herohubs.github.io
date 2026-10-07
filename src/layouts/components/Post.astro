@@ -1,58 +1,43 @@
 ---
+import ImageMod from '@/components/ImageMod.astro';
 import dateFormat from '@/lib/utils/dateFormat';
-import { loadLocalizedConfig } from '@/lib/utils/lang';
 
-const { post, id, lang, className } = Astro.props;
+const { post, id, lang, className = '' } = Astro.props;
 const { data } = post;
 
 const cleanId = post.id.includes('/') ? post.id.split('/')[1] : id;
 const draftFileName = `${(post.id.split('/').pop() || '').replace(/\.mdx?$/, '')}.md`;
-const i18n = await loadLocalizedConfig(lang, 'i18n');
+const url = `/${lang}/posts/${cleanId}`;
+const monthYear = data.date ? dateFormat(data.date, 'MMMM yyyy', lang) : '';
+const formattedDate = monthYear.charAt(0).toUpperCase() + monthYear.slice(1);
 ---
 
-<div class={className + ' opacity-90'}>
-  <div class="rounded-4xl border border-border p-6 lg:p-9 h-full flex flex-col bg-body/85">
+<a
+  href={url}
+  class={`group flex flex-col overflow-hidden rounded-2xl border border-border bg-white/[0.03] transition hover:border-primary/60 ${className}`}
+>
+  {
+    data.image && (
+      <div class="p-2">
+        <ImageMod src={data.image} alt={data.title} width={480} height={270} class="w-full rounded-xl" />
+      </div>
+    )
+  }
+  <div class="flex flex-1 flex-col border-t border-border/60 bg-white/[0.05] p-6">
     {
       data.draft && (
-        <span class="mb-4 inline-block w-fit rounded bg-red-600 px-2 py-0.5 text-xs font-semibold tracking-wide text-white">
+        <span class="mb-3 w-fit rounded bg-red-600 px-2 py-0.5 text-xs font-semibold text-white">
           DRAFT · {draftFileName}
         </span>
       )
     }
-    <ul class="flex items-center space-x-4">
-      {
-        data.categories.map((category: any) => (
-          <li>
-            <a class="text-primary hover:underline" href={`/${lang}/categories/${category.toLowerCase()}`}>
-              {category}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-    <p class="my-4">
-      {
-        dateFormat(data.date, 'MMMM yyyy', lang).charAt(0).toUpperCase() +
-          dateFormat(data.date, 'MMMM yyyy', lang).slice(1)
-      }
-    </p>
-    <h2 class="h3 mb-2 font-normal line-clamp-4">
-      <a href={`/${lang}/posts/${cleanId}`} class="block">{data.title}</a>
-    </h2>
-    <a class="btn-link mt-7 inline-flex items-center hover:text-primary" href={`/${lang}/posts/${cleanId}`}>
-      {i18n.continue_reading}
-      <svg
-        class="ml-1"
-        width="22"
-        height="11"
-        viewBox="0 0 16 8"
-        fill="currentcolor"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M15.3536 4.35355c.1952-.19526.1952-.51184.0-.7071L12.1716.464467C11.9763.269205 11.6597.269205 11.4645.464467c-.1953.195262-.1953.511845.0.707103L14.2929 4 11.4645 6.82843c-.1953.19526-.1953.51184.0.7071C11.6597 7.7308 11.9763 7.7308 12.1716 7.53553l3.182-3.18198zM-.437114e-7 4.5H15v-1H.437114e-7l-.874228e-7 1z"
-        ></path>
-      </svg>
-    </a>
+    <div class="flex items-center justify-between gap-3">
+      <p class="text-xs font-semibold uppercase tracking-widest text-primary">{data.categories.join(' · ')}</p>
+      {formattedDate && <p class="text-xs text-text/70">{formattedDate}</p>}
+    </div>
+    <h3 class="mt-3 text-lg font-bold leading-snug text-text-dark transition group-hover:text-primary">
+      {data.title}
+    </h3>
+    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-text">{data.description}</p>
   </div>
-</div>
+</a>

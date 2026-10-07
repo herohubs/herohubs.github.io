@@ -1,0 +1,66 @@
+---
+interface Props {
+  lang: string;
+  className?: string;
+  showAiNote?: boolean;
+}
+const { lang, className, showAiNote = false } = Astro.props;
+
+const content: Record<string, { eyebrow: string; role: string; bio: string; profileLabel: string; aiNote: string }> = {
+  it: {
+    eyebrow: "L'autore",
+    role: 'Sviluppatore e consulente software freelance',
+    bio: 'Scrivo codice dal 2008 e lavoro su sviluppo enterprise, architetture cloud-native e leadership tecnica. Su HeroHubs racconto quello che incontro ogni giorno nei progetti, tra codice, architetture e intelligenza artificiale.',
+    profileLabel: 'Profilo professionale',
+    aiNote: "Articolo scritto con il supporto dell'AI e rivisto dall'autore.",
+  },
+  en: {
+    eyebrow: 'The author',
+    role: 'Freelance software developer and consultant',
+    bio: 'I have been writing code since 2008, working on enterprise development, cloud-native architectures and technical leadership. On HeroHubs I write about what I run into every day on real projects, from code to architecture and artificial intelligence.',
+    profileLabel: 'Professional profile',
+    aiNote: 'Article written with AI assistance and reviewed by the author.',
+  },
+};
+
+const t = content[lang] ?? content.en;
+---
+
+<div class={className}>
+  <div class="overflow-hidden rounded-2xl border border-border bg-white/[0.03] text-left">
+    <div class="flex flex-col gap-6 p-8 sm:flex-row sm:items-start">
+      <img
+        src="/images/ranieri-vannozzi.webp"
+        alt="Ranieri Vannozzi"
+        class="h-20 w-20 flex-shrink-0 rounded-full border-2 border-primary object-cover"
+      />
+      <div>
+        <p class="mb-2 mt-0 text-xs font-semibold uppercase tracking-widest text-primary">{t.eyebrow}</p>
+        <p class="mb-1 mt-0 text-xl font-bold text-text-dark">Ranieri Vannozzi</p>
+        <p class="mb-4 mt-0 text-sm text-text/70">{t.role}</p>
+        <p class="mb-6 mt-0 text-sm leading-relaxed text-text">{t.bio}</p>
+        <div class="flex flex-wrap gap-3">
+          <a
+            href="https://ranierivannozzi.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-lg border border-dashed border-primary px-4 py-2 text-sm font-semibold text-text-dark no-underline transition hover:bg-primary/15"
+          >
+            {t.profileLabel} &rarr;
+          </a>
+          <a
+            href="mailto:info@herohubs.it"
+            class="rounded-lg border border-border px-4 py-2 text-sm font-semibold text-text-dark no-underline transition hover:border-primary/60"
+          >
+            info@herohubs.it
+          </a>
+        </div>
+      </div>
+    </div>
+    {
+      showAiNote && (
+        <p class="m-0 border-t border-border/60 bg-white/[0.05] px-8 py-4 text-xs italic text-text/70">{t.aiNote}</p>
+      )
+    }
+  </div>
+</div>
