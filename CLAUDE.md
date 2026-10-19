@@ -82,6 +82,8 @@ Every published article is promoted on LinkedIn with three coordinated pieces: a
 
 All three pieces are written in Italian only. LinkedIn truncates a post at roughly 200 characters, so a leading English block would push the hook out of reach for the largest part of the audience, and the platform already offers automatic translation to anyone who needs it. The English article keeps its own audience, which arrives from search rather than from LinkedIn, and it stays linked in the first comment.
 
+Across all three pieces, and in the WhatsApp message as well, avoid strings of very short declarative sentences and staccato lists after a colon (`niente lock globale, test dopo l'integrazione e conflitti risolti da Claude`): the owner considers them a recognisable sign of AI-written text and rewrites them into longer sentences joined by connectives. When the owner sends back an edited version, correct only grammar, spelling and factual errors, and keep their sentence structure, connectives and rhythm.
+
 ### Company page post
 
 **Length** — one single paragraph in Italian, 110-130 words. No internal line breaks, no lists, no sub-headings.
@@ -95,6 +97,8 @@ All three pieces are written in Italian only. LinkedIn truncates a post at rough
 5. The CTA at the end of the same paragraph, never on its own line
 
 The opening and the pivot must both fit within the first 200 characters, because that is all LinkedIn shows before the reader has to expand the post.
+
+The arc is fixed, but the sentence that opens it must change from post to post. Do not default to `Quando [X] ha presentato…` as in the reference example: check how the previous posts opened and pick a different construction, such as a list of facts followed by the obvious reading (`Sette persone, cinque mesi e un sistema di versionamento scritto da zero per sostituire git: detta così, la scelta di Anthropic sembra il classico caso di chi reinventa la ruota.`), a striking figure, or a question. The same applies to the personal relaunch and the WhatsApp message, which must not become formulaic either.
 
 **Formatting** — a single block with no flag prefix. The CTA is `👉 link nel primo commento`. Two lowercase, subject specific hashtags close the post at the very bottom (for example `#sakanaai #fugu`); no generic `#ai` here.
 
@@ -126,10 +130,10 @@ The URL slug is the article number, with no trailing slash.
 **Structure** — punchier and more opinionated than the company post, and it re-angles the article rather than condensing the company post, picking details the company post left out:
 
 1. A two beat antithetical opening, one short sentence stating what the news is not and one even shorter stating what it is (`La notizia AI della settimana non è un modello più potente. È uno più piccolo.`)
-2. The body, alternating long explanatory sentences with very short declarative ones that set the rhythm (`Il suo mestiere è orchestrare.`)
+2. The body, in long connected sentences that explain the facts and link them with connectives (`infatti`, `in questo scenario`, `mentre`), without isolated one-line sentences used for rhythm
 3. One concrete, almost anecdotal figure that the company post did not use (`Una pagina web può uscire per il 60% da un modello e per il 40% da un altro.`)
 4. The pivot on what actually matters, introduced by a colon (`Cambia la domanda che conta: non chi costruisce il cervello più potente, ma chi coordina meglio quelli che già esistono.`)
-5. A closing antithesis echoing the opening (`Non è una gara di potenza, è una gara di connessione.`)
+5. A closing sentence echoing the opening, written as a full statement rather than a slogan (`La competizione, qui, è sull'infrastruttura.`)
 6. A final sentence widening the frame beyond the product itself (`E il Giappone si è appena seduto al tavolo dei grandi senza addestrare un modello suo.`)
 
 **Tone** — declarative and editorial rather than first person, no `io` needed. Same punctuation rules as everywhere else: no exclamation marks, no dashes as separators, colons welcome, no capital after a colon.
