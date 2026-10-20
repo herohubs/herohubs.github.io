@@ -21,5 +21,7 @@
   "pagination": "Paginazione",
   "not_found_title": "Pagina non trovata",
   "not_found_text": "La pagina che stai cercando potrebbe essere stata rimossa, rinominata o non essere disponibile in questo momento.",
-  "back_home": "Torna alla home"
+  "back_home": "Torna alla home",
+  "search_placeholder": "Cerca un articolo",
+  "search_no_results": "Nessun articolo corrisponde alla ricerca."
 }

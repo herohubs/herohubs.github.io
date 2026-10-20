@@ -1,5 +1,5 @@
 ---
-import Post from '@/components/Post.astro';
+import PostSearch from '@/components/PostSearch.astro';
 import Base from '@/layouts/Base.astro';
 import mainConfig from '@/config/main-config.json';
 import { getSinglePage } from '@/lib/contentParser.astro';
@@ -7,7 +7,7 @@ import { getTaxonomy } from '@/lib/taxonomyParser.astro';
 import taxonomyFilter from '@/lib/utils/taxonomyFilter';
 import PageHeader from '@/partials/PageHeader.astro';
 import { sortByDate } from '@/lib/utils/sortFunctions';
-import { loadLocalizedConfig } from '@/lib/utils/lang';
+import { categorySegment, loadLocalizedConfig } from '@/lib/utils/lang';
 
 const { lang, category } = Astro.params;
 const config: any = await loadLocalizedConfig(lang, 'config');
@@ -22,6 +22,7 @@ export async function getStaticPaths() {
       paths.push({
         params: {
           lang,
+          categories: categorySegment(lang),
           category,
         },
       });
@@ -41,9 +42,7 @@ const categoryLabel =
   <PageHeader title={categoryLabel} eyebrow={config.blog.title} />
   <section class="py-14 lg:py-20">
     <div class="container">
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {sortByDate(filterByCategories).map((post, index) => <Post post={post} lang={lang} priority={index === 0} />)}
-      </div>
+      <PostSearch lang={lang} posts={sortByDate(filterByCategories)} />
     </div>
   </section>
 </Base>

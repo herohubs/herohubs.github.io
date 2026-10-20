@@ -21,5 +21,7 @@
   "pagination": "Pagination",
   "not_found_title": "Page not found",
   "not_found_text": "The page you are looking for might have been removed, renamed or is temporarily unavailable.",
+  "search_placeholder": "Search for an article",
+  "search_no_results": "No article matches your search.",
   "back_home": "Back to home"
 }

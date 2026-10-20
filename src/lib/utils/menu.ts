@@ -1,5 +1,5 @@
 import type { INavigationLink } from '@/interfaces';
-import { resolveLang, loadMenu } from '@/lib/utils/lang';
+import { categorySegment, resolveLang, loadMenu } from '@/lib/utils/lang';
 
 export async function getMainMenu(lang?: string): Promise<INavigationLink[]> {
   const menu = await loadMenu(lang);
@@ -26,7 +26,7 @@ export async function getCategoryMenu(posts: any[], lang?: string): Promise<INav
 
   const categoryItems = uniqueCategories.map((category: string) => ({
     name: category,
-    url: `/${resolvedLang}/categories/${category.toLowerCase()}`,
+    url: `/${resolvedLang}/${categorySegment(resolvedLang)}/${category.toLowerCase()}`,
   }));
 
   return [...(blogItem ? [blogItem] : []), ...categoryItems];

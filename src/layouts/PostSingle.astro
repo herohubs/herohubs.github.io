@@ -10,7 +10,8 @@ import { render } from 'astro:content';
 import AuthorBox from './components/AuthorBox.astro';
 import ImageMod from './components/ImageMod.astro';
 import Post from './components/Post.astro';
-import { loadLocalizedConfig } from '@/lib/utils/lang';
+import { categorySegment, loadLocalizedConfig } from '@/lib/utils/lang';
+import { translatePath } from '@/lib/utils/translatePath';
 const { post, lang } = Astro.props;
 const posts = await getSinglePage('posts', lang);
 let similarPosts = similarItems(post, posts);
@@ -24,8 +25,8 @@ similarPosts = similarPosts.sort((a, b) => {
 });
 const i18n: any = await loadLocalizedConfig(lang, 'i18n');
 const currentPath = Astro.url.pathname;
-const englishUrl = currentPath.replace(/^\/it/, '/en');
-const italianUrl = currentPath.replace(/^\/en/, '/it');
+const englishUrl = await translatePath(currentPath, 'en');
+const italianUrl = await translatePath(currentPath, 'it');
 ---
 
 <section class="pt-8 pb-6 md:pt-20">
@@ -114,7 +115,10 @@ const italianUrl = currentPath.replace(/^\/en/, '/it');
                 {
                   categories.map((category: any) => (
                     <li class="inline-block">
-                      <a href={`/${lang}/categories/${slugify(category)}`} class="mr-3 text-primary-light">
+                      <a
+                        href={`/${lang}/${categorySegment(lang)}/${slugify(category)}`}
+                        class="mr-3 text-primary-light"
+                      >
                         {humanize(category)}
                       </a>
                     </li>

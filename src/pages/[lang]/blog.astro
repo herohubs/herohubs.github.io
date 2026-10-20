@@ -1,6 +1,7 @@
 ---
 import Base from '@/layouts/Base.astro';
 import Post from '@/components/Post.astro';
+import PostSearch from '@/components/PostSearch.astro';
 import Pagination from '@/components/Pagination.astro';
 import PageHeader from '@/partials/PageHeader.astro';
 import { getSinglePage } from '@/lib/contentParser.astro';
@@ -37,12 +38,18 @@ const totalPages = Math.ceil(postsWithCleanId.length / pagination);
   <PageHeader title={config.blog.title} text={config.blog.meta_description} />
   <section class="py-14 lg:py-20">
     <div class="container">
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {paginatedPosts.map((post, index) => <Post post={post} lang={lang} id={post.cleanId} priority={index === 0} />)}
-      </div>
-      <div class="mt-12">
-        <Pagination totalPages={totalPages} currentPage={1} lang={lang} />
-      </div>
+      <PostSearch lang={lang} posts={sortPostByDate}>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {
+            paginatedPosts.map((post, index) => (
+              <Post post={post} lang={lang} id={post.cleanId} priority={index === 0} />
+            ))
+          }
+        </div>
+        <div class="mt-12">
+          <Pagination totalPages={totalPages} currentPage={1} lang={lang} />
+        </div>
+      </PostSearch>
     </div>
   </section>
 </Base>

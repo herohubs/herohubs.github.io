@@ -1,0 +1,87 @@
+---
+import Post from '@/components/Post.astro';
+import { loadLocalizedConfig } from '@/lib/utils/lang';
+import { normalizeSearchText } from '@/lib/utils/searchText';
+
+// The default slot holds what is shown while the search box is empty (e.g. a paginated grid).
+// Without it the searchable grid is always visible and filtered in place.
+const { lang, posts } = Astro.props;
+const i18n: any = await loadLocalizedConfig(lang, 'i18n');
+const hasDefault = Astro.slots.has('default');
+
+const searchText = (post: any) =>
+  normalizeSearchText([post.data.title, post.data.description, ...post.data.categories].join(' '));
+---
+
+<div data-post-search>
+  <!-- negative top margin cancels the extra section padding so the gap above matches the one below -->
+  <div class="relative mx-auto -mt-4 mb-10 max-w-2xl lg:-mt-10">
+    <svg
+      class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-primary-light"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      aria-hidden="true"
+    >
+      <circle cx="11" cy="11" r="7"></circle>
+      <path d="m20 20-3.5-3.5"></path>
+    </svg>
+    <input
+      type="search"
+      placeholder={i18n.search_placeholder}
+      aria-label={i18n.search_placeholder}
+      autocomplete="off"
+      class="w-full rounded-xl border border-primary/70 bg-white/[0.06] py-3.5 pl-12 pr-4 text-base text-text-dark shadow-lg shadow-primary/10 transition placeholder:text-text/70 hover:border-primary focus:border-primary focus:bg-white/[0.08] focus:ring-2 focus:ring-primary/40"
+    />
+  </div>
+  {
+    hasDefault && (
+      <div data-search-default>
+        <slot />
+      </div>
+    )
+  }
+  <div data-search-pool class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" hidden={hasDefault}>
+    {
+      posts.map((post: any, index: number) => (
+        <Post post={post} lang={lang} searchText={searchText(post)} priority={!hasDefault && index === 0} />
+      ))
+    }
+  </div>
+  <!-- stays in the DOM as a live region, so screen readers announce the message when it is filled in -->
+  <p data-search-empty data-message={i18n.search_no_results} role="status" class="text-center text-text"></p>
+</div>
+
+<script>
+  import { normalizeSearchText } from '@/lib/utils/searchText';
+
+  // Runs on the first load and after every client-side navigation, since the router swaps the body
+  document.addEventListener('astro:page-load', () => {
+    const root = document.querySelector('[data-post-search]');
+    if (!root) return;
+
+    const input = root.querySelector<HTMLInputElement>('input[type="search"]')!;
+    const pool = root.querySelector<HTMLElement>('[data-search-pool]')!;
+    const fallback = root.querySelector<HTMLElement>('[data-search-default]');
+    const empty = root.querySelector<HTMLElement>('[data-search-empty]')!;
+    const items = [...pool.querySelectorAll<HTMLElement>('[data-search-text]')];
+
+    input.addEventListener('input', () => {
+      const terms = normalizeSearchText(input.value).split(/\s+/).filter(Boolean);
+      const searching = terms.length > 0;
+      let matches = 0;
+      items.forEach((item) => {
+        const match = terms.every((term) => item.dataset.searchText!.includes(term));
+        item.hidden = !match;
+        if (match) matches++;
+      });
+      if (fallback) {
+        fallback.hidden = searching;
+        pool.hidden = !searching;
+      }
+      empty.textContent = searching && matches === 0 ? empty.dataset.message! : '';
+    });
+  });
+</script>

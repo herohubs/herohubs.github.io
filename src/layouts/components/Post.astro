@@ -2,7 +2,7 @@
 import ImageMod from '@/components/ImageMod.astro';
 import dateFormat from '@/lib/utils/dateFormat';
 
-const { post, id, lang, className = '', priority = false } = Astro.props;
+const { post, id, lang, className = '', priority = false, searchText } = Astro.props;
 const { data } = post;
 
 const cleanId = post.id.includes('/') ? post.id.split('/')[1] : id;
@@ -14,6 +14,7 @@ const formattedDate = monthYear.charAt(0).toUpperCase() + monthYear.slice(1);
 
 <a
   href={url}
+  data-search-text={searchText}
   class={`group flex flex-col overflow-hidden rounded-2xl border border-border bg-white/[0.03] transition hover:border-primary/60 ${className}`}
 >
   {

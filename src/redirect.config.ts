@@ -1,5 +1,13 @@
 export const blogRedirects: Record<string, string> = {
   // ============================================
+  // ITALIAN CATEGORY PAGES, MOVED FROM /it/categories/ TO /it/categorie/
+  // ============================================
+  '/it/categories/sviluppo': '/it/categorie/sviluppo',
+  '/it/categories/progetti': '/it/categorie/progetti',
+  '/it/categories/architettura': '/it/categorie/architettura',
+  '/it/categories/ai': '/it/categorie/ai',
+
+  // ============================================
   // NOVEMBER 2024
   // ============================================
   '/2024/11/28/qa-il-pilastro-invisibile-dello-sviluppo-software': '/it/posts/1',

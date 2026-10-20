@@ -14,6 +14,13 @@ export function resolveLang(lang?: string): Lang {
   return default_language;
 }
 
+// URL segment of the category pages, localized for the languages that need it
+const categorySegments: Record<string, string> = { it: 'categorie' };
+
+export function categorySegment(lang?: string): string {
+  return categorySegments[resolveLang(lang)] ?? 'categories';
+}
+
 export async function loadLocalizedConfig<T>(lang: string | undefined, file: string): Promise<T> {
   const resolvedLang = resolveLang(lang);
 

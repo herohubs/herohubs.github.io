@@ -1,6 +1,7 @@
 ---
 import type { INavigationLink } from '@/interfaces';
 import { loadLocalizedConfig } from '@/lib/utils/lang';
+import { translatePath } from '@/lib/utils/translatePath';
 
 const { menu, showLangSwitcher, lang } = Astro.props as {
   menu: INavigationLink[];
@@ -8,6 +9,9 @@ const { menu, showLangSwitcher, lang } = Astro.props as {
   lang?: string;
 };
 const currentPath = Astro.url.pathname;
+// only the link to the other language is rendered, so only that one is computed
+const englishUrl = lang !== 'en' ? await translatePath(currentPath, 'en') : undefined;
+const italianUrl = lang !== 'it' ? await translatePath(currentPath, 'it') : undefined;
 
 const i18n: any = await loadLocalizedConfig(lang, 'i18n');
 ---
@@ -29,12 +33,12 @@ const i18n: any = await loadLocalizedConfig(lang, 'i18n');
       <div class="mt-4 text-center">
         <span class="text-sm text-gray-400 mr-2">{i18n.langSwitcher.label}:</span>
         {lang !== 'en' && (
-          <a href={currentPath.replace(/^\/it/, '/en')} class="text-primary-light underline mx-1">
+          <a href={englishUrl} class="text-primary-light underline mx-1">
             {i18n.langSwitcher.en}
           </a>
         )}
         {lang !== 'it' && (
-          <a href={currentPath.replace(/^\/en/, '/it')} class="text-primary-light underline mx-1">
+          <a href={italianUrl} class="text-primary-light underline mx-1">
             {i18n.langSwitcher.it}
           </a>
         )}
