@@ -1,4 +1,5 @@
 ---
+import ImageMod from '@/components/ImageMod.astro';
 import mainConfig from '@/config/main-config.json';
 import { getSinglePage } from '@/lib/contentParser.astro';
 import { markdownify } from '@/lib/utils/textConverter';
@@ -19,7 +20,7 @@ const { image_min } = mainConfig.profile;
   <div class="container max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
     <div>
       <a href={`/${lang}`} class="flex justify-center items-center gap-2 mb-4 mt-4 hover:opacity-80 transition-opacity">
-        <img src={image_min} alt="Logo" />
+        <ImageMod src={image_min} alt={mainConfig.profile.name} width={135} height={50} />
       </a>
       <p class="mb-4 text-center text-sm">{config.designation}</p>
     </div>
@@ -27,7 +28,7 @@ const { image_min } = mainConfig.profile;
     <FooterMenu menu={categoriesMenus} />
     <FooterMenu menu={otherMenus} showLangSwitcher="true" lang={lang} />
   </div>
-  <div class="mt-16 text-sm text-gray-600 text-center pt-6">
-    <p set:html={markdownify(copyright)} class="text-primary" />
+  <div class="mt-16 text-sm text-gray-400 text-center pt-6">
+    <p set:html={markdownify(copyright)} class="text-primary-light" />
   </div>
 </footer>

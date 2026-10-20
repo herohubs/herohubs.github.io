@@ -38,7 +38,7 @@ const totalPages = Math.ceil(postsWithCleanId.length / pagination);
   <section class="py-14 lg:py-20">
     <div class="container">
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {paginatedPosts.map((post) => <Post post={post} lang={lang} id={post.cleanId} />)}
+        {paginatedPosts.map((post, index) => <Post post={post} lang={lang} id={post.cleanId} priority={index === 0} />)}
       </div>
       <div class="mt-12">
         <Pagination totalPages={totalPages} currentPage={1} lang={lang} />

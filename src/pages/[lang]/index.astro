@@ -35,13 +35,13 @@ const contactUrl = 'mailto:info@herohubs.it';
       <div class="grid items-center gap-12 lg:grid-cols-2">
         <div>
           <span
-            class="inline-flex items-center gap-2 rounded border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary"
+            class="inline-flex items-center gap-2 rounded border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary-light"
           >
             <span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
             {hero.eyebrow}
           </span>
           <h1 class="mt-6 text-4xl font-bold leading-tight text-text-dark lg:text-6xl">
-            {hero.titleStart}<span class="text-primary">{hero.titleAccent}</span>{hero.titleMiddle}<span
+            {hero.titleStart}<span class="text-primary-light">{hero.titleAccent}</span>{hero.titleMiddle}<span
               class="text-secondary">{hero.titleHighlight}</span
             >{hero.titleEnd}
           </h1>
@@ -49,7 +49,7 @@ const contactUrl = 'mailto:info@herohubs.it';
           <div class="mt-8 flex flex-wrap gap-4">
             <a
               href={`/${lang}/blog`}
-              class="rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-primary/85"
+              class="rounded-lg bg-primary-dark px-6 py-3 text-sm font-semibold text-white transition hover:bg-primary-dark/85"
             >
               {hero.primaryCta}
             </a>
@@ -84,8 +84,8 @@ const contactUrl = 'mailto:info@herohubs.it';
                   />
                 </div>
                 <div class="border-t border-border/60 bg-white/[0.05] px-6 pb-6 pt-5">
-                  <p class="text-xs font-semibold uppercase tracking-widest text-primary">{hero.featuredLabel}</p>
-                  <p class="mt-2 text-xl font-semibold text-text-dark transition group-hover:text-primary">
+                  <p class="text-xs font-semibold uppercase tracking-widest text-primary-light">{hero.featuredLabel}</p>
+                  <p class="mt-2 text-xl font-semibold text-text-dark transition group-hover:text-primary-light">
                     {post.data.title}
                   </p>
                 </div>
@@ -110,7 +110,7 @@ const contactUrl = 'mailto:info@herohubs.it';
     <div class="container">
       <div class="grid items-center gap-12 lg:grid-cols-2">
         <div class="rounded-2xl border border-border bg-white/[0.03] p-8 lg:p-10">
-          <p class="text-xs font-semibold uppercase tracking-widest text-primary">{about.eyebrow}</p>
+          <p class="text-xs font-semibold uppercase tracking-widest text-primary-light">{about.eyebrow}</p>
           <h2 class="mt-3 text-2xl font-bold text-text-dark lg:text-3xl">{about.title}</h2>
           <p class="mt-5 leading-relaxed text-text">{about.text1}</p>
           <p class="mt-4 leading-relaxed text-text">{about.text2}</p>
@@ -118,7 +118,7 @@ const contactUrl = 'mailto:info@herohubs.it';
             {
               about.facts.map((fact) => (
                 <div class="grid grid-cols-[8rem_1fr] gap-3">
-                  <dt class="font-semibold text-primary">{fact.label}</dt>
+                  <dt class="font-semibold text-primary-light">{fact.label}</dt>
                   <dd class="text-text-dark">{fact.value}</dd>
                 </div>
               ))
@@ -128,7 +128,7 @@ const contactUrl = 'mailto:info@herohubs.it';
             href="https://ranierivannozzi.com"
             target="_blank"
             rel="noopener noreferrer"
-            class="mt-8 inline-block text-sm font-semibold text-primary hover:underline"
+            class="mt-8 inline-block text-sm font-semibold text-primary-light hover:underline"
           >
             {about.profileLabel} &rarr;
           </a>
@@ -139,6 +139,8 @@ const contactUrl = 'mailto:info@herohubs.it';
             alt="HeroHubs"
             width={1024}
             height={1024}
+            widths={[480, 960]}
+            sizes="(min-width: 504px) 424px, calc(100vw - 56px)"
             quality={90}
             class="w-full rounded-xl"
           />
@@ -150,7 +152,7 @@ const contactUrl = 'mailto:info@herohubs.it';
   {/* customers */}
   <section class="border-b border-border/60 py-16 lg:py-24">
     <div class="container text-center">
-      <p class="text-xs font-semibold uppercase tracking-widest text-primary">{customers.eyebrow}</p>
+      <p class="text-xs font-semibold uppercase tracking-widest text-primary-light">{customers.eyebrow}</p>
       <h2 class="mt-3 text-3xl font-bold text-text-dark">{customers.subtitle}</h2>
       <p class="mx-auto mt-4 max-w-2xl leading-relaxed text-text">{customers.text}</p>
       <div class="mt-12 grid grid-cols-3 gap-4 sm:grid-cols-4 lg:grid-cols-6">
@@ -165,6 +167,8 @@ const contactUrl = 'mailto:info@herohubs.it';
               <img
                 src={item.image}
                 alt={item.name}
+                width="80"
+                height="80"
                 loading="lazy"
                 class="h-20 w-20 rounded-2xl object-contain opacity-85 transition hover:opacity-100"
               />
@@ -179,7 +183,7 @@ const contactUrl = 'mailto:info@herohubs.it';
   <section class="border-b border-border/60 py-16 lg:py-24">
     <div class="container">
       <div class="text-center">
-        <p class="text-xs font-semibold uppercase tracking-widest text-primary">{blog.eyebrow}</p>
+        <p class="text-xs font-semibold uppercase tracking-widest text-primary-light">{blog.eyebrow}</p>
         <h2 class="mt-3 text-3xl font-bold text-text-dark">{blog.subtitle}</h2>
         <p class="mx-auto mt-4 max-w-2xl leading-relaxed text-text">{blog.text}</p>
       </div>
@@ -201,7 +205,7 @@ const contactUrl = 'mailto:info@herohubs.it';
   <section class="py-16 lg:py-24">
     <div class="container">
       <div class="text-center">
-        <p class="text-xs font-semibold uppercase tracking-widest text-primary">{principles.eyebrow}</p>
+        <p class="text-xs font-semibold uppercase tracking-widest text-primary-light">{principles.eyebrow}</p>
         <h2 class="mt-3 text-3xl font-bold text-text-dark">{principles.title}</h2>
         <p class="mx-auto mt-4 max-w-2xl leading-relaxed text-text">{principles.text}</p>
       </div>

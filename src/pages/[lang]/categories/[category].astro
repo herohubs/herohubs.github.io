@@ -42,7 +42,7 @@ const categoryLabel =
   <section class="py-14 lg:py-20">
     <div class="container">
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {sortByDate(filterByCategories).map((post) => <Post post={post} lang={lang} />)}
+        {sortByDate(filterByCategories).map((post, index) => <Post post={post} lang={lang} priority={index === 0} />)}
       </div>
     </div>
   </section>

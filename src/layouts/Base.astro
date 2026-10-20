@@ -3,14 +3,14 @@ import { ClientRouter } from 'astro:transitions';
 import TwSizeIndicator from '@/components/TwSizeIndicator.astro';
 import Footer from '@/partials/Footer.astro';
 import Header from '@/partials/Header.astro';
-import CookieBanner from '@/layouts/components/CookieBanner.tsx';
+import CookieBanner from '@/layouts/components/CookieBanner.astro';
 import mainConfig from '@/config/main-config.json';
 import { loadLocalizedConfig } from '@/lib/utils/lang';
 import { plainify } from '@/lib/utils/textConverter';
 import '@/styles/main.css';
 import '@/styles/transitions.css';
 
-const { lang } = Astro.params;
+const lang = Astro.params.lang ?? Astro.props.lang ?? mainConfig.settings.default_language;
 
 const config: any = await loadLocalizedConfig(lang, 'config');
 const i18n: any = await loadLocalizedConfig(lang, 'i18n');
@@ -30,8 +30,9 @@ const GA_ID = mainConfig.analytics.google_analytics_id;
 ---
 
 <!doctype html>
-<html>
+<html lang={lang}>
   <head>
+    <meta charset="UTF-8" />
     <script define:vars={{ GA_ID }}>
       // Initialize Google Analytics
       function initGA() {
@@ -83,7 +84,6 @@ const GA_ID = mainConfig.analytics.google_analytics_id;
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
     <meta name="generator" content={Astro.generator} />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <!-- self-hosted font, served from the site to avoid requests to Google Fonts -->
     <link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
@@ -157,7 +157,7 @@ const GA_ID = mainConfig.analytics.google_analytics_id;
       !empty && (
         <>
           <Footer />
-          <CookieBanner client:load lang={lang} config={config} i18n={i18n} />
+          <CookieBanner lang={lang} config={config} i18n={i18n} />
         </>
       )
     }

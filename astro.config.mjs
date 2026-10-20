@@ -5,9 +5,11 @@ import tailwindcss from '@tailwindcss/vite';
 import AutoImport from 'astro-auto-import';
 import { defineConfig } from 'astro/config';
 import rehypeExternalLinks from 'rehype-external-links';
+import rehypeRaw from 'rehype-raw';
 import remarkCollapse from 'remark-collapse';
 import remarkToc from 'remark-toc';
 import sharp from 'sharp';
+import rehypePostImages from './src/lib/rehype-post-images.mjs';
 import mainConfig from './src/config/main-config.json';
 import { blogRedirects } from './src/redirect.config';
 
@@ -57,6 +59,9 @@ export default defineConfig({
       ],
     ],
     rehypePlugins: [
+      // parse raw <img> tags first so rehypePostImages sees them as elements
+      rehypeRaw,
+      rehypePostImages,
       [
         rehypeExternalLinks,
         {

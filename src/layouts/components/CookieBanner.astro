@@ -1,0 +1,63 @@
+---
+const { lang = 'en', config, i18n } = Astro.props;
+
+const cookiePolicyUrl = `/${lang}/cookie-policy`;
+---
+
+<div
+  id="cookie-banner"
+  class="fixed bottom-0 left-0 right-0 bg-body text-white py-12 px-5 z-50 border-t border-gray-700"
+  hidden
+>
+  <div class="container mx-auto flex flex-row justify-center items-center space-x-4">
+    <div class="flex flex-col space-y-2 md:flex-row md:items-center md:space-x-2 md:space-y-0">
+      <p class="text-sm">
+        {config?.cookie?.bannerMessage1 || 'This website uses cookies to enhance the user experience.'}
+      </p>
+      <p class="text-sm">
+        {config?.cookie?.bannerMessage2 || 'By accepting, you consent to the use of cookies.'}
+      </p>
+      <p class="text-sm">
+        {config?.cookie?.bannerMessage3 || 'For more information, please read our'}&nbsp;<a
+          href={cookiePolicyUrl}
+          class="text-sm underline text-secondary hover:text-blue-100">{i18n?.cookie_policy}</a
+        >.
+      </p>
+    </div>
+    <div class="flex flex-col gap-2 sm:flex-row flex-shrink-0">
+      <button
+        type="button"
+        data-cookie-choice="false"
+        class="border border-primary text-white font-bold py-2 px-4 rounded hover:bg-primary/15"
+      >
+        {i18n?.reject_cookies || 'Reject'}
+      </button>
+      <button
+        type="button"
+        data-cookie-choice="true"
+        class="bg-primary-dark hover:bg-primary-dark/85 text-white font-bold py-2 px-4 rounded"
+      >
+        {i18n?.accept_cookies || 'Accept'}
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Runs on the first load and after every client-side navigation, since the router swaps the body
+  document.addEventListener('astro:page-load', () => {
+    const banner = document.getElementById('cookie-banner');
+    if (!banner || localStorage.getItem('cookiesAccepted')) return;
+
+    banner.hidden = false;
+    banner.querySelectorAll<HTMLButtonElement>('[data-cookie-choice]').forEach((button) =>
+      button.addEventListener('click', () => {
+        const accepted = button.dataset.cookieChoice === 'true';
+        localStorage.setItem('cookiesAccepted', String(accepted));
+        banner.hidden = true;
+        // Call Google Analytics initialization
+        if (accepted) window.initGA?.();
+      }),
+    );
+  });
+</script>

@@ -6,8 +6,8 @@
   "license": "MIT",
   "packageManager": "yarn@1.22.22",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "dev": "node scripts/optimize-post-images.mjs && astro dev",
+    "build": "node scripts/optimize-post-images.mjs && astro build",
     "preview": "astro preview",
     "format": "npx prettier --write '**/*.{js,ts,json,css,md,astro}'"
   },
@@ -29,10 +29,12 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",
+    "rehype-raw": "^7.0.0",
     "remark-collapse": "^0.1.2",
     "remark-toc": "^9.0.0",
     "shiki": "^3.3.0",
     "swiper": "^11.2.6",
+    "unist-util-visit": "^5.0.0",
     "vite": "^6.3.2"
   },
   "devDependencies": {

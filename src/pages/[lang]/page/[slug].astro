@@ -51,7 +51,7 @@ const currentPosts = allPosts.slice(indexOfFirstPost, indexOfLastPost);
   <section class="py-14 lg:py-20">
     <div class="container">
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {currentPosts.map((post) => <Post post={post} lang={lang} />)}
+        {currentPosts.map((post, index) => <Post post={post} lang={lang} priority={index === 0} />)}
       </div>
       <div class="mt-12">
         <Pagination totalPages={totalPages} currentPage={currentPage} lang={lang} />

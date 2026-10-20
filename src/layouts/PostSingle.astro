@@ -34,7 +34,7 @@ const italianUrl = currentPath.replace(/^\/en/, '/it');
       <div class="mx-auto lg:col-10">
         <div class="mb-12 flex items-center justify-between w-full gap-4">
           <button
-            class="inline-flex items-center px-3 py-1 text-base font-medium text-primary hover:underline rounded"
+            class="inline-flex items-center px-3 py-1 text-base font-medium text-primary-light hover:underline rounded"
             onclick="if (document.referrer.includes('herohubs')) { window.history.back() } else { window.location.href='/' }"
           >
             <svg class="mr-2" width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -46,12 +46,12 @@ const italianUrl = currentPath.replace(/^\/en/, '/it');
           </button>
 
           <div class="flex items-center space-x-2">
-            <span class="text-gray-600 text-base mr-2">{i18n.langSwitcher.label}:</span>
+            <span class="text-gray-400 text-base mr-2">{i18n.langSwitcher.label}:</span>
 
             {
               lang !== 'en' && (
                 <button
-                  class="inline-flex items-center px-2 py-1 text-base font-medium text-primary hover:underline rounded"
+                  class="inline-flex items-center px-2 py-1 text-base font-medium text-primary-light hover:underline rounded"
                   onclick={`window.location.href='${englishUrl}'`}
                 >
                   {i18n.langSwitcher.en}
@@ -63,7 +63,7 @@ const italianUrl = currentPath.replace(/^\/en/, '/it');
             {
               lang !== 'it' && (
                 <button
-                  class="inline-flex items-center px-2 py-1 text-base font-medium text-primary hover:underline rounded"
+                  class="inline-flex items-center px-2 py-1 text-base font-medium text-primary-light hover:underline rounded"
                   onclick={`window.location.href='${italianUrl}'`}
                 >
                   {i18n.langSwitcher.it}
@@ -75,7 +75,7 @@ const italianUrl = currentPath.replace(/^\/en/, '/it');
         </div>
 
         <!-- <button
-          class="mb-12 inline-flex items-center text-primary hover:underline"
+          class="mb-12 inline-flex items-center text-primary-light hover:underline"
           onclick="if (document.referrer.includes('localhost')) { window.history.back() } else { window.location.href='/' }"
         >
           <svg class="mr-2" width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -94,22 +94,34 @@ const italianUrl = currentPath.replace(/^\/en/, '/it');
               </span>
             )
           }
-          {image && <ImageMod class="w-full" src={image} height={720} width={1280} alt={title} loading="eager" />}
+          {
+            image && (
+              <ImageMod
+                class="w-full"
+                src={image}
+                height={720}
+                width={1280}
+                alt={title}
+                loading="eager"
+                fetchpriority="high"
+              />
+            )
+          }
           <h1 set:html={markdownify(title)} class="h2 mt-12" />
           <ul class="mt-4 mb-8 text-text">
             <li class="mb-2 mr-4 inline-block">
-              <ul>
+              <ul class="inline">
                 {
                   categories.map((category: any) => (
                     <li class="inline-block">
-                      <a href={`/${lang}/categories/${slugify(category)}`} class="mr-3 text-primary">
+                      <a href={`/${lang}/categories/${slugify(category)}`} class="mr-3 text-primary-light">
                         {humanize(category)}
                       </a>
                     </li>
                   ))
                 }
-                |
               </ul>
+              |
             </li>
             <li class="mb-2 mr-4 inline-block">
               <span class="mr-2 inline-block">

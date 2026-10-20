@@ -17,7 +17,7 @@ const i18n: any = await loadLocalizedConfig(lang, 'i18n');
     {
       menu.map((m) => (
         <li>
-          <a href={m.url} class="hover:text-primary transition-colors text-sm">
+          <a href={m.url} class="hover:text-primary-light transition-colors text-sm">
             {m.name}
           </a>
         </li>
@@ -27,14 +27,14 @@ const i18n: any = await loadLocalizedConfig(lang, 'i18n');
   {
     showLangSwitcher && (
       <div class="mt-4 text-center">
-        <span class="text-sm text-gray-600 mr-2">{i18n.langSwitcher.label}:</span>
+        <span class="text-sm text-gray-400 mr-2">{i18n.langSwitcher.label}:</span>
         {lang !== 'en' && (
-          <a href={currentPath.replace(/^\/it/, '/en')} class="text-primary hover:underline mx-1">
+          <a href={currentPath.replace(/^\/it/, '/en')} class="text-primary-light underline mx-1">
             {i18n.langSwitcher.en}
           </a>
         )}
         {lang !== 'it' && (
-          <a href={currentPath.replace(/^\/en/, '/it')} class="text-primary hover:underline mx-1">
+          <a href={currentPath.replace(/^\/en/, '/it')} class="text-primary-light underline mx-1">
             {i18n.langSwitcher.it}
           </a>
         )}
