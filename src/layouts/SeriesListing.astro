@@ -1,0 +1,81 @@
+---
+import Base from '@/layouts/Base.astro';
+import Post from '@/components/Post.astro';
+import PageHeader from '@/partials/PageHeader.astro';
+import mainConfig from '@/config/main-config.json';
+import type { SiteConfig } from '@/interfaces';
+import { getSinglePage } from '@/lib/contentParser.astro';
+import { loadLocalizedConfig } from '@/lib/utils/lang';
+import { filterBySeries, seriesAlternates, seriesFeedPath, seriesPath, type SeriesId } from '@/lib/utils/series';
+import { sortByDate } from '@/lib/utils/sortFunctions';
+
+interface Props {
+  lang: string | undefined;
+  series: SeriesId;
+}
+
+const { lang, series } = Astro.props;
+const config = await loadLocalizedConfig<SiteConfig>(lang, 'config');
+const copy = config.series.items[series];
+
+const posts = sortByDate(filterBySeries(await getSinglePage('posts', lang), series));
+const feedUrl = seriesFeedPath(lang, series);
+---
+
+<Base
+  lang={lang}
+  meta_title={copy.title}
+  description={copy.meta_description}
+  canonical={`${mainConfig.site.base_url}${seriesPath(lang, series)}`}
+  alternates={seriesAlternates(series)}
+  feed={{ title: copy.feed_title, href: feedUrl }}
+>
+  <PageHeader title={copy.title} eyebrow={config.series.label} text={copy.intro} />
+  <section class="py-14 lg:py-20">
+    <div class="container">
+      {
+        posts.length > 0 ? (
+          <>
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {posts.map((post, index) => (
+                <Post post={post} lang={lang} priority={index === 0} />
+              ))}
+            </div>
+            <p class="mt-12 text-center">
+              <a href={feedUrl} class="text-sm font-semibold text-series hover:underline">
+                {config.series.feed_cta}
+              </a>
+            </p>
+          </>
+        ) : (
+          <div class="mx-auto max-w-2xl rounded-2xl border border-series/40 bg-white/[0.03] p-8 text-center shadow-2xl shadow-series/5 lg:p-12">
+            {/* a nod to the READY prompt of the home computers of the eighties */}
+            <p
+              class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-series"
+              aria-hidden="true"
+            >
+              Ready
+              <span class="inline-block h-4 w-2 bg-series motion-safe:animate-pulse" />
+            </p>
+            <h2 class="mt-4 text-2xl font-bold text-text-dark">{copy.empty_title}</h2>
+            <p class="mt-4 leading-relaxed text-text">{copy.empty_text}</p>
+            <div class="mt-8 flex flex-wrap justify-center gap-4">
+              <a
+                href={feedUrl}
+                class="rounded-lg border border-series/60 px-6 py-3 text-sm font-semibold text-text-dark transition hover:bg-series/15"
+              >
+                {config.series.feed_cta}
+              </a>
+              <a
+                href={`/${lang}/blog`}
+                class="rounded-lg border border-dashed border-primary px-6 py-3 text-sm font-semibold text-text-dark transition hover:bg-primary/15"
+              >
+                {config.series.blog_cta}
+              </a>
+            </div>
+          </div>
+        )
+      }
+    </div>
+  </section>
+</Base>

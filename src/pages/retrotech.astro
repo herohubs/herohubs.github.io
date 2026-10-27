@@ -1,0 +1,24 @@
+---
+import Base from '@/layouts/Base.astro';
+import LangRedirect from '@/components/LangRedirect.astro';
+import mainConfig from '@/config/main-config.json';
+import type { SiteConfig } from '@/interfaces';
+import { loadLocalizedConfig } from '@/lib/utils/lang';
+import { seriesPath, type SeriesId } from '@/lib/utils/series';
+
+// Short link without the language prefix: sends visitors to the series page in their browser language
+const series: SeriesId = 'retrotech';
+const lang = mainConfig.settings.default_language;
+const config = await loadLocalizedConfig<SiteConfig>(lang, 'config');
+const copy = config.series.items[series];
+---
+
+<Base
+  lang={lang}
+  meta_title={copy.title}
+  description={copy.meta_description}
+  canonical={`${mainConfig.site.base_url}${seriesPath(lang, series)}`}
+  empty={true}
+>
+  <LangRedirect path={`/${series}`} />
+</Base>

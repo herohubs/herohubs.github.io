@@ -1,5 +1,6 @@
 ---
 import ImageMod from '@/components/ImageMod.astro';
+import SeriesBadge from '@/components/SeriesBadge.astro';
 import dateFormat from '@/lib/utils/dateFormat';
 
 const { post, id, lang, className = '', priority = false, searchText } = Astro.props;
@@ -10,12 +11,13 @@ const draftFileName = `${(post.id.split('/').pop() || '').replace(/\.mdx?$/, '')
 const url = `/${lang}/posts/${cleanId}`;
 const monthYear = data.date ? dateFormat(data.date, 'MMMM yyyy', lang) : '';
 const formattedDate = monthYear.charAt(0).toUpperCase() + monthYear.slice(1);
+
+// The title link is stretched over the whole card, so the card stays clickable while the series badge keeps its own link
 ---
 
-<a
-  href={url}
+<article
   data-search-text={searchText}
-  class={`group flex flex-col overflow-hidden rounded-2xl border border-border bg-white/[0.03] transition hover:border-primary/60 ${className}`}
+  class={`group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-white/[0.03] transition hover:border-primary/60 has-[.card-link:focus-visible]:ring-2 has-[.card-link:focus-visible]:ring-primary ${className}`}
 >
   {
     data.image && (
@@ -40,13 +42,14 @@ const formattedDate = monthYear.charAt(0).toUpperCase() + monthYear.slice(1);
         </span>
       )
     }
+    {data.series && <SeriesBadge lang={lang} series={data.series} class="mb-3" />}
     <div class="flex items-center justify-between gap-3">
       <p class="text-xs font-semibold uppercase tracking-widest text-primary-light">{data.categories.join(' · ')}</p>
       {formattedDate && <p class="text-xs text-text/70">{formattedDate}</p>}
     </div>
     <h3 class="mt-3 text-lg font-bold leading-snug text-text-dark transition group-hover:text-primary-light">
-      {data.title}
+      <a href={url} class="card-link after:absolute after:inset-0 focus-visible:outline-none">{data.title}</a>
     </h3>
     <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-text">{data.description}</p>
   </div>
-</a>
+</article>

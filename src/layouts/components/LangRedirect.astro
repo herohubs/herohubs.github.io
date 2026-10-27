@@ -1,0 +1,20 @@
+---
+import mainConfig from '@/config/main-config.json';
+
+interface Props {
+  // path appended to the language prefix, e.g. '/retrotech'; empty for the home page
+  path?: string;
+}
+
+const { path = '' } = Astro.props;
+const { languages, default_language } = mainConfig.settings;
+---
+
+<noscript>
+  <p>JavaScript is required. <a href={`/${default_language}${path}`}>Go to English site</a></p>
+</noscript>
+<script define:vars={{ supportedLanguages: languages, defaultLang: default_language, path }}>
+  const browserLang = navigator.language?.slice(0, 2);
+  const lang = supportedLanguages.includes(browserLang) ? browserLang : defaultLang;
+  window.location.replace('/' + lang + path);
+</script>

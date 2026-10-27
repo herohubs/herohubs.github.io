@@ -7,7 +7,8 @@
         "primary-dark": "#0066cc",
         "secondary": "#6fa8dd",
         "body": "#101a2c",
-        "border": "#2f4050"
+        "border": "#2f4050",
+        "series": "#f5a524"
       },
       "text_color": {
         "text": "#ceced0",

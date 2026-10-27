@@ -9,7 +9,8 @@
     "dev": "node scripts/optimize-post-images.mjs && astro dev",
     "build": "node scripts/optimize-post-images.mjs && astro build",
     "preview": "astro preview",
-    "format": "npx prettier --write '**/*.{js,ts,json,css,md,astro}'"
+    "format": "npx prettier --write '**/*.{js,ts,json,css,md,astro}'",
+    "check": "astro check"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
@@ -38,6 +39,7 @@
     "vite": "^6.3.2"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.12",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.1.4",

@@ -13,6 +13,21 @@
     "title": "Blog",
     "meta_description": "Scopri articoli, approfondimenti e novità su tecnologia, sviluppo software e innovazione digitale."
   },
+  "series": {
+    "label": "Serie",
+    "feed_cta": "Feed RSS della serie",
+    "blog_cta": "Vai al blog",
+    "items": {
+      "retrotech": {
+        "title": "RetroTech",
+        "meta_description": "RetroTech è la serie di HeroHubs sulle tecnologie che hanno fatto la storia dell'informatica e girano ancora in produzione, dai mainframe all'AS/400 fino ai linguaggi e ai protocolli che le sostengono.",
+        "intro": "Una serie dedicata alle tecnologie che ci hanno preceduto e che sono ancora tra noi: mainframe, AS/400, COBOL, protocolli e idee che continuano a girare in produzione. Ogni articolo racconta da dove vengono, perché sono durate così a lungo e cosa significa davvero modernizzarle oggi.",
+        "empty_title": "Il primo episodio è in arrivo",
+        "empty_text": "RetroTech è appena partita. Iscriviti al feed della serie per leggere il primo articolo non appena viene pubblicato, oppure nel frattempo sfoglia il resto del blog.",
+        "feed_title": "RetroTech | HeroHubs"
+      }
+    }
+  },
   "cookie": {
     "bannerMessage1": "Questo sito usa Google Analytics, solo con il tuo consenso, per statistiche aggregate sulle visite.",
     "bannerMessage2": "Puoi accettare o rifiutare, il sito funziona allo stesso modo.",

@@ -1,6 +1,6 @@
 ---
-import mainConfig from '@/config/main-config.json';
 import Base from '@/layouts/Base.astro';
+import LangRedirect from '@/components/LangRedirect.astro';
 import { loadLocalizedConfig } from '@/lib/utils/lang';
 
 const lang = 'en';
@@ -9,19 +9,7 @@ const config: any = await loadLocalizedConfig(lang, 'config');
 ---
 
 <Base lang={lang} title={config.site.title} description={config.metadata.meta_description} empty={true}>
-  <noscript>
-    <p>JavaScript is required. <a href="/en">Go to English site</a></p>
-  </noscript>
-  <script
-    define:vars={{
-      supportedLanguages: mainConfig.settings.languages,
-      defaultLang: mainConfig.settings.default_language,
-    }}
-  >
-    const browserLang = navigator.language?.slice(0, 2);
-    const lang = supportedLanguages.includes(browserLang) ? browserLang : defaultLang;
-    window.location.replace('/' + lang);
-  </script>
+  <LangRedirect />
   <!-- <div class="flex flex-col items-center justify-center h-[calc(100vh-680px)] text-center">
     <img src="/images/og-image.png" alt={config.site.title} width="150" height="150" class="mb-4" />
     <h6>{config.site.title}</h6>

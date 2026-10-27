@@ -18,6 +18,7 @@ date: YYYY-MM-DDTHH:MM:SSZ
 image: /images/posts/post-<number>.jpg
 categories:
   - <category>
+series: <series> # optional, see "Series" below
 draft: false
 ---
 ```
@@ -36,6 +37,12 @@ The `categories` field must use one of the predefined values, and the value is l
 | Progetti        | Projects        |
 | Architettura    | Architecture    |
 | AI              | AI              |
+
+## Series
+
+A series groups articles across categories: an article keeps its natural category and may additionally belong to one series through the optional `series` field. The value is a lowercase identifier, it is the same in both language versions, and it must be one of the ids listed in `src/lib/utils/series.ts` (an unknown value fails the build). The only series today is `retrotech`, whose landing pages are `/it/retrotech` and `/en/retrotech`, with a dedicated feed at `/<lang>/retrotech/rss.xml`. Series are not shown in the main navigation.
+
+Adding a new series takes its id in `src/lib/utils/series.ts`, its copy under `series.items` in `src/config/it/config.json` and `src/config/en/config.json`, and the two route files under `src/pages/[lang]/<id>/` modelled on the RetroTech ones.
 
 ## Writing style
 

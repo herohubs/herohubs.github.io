@@ -72,7 +72,7 @@ export const blogRedirects: Record<string, string> = {
   '/4ja8': '/it/posts/31',
   '/2025/04/10/agent-as-a-service-aaas-il-futuro-oltre-il-saas': '/it/posts/32',
   '/t4di': '/it/posts/32',
-  '/2025/04/17/retrotech-by-hero-hubs-linformatica-di-ieri-linnovazione-di-oggi': '/it/posts/47',
+  '/2025/04/17/retrotech-by-hero-hubs-linformatica-di-ieri-linnovazione-di-oggi': '/it/retrotech',
   '/2025/04/24/hono-semplicita-e-potenza-per-applicazioni-web-moderne': '/it/posts/33',
   '/j495': '/it/posts/33',
 
