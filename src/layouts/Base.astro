@@ -20,6 +20,10 @@ const { pathname } = Astro.url;
 // distructure frontmatters
 const { title, description, image, noindex, canonical, empty } = Astro.props;
 
+// optional: hreflang links of the page in every language, and an extra feed on top of the language one
+const alternates: { hreflang: string; href: string }[] = Astro.props.alternates ?? [];
+const feed: { title: string; href: string } | undefined = Astro.props.feed;
+
 const raw = Astro.props.meta_title;
 
 const meta_title = raw
@@ -98,9 +102,13 @@ const GA_ID = mainConfig.analytics.google_analytics_id;
 
     <!-- rss feed of the current language -->
     {lang && <link rel="alternate" type="application/rss+xml" title={config.site.title} href={`/${lang}/rss.xml`} />}
+    {feed && <link rel="alternate" type="application/rss+xml" title={feed.title} href={feed.href} />}
 
     <!-- canonical url -->
     {canonical && <link rel="canonical" href={canonical} item-prop="url" />}
+
+    <!-- hreflang alternates -->
+    {alternates.map(({ hreflang, href }) => <link rel="alternate" hreflang={hreflang} href={href} />)}
 
     <!-- noindex robots -->
     {noindex && <meta name="robots" content="noindex,nofollow" />}

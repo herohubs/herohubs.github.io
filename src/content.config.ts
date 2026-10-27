@@ -1,5 +1,6 @@
 import { glob } from 'astro/loaders';
 import { defineCollection, z } from 'astro:content';
+import { seriesIds } from '@/lib/utils/series';
 
 const postCollection = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: 'src/content/posts' }),
@@ -12,6 +13,7 @@ const postCollection = defineCollection({
     author: z.string().default('Admin'),
     categories: z.array(z.string()).default(['others']),
     tags: z.array(z.string()).default(['others']),
+    series: z.enum(seriesIds).optional(),
     draft: z.boolean().optional(),
   }),
 });

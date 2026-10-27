@@ -1,3 +1,5 @@
+import type { SeriesId } from '@/lib/utils/series';
+
 interface IChildNavigationLink {
   name: string;
   url: string;
@@ -50,6 +52,30 @@ interface IEducation {
 interface IDynamicIcon extends React.SVGProps<SVGSVGElement> {
   icon: string;
   className?: string;
+}
+
+export interface SeriesCopy {
+  title: string;
+  intro: string;
+  feed_title: string;
+  empty_text: string;
+  empty_title: string;
+  meta_description: string;
+}
+
+export interface SeriesConfig {
+  label: string;
+  feed_cta: string;
+  blog_cta: string;
+  items: Record<SeriesId, SeriesCopy>;
+}
+
+// The fields of the localized config.json read by typed code
+export interface SiteConfig {
+  site: { title: string };
+  metadata: { meta_description: string };
+  blog: { title: string; meta_description: string };
+  series: SeriesConfig;
 }
 
 export type MenuData = {

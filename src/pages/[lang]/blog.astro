@@ -3,11 +3,13 @@ import Base from '@/layouts/Base.astro';
 import Post from '@/components/Post.astro';
 import PostSearch from '@/components/PostSearch.astro';
 import Pagination from '@/components/Pagination.astro';
+import SeriesBadge from '@/components/SeriesBadge.astro';
 import PageHeader from '@/partials/PageHeader.astro';
 import { getSinglePage } from '@/lib/contentParser.astro';
 import { sortByDate } from '@/lib/utils/sortFunctions';
 import mainConfig from '@/config/main-config.json';
 import { loadLocalizedConfig } from '@/lib/utils/lang';
+import { seriesIds } from '@/lib/utils/series';
 
 const { lang } = Astro.params;
 const config: any = await loadLocalizedConfig(lang, 'config');
@@ -35,7 +37,12 @@ const totalPages = Math.ceil(postsWithCleanId.length / pagination);
 ---
 
 <Base meta_title={config.blog.title} description={config.blog.meta_description} lang={lang}>
-  <PageHeader title={config.blog.title} text={config.blog.meta_description} />
+  <PageHeader title={config.blog.title} text={config.blog.meta_description}>
+    <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+      <span class="text-xs font-semibold uppercase tracking-widest text-text/70">{config.series.label}</span>
+      {seriesIds.map((series) => <SeriesBadge lang={lang} series={series} />)}
+    </div>
+  </PageHeader>
   <section class="py-14 lg:py-20">
     <div class="container">
       <PostSearch lang={lang} posts={sortPostByDate}>

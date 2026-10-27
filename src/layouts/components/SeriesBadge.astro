@@ -1,0 +1,26 @@
+---
+import type { SiteConfig } from '@/interfaces';
+import { loadLocalizedConfig } from '@/lib/utils/lang';
+import { seriesPath, type SeriesId } from '@/lib/utils/series';
+
+interface Props {
+  lang: string | undefined;
+  series: SeriesId;
+  class?: string;
+}
+
+const { lang, series, class: className = '' } = Astro.props;
+const config = await loadLocalizedConfig<SiteConfig>(lang, 'config');
+const { title } = config.series.items[series];
+
+// relative z-10 keeps the badge clickable above the stretched title link of the post card
+---
+
+<a
+  href={seriesPath(lang, series)}
+  title={`${config.series.label}: ${title}`}
+  class={`relative z-10 inline-flex w-fit items-center gap-2 rounded border border-series/40 bg-series/10 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-widest text-series transition hover:border-series hover:bg-series/20 ${className}`}
+>
+  <span class="h-1.5 w-1.5 rounded-full bg-series" aria-hidden="true"></span>
+  {title}
+</a>
