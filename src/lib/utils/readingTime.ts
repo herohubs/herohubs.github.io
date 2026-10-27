@@ -29,15 +29,7 @@ const readingTime = async (content: string, lang: string = 'en'): Promise<string
 
   const minutes = Math.ceil(((words - imageAdjust) / WPS + imageSecs) / 60);
 
-  if (minutes < 10) {
-    if (minutes < 2) {
-      return '0' + minutes + ` ${i18n.min_read}`;
-    } else {
-      return '0' + minutes + ` ${i18n.mins_read}`;
-    }
-  } else {
-    return minutes + ` ${i18n.mins_read}`;
-  }
+  return `${minutes} ${minutes < 2 ? i18n.min_read : i18n.mins_read}`;
 };
 
 export default readingTime;
