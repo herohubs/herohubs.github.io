@@ -142,6 +142,15 @@
 
   figcaption {
     @apply mt-3 text-center text-base italic text-text/70;
+
+    /* Photo credit required by the image license, kept discreet under the caption */
+    small {
+      @apply text-sm;
+    }
+
+    a {
+      @apply font-normal text-inherit underline;
+    }
   }
   @apply prose-blockquote:rounded prose-blockquote:border-primary prose-blockquote:bg-[rgba(97,238,188,4%)] prose-blockquote:py-8 prose-blockquote:px-8 prose-blockquote:text-2xl prose-blockquote:not-italic prose-blockquote:leading-9 prose-blockquote:text-text-dark;
   :not(pre) > code {
