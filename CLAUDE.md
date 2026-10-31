@@ -23,9 +23,15 @@ draft: false
 ---
 ```
 
-## Cover images (Canva)
+## Images
 
-The cover image lives at `/images/posts/post-<number>.<ext>` and is produced in Canva. The Canva design must be named after the article file, `<number>.md` (for example, the cover for article 51 is the Canva design titled `51.md`). To create a new cover, duplicate the previous article's design and replace only the text layers, keeping the shared layout, palette, and fonts, then export the result as `post-<number>.png` under `public/images/posts/`.
+Every article has a cover at `public/images/posts/post-<number>.png`, produced in Canva in a design named after the article file, `<number>.md` (the cover for article 51 is the Canva design titled `51.md`). A new cover starts from a duplicate of the latest cover of the same kind, the previous regular article for regular posts and the previous RetroTech article for the series, which keeps the coloured corner stripes. Only the title, the subtitle written as `<English category> - <short angle>` and the yellow icon shape change, while layout, palette and fonts stay untouched, and the result is exported as a 1280x720 PNG. Exports are downloaded from `export-download.canva.com`, which must be listed among the allowed domains of the cloud environment.
+
+Every article also carries between one and three inline figures, named with consecutive letters starting from `post-<number>b.png` (then `c`, then `d`), at 2560x1440 on the same dark palette as the covers (background `#162032`, panels `#1a2540`, teal `#16a394` for the highlighted element, orange `#e8b45c` for warnings and risks, yellow `#ffbd59` for accents, body text `#c9d3e3`) and with Inter as typeface. They can be built in Canva or rendered as charts with the same palette, and any text inside them is in English, so the same file serves both language versions.
+
+The number of figures changes from one article to the next, following what the content actually needs, and the figures must differ in form from each other and from those of the previous article, because a row of identical block diagrams makes the blog look templated. The form follows the content: bar or line charts when the article gives real figures, timelines for history, calendars for schedules, quadrant charts for trade-offs, Gantt charts for plans, flow diagrams only when there is a real sequence, and photos from Wikimedia Commons with the licence credited in the caption, as in article 61. Data is never invented: conceptual charts have no numeric axes, illustrative examples say so inside the image, and figures taken from a source name it in a footnote.
+
+In the Markdown, each figure uses a `<figure>` block with an `<img>` whose `alt` describes the full content of the image and a one sentence `<figcaption>`, both written in the language of the file. A figure goes at the end of the section it illustrates, never before the first heading and never two in the same section, and every image is checked visually for overlapping labels before it is committed.
 
 ## Categories
 
