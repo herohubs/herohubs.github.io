@@ -12,7 +12,8 @@ const posts = await getSinglePage('posts', lang);
 const websiteMenus = await getMainMenu(lang);
 const categoriesMenus = await getCategoryMenu(posts, lang);
 const otherMenus = await getOtherFooterMenu(lang);
-const { copyright } = mainConfig.params;
+// The year is resolved at build time, so every deploy keeps it current
+const copyright = mainConfig.params.copyright.replace('{year}', String(new Date().getFullYear()));
 const { image_min } = mainConfig.profile;
 ---
 

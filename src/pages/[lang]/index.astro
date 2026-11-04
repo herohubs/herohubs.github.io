@@ -1,6 +1,7 @@
 ---
 import ImageMod from '@/components/ImageMod.astro';
 import Post from '@/components/Post.astro';
+import SeriesBadge from '@/components/SeriesBadge.astro';
 import mainConfig from '@/config/main-config.json';
 import type { HomeData } from '@/interfaces';
 import Base from '@/layouts/Base.astro';
@@ -65,11 +66,11 @@ const contactUrl = 'mailto:info@herohubs.it';
         <div id="featured-posts">
           {
             featuredPosts.map((post, index) => (
-              <a
-                href={postUrl(post)}
+              // The title link is stretched over the whole card, so the card stays clickable while the series badge keeps its own link
+              <article
                 data-featured
                 class:list={[
-                  'group flex flex-col overflow-hidden rounded-2xl border border-border bg-white/[0.03] shadow-2xl shadow-primary/10 transition hover:border-primary/60',
+                  'group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-white/[0.03] shadow-2xl shadow-primary/10 transition hover:border-primary/60 has-[.card-link:focus-visible]:ring-2 has-[.card-link:focus-visible]:ring-primary',
                   { hidden: index !== 0 },
                 ]}
               >
@@ -84,12 +85,19 @@ const contactUrl = 'mailto:info@herohubs.it';
                   />
                 </div>
                 <div class="border-t border-border/60 bg-white/[0.05] px-6 pb-6 pt-5">
-                  <p class="text-xs font-semibold uppercase tracking-widest text-primary-light">{hero.featuredLabel}</p>
+                  <div class="flex flex-wrap items-center justify-between gap-3">
+                    <p class="text-xs font-semibold uppercase tracking-widest text-primary-light">
+                      {hero.featuredLabel}
+                    </p>
+                    {post.data.series && <SeriesBadge lang={lang} series={post.data.series} />}
+                  </div>
                   <p class="mt-2 text-xl font-semibold text-text-dark transition group-hover:text-primary-light">
-                    {post.data.title}
+                    <a href={postUrl(post)} class="card-link after:absolute after:inset-0 focus-visible:outline-none">
+                      {post.data.title}
+                    </a>
                   </p>
                 </div>
-              </a>
+              </article>
             ))
           }
         </div>
