@@ -21,7 +21,7 @@
 
   "params": {
     "contact_form_action": "#",
-    "copyright": "Copyright © 2026 - [HeroHubs](https://ranierivannozzi.com/) - P.Iva 02103710477"
+    "copyright": "Copyright © {year} · [HeroHubs](https://ranierivannozzi.com/) · P.IVA 02103710477"
   },
 
   "disqus": {
