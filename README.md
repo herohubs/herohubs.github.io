@@ -1,134 +1,135 @@
-# HeroHubs — Tailored Digital Innovation
+# HeroHubs
 
-Official source code for [herohubs.it](https://herohubs.it/), the freelance website of **HeroHubs** — a software consultancy offering custom development, cloud infrastructure, and technical consulting for companies and startups.
+Source code of [herohubs.it](https://herohubs.it/), the blog of Ranieri Vannozzi on software development, architecture and artificial intelligence, written in Italian and English from real projects. HeroHubs is also the brand under which he works as a freelance tech lead and software architect.
 
-## Tech Stack
+## Features
 
-| Layer              | Technology                                                                  |
-| ------------------ | --------------------------------------------------------------------------- |
-| Framework          | [Astro 5](https://astro.build/)                                             |
-| UI                 | [React 19](https://react.dev/) + [Tailwind CSS 4](https://tailwindcss.com/) |
-| Content            | MDX + Markdown                                                              |
-| Styling            | Montserrat font, custom CSS modules                                         |
-| Code highlighting  | [Shiki](https://shiki.style/) (One Dark Pro theme)                          |
-| Image optimization | [Sharp](https://sharp.pixelplumbing.com/)                                   |
-| Deployment         | GitHub Pages (CI via GitHub Actions) + Netlify                              |
-| Package manager    | Yarn 1.x                                                                    |
+- **Bilingual articles:** every article exists in Italian and English with the same file name, and an article that is a draft in one language is treated as a draft in both.
+- **Categories:** Sviluppo / Development, Progetti / Projects, Architettura / Architecture and AI, with localized URLs (`/it/categorie/...`, `/en/categories/...`).
+- **Series:** articles can also belong to a series that runs across categories. The only series today is RetroTech, with its own landing page, badge and feed.
+- **Feeds and sitemap:** an RSS feed per language and per series, plus a generated sitemap.
+- **Search:** client-side article search on the blog page.
+- **Home page:** a randomly featured article, which shows its series badge when it has one, and the latest articles.
+- **Images:** covers go through the Astro image pipeline, and the images embedded in an article are resized to WebP at build time by `scripts/optimize-post-images.mjs`.
+- **Privacy:** Montserrat is self-hosted and Google Analytics loads only after the visitor accepts cookies.
 
-## Project Structure
+## Tech stack
+
+| Layer             | Technology                                                                                    |
+| ----------------- | --------------------------------------------------------------------------------------------- |
+| Framework         | [Astro 5](https://astro.build/)                                                               |
+| UI                | [Tailwind CSS 4](https://tailwindcss.com/), [React 19](https://react.dev/) for MDX shortcodes |
+| Content           | Markdown and MDX, with `rehype-raw` and `rehype-external-links`                               |
+| Code highlighting | [Shiki](https://shiki.style/), One Dark Pro theme                                             |
+| Images            | [Sharp](https://sharp.pixelplumbing.com/)                                                     |
+| Typography        | Montserrat, self-hosted from `public/fonts/`                                                  |
+| Hosting           | GitHub Pages, deployed by GitHub Actions                                                      |
+
+## Project structure
 
 ```
 herohubs.github.io/
-├── public/              # Static assets (images, robots.txt, .htaccess)
+├── public/                  # Static assets: fonts, images, robots.txt, .htaccess
+├── scripts/                 # Image optimization and image reference checks
 ├── src/
-│   ├── config/          # Site-wide and per-language configuration (JSON)
-│   │   ├── en/          # English: menu, homepage content, i18n strings, site config
-│   │   ├── it/          # Italian: same structure as en/
-│   │   ├── main-config.json  # Global settings (URL, pagination, languages)
-│   │   ├── social.json       # Social links (LinkedIn, email)
-│   │   └── theme.json        # Colors and typography
+│   ├── config/
+│   │   ├── it/ and en/      # Per-language site config, home page, menu and UI strings
+│   │   ├── main-config.json # Site URL, languages, pagination, favicon, footer
+│   │   └── theme.json       # Colors and typography
 │   ├── content/
-│   │   ├── pages/       # Static pages per language (about, services, portfolio…)
-│   │   └── posts/       # Blog posts per language (en/ and it/)
-│   ├── layouts/
-│   │   ├── components/  # Reusable UI components (Post, Pagination, Social…)
-│   │   │   └── home/    # Homepage sections (Services, Why, How, Blog, Contacts…)
-│   │   ├── helpers/     # Utility components (DynamicIcon, Disqus)
-│   │   ├── partials/    # Header, Footer, PageHeader
-│   │   └── shortcodes/  # MDX shortcodes (Button, Accordion, Notice, Tabs, Video)
-│   ├── pages/
-│   │   └── [lang]/      # Locale-prefixed routes (/en/*, /it/*)
-│   ├── lib/             # Content parsers and utility functions
-│   ├── styles/          # CSS files (base, buttons, navigation, transitions…)
-│   └── tailwind-plugin/ # Custom Tailwind plugins (grid, theme)
-├── .github/workflows/   # CI/CD: build and deploy to GitHub Pages on push to main
-├── astro.config.mjs     # Astro configuration
-├── netlify.toml         # Netlify build settings (alternative deployment)
-└── lefthook.yml         # Pre-commit hook: Prettier auto-format
+│   │   ├── pages/{it,en}/   # About, privacy, cookie and terms pages
+│   │   └── posts/{it,en}/   # Articles, one file per article and language
+│   ├── layouts/             # Page layouts, components, partials and MDX shortcodes
+│   ├── lib/                 # Content parser, rehype plugin and utilities (series, languages, feeds)
+│   ├── pages/[lang]/        # Locale-prefixed routes
+│   ├── redirect.config.ts   # Redirects from legacy URLs
+│   └── styles/              # Base styles, buttons, navigation, transitions
+├── .github/workflows/       # CI on pull requests, deploy on push to main
+└── lefthook.yml             # Git hooks: Prettier and Conventional Commits
 ```
 
-## Pages
+## Routes
 
-| Route                      | Description                                                     |
-| -------------------------- | --------------------------------------------------------------- |
-| `/`                        | Redirects to the default language (`/en`)                       |
-| `/en` / `/it`              | Homepage with hero, services, how-it-works, customers, contacts |
-| `/[lang]/about`            | About HeroHubs                                                  |
-| `/[lang]/services`         | Services offered                                                |
-| `/[lang]/portfolio`        | Portfolio of past projects                                      |
-| `/[lang]/contacts`         | Contact form and details                                        |
-| `/[lang]/blog`             | Blog listing with pagination                                    |
-| `/[lang]/posts/[slug]`     | Individual blog post                                            |
-| `/[lang]/categories/[cat]` | Posts filtered by category                                      |
-| `/[lang]/ui-kit`           | Component showcase                                              |
+| Route                                                                             | Description                                                     |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| `/`                                                                               | Redirects to `/it` or `/en` according to the browser language   |
+| `/[lang]`                                                                         | Home page                                                       |
+| `/[lang]/blog`                                                                    | Article listing with search and pagination (`/[lang]/page/[n]`) |
+| `/[lang]/posts/[n]`                                                               | Single article, identified by its number                        |
+| `/it/categorie/[c]`, `/en/categories/[c]`                                         | Articles of a category                                          |
+| `/[lang]/retrotech`, `/retrotech`                                                 | RetroTech series page, and a short link in the browser language |
+| `/[lang]/rss.xml`, `/[lang]/retrotech/rss.xml`                                    | Feeds per language and for the series                           |
+| `/[lang]/about`                                                                   | About the author                                                |
+| `/[lang]/privacy-policy`, `/[lang]/cookie-policy`, `/[lang]/terms-and-conditions` | Legal pages                                                     |
 
-## i18n
+The default language is English, set in `main-config.json`.
 
-The site supports two languages: **English** (`en`) and **Italian** (`it`).
-All content lives under `src/content/pages/{lang}/` and `src/content/posts/{lang}/`.
-Configuration and UI strings are managed in `src/config/{lang}/`.
-The default language is `en` (set in `main-config.json`).
+## Writing an article
 
-## Local Development
+Each article is a pair of files with the same number, `src/content/posts/it/<n>.md` and `src/content/posts/en/<n>.md`, always changed together in the same commit:
 
-**Prerequisites:** Node.js LTS (≥ 20) and Yarn 1.x.
+```yaml
+---
+title: ''
+meta_title: ''
+description: ''
+date: YYYY-MM-DDTHH:MM:SSZ
+image: /images/posts/post-<n>.png
+categories:
+  - <category>
+series: retrotech # optional
+draft: true
+---
+```
+
+The category value is language-specific and must be one of the four listed above. A series id must be declared in `src/lib/utils/series.ts`, otherwise the build fails. The cover lives at `public/images/posts/post-<n>.png` and the images embedded in the article next to it.
+
+## Local development
+
+**Prerequisites:** Node.js 20, the version used by CI and deploy, and npm.
 
 ```bash
-# Install dependencies
-yarn install
-
-# Start the dev server (http://localhost:4321)
-yarn dev
+npm ci            # install the exact dependencies from package-lock.json
+npm run dev       # optimize article images, then start the dev server on http://localhost:4321
+npm run build     # optimize article images, then build into dist/
+npm run preview   # serve the production build locally
+npm run check     # Astro type and template checks
+npm run format    # format the repository with Prettier
 ```
 
-The dev server watches for file changes and live-reloads the browser.
+Drafts are visible in the dev server and excluded from the production build.
 
-## Production Build
+## Quality checks
 
-```bash
-yarn build     # Outputs to dist/
-yarn preview   # Serves the production build locally
-```
-
-## Code Formatting
-
-[Prettier](https://prettier.io/) runs automatically on every commit via [Lefthook](https://lefthook.dev/).
-To format manually:
-
-```bash
-yarn format
-```
+- **Pre-commit:** [Lefthook](https://lefthook.dev/) formats the repository with [Prettier](https://prettier.io/) and stages the result.
+- **Commit messages:** a commit-msg hook enforces [Conventional Commits](https://www.conventionalcommits.org/) (`feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `chore`).
+- **Pull requests:** the CI workflow checks formatting, verifies that every image referenced by an article exists and builds the site.
 
 ## Deployment
 
-**GitHub Pages** is the primary deployment target.
-Pushing to `main` triggers the workflow at `.github/workflows/deploy.yml`, which:
+Changes reach `main` through pull requests, merged with squash. Every push to `main` runs `.github/workflows/deploy.yml`, which installs dependencies with `npm ci`, builds the site, copies `CNAME` into `dist/` and publishes it to the `gh-pages` branch, served by GitHub Pages.
 
-1. Installs Node 20 and runs `npm ci`
-2. Builds the site with `npm run build`
-3. Copies the `CNAME` file into `dist/`
-4. Publishes `dist/` to the `gh-pages` branch via [`peaceiris/actions-gh-pages`](https://github.com/peaceiris/actions-gh-pages)
+## Configuration reference
 
-A **Netlify** configuration (`netlify.toml`) is also present as an alternative deployment option (`yarn build`, Node 20, publish dir `dist/`).
-
-## Configuration Reference
-
-| File                            | Purpose                                                      |
-| ------------------------------- | ------------------------------------------------------------ |
-| `src/config/main-config.json`   | Site URL, pagination, languages, favicon, analytics          |
-| `src/config/{lang}/config.json` | Site title, profile bio, metadata, cookie banner strings     |
-| `src/config/{lang}/home.json`   | Homepage section content (hero blocks, services, customers…) |
-| `src/config/{lang}/menu.json`   | Navigation links                                             |
-| `src/config/{lang}/i18n.json`   | UI label translations                                        |
-| `src/config/social.json`        | Social network links and visibility flags                    |
-| `src/config/theme.json`         | Primary/secondary colors, font family and size               |
+| File                            | Purpose                                                            |
+| ------------------------------- | ------------------------------------------------------------------ |
+| `src/config/main-config.json`   | Site URL, languages, default language, pagination, favicon, footer |
+| `src/config/{lang}/config.json` | Site title, metadata, series copy, cookie banner strings           |
+| `src/config/{lang}/home.json`   | Home page sections                                                 |
+| `src/config/{lang}/menu.json`   | Navigation links                                                   |
+| `src/config/{lang}/i18n.json`   | UI label translations                                              |
+| `src/config/theme.json`         | Colors, font family and size                                       |
+| `src/lib/utils/series.ts`       | Declared series ids                                                |
+| `src/redirect.config.ts`        | Redirects from legacy URLs                                         |
 
 ## Contact
 
 - Website: [herohubs.it](https://herohubs.it/)
 - Email: [info@herohubs.it](mailto:info@herohubs.it)
-- LinkedIn: [linkedin.com/company/herohubs](https://www.linkedin.com/company/herohubs)
+- Author profile: [ranierivannozzi.com](https://ranierivannozzi.com)
 
 ## License
 
-Released under the [MIT](./LICENSE) license.
+The source code is released under the [MIT](./LICENSE) license, inherited from the [Hydrogen Astro](https://github.com/statichunt/hydrogen-astro) theme by Statichunt on which the site is based.
+
+The articles, images and other editorial content are not covered by that license and remain © Ranieri Vannozzi, all rights reserved.
