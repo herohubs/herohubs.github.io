@@ -145,7 +145,7 @@ The URL slug is the article number, with no trailing slash.
 
 ## WhatsApp promotion
 
-The same article is also shared on WhatsApp, in Italian and in a single message, more direct than the LinkedIn post because the reader is already a contact and needs no persuading.
+Only articles a non technical reader can understand and retell are also shared on WhatsApp, in Italian and in a single message, more direct than the LinkedIn post because the reader is already a contact and needs no persuading. The message reaches about forty of the owner's contacts, most of them not technical, and its purpose is to show the activity to the outside world and spark word of mouth, which only happens when a contact can retell the article in their own words. AI and work, business and organisation, concrete cases such as article 54 and the RetroTech series qualify, while deeply technical articles such as 58 (Dependabot) or 65 (Spring Modulith) stay on LinkedIn only. When preparing the promotion of a technical article, skip the WhatsApp message and say why.
 
 **Length** — around 100 words in total, split into three short blocks separated by blank lines, as in the LinkedIn post.
 
