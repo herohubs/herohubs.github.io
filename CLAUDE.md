@@ -91,43 +91,50 @@ All source code and code comments must be written in English, without exception.
 
 ## LinkedIn promotion
 
-Every published article is promoted on LinkedIn with three coordinated pieces: an Italian post on the company page (scheduled for 7:30 AM), a first comment carrying the two article links, and a relaunch from the owner's personal profile at 1:30 PM.
+Every published article is promoted on LinkedIn from the owner's personal profile only, with two pieces: the post itself and a first comment carrying the two article links. The HeroHubs company page is no longer used (since 2026-11-18), because company pages get far less organic reach and consulting sells a person, not a brand.
 
-All three pieces are written in Italian only. LinkedIn truncates a post at roughly 200 characters, so a leading English block would push the hook out of reach for the largest part of the audience, and the platform already offers automatic translation to anyone who needs it. The English article keeps its own audience, which arrives from search rather than from LinkedIn, and it stays linked in the first comment.
+Both pieces are written in Italian only. LinkedIn truncates a post at roughly 200 characters, so a leading English block would push the hook out of reach for the largest part of the audience, and the platform already offers automatic translation to anyone who needs it. The English article keeps its own audience, which arrives from search rather than from LinkedIn, and it stays linked in the first comment.
 
-Across all three pieces, and in the WhatsApp message as well, avoid strings of very short declarative sentences and staccato lists after a colon (`niente lock globale, test dopo l'integrazione e conflitti risolti da Claude`): the owner considers them a recognisable sign of AI-written text and rewrites them into longer sentences joined by connectives. When the owner sends back an edited version, correct only grammar, spelling and factual errors, and keep their sentence structure, connectives and rhythm.
+In the post, and in the WhatsApp message as well, avoid strings of very short declarative sentences and staccato lists after a colon (`niente lock globale, test dopo l'integrazione e conflitti risolti da Claude`): the owner considers them a recognisable sign of AI-written text and rewrites them into longer sentences joined by connectives. When the owner sends back an edited version, correct only grammar, spelling and factual errors, and keep their sentence structure, connectives and rhythm.
 
-### Company page post
+### Personal post
 
-**Length** — one single paragraph in Italian, 110-130 words. No internal line breaks, no lists, no sub-headings.
+**Length** — Italian only, 150-200 words in four to six short paragraphs of one to three sentences, separated by blank lines. Never a single block.
 
-**Structure** — the paragraph follows a fixed narrative arc:
+**Voice** — first person and opinionated, the way the owner writes (`ho chiesto`, `trovo`, `non sopporto`), switching to `noi` when the point concerns the whole profession. Conversational connectives (`Il fatto è che`, `A quanto pare`, `Un po' per curiosità`) and English technical words left as they are (pipeline, hook, changelog). Tie the topic to the owner's daily work when there is a real link, and never invent an anecdote or an experience: without a real episode, use opinion instead.
 
-1. Opening that frames the event and states the obvious reading of it (`Quando Sakana AI ha presentato Fugu, molti lo hanno letto come l'ennesimo modello che batte i predecessori sui benchmark.`)
-2. A short pivot sentence that overturns that reading (`È qualcosa di più curioso.`)
-3. The body, explaining what the thing actually is and how it works, with concrete names and figures taken from the article
-4. A closing lesson introduced by a colon, generalising beyond the specific product (`il valore si sposta dal cervello più potente al sistema che collega quelli disponibili.`)
-5. The CTA at the end of the same paragraph, never on its own line
+**Structure**
 
-The opening and the pivot must both fit within the first 200 characters, because that is all LinkedIn shows before the reader has to expand the post.
+1. An opening that takes a stance or overturns the obvious reading, fully within the first 200 characters. Vary the construction from post to post: check how the previous posts opened and pick a different one, such as a list of facts, a striking figure, a question or a personal admission.
+2. The body, explaining what the thing is and how it works, with concrete names and figures taken from the article and one step of the reasoning per paragraph.
+3. The link mentioned in prose (`Ne ho scritto sul blog, trovate il link nel primo commento.`), never the formula `👉 link nel primo commento` and never the URL in the post itself.
+4. A closing that invites replies with a full sentence rather than a bare question (`Sono curioso di sapere come lo gestite voi, ...`).
 
-The arc is fixed, but the sentence that opens it must change from post to post. Do not default to `Quando [X] ha presentato…` as in the reference example: check how the previous posts opened and pick a different construction, such as a list of facts followed by the obvious reading (`Sette persone, cinque mesi e un sistema di versionamento scritto da zero per sostituire git: detta così, la scelta di Anthropic sembra il classico caso di chi reinventa la ruota.`), a striking figure, or a question. The same applies to the personal relaunch and the WhatsApp message, which must not become formulaic either.
+**Image** — attach the cover or one of the article figures, so the post is native and never a bare link preview.
 
-**Formatting** — a single block with no flag prefix. The CTA is `👉 link nel primo commento`. Two lowercase, subject specific hashtags close the post at the very bottom (for example `#sakanaai #fugu`); no generic `#ai` here.
+**Hashtags** — two lowercase, subject specific tags on their own line at the bottom.
 
-**Tone** — no exclamation marks, no dashes as separators, colons are welcome and the word after a colon is never capitalised.
+**Tone** — no exclamation marks, no dashes as separators, colons are welcome and the word after a colon is never capitalised. No engagement bait such as `se vi interessa vi giro il link` or `commentate per ricevere l'articolo`: LinkedIn demotes it and it clashes with the owner's dislike of self-promotional posts.
 
 **Reference example**
 
 ```
-Quando Sakana AI ha presentato Fugu, molti lo hanno letto come l'ennesimo modello che batte i predecessori sui benchmark. È qualcosa di più curioso. Fugu non è affatto un modello grande: è un minuscolo orchestratore da circa sette miliardi di parametri, addestrato non a rispondere ma a instradare ogni richiesta al modello più adatto. Dato un insieme di modelli chiusi e aperti, da Claude Opus a Gemini e GPT, delega, verifica e sintetizza un'unica risposta, e così facendo supera Opus 4.8 avvicinandosi ai modelli di frontiera più recenti. La lezione non riguarda la potenza bruta ma il coordinamento: il valore si sposta dal cervello più potente al sistema che collega quelli disponibili. 👉 link nel primo commento
+Dependabot è uno di quegli strumenti che quasi tutti hanno attivato e quasi nessuno ha davvero configurato. Il risultato lo conosciamo bene: una mattina la lista delle pull request si riempie di aggiornamenti, uno per ogni libreria rimasta indietro, e da lì si finisce per approvarli in blocco oppure per ignorarli finché il contatore non diventa imbarazzante.
 
-#sakanaai #fugu
+Il fatto è che il bot non decide nulla da solo. Applica la politica che gli diamo, e se non ne scriviamo una usa quella di default, che propone tutto, subito e separatamente.
+
+Bastano poche righe nel dependabot.yml per cambiare il quadro, con una pianificazione settimanale e dei gruppi che raccolgono patch e minor in un'unica revisione, lasciando a parte solo i salti di versione maggiore, gli unici che meritano davvero una lettura del changelog.
+
+L'opzione che trovo più interessante è il cooldown, che aspetta qualche giorno prima di proporre una release appena pubblicata. Dopo il worm Shai-Hulud, che nel settembre 2025 ha compromesso centinaia di pacchetti npm, rallentare è diventato una forma di difesa, perché le prime ore di vita di una release sono le più pericolose, mentre le correzioni di sicurezza continuano ad arrivare subito.
+
+Ne ho scritto sul blog, trovate il link nel primo commento. Sono curioso di sapere come lo gestite voi, se lo lasciate lavorare con la configurazione di default o se avete già scritto la vostra politica.
+
+#dependabot #supplychainsecurity
 ```
 
 ### First comment
 
-Only the two article links, Italian first, each prefixed with its flag and nothing else:
+Only the two article links, Italian first, each prefixed with its flag and nothing else, published right after the post so that the first readers already find them:
 
 ```
 🇮🇹 https://herohubs.it/it/posts/<number>
@@ -136,41 +143,16 @@ Only the two article links, Italian first, each prefixed with its flag and nothi
 
 The URL slug is the article number, with no trailing slash.
 
-### Personal relaunch
-
-**Length** — Italian only, one single block of 150-180 words. No flags, no link, no CTA, no line breaks.
-
-**Structure** — punchier and more opinionated than the company post, and it re-angles the article rather than condensing the company post, picking details the company post left out:
-
-1. A two beat antithetical opening, one short sentence stating what the news is not and one even shorter stating what it is (`La notizia AI della settimana non è un modello più potente. È uno più piccolo.`)
-2. The body, in long connected sentences that explain the facts and link them with connectives (`infatti`, `in questo scenario`, `mentre`), without isolated one-line sentences used for rhythm
-3. One concrete, almost anecdotal figure that the company post did not use (`Una pagina web può uscire per il 60% da un modello e per il 40% da un altro.`)
-4. The pivot on what actually matters, introduced by a colon (`Cambia la domanda che conta: non chi costruisce il cervello più potente, ma chi coordina meglio quelli che già esistono.`)
-5. A closing sentence echoing the opening, written as a full statement rather than a slogan (`La competizione, qui, è sull'infrastruttura.`)
-6. A final sentence widening the frame beyond the product itself (`E il Giappone si è appena seduto al tavolo dei grandi senza addestrare un modello suo.`)
-
-**Tone** — declarative and editorial rather than first person, no `io` needed. Same punctuation rules as everywhere else: no exclamation marks, no dashes as separators, colons welcome, no capital after a colon.
-
-**Hashtags** — two lowercase subject specific tags on their own line at the bottom, overlapping with but not identical to the company post's pair. No generic `#ai`.
-
-**Reference example**
-
-```
-La notizia AI della settimana non è un modello più potente. È uno più piccolo. Sakana AI ha rilasciato Fugu e i benchmark lo danno sopra Opus 4.8, vicino ai modelli di frontiera più recenti, ma sotto il cofano non c'è un gigante da centinaia di miliardi di parametri: ce n'è uno da sette, addestrato a non rispondere. Il suo mestiere è orchestrare. Riceve la richiesta, sceglie tra Claude Opus, Gemini, GPT e altri il modello giusto per ogni parte, delega, incrocia i risultati e ricompone un'unica risposta, sfruttando la parte migliore di ciascuno. Una pagina web può uscire per il 60% da un modello e per il 40% da un altro. Cambia la domanda che conta: non chi costruisce il cervello più potente, ma chi coordina meglio quelli che già esistono. Non è una gara di potenza, è una gara di connessione. E il Giappone si è appena seduto al tavolo dei grandi senza addestrare un modello suo.
-
-#fugu #orchestration
-```
-
 ## WhatsApp promotion
 
-The same article is also shared on WhatsApp, in Italian and in a single message, more direct than either LinkedIn piece because the reader is already a contact and needs no persuading.
+The same article is also shared on WhatsApp, in Italian and in a single message, more direct than the LinkedIn post because the reader is already a contact and needs no persuading.
 
-**Length** — around 100 words in total, split into three short blocks separated by blank lines. Line breaks are allowed here, unlike on LinkedIn.
+**Length** — around 100 words in total, split into three short blocks separated by blank lines, as in the LinkedIn post.
 
 **Structure**
 
 1. One opening line announcing the article, closed by 👇 (`Nuovo articolo sul blog 👇`)
-2. A paragraph of 60-80 words that opens with the same antithesis used in the personal relaunch, then explains in plain terms what the thing is and how it works, with no figures and no jargon left unexplained
+2. A paragraph of 60-80 words that opens with the same idea as the LinkedIn post's opening, then explains in plain terms what the thing is and how it works, with no figures and no jargon left unexplained
 3. One line naming what else the reader will find inside, phrased as a reason to open it (`Nell'articolo c'è come l'ho configurato io e un paio di casi d'uso reali.`)
 4. The Italian link alone on the last line
 
